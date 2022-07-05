@@ -9,28 +9,27 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var firstThumbnailImageView: UIImageView!
-    @IBOutlet weak var secondThumbnailImageView: UIImageView!
-    @IBOutlet weak var thirdThumbnailImageView: UIImageView!
-    @IBOutlet weak var mainPosterImageView: UIImageView!
-    let imageList = ["Image0", "Image1", "Image2", "Image3", "Image4", "Image5", "Image6", "Image7"]
+    @IBOutlet var imageViewList: [UIImageView]!
+    let imageList = ["Image0", "Image1", "Image2", "Image3", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let imageSet = [firstThumbnailImageView, secondThumbnailImageView, thirdThumbnailImageView]
-        for i in 0...imageSet.count - 1 {
-            imageSet[i]?.layer.cornerRadius = 45
-            imageSet[i]?.layer.borderWidth = 1.0
-            imageSet[i]?.layer.borderColor = UIColor.red.cgColor
+        for i in 1...imageViewList.count - 1 {
+            imageViewList[i].layer.cornerRadius = 60
+            imageViewList[i].layer.borderColor = UIColor.red.cgColor
+            imageViewList[i].layer.borderWidth = 1.0
         }
     }
     
     @IBAction func playButtonAction(_ sender: Any) {
-        mainPosterImageView.image = UIImage(named: imageList.randomElement()!)
-        firstThumbnailImageView.image = UIImage(named:imageList.randomElement()!)
-        secondThumbnailImageView.image = UIImage(named:imageList.randomElement()!)
-        thirdThumbnailImageView.image = UIImage(named: imageList.randomElement()!)
+        imageViewList.forEach {
+            $0.image = UIImage(named: imageList.randomElement()!)
+        }
+        // 이미지 중복되지 않게 바꾸는 코드
+        let random3ImageList = imageList.shuffled().prefix(imageViewList.count)
+        
+        for index in 0 ..< imageViewList.count {
+            imageViewList[index].image = UIImage(named: random3ImageList[index])
+        }
     }
 }
-
