@@ -9,18 +9,28 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var winter: UIImageView!
-    @IBOutlet weak var killer: UIImageView!
-    @IBOutlet weak var avatar: UIImageView!
-
+    @IBOutlet weak var firstThumbnailImageView: UIImageView!
+    @IBOutlet weak var secondThumbnailImageView: UIImageView!
+    @IBOutlet weak var thirdThumbnailImageView: UIImageView!
+    @IBOutlet weak var mainPosterImageView: UIImageView!
+    let imageList = ["Image0", "Image1", "Image2", "Image3", "Image4", "Image5", "Image6", "Image7"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let imageSet = [winter, killer, avatar]
+        
+        let imageSet = [firstThumbnailImageView, secondThumbnailImageView, thirdThumbnailImageView]
         for i in 0...imageSet.count - 1 {
-            imageSet[i]?.layer.cornerRadius = 60
-            imageSet[i]?.layer.borderWidth = 3.0
-            imageSet[i]?.layer.borderColor = UIColor.gray.cgColor
+            imageSet[i]?.layer.cornerRadius = 45
+            imageSet[i]?.layer.borderWidth = 1.0
+            imageSet[i]?.layer.borderColor = UIColor.red.cgColor
         }
+    }
+    
+    @IBAction func playButtonAction(_ sender: Any) {
+        mainPosterImageView.image = UIImage(named: imageList.randomElement()!)
+        firstThumbnailImageView.image = UIImage(named:imageList.randomElement()!)
+        secondThumbnailImageView.image = UIImage(named:imageList.randomElement()!)
+        thirdThumbnailImageView.image = UIImage(named: imageList.randomElement()!)
     }
 }
 
