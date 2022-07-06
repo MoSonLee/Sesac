@@ -37,5 +37,7 @@ class ViewController: UIViewController {
         for index in 0 ..< imageViewList.count {
             imageViewList[index].image = UIImage(named: random3ImageList[index])
         }
+        
+        print("S2ung's Blog")
     }
 }
