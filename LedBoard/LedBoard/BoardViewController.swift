@@ -8,36 +8,57 @@
 import UIKit
 
 class BoardViewController: UIViewController {
-
+    
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
     @IBOutlet weak var changecolorButton: UIButton!
     @IBOutlet weak var boardLabel: UILabel!
-
+    @IBOutlet weak var toggleView: UIView!
+    
+    @IBOutlet var buttonList: [UIButton]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        designTextField()
+        designButton(sendButton, buttonTitle: "전송",  HighlightedTitle: "빨리 보내", bgColor: .lightGray)
+        designButton(changecolorButton, buttonTitle: "색상 변경", HighlightedTitle: "빨리 변경해", bgColor: .lightGray)
+        
+        boardLabel.numberOfLines = 0
+        boardLabel.backgroundColor = .clear
+        
         userTextField.placeholder = "내용을 작성해주세요"
         userTextField.font = .boldSystemFont(ofSize: 20)
         userTextField.keyboardType = .emailAddress
-
-        sendButton.setTitle("전송", for: .normal)
-        sendButton.setTitle("빨리 보내", for: .highlighted)
-        sendButton.backgroundColor = .yellow
-        sendButton.layer.cornerRadius = 8
-        sendButton.layer.borderColor = UIColor.black.cgColor
-        sendButton.layer.borderWidth = 3
-        sendButton.setTitleColor(.red, for: .normal)
-        sendButton.setTitleColor(.blue, for: .highlighted)
-
-        changecolorButton.setTitle("색상 변경", for: .normal)
-        changecolorButton.setTitle("빨리 바꿔", for: .highlighted)
-        changecolorButton.backgroundColor = .lightGray
-        changecolorButton.layer.cornerRadius = 8
-        changecolorButton.layer.borderColor = UIColor.black.cgColor
-        changecolorButton.layer.borderWidth = 3
-        changecolorButton.setTitleColor(.red, for: .normal)
-        changecolorButton.setTitleColor(.blue, for: .highlighted)
+        
+        // 1. 반복문
+        //        let buttonArray: [UIButton] = [sendButton, changecolorButton]
+        //
+        //        for item in buttonArray {
+        //            item.backgroundColor = .yellow
+        //            item.layer.cornerRadius = 2
+        //        }
+        
+        //아웃렛 컬렉션
+        //        for item in buttonList {
+        //            item.backgroundColor = .blue
+        //            item.layer.cornerRadius = 2
+        //        }
+    }
+    
+    func designTextField() {
+        userTextField.placeholder = "내용을 작성해주세요"
+        userTextField.keyboardType = .emailAddress
+        userTextField.font = .boldSystemFont(ofSize: 20)
+    }
+    
+    func designButton(_ buttonName: UIButton, buttonTitle: String, HighlightedTitle: String, bgColor: UIColor) {
+        buttonName.setTitle(buttonTitle, for: .normal)
+        buttonName.setTitle(HighlightedTitle, for: .highlighted)
+        buttonName.layer.cornerRadius = 8
+        buttonName.layer.borderColor = UIColor.black.cgColor
+        buttonName.layer.borderWidth = 3
+        buttonName.setTitleColor(.black, for: .normal)
+        buttonName.setTitleColor(.red, for: .highlighted)
     }
     
     @IBAction func confirmButtonTapped(_ sender: UIButton) {
@@ -50,5 +71,17 @@ class BoardViewController: UIViewController {
     
     @IBAction func tapGestureClicked(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+    
+    @IBAction func viewHidden(_ sender: Any) {
+        if toggleView.isHidden {
+            toggleView.isHidden = false
+        } else {
+            toggleView.isHidden = true
+        }
+    }
+    
+    @IBAction func keybordDismiss(_ sender: Any) {
+        
     }
 }

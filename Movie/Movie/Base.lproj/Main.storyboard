@@ -151,6 +151,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="done2:" destination="eLO-2P-zSc" eventType="editingDidEndOnExit" id="r2P-jl-GCJ"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eGQ-ss-O9h">
                                 <rect key="frame" x="57" y="200" width="300" height="34"/>
@@ -158,6 +161,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="done2:" destination="eLO-2P-zSc" eventType="editingDidEndOnExit" id="ABF-if-SZJ"/>
+                                    <action selector="done:" destination="eLO-2P-zSc" eventType="primaryActionTriggered" id="Xyr-nU-SMa"/>
                                     <action selector="passwordTextFieldTapped:" destination="eLO-2P-zSc" eventType="valueChanged" id="FVQ-eJ-RHh"/>
                                 </connections>
                             </textField>
@@ -166,12 +171,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="done2:" destination="eLO-2P-zSc" eventType="editingDidEndOnExit" id="aC0-vk-Usa"/>
+                                    <action selector="done:" destination="eLO-2P-zSc" eventType="primaryActionTriggered" id="q7x-6K-xXT"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="reJ-Ku-ySy">
                                 <rect key="frame" x="57" y="300" width="300" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="done2:" destination="eLO-2P-zSc" eventType="editingDidEndOnExit" id="pNa-ed-b1q"/>
+                                    <action selector="done:" destination="eLO-2P-zSc" eventType="primaryActionTriggered" id="Sa5-1Z-Yax"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="추가 정보 입력" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WtE-gT-PjA">
                                 <rect key="frame" x="57" y="455" width="118" height="21"/>
@@ -190,6 +203,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="done2:" destination="eLO-2P-zSc" eventType="editingDidEndOnExit" id="tLG-gm-i2y"/>
+                                    <action selector="done:" destination="eLO-2P-zSc" eventType="primaryActionTriggered" id="LWi-LA-iOv"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SeungFlix" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQG-kN-sNK">
                                 <rect key="frame" x="107" y="44" width="200" height="60"/>
@@ -201,6 +218,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ks-ii-AQy">
                                 <rect key="frame" x="57" y="406" width="300" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
@@ -212,7 +230,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="zPs-Vk-6ca" appends="YES" id="nXh-tl-2Xm"/>
+                            <outletCollection property="gestureRecognizers" destination="VTR-Eu-Z4u" appends="YES" id="hhr-kj-h9h"/>
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" id="quz-mg-Ue0"/>
@@ -227,9 +245,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="INg-Iw-oLj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="zPs-Vk-6ca">
+                <tapGestureRecognizer id="VTR-Eu-Z4u">
                     <connections>
-                        <action selector="tapBackGroundGesture:" destination="eLO-2P-zSc" id="mVp-dM-96w"/>
+                        <action selector="tapBackGroundGesture:" destination="eLO-2P-zSc" id="SME-82-maX"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

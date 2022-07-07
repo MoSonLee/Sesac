@@ -76,8 +76,16 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             SignUpUIButton.setTitle("회원가입 성공", for: .highlighted)
         }
     }
-    //밖 뷰 영역을 눌렀을 때 키보드가 사라지게 하는 로직
     @IBAction func tapBackGroundGesture(_ sender: Any) {
         view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    //키보드에서 done or return을 누르면 꺼지는 로직
+    @IBAction func done2(_ sender: UITextField) {
+        print("exit")
     }
 }
