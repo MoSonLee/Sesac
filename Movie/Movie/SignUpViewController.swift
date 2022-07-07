@@ -46,7 +46,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         checkSwitch.onTintColor = .red
         checkSwitch.thumbTintColor = .lightGray
         
-        IdTextField.backgroundColor = UIColor.gray
+        IdTextField.backgroundColor = UIColor.lightGray
         passwordTextField.backgroundColor = UIColor.lightGray
         nicknameTextField.backgroundColor = UIColor.lightGray
         locationTextField.backgroundColor = UIColor.lightGray
@@ -60,13 +60,14 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         recommendCodeTextField.keyboardType = .numberPad
     }
     
+    // textfiled에 숫자만 입력되게 하는 로직
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard CharacterSet(charactersIn: "0123456789").isSuperset(of: CharacterSet(charactersIn: string)) else {
             return false
         }
         return true
     }
-    
+    // ID와 비밀번호 둘 다 입력을 해야 회원가입 성공이 뜨는 로직
     @IBAction func signupButtonTapped(_ sender: UIButton) {
         view.endEditing(true)
         if IdTextField.text!.count == 0 || passwordTextField.text!.count == 0 {
@@ -75,6 +76,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             SignUpUIButton.setTitle("회원가입 성공", for: .highlighted)
         }
     }
+    //밖 뷰 영역을 눌렀을 때 키보드가 사라지게 하는 로직
     @IBAction func tapBackGroundGesture(_ sender: Any) {
         view.endEditing(true)
     }
