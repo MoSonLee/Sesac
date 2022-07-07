@@ -54,7 +54,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         IdTextField.keyboardType = .emailAddress
         passwordTextField.keyboardType = .default
-        passwordTextField.isSecureTextEntry = true
+        //        passwordTextField.isSecureTextEntry = true
         nicknameTextField.keyboardType = .alphabet
         locationTextField.keyboardType = .asciiCapable
         recommendCodeTextField.keyboardType = .numberPad
@@ -67,19 +67,20 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
+    
     // ID와 비밀번호 둘 다 입력을 해야 회원가입 성공이 뜨는 로직
-    @IBAction func signupButtonTapped(_ sender: UIButton) {
+    @IBAction func signupbutton(_ sender: Any) {
         view.endEditing(true)
-        if IdTextField.text!.count == 0 || passwordTextField.text!.count == 0 {
-            SignUpUIButton.setTitle("Id와 비밀번호를 모두 입력해주세요", for: .highlighted)
+        if IdTextField.text!.count == 0 || passwordTextField.text!.count < 6 {
+            SignUpUIButton.setTitle("회원가입 실패", for: .highlighted)
         } else {
             SignUpUIButton.setTitle("회원가입 성공", for: .highlighted)
         }
     }
+    
     @IBAction func tapBackGroundGesture(_ sender: Any) {
         view.endEditing(true)
     }
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false

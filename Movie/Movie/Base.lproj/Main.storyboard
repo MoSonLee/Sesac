@@ -222,7 +222,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="signupButtonTapped:" destination="eLO-2P-zSc" eventType="touchUpInside" id="t49-Hc-3fF"/>
+                                    <action selector="sign:" destination="eLO-2P-zSc" eventType="valueChanged" id="tTk-UB-AOC"/>
+                                    <action selector="signupbutton:" destination="eLO-2P-zSc" eventType="touchDown" id="3Zg-GP-ANo"/>
                                 </connections>
                             </button>
                         </subviews>
