@@ -149,40 +149,35 @@
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이 영화의 제목은!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EDq-WH-Xek">
                                 <rect key="frame" x="57" y="150" width="300" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                <connections>
-                                    <action selector="done2:" destination="eLO-2P-zSc" eventType="editingDidEndOnExit" id="r2P-jl-GCJ"/>
-                                </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eGQ-ss-O9h">
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eGQ-ss-O9h">
                                 <rect key="frame" x="57" y="200" width="300" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="done2:" destination="eLO-2P-zSc" eventType="editingDidEndOnExit" id="ABF-if-SZJ"/>
                                     <action selector="done:" destination="eLO-2P-zSc" eventType="primaryActionTriggered" id="Xyr-nU-SMa"/>
                                     <action selector="passwordTextFieldTapped:" destination="eLO-2P-zSc" eventType="valueChanged" id="FVQ-eJ-RHh"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rQ0-6l-aKv">
+                            <textField opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rQ0-6l-aKv">
                                 <rect key="frame" x="57" y="250" width="300" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="done2:" destination="eLO-2P-zSc" eventType="editingDidEndOnExit" id="aC0-vk-Usa"/>
                                     <action selector="done:" destination="eLO-2P-zSc" eventType="primaryActionTriggered" id="q7x-6K-xXT"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="reJ-Ku-ySy">
+                            <textField opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="reJ-Ku-ySy">
                                 <rect key="frame" x="57" y="300" width="300" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="done2:" destination="eLO-2P-zSc" eventType="editingDidEndOnExit" id="pNa-ed-b1q"/>
                                     <action selector="done:" destination="eLO-2P-zSc" eventType="primaryActionTriggered" id="Sa5-1Z-Yax"/>
                                 </connections>
                             </textField>
@@ -198,13 +193,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="onTintColor" systemColor="systemPinkColor"/>
                             </switch>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JYU-BF-7l2">
+                            <textField opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JYU-BF-7l2">
                                 <rect key="frame" x="57" y="350" width="300" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="done2:" destination="eLO-2P-zSc" eventType="editingDidEndOnExit" id="tLG-gm-i2y"/>
                                     <action selector="done:" destination="eLO-2P-zSc" eventType="primaryActionTriggered" id="LWi-LA-iOv"/>
                                 </connections>
                             </textField>
@@ -223,7 +217,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
                                     <action selector="sign:" destination="eLO-2P-zSc" eventType="valueChanged" id="tTk-UB-AOC"/>
-                                    <action selector="signupbutton:" destination="eLO-2P-zSc" eventType="touchDown" id="3Zg-GP-ANo"/>
+                                    <action selector="signupbuttonTapped:" destination="eLO-2P-zSc" eventType="touchUpInside" id="Hqx-7G-UMD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -236,13 +230,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="quz-mg-Ue0"/>
                     <connections>
-                        <outlet property="IdTextField" destination="EDq-WH-Xek" id="sfY-NL-0a4"/>
-                        <outlet property="SignUpUIButton" destination="8ks-ii-AQy" id="0zS-VM-xk4"/>
                         <outlet property="checkSwitch" destination="p7L-IT-t49" id="deE-AD-dQJ"/>
-                        <outlet property="locationTextField" destination="reJ-Ku-ySy" id="aB7-h9-gTO"/>
-                        <outlet property="nicknameTextField" destination="rQ0-6l-aKv" id="waY-sb-qQX"/>
-                        <outlet property="passwordTextField" destination="eGQ-ss-O9h" id="iLh-wd-Tdc"/>
-                        <outlet property="recommendCodeTextField" destination="JYU-BF-7l2" id="5tW-JU-PfL"/>
+                        <outlet property="signUpUIButton" destination="8ks-ii-AQy" id="0zS-VM-xk4"/>
+                        <outletCollection property="textFieldArray" destination="EDq-WH-Xek" collectionClass="NSMutableArray" id="r5D-2d-TUw"/>
+                        <outletCollection property="textFieldArray" destination="eGQ-ss-O9h" collectionClass="NSMutableArray" id="nUI-Wz-UgY"/>
+                        <outletCollection property="textFieldArray" destination="rQ0-6l-aKv" collectionClass="NSMutableArray" id="Vma-CC-5mU"/>
+                        <outletCollection property="textFieldArray" destination="reJ-Ku-ySy" collectionClass="NSMutableArray" id="ks7-0i-VLQ"/>
+                        <outletCollection property="textFieldArray" destination="JYU-BF-7l2" collectionClass="NSMutableArray" id="pf1-MA-vE2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="INg-Iw-oLj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
