@@ -346,10 +346,10 @@
             </objects>
             <point key="canvasLocation" x="755.07246376811599" y="81.696428571428569"/>
         </scene>
-        <!--Second View Controller-->
+        <!--First View Controller-->
         <scene sceneID="Prj-xh-sfC">
             <objects>
-                <viewController id="EXz-ne-lha" customClass="SecondViewController" customModule="Delivery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EXz-ne-lha" customClass="FirstViewController" customModule="Delivery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zID-u8-9oQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

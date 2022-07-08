@@ -7,17 +7,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
-    @IBOutlet var imageViewList: [UIImageView]!
+    @IBOutlet private var imageViewList: [UIImageView]!
     let imageList = ["Image0", "Image1", "Image2", "Image3", "Image4", "Image5", "Image6", "Image7", "Image8", "Image9"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // image를 좀 더 쉽게 추가하는 법
-        //        for i in 0..<10 {
-        //         imageList2.append("Image" + "\(i)")
-        //        }
         for i in 1...imageViewList.count - 1 {
             imageViewList[i].layer.cornerRadius = 60
             imageViewList[i].layer.borderColor = UIColor.red.cgColor
@@ -25,7 +21,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func playButtonAction(_ sender: Any) {
+    @IBAction private func playButtonAction(_ sender: Any) {
         imageViewList.forEach {
             $0.image = UIImage(named: imageList.randomElement()!)
         }

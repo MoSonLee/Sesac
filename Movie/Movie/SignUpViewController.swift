@@ -7,14 +7,14 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController, UITextFieldDelegate {
+final class SignUpViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet var textFieldArray: [UITextField]!
-    @IBOutlet weak var signUpUIButton: UIButton!
-    @IBOutlet weak var checkSwitch: UISwitch!
+    @IBOutlet private var textFieldArray: [UITextField]!
+    @IBOutlet private weak var signUpUIButton: UIButton!
+    @IBOutlet private weak var checkSwitch: UISwitch!
     
-    let placeholderArray = ["이메일 주소 또는 전화번호", "비밀번호", "닉네임", "위치", "추천코드"]
-    let keybordTypeArray: [UIKeyboardType] = [.emailAddress, .default, .alphabet, .asciiCapable, .numberPad]
+    private let placeholderArray = ["이메일 주소 또는 전화번호", "비밀번호", "닉네임", "위치", "추천코드"]
+    private let keybordTypeArray: [UIKeyboardType] = [.emailAddress, .default, .alphabet, .asciiCapable, .numberPad]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         checkSwitch.thumbTintColor = .lightGray
     }
     // ID와 비밀번호 둘 다 입력 + 비밀번호 6자 이하 제한해서 회원가입 성공이 뜨는 로직
-    @IBAction func signupbuttonTapped(_ sender: Any) {
+    @IBAction private func signupbuttonTapped(_ sender: Any) {
         view.endEditing(true)
         if textFieldArray[0].text!.count == 0 || textFieldArray[1].text!.count < 6 {
             signUpUIButton.setTitle("회원가입 실패", for: .highlighted)
@@ -47,7 +47,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
     }
     //background tap 했을 때 키보드 내려가는 로직
-    @IBAction func tapBackGroundGesture(_ sender: Any) {
+    @IBAction private func tapBackGroundGesture(_ sender: Any) {
         view.endEditing(true)
     }
     //키보드에서 done or return을 누르면 꺼지는 로직

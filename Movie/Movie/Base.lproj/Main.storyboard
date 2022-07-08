@@ -217,7 +217,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
                                     <action selector="sign:" destination="eLO-2P-zSc" eventType="valueChanged" id="tTk-UB-AOC"/>
-                                    <action selector="signupbuttonTapped:" destination="eLO-2P-zSc" eventType="touchUpInside" id="Hqx-7G-UMD"/>
+                                    <action selector="signupbuttonTapped:" destination="eLO-2P-zSc" eventType="touchDown" id="Pv2-Hh-BXF"/>
                                 </connections>
                             </button>
                         </subviews>
