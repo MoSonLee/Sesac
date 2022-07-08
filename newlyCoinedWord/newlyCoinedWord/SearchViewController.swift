@@ -9,7 +9,8 @@ import UIKit
 
 final class SearchViewController: UIViewController {
     
-    private let viewModel = wordModel()
+    private let viewModel = WordModel()
+    public var index = 0
     @IBOutlet weak private var textField: UITextField!
     @IBOutlet private var buttonArray: [UIButton]!
     @IBOutlet weak private var label: UILabel!
@@ -19,7 +20,9 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         textField.layer.borderWidth = 3
         for i in 0..<buttonArray.count {
-            buttonArray[i].layer.borderWidth = 1
+            buttonArray[i].invalidateIntrinsicContentSize()
+            buttonArray[i].titleLabel?.numberOfLines = 1
+            buttonArray[i].layer.borderWidth = 2
             buttonArray[i].layer.cornerRadius = 10
         }
         
@@ -29,8 +32,14 @@ final class SearchViewController: UIViewController {
             if textField.text == viewModel.newWordKeys[i] {
                 label.text = viewModel.newWordDictionary[textField.text!]
             }
-            view.endEditing(true)
         }
+        buttonArray[index%4].setTitle(textField.text, for: .normal)
+
+        index += 1
+        if index == 4 {
+            index = 0
+        }
+        view.endEditing(true)
     }
     
     @IBAction func returnKeyTapped(_ sender: UITextField) {
@@ -38,6 +47,11 @@ final class SearchViewController: UIViewController {
             if textField.text == viewModel.newWordKeys[i]  {
                 label.text = viewModel.newWordDictionary[textField.text!]
             }
+        }
+        buttonArray[index%4].setTitle(textField.text, for: .normal)
+        index += 1
+        if index == 4 {
+            index = 0
         }
         view.endEditing(true)
     }

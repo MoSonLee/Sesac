@@ -13,7 +13,7 @@
 		77E8424D287877650029BFE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E8424B287877650029BFE0 /* Main.storyboard */; };
 		77E8424F287877660029BFE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77E8424E287877660029BFE0 /* Assets.xcassets */; };
 		77E84252287877660029BFE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E84250287877660029BFE0 /* LaunchScreen.storyboard */; };
-		77E8425A287898F40029BFE0 /* wordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E84259287898F40029BFE0 /* wordModel.swift */; };
+		77E8425A287898F40029BFE0 /* WordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E84259287898F40029BFE0 /* WordModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		77E8424E287877660029BFE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77E84251287877660029BFE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77E84253287877660029BFE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		77E84259287898F40029BFE0 /* wordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wordModel.swift; sourceTree = "<group>"; };
+		77E84259287898F40029BFE0 /* WordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 				77E84245287877650029BFE0 /* AppDelegate.swift */,
 				77E84247287877650029BFE0 /* SceneDelegate.swift */,
 				77E84249287877650029BFE0 /* SearchViewController.swift */,
-				77E84259287898F40029BFE0 /* wordModel.swift */,
+				77E84259287898F40029BFE0 /* WordModel.swift */,
 				77E8424B287877650029BFE0 /* Main.storyboard */,
 				77E8424E287877660029BFE0 /* Assets.xcassets */,
 				77E84250287877660029BFE0 /* LaunchScreen.storyboard */,
@@ -144,7 +144,7 @@
 				77E8424A287877650029BFE0 /* SearchViewController.swift in Sources */,
 				77E84246287877650029BFE0 /* AppDelegate.swift in Sources */,
 				77E84248287877650029BFE0 /* SceneDelegate.swift in Sources */,
-				77E8425A287898F40029BFE0 /* wordModel.swift in Sources */,
+				77E8425A287898F40029BFE0 /* WordModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
