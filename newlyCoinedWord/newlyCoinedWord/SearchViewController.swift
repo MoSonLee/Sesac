@@ -20,13 +20,12 @@ final class SearchViewController: UIViewController {
         super.viewDidLoad()
         textField.layer.borderWidth = 3
         for i in 0..<buttonArray.count {
-            buttonArray[i].invalidateIntrinsicContentSize()
-            buttonArray[i].titleLabel?.numberOfLines = 1
+            buttonArray[i].titleLabel?.numberOfLines = 2
             buttonArray[i].layer.borderWidth = 2
             buttonArray[i].layer.cornerRadius = 10
         }
-        
     }
+    
     @IBAction func searchButtonTapped(_ sender: UIButton) {
         for i in 0..<viewModel.newWordDictionary.keys.count {
             if textField.text == viewModel.newWordKeys[i] {
@@ -34,7 +33,6 @@ final class SearchViewController: UIViewController {
             }
         }
         buttonArray[index%4].setTitle(textField.text, for: .normal)
-
         index += 1
         if index == 4 {
             index = 0
