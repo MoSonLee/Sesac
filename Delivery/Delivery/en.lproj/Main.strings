@@ -1,0 +1,66 @@
+
+/* Class = "UIButton"; configuration.title = "Button"; ObjectID = "0Sx-4c-EWM"; */
+"0Sx-4c-EWM.configuration.title" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "0Sx-4c-EWM"; */
+"0Sx-4c-EWM.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "일식"; ObjectID = "0T5-8A-qn1"; */
+"0T5-8A-qn1.text" = "일식";
+
+/* Class = "UILabel"; text = "햄버거"; ObjectID = "CU1-tW-49X"; */
+"CU1-tW-49X.text" = "햄버거";
+
+/* Class = "UILabel"; text = "떡"; ObjectID = "FAD-Fg-XdG"; */
+"FAD-Fg-XdG.text" = "떡";
+
+/* Class = "UILabel"; text = "찌개"; ObjectID = "FwY-od-Fil"; */
+"FwY-od-Fil.text" = "찌개";
+
+/* Class = "UINavigationItem"; title = "배달의 민족"; ObjectID = "MDM-gQ-COV"; */
+"MDM-gQ-COV.title" = "배달의 민족";
+
+/* Class = "UILabel"; text = "팬케이크"; ObjectID = "MbQ-os-Yqa"; */
+"MbQ-os-Yqa.text" = "팬케이크";
+
+/* Class = "UILabel"; text = "배민라이더스"; ObjectID = "MrG-AN-aQ3"; */
+"MrG-AN-aQ3.text" = "배민라이더스";
+
+/* Class = "UILabel"; text = "B마트"; ObjectID = "Tar-D3-ajU"; */
+"Tar-D3-ajU.text" = "B마트";
+
+/* Class = "UILabel"; text = "한식"; ObjectID = "V43-ZJ-81e"; */
+"V43-ZJ-81e.text" = "한식";
+
+/* Class = "UILabel"; text = "아보카도"; ObjectID = "VJg-6N-bpw"; */
+"VJg-6N-bpw.text" = "아보카도";
+
+/* Class = "UILabel"; text = "빵"; ObjectID = "YYr-du-oME"; */
+"YYr-du-oME.text" = "빵";
+
+/* Class = "UILabel"; text = "디저트"; ObjectID = "bTF-7K-1ds"; */
+"bTF-7K-1ds.text" = "디저트";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "gIm-zA-hSw"; */
+"gIm-zA-hSw.text" = "Label";
+
+/* Class = "UILabel"; text = "중식"; ObjectID = "ixk-ah-xU8"; */
+"ixk-ah-xU8.text" = "중식";
+
+/* Class = "UILabel"; text = "커피"; ObjectID = "kED-Ln-FNk"; */
+"kED-Ln-FNk.text" = "커피";
+
+/* Class = "UILabel"; text = "이게모노"; ObjectID = "mBk-sC-kTI"; */
+"mBk-sC-kTI.text" = "이게모노";
+
+/* Class = "UIButton"; configuration.title = "배달의 민족 바로가기"; ObjectID = "qg3-GN-eXQ"; */
+"qg3-GN-eXQ.configuration.title" = "배달의 민족 바로가기";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "qg3-GN-eXQ"; */
+"qg3-GN-eXQ.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "피자"; ObjectID = "rgJ-pL-TY5"; */
+"rgJ-pL-TY5.text" = "피자";
+
+/* Class = "UILabel"; text = "치킨"; ObjectID = "w7h-k9-MUb"; */
+"w7h-k9-MUb.text" = "치킨";
