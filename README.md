@@ -7,6 +7,8 @@
 [🍀7/6 정리💫](https://s2ung.tistory.com/5?category=1073520)</br>
 [🍀7/7 정리💫](https://s2ung.tistory.com/6?category=1073520)</br>
 [🍀7/8 정리💫](https://s2ung.tistory.com/7)</br>
+[🍀7/11 정리💫](https://s2ung.tistory.com/8)</br>
+
 
 
 
