@@ -23,6 +23,7 @@ final class ViewController: UIViewController {
         
         buttonArray.forEach {
             $0.setImage(UIImage(named: "sesac_slime\(i + 1)")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            $0.tag = i
             i += 1
         }
         
@@ -30,6 +31,7 @@ final class ViewController: UIViewController {
             $0.text = labelName[j]
             $0.textAlignment = .center
             $0.textColor = .black
+            $0.tag = j
             j += 1
         }
     }
@@ -43,6 +45,7 @@ final class ViewController: UIViewController {
                 break
             }
         }
+        showAlertController()
     }
     
     @IBAction private func initializationButtonTapped(_ sender: UIButton) {
@@ -57,5 +60,24 @@ final class ViewController: UIViewController {
         if sender.tag == sender2.tag {
             sender2.text = labelName[sender2.tag] + String(labelCount[sender2.tag])
         }
+    }
+    
+    private func showAlertController() {
+        
+        //1. 흰 바탕: UIAlertController
+       let alert =  UIAlertController(title: "추가되었습니다.", message: nil, preferredStyle: .alert)
+        
+        //2. button
+        let ok = UIAlertAction(title: "확인", style:.destructive, handler: nil)
+        let cancel = UIAlertAction(title: "취소", style:.cancel, handler: nil)
+        let web = UIAlertAction(title: "새 창", style:.default, handler: nil)
+        
+        //3. 1+2
+        alert.addAction(ok)
+//        alert.addAction(cancel)
+//        alert.addAction(web)
+        
+        //4. present
+        present(alert, animated: true, completion: nil)
     }
 }
