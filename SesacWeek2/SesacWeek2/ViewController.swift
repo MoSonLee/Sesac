@@ -20,7 +20,6 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         buttonArray.forEach {
             $0.setImage(UIImage(named: "sesac_slime\(i + 1)")?.withRenderingMode(.alwaysOriginal), for: .normal)
             $0.tag = i
@@ -53,6 +52,7 @@ final class ViewController: UIViewController {
             labelArray[index].text = labelName[index]
             labelCount[index] = 0
         }
+        view.backgroundColor = randomColor()
     }
     
     private func button(_ sender: UIButton, _ sender2: UILabel)  {
@@ -63,21 +63,22 @@ final class ViewController: UIViewController {
     }
     
     private func showAlertController() {
-        
         //1. 흰 바탕: UIAlertController
-       let alert =  UIAlertController(title: "추가되었습니다.", message: nil, preferredStyle: .alert)
+        let alert =  UIAlertController(title: "추가되었습니다.", message: nil, preferredStyle: .alert)
         
         //2. button
         let ok = UIAlertAction(title: "확인", style:.destructive, handler: nil)
-        let cancel = UIAlertAction(title: "취소", style:.cancel, handler: nil)
-        let web = UIAlertAction(title: "새 창", style:.default, handler: nil)
         
         //3. 1+2
         alert.addAction(ok)
-//        alert.addAction(cancel)
-//        alert.addAction(web)
         
         //4. present
         present(alert, animated: true, completion: nil)
+        view.backgroundColor = randomColor()
+    }
+    
+    private func randomColor() -> UIColor  {
+        let color: [UIColor] = [.yellow, .red, .blue, .brown, .black]
+        return color.randomElement()!
     }
 }

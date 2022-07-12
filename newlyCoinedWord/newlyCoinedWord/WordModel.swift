@@ -19,3 +19,13 @@ struct WordModel {
     
     let newWordKeys = ["만반잘부", "윰차", "꾸안꾸", "실매", "삼귀자", "할많하않"]
 }
+
+enum WordModel2: String {
+    case 만반잘부
+    case 윰차
+    case 꾸안꾸
+    case 실매
+    case 삼귀자
+    case 할많하않
+}
+
