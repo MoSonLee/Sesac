@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aUC-9M-dbs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nJz-PB-tPM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -344,48 +344,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="755.07246376811599" y="81.696428571428569"/>
-        </scene>
-        <!--First View Controller-->
-        <scene sceneID="Prj-xh-sfC">
-            <objects>
-                <viewController id="EXz-ne-lha" customClass="FirstViewController" customModule="Delivery" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zID-u8-9oQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="banner03" translatesAutoresizingMaskIntoConstraints="NO" id="Uns-QK-gU5">
-                                <rect key="frame" x="87" y="107" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIm-zA-hSw">
-                                <rect key="frame" x="87" y="296" width="240" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Sx-4c-EWM">
-                                <rect key="frame" x="145" y="378" width="124" height="115"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="resultButtonClicked:" destination="EXz-ne-lha" eventType="touchUpInside" id="pNd-UA-f61"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="ZYj-pV-IZe"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <connections>
-                        <outlet property="bannerImageView" destination="Uns-QK-gU5" id="txT-41-LhY"/>
-                        <outlet property="movieTitleLabel" destination="gIm-zA-hSw" id="9Io-o8-992"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k1S-5K-6IP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-153.62318840579712" y="815.625"/>
+            <point key="canvasLocation" x="1455" y="82"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="c1A-aV-i64">
@@ -463,12 +422,23 @@
                                     <constraint firstAttribute="width" secondItem="Ako-JG-ldm" secondAttribute="height" multiplier="1:1" id="mtk-i0-Er9"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xfI-uo-0sW">
+                                <rect key="frame" x="20.5" y="220" width="124.5" height="48"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="프로필 뮤직으로 이동"/>
+                                <connections>
+                                    <segue destination="aUC-9M-dbs" kind="show" id="m5i-YD-5k9"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pcj-mp-qo0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Pcj-mp-qo0" firstAttribute="trailing" secondItem="CW3-YR-4nD" secondAttribute="trailing" constant="16" id="0D6-fe-Ghb"/>
                             <constraint firstItem="hAU-1A-1i5" firstAttribute="leading" secondItem="Pcj-mp-qo0" secondAttribute="leading" constant="16" id="11W-lo-MNu"/>
+                            <constraint firstItem="xfI-uo-0sW" firstAttribute="centerX" secondItem="qrK-7y-dbr" secondAttribute="centerX" multiplier="0.4" id="5VM-if-5Pv"/>
                             <constraint firstItem="0qo-A3-3hR" firstAttribute="top" secondItem="Pcj-mp-qo0" secondAttribute="top" constant="44" id="6rV-rx-maj"/>
                             <constraint firstItem="Ako-JG-ldm" firstAttribute="leading" secondItem="Pcj-mp-qo0" secondAttribute="leading" constant="100" id="8iL-wr-ane"/>
                             <constraint firstItem="Pcj-mp-qo0" firstAttribute="trailing" secondItem="qrK-7y-dbr" secondAttribute="trailing" id="BQQ-CZ-Uq9"/>
@@ -481,7 +451,9 @@
                             <constraint firstItem="Pcj-mp-qo0" firstAttribute="trailing" secondItem="Ako-JG-ldm" secondAttribute="trailing" constant="100" id="kVh-BI-M7e"/>
                             <constraint firstItem="qrK-7y-dbr" firstAttribute="bottom" secondItem="Pcj-mp-qo0" secondAttribute="bottom" id="lzN-P0-VTX"/>
                             <constraint firstItem="CW3-YR-4nD" firstAttribute="leading" secondItem="Pcj-mp-qo0" secondAttribute="leading" constant="16" id="m7x-iy-3Ag"/>
+                            <constraint firstItem="xfI-uo-0sW" firstAttribute="top" secondItem="qrK-7y-dbr" secondAttribute="top" multiplier="5" id="teK-V3-si5"/>
                             <constraint firstItem="Pcj-mp-qo0" firstAttribute="bottom" secondItem="CW3-YR-4nD" secondAttribute="bottom" constant="50" id="tuc-es-km3"/>
+                            <constraint firstItem="xfI-uo-0sW" firstAttribute="width" secondItem="qrK-7y-dbr" secondAttribute="width" multiplier="0.3" id="xRO-Mq-0b7"/>
                             <constraint firstItem="hAU-1A-1i5" firstAttribute="top" secondItem="Pcj-mp-qo0" secondAttribute="top" constant="44" id="yzY-nK-nsd"/>
                         </constraints>
                     </view>
@@ -533,7 +505,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h0J-rH-gjx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1613.0434782608697" y="90.401785714285708"/>
+            <point key="canvasLocation" x="662" y="82"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="p5k-sa-wx6">
@@ -559,11 +531,11 @@
             <objects>
                 <viewController id="aUC-9M-dbs" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="um4-bT-ONg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2hX-bX-lti">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="798"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wTe-VL-WTP">
@@ -611,7 +583,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eEo-Rs-GcO">
-                                <rect key="frame" x="16" y="781" width="382" height="31"/>
+                                <rect key="frame" x="16" y="761" width="382" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7A7-jU-Ulg">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="31"/>
@@ -661,6 +633,7 @@
                             <constraint firstItem="DDs-wR-Rlc" firstAttribute="leading" secondItem="VaE-6z-eWn" secondAttribute="leading" constant="16" id="zrO-lw-ssh"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="nRS-Jy-qmE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yET-hG-EI8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -672,7 +645,6 @@
         <image name="arrow.up.bin.fill" catalog="system" width="128" height="93"/>
         <image name="background" width="1440" height="1440"/>
         <image name="banner01" width="915" height="516"/>
-        <image name="banner03" width="909" height="510"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="churros" width="200" height="300"/>
         <image name="dice" catalog="system" width="128" height="113"/>
@@ -703,6 +675,9 @@
         <image name="xmark.bin.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
