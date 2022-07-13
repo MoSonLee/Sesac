@@ -8,15 +8,15 @@
 import UIKit
 
 final class ViewController: UIViewController {
-    
+
     @IBOutlet weak private var datePicker: UIDatePicker!
     @IBOutlet private var dateLabelCollection: [UILabel]!
     @IBOutlet private var dayLabelCollection: [UILabel]!
     @IBOutlet private var imageCollection: [UIImageView]!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         if #available(iOS 14.0, *) {
             datePicker.preferredDatePickerStyle = .inline
         } else {
@@ -48,10 +48,19 @@ final class ViewController: UIViewController {
             imageCollection[i].layer.cornerRadius = imageCollection[i].frame.height/2 - 50
         }
     }
+
     @IBAction private func datePickerValueChanged(_ sender: UIDatePicker) {
         for i in 0..<dayLabelCollection.count {
             dateLabelCollection[i].text =  datePicker.date.description
-            dayLabelCollection[i].text = datePicker.date.formatted(date: .complete, time: .shortened)
+            dayLabelCollection[i].text = datePicker.date.formatted(date: .complete, time: .omitted)
+            showAlert()
         }
+    }
+
+    private func showAlert() {
+        let alert = UIAlertController(title: "날짜 변경 완료", message: nil, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style:.destructive, handler: nil)
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
     }
 }
