@@ -55,6 +55,7 @@ final class ViewController: UIViewController {
         view.backgroundColor = randomColor()
     }
     
+    //함수 인자에 UIButton 등 클래스를 넣어주면 안됨 -> 수정 예정
     private func button(_ sender: UIButton, _ sender2: UILabel)  {
         labelCount[sender2.tag] += 1
         if sender.tag == sender2.tag {
@@ -78,7 +79,7 @@ final class ViewController: UIViewController {
     }
     
     private func randomColor() -> UIColor  {
-        let color: [UIColor] = [.yellow, .red, .blue, .brown, .black]
+        let color: [UIColor] = [.yellow, .red, .blue, .brown]
         return color.randomElement()!
     }
 }
