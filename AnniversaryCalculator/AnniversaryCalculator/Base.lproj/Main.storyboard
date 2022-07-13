@@ -131,6 +131,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Mqf-ly-cSW" secondAttribute="bottom" constant="16" id="d7A-f2-n8k"/>
                             <constraint firstItem="Mqf-ly-cSW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="fyV-e5-Pem"/>
                             <constraint firstItem="aPx-zT-Xeh" firstAttribute="leading" secondItem="MeL-D2-08c" secondAttribute="leading" constant="16" id="g87-ap-j9m"/>
+                            <constraint firstItem="MeL-D2-08c" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KKV-07-jRT" secondAttribute="trailing" constant="5" id="gST-XJ-BzO"/>
+                            <constraint firstItem="gik-BP-NCv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mqf-ly-cSW" secondAttribute="trailing" constant="5" id="iHG-Lv-76l"/>
                             <constraint firstItem="gn4-9T-aVA" firstAttribute="top" secondItem="KKV-07-jRT" secondAttribute="top" constant="16" id="jjA-yZ-EoU"/>
                             <constraint firstItem="KKV-07-jRT" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.45" id="krl-pk-K5T"/>
                             <constraint firstItem="MeL-D2-08c" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.45" id="l6g-Dv-y2a"/>

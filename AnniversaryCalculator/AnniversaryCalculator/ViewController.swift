@@ -23,7 +23,6 @@ final class ViewController: UIViewController {
             datePicker.preferredDatePickerStyle = .wheels
         }
         
-        
         dateLabelCollection.forEach {
             $0.numberOfLines = 1
             $0.textColor = .white
@@ -43,9 +42,10 @@ final class ViewController: UIViewController {
         
         for i in 0..<imageCollection.count{
             imageCollection[i].image = UIImage(named: "image\(i+1)")
-            imageCollection[i].layer.cornerRadius = 20
             imageCollection[i].image?.withRenderingMode(.alwaysOriginal)
             imageCollection[i].contentMode = .scaleAspectFill
+            imageCollection[i].clipsToBounds = true
+            imageCollection[i].layer.cornerRadius = imageCollection[i].frame.height/2 - 50
         }
     }
     @IBAction private func datePickerValueChanged(_ sender: UIDatePicker) {
