@@ -23,17 +23,22 @@ final class ViewController: UIViewController {
             datePicker.preferredDatePickerStyle = .wheels
         }
         
+        
         dateLabelCollection.forEach {
             $0.numberOfLines = 1
             $0.textColor = .white
             $0.font = .preferredFont(forTextStyle: .title1)
             $0.font = .boldSystemFont(ofSize: 30)
+            $0.text = "D + Date"
         }
         
         dayLabelCollection.forEach{
             $0.numberOfLines = 2
             $0.textColor = .white
             $0.font = .preferredFont(forTextStyle: .body)
+            $0.font = .systemFont(ofSize: 20)
+            $0.text = "day"
+            $0.textAlignment = .center
         }
         
         for i in 0..<imageCollection.count{
@@ -41,6 +46,12 @@ final class ViewController: UIViewController {
             imageCollection[i].layer.cornerRadius = 20
             imageCollection[i].image?.withRenderingMode(.alwaysOriginal)
             imageCollection[i].contentMode = .scaleAspectFill
+        }
+    }
+    @IBAction private func datePickerValueChanged(_ sender: UIDatePicker) {
+        for i in 0..<dayLabelCollection.count {
+            dateLabelCollection[i].text =  datePicker.date.description
+            dayLabelCollection[i].text = datePicker.date.formatted(date: .complete, time: .shortened)
         }
     }
 }

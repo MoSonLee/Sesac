@@ -18,6 +18,9 @@
                         <subviews>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="ePa-Oh-qsk">
                                 <rect key="frame" x="16" y="60" width="382" height="328"/>
+                                <connections>
+                                    <action selector="datePickerValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ALZ-1Q-KNd"/>
+                                </connections>
                             </datePicker>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.trianglebadge.exclamationmark" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="KKV-07-jRT">
                                 <rect key="frame" x="16" y="403" width="188.5" height="187.5"/>
@@ -43,26 +46,26 @@
                                     <constraint firstAttribute="width" secondItem="gik-BP-NCv" secondAttribute="height" id="aOp-lo-3ba"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2022년     07월 13일" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSH-od-hyK">
-                                <rect key="frame" x="62.5" y="476.5" width="93" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qSH-od-hyK">
+                                <rect key="frame" x="32" y="487" width="154.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mkd-1f-R6W">
-                                <rect key="frame" x="284" y="486.5" width="42" height="21"/>
+                                <rect key="frame" x="227.5" y="486.5" width="154.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GeZ-09-P3o">
-                                <rect key="frame" x="88" y="689" width="42" height="21"/>
+                                <rect key="frame" x="32" y="689" width="154.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kD6-kC-jEt">
-                                <rect key="frame" x="284" y="689" width="42" height="21"/>
+                                <rect key="frame" x="227.5" y="689" width="154.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -99,7 +102,7 @@
                             <constraint firstItem="qSH-od-hyK" firstAttribute="centerX" secondItem="KKV-07-jRT" secondAttribute="centerX" id="1zX-Lz-RaF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gik-BP-NCv" secondAttribute="trailing" constant="16" id="2tE-0Z-rVN"/>
                             <constraint firstItem="yAX-w6-tmo" firstAttribute="trailing" secondItem="Mqf-ly-cSW" secondAttribute="trailing" constant="-16" id="3WX-4J-B5v"/>
-                            <constraint firstItem="qSH-od-hyK" firstAttribute="width" secondItem="KKV-07-jRT" secondAttribute="width" multiplier="0.5" id="40A-JU-lBe"/>
+                            <constraint firstItem="kD6-kC-jEt" firstAttribute="leading" secondItem="gik-BP-NCv" secondAttribute="leading" constant="16" id="5qL-Gu-dan"/>
                             <constraint firstItem="mkd-1f-R6W" firstAttribute="centerX" secondItem="MeL-D2-08c" secondAttribute="centerX" id="878-bX-Yvw"/>
                             <constraint firstItem="KKV-07-jRT" firstAttribute="top" secondItem="ePa-Oh-qsk" secondAttribute="bottom" constant="16" id="8b8-xM-jvU"/>
                             <constraint firstItem="Mqf-ly-cSW" firstAttribute="top" secondItem="KKV-07-jRT" secondAttribute="bottom" constant="16" id="9lN-fu-cAV"/>
@@ -118,7 +121,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gik-BP-NCv" secondAttribute="bottom" constant="16" id="Vtd-1n-gKr"/>
                             <constraint firstItem="KKV-07-jRT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="WHH-YE-Kaf"/>
                             <constraint firstItem="HRk-1e-VTK" firstAttribute="leading" secondItem="gik-BP-NCv" secondAttribute="leading" constant="16" id="YBy-TW-PzH"/>
+                            <constraint firstItem="mkd-1f-R6W" firstAttribute="leading" secondItem="MeL-D2-08c" secondAttribute="leading" constant="16" id="YUe-Xw-YHa"/>
                             <constraint firstItem="ePa-Oh-qsk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Yg6-fT-eYX"/>
+                            <constraint firstItem="GeZ-09-P3o" firstAttribute="leading" secondItem="Mqf-ly-cSW" secondAttribute="leading" constant="16" id="aSw-oG-Dnp"/>
                             <constraint firstItem="kD6-kC-jEt" firstAttribute="centerX" secondItem="gik-BP-NCv" secondAttribute="centerX" id="aiB-dO-cA6"/>
                             <constraint firstItem="ePa-Oh-qsk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.5" id="bpq-qb-BW1"/>
                             <constraint firstItem="aPx-zT-Xeh" firstAttribute="trailing" secondItem="MeL-D2-08c" secondAttribute="trailing" constant="-16" id="buK-EQ-EgB"/>
@@ -133,23 +138,24 @@
                             <constraint firstItem="GeZ-09-P3o" firstAttribute="centerX" secondItem="Mqf-ly-cSW" secondAttribute="centerX" id="qRO-mr-Yh7"/>
                             <constraint firstItem="gik-BP-NCv" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.45" id="u3e-dU-50z"/>
                             <constraint firstItem="mkd-1f-R6W" firstAttribute="centerY" secondItem="MeL-D2-08c" secondAttribute="centerY" id="wr2-5A-0Qo"/>
+                            <constraint firstItem="qSH-od-hyK" firstAttribute="leading" secondItem="KKV-07-jRT" secondAttribute="leading" constant="16" id="xnl-I4-ASi"/>
                             <constraint firstItem="yAX-w6-tmo" firstAttribute="top" secondItem="Mqf-ly-cSW" secondAttribute="top" constant="16" id="zQz-cf-s79"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="ePa-Oh-qsk" id="ym6-9O-L8V"/>
                         <outletCollection property="dateLabelCollection" destination="gn4-9T-aVA" collectionClass="NSMutableArray" id="WHl-el-mAs"/>
-                        <outletCollection property="dayLabelCollection" destination="qSH-od-hyK" collectionClass="NSMutableArray" id="Lf9-m2-GjP"/>
                         <outletCollection property="imageCollection" destination="KKV-07-jRT" collectionClass="NSMutableArray" id="BdH-wE-szB"/>
                         <outletCollection property="dateLabelCollection" destination="aPx-zT-Xeh" collectionClass="NSMutableArray" id="WWX-Oc-epE"/>
                         <outletCollection property="dateLabelCollection" destination="yAX-w6-tmo" collectionClass="NSMutableArray" id="YQS-uf-8hI"/>
                         <outletCollection property="dateLabelCollection" destination="HRk-1e-VTK" collectionClass="NSMutableArray" id="4AY-Jx-mog"/>
-                        <outletCollection property="dayLabelCollection" destination="mkd-1f-R6W" collectionClass="NSMutableArray" id="npY-y2-Jju"/>
-                        <outletCollection property="dayLabelCollection" destination="GeZ-09-P3o" collectionClass="NSMutableArray" id="erp-B1-c2X"/>
-                        <outletCollection property="dayLabelCollection" destination="kD6-kC-jEt" collectionClass="NSMutableArray" id="4Vu-zN-4AQ"/>
                         <outletCollection property="imageCollection" destination="MeL-D2-08c" collectionClass="NSMutableArray" id="Z9m-q4-rd9"/>
                         <outletCollection property="imageCollection" destination="gik-BP-NCv" collectionClass="NSMutableArray" id="mPf-41-yOn"/>
                         <outletCollection property="imageCollection" destination="Mqf-ly-cSW" collectionClass="NSMutableArray" id="oVh-l9-cpa"/>
+                        <outletCollection property="dayLabelCollection" destination="qSH-od-hyK" collectionClass="NSMutableArray" id="fF5-ej-P9v"/>
+                        <outletCollection property="dayLabelCollection" destination="mkd-1f-R6W" collectionClass="NSMutableArray" id="dtH-gJ-SDX"/>
+                        <outletCollection property="dayLabelCollection" destination="GeZ-09-P3o" collectionClass="NSMutableArray" id="mfP-QW-02E"/>
+                        <outletCollection property="dayLabelCollection" destination="kD6-kC-jEt" collectionClass="NSMutableArray" id="cBg-tT-h8a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
