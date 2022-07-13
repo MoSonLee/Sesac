@@ -9,6 +9,7 @@
 [🍀7/8 정리💫](https://s2ung.tistory.com/7)</br>
 [🍀7/11 정리💫](https://s2ung.tistory.com/8)</br>
 [🍀7/12 정리💫](https://s2ung.tistory.com/9)</br>
+[🍀7/13 정리💫](https://s2ung.tistory.com/10)</br>
 
 
 
