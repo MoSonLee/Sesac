@@ -28,19 +28,19 @@
                                     <constraint firstAttribute="width" secondItem="KKV-07-jRT" secondAttribute="height" multiplier="1:1" id="OW4-Bm-Vwx"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MeL-D2-08c">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MeL-D2-08c">
                                 <rect key="frame" x="211.5" y="404.5" width="186.5" height="185.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="MeL-D2-08c" secondAttribute="height" id="kw5-lX-wJ1"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Mqf-ly-cSW">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Mqf-ly-cSW">
                                 <rect key="frame" x="16" y="607" width="186.5" height="185"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Mqf-ly-cSW" secondAttribute="height" id="HIq-Gl-DRY"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gik-BP-NCv">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gik-BP-NCv">
                                 <rect key="frame" x="211.5" y="607" width="186.5" height="185"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gik-BP-NCv" secondAttribute="height" id="aOp-lo-3ba"/>

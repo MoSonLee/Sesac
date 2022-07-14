@@ -13,6 +13,7 @@ final class ViewController: UIViewController {
     @IBOutlet private var dateLabelCollection: [UILabel]!
     @IBOutlet private var dayLabelCollection: [UILabel]!
     @IBOutlet private var imageCollection: [UIImageView]!
+    private var index = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,14 +51,17 @@ final class ViewController: UIViewController {
     }
     //datePicker 값이 변했을 때 일어나는 로직
     @IBAction private func datePickerValueChanged(_ sender: UIDatePicker) {
-        for i in 0..<dayLabelCollection.count {
-            //DateForamtter: 알아보기 쉬운 날짜 + 시간대 (yyyy MM dd hh:mm:ss)
-            let format = DateFormatter()
-            format.dateFormat = "yy년 M월 d일"
-            dateLabelCollection[i].text = dDayDate()
-            //Date -> String
-            dayLabelCollection[i].text = format.string(from: datePicker.date)
+        //DateForamtter: 알아보기 쉬운 날짜 + 시간대 (yyyy MM dd hh:mm:ss)
+        let format = DateFormatter()
+        format.dateFormat = "yy년 M월 d일"
+        imageCollection[index].tag = index
+        dateLabelCollection[index].tag = index
+        if imageCollection[index].tag == dateLabelCollection[index].tag {
+            dateLabelCollection[index].text = dDayDate()
+            dayLabelCollection[index].text = format.string(from: datePicker.date)
             showAlert()
+            index += 1
+            index == 4 ? index = 0 : nil
         }
     }
     //alert창 띄워주는 로직
