@@ -28,7 +28,7 @@ final class ViewController: UIViewController {
             $0.textColor = .white
             $0.font = .preferredFont(forTextStyle: .title1)
             $0.font = .boldSystemFont(ofSize: 30)
-            $0.text = "D + Date"
+            $0.text = "D + 0"
         }
         
         dayLabelCollection.forEach{
@@ -67,7 +67,8 @@ final class ViewController: UIViewController {
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
     }
-    //dDay Date 구하는 로직
+    
+    //dDay Date 구하는 로직 -> 조금 더 효율적이게 작성할 수 없을까?
     private func dDayDate() -> String {
         var dDayDateStringFormed = ""
         let calendar = Calendar.current
@@ -75,6 +76,12 @@ final class ViewController: UIViewController {
         let selectedDate = calendar.startOfDay(for: datePicker.date)
         let dDayDate = calendar.dateComponents([.day], from: firstDate, to: selectedDate)
         dDayDateStringFormed =  dDayDate.day! > 0 ? "D + \(String(dDayDate.day!))" :"D \(String(dDayDate.day!))"
+        if dDayDate.day! % 100 == 0 {
+            let alert = UIAlertController(title: "\(String(describing: dDayDate.day!))일입니다!", message: "축하드립니다!", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "확인", style:.destructive, handler: nil)
+            alert.addAction(ok)
+            present(alert, animated: true, completion: nil)
+        }
         return dDayDateStringFormed
     }
 }
