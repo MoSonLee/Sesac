@@ -8,15 +8,15 @@
 import UIKit
 
 final class ViewController: UIViewController {
-
+    
     @IBOutlet weak private var datePicker: UIDatePicker!
     @IBOutlet private var dateLabelCollection: [UILabel]!
     @IBOutlet private var dayLabelCollection: [UILabel]!
     @IBOutlet private var imageCollection: [UIImageView]!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         if #available(iOS 14.0, *) {
             datePicker.preferredDatePickerStyle = .inline
         } else {
@@ -48,19 +48,33 @@ final class ViewController: UIViewController {
             imageCollection[i].layer.cornerRadius = imageCollection[i].frame.height/2 - 50
         }
     }
-
+    //datePicker 값이 변했을 때 일어나는 로직
     @IBAction private func datePickerValueChanged(_ sender: UIDatePicker) {
         for i in 0..<dayLabelCollection.count {
-            dateLabelCollection[i].text =  datePicker.date.description
-            dayLabelCollection[i].text = datePicker.date.formatted(date: .complete, time: .omitted)
+            //DateForamtter: 알아보기 쉬운 날짜 + 시간대 (yyyy MM dd hh:mm:ss)
+            let format = DateFormatter()
+            format.dateFormat = "yy년 M월 d일"
+            dateLabelCollection[i].text = dDayDate()
+            //Date -> String
+            dayLabelCollection[i].text = format.string(from: datePicker.date)
             showAlert()
         }
     }
-
+    //alert창 띄워주는 로직
     private func showAlert() {
         let alert = UIAlertController(title: "날짜 변경 완료", message: nil, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style:.destructive, handler: nil)
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
+    }
+    //dDay Date 구하는 로직
+    private func dDayDate() -> String {
+        var dDayDateStringFormed = ""
+        let calendar = Calendar.current
+        let firstDate = calendar.startOfDay(for: Date())
+        let selectedDate = calendar.startOfDay(for: datePicker.date)
+        let dDayDate = calendar.dateComponents([.day], from: firstDate, to: selectedDate)
+        dDayDateStringFormed =  dDayDate.day! > 0 ? "D + \(String(dDayDate.day!))" :"D \(String(dDayDate.day!))"
+        return dDayDateStringFormed
     }
 }
