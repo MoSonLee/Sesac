@@ -27,6 +27,7 @@ final class ViewController: UIViewController {
             labelArray[a].tag = a
             labelArray[a].textColor = .black
         }
+        
         super.viewDidLoad()
         buttonArray.forEach {
             $0.setImage(UIImage(named: "sesac_slime\(buttonIndex + 1)")?.withRenderingMode(.alwaysOriginal), for: .normal)
