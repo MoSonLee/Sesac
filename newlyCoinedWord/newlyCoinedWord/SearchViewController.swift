@@ -28,7 +28,6 @@ final class SearchViewController: UIViewController {
             buttonArray[i].titleLabel?.text = textField.text
         }
     }
-    
     // 반복문을 사용하여 구성
     @IBAction func searchButtonTapped(_ sender: UIButton) {
         for i in 0..<viewModel.newWordDictionary.keys.count {
@@ -44,7 +43,6 @@ final class SearchViewController: UIViewController {
         view.endEditing(true)
         showAlert()
     }
-    
     //siwtch case문으로 작성 -> 그렇게 효율적이어 보이진 않는다.
     @IBAction func returnKeyTapped(_ sender: UITextField) {
         let searchValue = WordModel2(rawValue: sender.text!)
@@ -76,7 +74,6 @@ final class SearchViewController: UIViewController {
     @IBAction private func backgroundTapKeybordDismiss(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
-    
     //alert을 띄워주는 함수 구현
     private func showAlert() {
         let errorAlert =  UIAlertController(title: "검색어를 입력해주세요.", message: nil, preferredStyle: .alert)

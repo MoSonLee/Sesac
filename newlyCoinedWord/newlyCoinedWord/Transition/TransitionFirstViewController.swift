@@ -40,8 +40,5 @@ class TransitionFirstViewController: UIViewController {
     }
     
     @IBAction func unwindTransitionFirstVC(MosonSegue: UIStoryboardSegue) {
-        
     }
-    
-    
 }

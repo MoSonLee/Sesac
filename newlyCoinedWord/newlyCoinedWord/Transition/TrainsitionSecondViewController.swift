@@ -11,13 +11,11 @@ class TrainsitionSecondViewController: UIViewController {
     
     @IBOutlet weak var mottoTextView: UITextView!
     @IBOutlet weak var thisIsLabel: UILabel!
-    
     /*
      1. 앱을 켜면 데이터를 가지고 와서 텍스트 뷰에 보여주어야 함.
      2. 바뀐 데이터를 저장해주어야 함.
      => UserDefault (keypath) 형식으로 저장됨
      */
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("TransitionSecondViewController", #function)
@@ -27,6 +25,13 @@ class TrainsitionSecondViewController: UIViewController {
         } else {
             mottoTextView.text = UserDefaults.standard.string(forKey: "key")
         }
+    }
+    
+    @IBAction func emotionButtonClicked(_ sender: Any) {
+        let currentValue = UserDefaults.standard.integer(forKey: "happyEmotion")
+        let updateValue = currentValue + 1
+        UserDefaults.standard.set(updateValue, forKey: "happyEmotion")
+        thisIsLabel.text = "\(UserDefaults.standard.integer(forKey: "happyEmotion"))"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,21 +48,13 @@ class TrainsitionSecondViewController: UIViewController {
         super.viewWillDisappear(animated)
         print("TransitionSecondViewController", #function)
     }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("TransitionSecondViewController", #function)
     }
+    
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         UserDefaults.standard.set(mottoTextView.text, forKey: "key")
-    }
-    @IBAction func emotionButtonClicked(_ sender: Any) {
-        
-        let currentValue = UserDefaults.standard.integer(forKey: "happyEmotion")
-        
-        let updateValue = currentValue + 1
-        UserDefaults.standard.set(updateValue, forKey: "happyEmotion")
-        thisIsLabel.text = "\(UserDefaults.standard.integer(forKey: "happyEmotion"))"
-        
-//        UserDefaults.standard.removeObject(forKey: "happyEmotion")
     }
 }
