@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77A144B22880E85F00042FEF /* Transition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77A144B12880E85F00042FEF /* Transition.storyboard */; };
+		77A144B42880EFBF00042FEF /* TransitionFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A144B32880EFBF00042FEF /* TransitionFirstViewController.swift */; };
+		77A144B62880FE1200042FEF /* TrainsitionSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A144B52880FE1200042FEF /* TrainsitionSecondViewController.swift */; };
 		77E84246287877650029BFE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E84245287877650029BFE0 /* AppDelegate.swift */; };
 		77E84248287877650029BFE0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E84247287877650029BFE0 /* SceneDelegate.swift */; };
 		77E8424A287877650029BFE0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E84249287877650029BFE0 /* SearchViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77A144B12880E85F00042FEF /* Transition.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transition.storyboard; sourceTree = "<group>"; };
+		77A144B32880EFBF00042FEF /* TransitionFirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionFirstViewController.swift; sourceTree = "<group>"; };
+		77A144B52880FE1200042FEF /* TrainsitionSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainsitionSecondViewController.swift; sourceTree = "<group>"; };
 		77E84242287877650029BFE0 /* newlyCoinedWord.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = newlyCoinedWord.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E84245287877650029BFE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77E84247287877650029BFE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +45,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77A144AF2880E82000042FEF /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				77A144B12880E85F00042FEF /* Transition.storyboard */,
+				77A144B52880FE1200042FEF /* TrainsitionSecondViewController.swift */,
+				77A144B32880EFBF00042FEF /* TransitionFirstViewController.swift */,
+				77A144B02880E83700042FEF /* New Group */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
+		77A144B02880E83700042FEF /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		77E84239287877650029BFE0 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +82,7 @@
 		77E84244287877650029BFE0 /* newlyCoinedWord */ = {
 			isa = PBXGroup;
 			children = (
+				77A144AF2880E82000042FEF /* Transition */,
 				77E84245287877650029BFE0 /* AppDelegate.swift */,
 				77E84247287877650029BFE0 /* SceneDelegate.swift */,
 				77E84249287877650029BFE0 /* SearchViewController.swift */,
@@ -131,6 +156,7 @@
 				77E84252287877660029BFE0 /* LaunchScreen.storyboard in Resources */,
 				77E8424F287877660029BFE0 /* Assets.xcassets in Resources */,
 				77E8424D287877650029BFE0 /* Main.storyboard in Resources */,
+				77A144B22880E85F00042FEF /* Transition.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,9 +168,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				77E8424A287877650029BFE0 /* SearchViewController.swift in Sources */,
+				77A144B42880EFBF00042FEF /* TransitionFirstViewController.swift in Sources */,
 				77E84246287877650029BFE0 /* AppDelegate.swift in Sources */,
 				77E84248287877650029BFE0 /* SceneDelegate.swift in Sources */,
 				77E8425A287898F40029BFE0 /* WordModel.swift in Sources */,
+				77A144B62880FE1200042FEF /* TrainsitionSecondViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

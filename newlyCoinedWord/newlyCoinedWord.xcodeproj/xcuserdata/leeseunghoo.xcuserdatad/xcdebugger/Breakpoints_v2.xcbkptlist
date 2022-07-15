@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "490FC491-E9BE-4CC1-AD65-A056ACC458A4"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B7368DE9-AC07-480E-997A-9ECD4309BB5B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "newlyCoinedWord/Transition/TransitionFirstViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "TransitionFirstViewController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AD834516-59B3-4A06-8401-AC921C0CCEF9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "newlyCoinedWord/Transition/TransitionFirstViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "10"
+            endingLineNumber = "10"
+            landmarkName = "TransitionFirstViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "AD834516-59B3-4A06-8401-AC921C0CCEF9 - 1752d542c1a4c0fb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "newlyCoinedWord.TransitionFirstViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; newlyCoinedWord.TransitionFirstViewController"
+                  moduleName = "newlyCoinedWord"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leeseunghoo/Desktop/SeSac/newlyCoinedWord/newlyCoinedWord/Transition/TransitionFirstViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "AD834516-59B3-4A06-8401-AC921C0CCEF9 - e566880978d89bd8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "newlyCoinedWord.TransitionFirstViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; newlyCoinedWord.TransitionFirstViewController"
+                  moduleName = "newlyCoinedWord"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leeseunghoo/Desktop/SeSac/newlyCoinedWord/newlyCoinedWord/Transition/TransitionFirstViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "256">
+               </Location>
+               <Location
+                  uuid = "AD834516-59B3-4A06-8401-AC921C0CCEF9 - 68365222ad6aa94c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "newlyCoinedWord.TransitionFirstViewController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;newlyCoinedWord.TransitionFirstViewController&gt;"
+                  moduleName = "newlyCoinedWord"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leeseunghoo/Desktop/SeSac/newlyCoinedWord/newlyCoinedWord/Transition/TransitionFirstViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  uuid = "AD834516-59B3-4A06-8401-AC921C0CCEF9 - 9c8f2c7a942e6815"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "newlyCoinedWord.TransitionFirstViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;newlyCoinedWord.TransitionFirstViewController&gt;"
+                  moduleName = "newlyCoinedWord"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leeseunghoo/Desktop/SeSac/newlyCoinedWord/newlyCoinedWord/Transition/TransitionFirstViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "10"
+                  endingLineNumber = "10"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "AD834516-59B3-4A06-8401-AC921C0CCEF9 - e413d09bb40da37b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "newlyCoinedWord.TransitionFirstViewController.__deallocating_deinit"
+                  moduleName = "newlyCoinedWord"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/leeseunghoo/Desktop/SeSac/newlyCoinedWord/newlyCoinedWord/Transition/TransitionFirstViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
