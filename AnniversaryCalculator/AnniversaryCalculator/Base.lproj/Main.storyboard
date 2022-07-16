@@ -94,6 +94,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3RJ-vh-bmp">
+                                <rect key="frame" x="16" y="815" width="382" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="InitializerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oyl-bz-yLD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -103,6 +111,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gik-BP-NCv" secondAttribute="trailing" constant="16" id="2tE-0Z-rVN"/>
                             <constraint firstItem="yAX-w6-tmo" firstAttribute="trailing" secondItem="Mqf-ly-cSW" secondAttribute="trailing" constant="-16" id="3WX-4J-B5v"/>
                             <constraint firstItem="kD6-kC-jEt" firstAttribute="leading" secondItem="gik-BP-NCv" secondAttribute="leading" constant="16" id="5qL-Gu-dan"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3RJ-vh-bmp" secondAttribute="trailing" constant="16" id="5r5-40-bEJ"/>
                             <constraint firstItem="mkd-1f-R6W" firstAttribute="centerX" secondItem="MeL-D2-08c" secondAttribute="centerX" id="878-bX-Yvw"/>
                             <constraint firstItem="KKV-07-jRT" firstAttribute="top" secondItem="ePa-Oh-qsk" secondAttribute="bottom" constant="16" id="8b8-xM-jvU"/>
                             <constraint firstItem="Mqf-ly-cSW" firstAttribute="top" secondItem="KKV-07-jRT" secondAttribute="bottom" constant="16" id="9lN-fu-cAV"/>
@@ -120,6 +129,7 @@
                             <constraint firstAttribute="trailing" secondItem="ePa-Oh-qsk" secondAttribute="trailing" constant="16" id="Rq4-QL-U1c"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="gik-BP-NCv" secondAttribute="bottom" constant="16" id="Vtd-1n-gKr"/>
                             <constraint firstItem="KKV-07-jRT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="WHH-YE-Kaf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3RJ-vh-bmp" secondAttribute="bottom" constant="16" id="Wfb-nA-iVU"/>
                             <constraint firstItem="HRk-1e-VTK" firstAttribute="leading" secondItem="gik-BP-NCv" secondAttribute="leading" constant="16" id="YBy-TW-PzH"/>
                             <constraint firstItem="mkd-1f-R6W" firstAttribute="leading" secondItem="MeL-D2-08c" secondAttribute="leading" constant="16" id="YUe-Xw-YHa"/>
                             <constraint firstItem="ePa-Oh-qsk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="Yg6-fT-eYX"/>
@@ -132,6 +142,7 @@
                             <constraint firstItem="Mqf-ly-cSW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="fyV-e5-Pem"/>
                             <constraint firstItem="aPx-zT-Xeh" firstAttribute="leading" secondItem="MeL-D2-08c" secondAttribute="leading" constant="16" id="g87-ap-j9m"/>
                             <constraint firstItem="MeL-D2-08c" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KKV-07-jRT" secondAttribute="trailing" constant="5" id="gST-XJ-BzO"/>
+                            <constraint firstItem="3RJ-vh-bmp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="iGR-kL-rEg"/>
                             <constraint firstItem="gik-BP-NCv" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Mqf-ly-cSW" secondAttribute="trailing" constant="5" id="iHG-Lv-76l"/>
                             <constraint firstItem="gn4-9T-aVA" firstAttribute="top" secondItem="KKV-07-jRT" secondAttribute="top" constant="16" id="jjA-yZ-EoU"/>
                             <constraint firstItem="KKV-07-jRT" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.45" id="krl-pk-K5T"/>
@@ -146,6 +157,7 @@
                     </view>
                     <connections>
                         <outlet property="datePicker" destination="ePa-Oh-qsk" id="ym6-9O-L8V"/>
+                        <outlet property="initializerButton" destination="3RJ-vh-bmp" id="SkN-Ig-VGp"/>
                         <outletCollection property="dateLabelCollection" destination="gn4-9T-aVA" collectionClass="NSMutableArray" id="WHl-el-mAs"/>
                         <outletCollection property="imageCollection" destination="KKV-07-jRT" collectionClass="NSMutableArray" id="BdH-wE-szB"/>
                         <outletCollection property="dateLabelCollection" destination="aPx-zT-Xeh" collectionClass="NSMutableArray" id="WWX-Oc-epE"/>

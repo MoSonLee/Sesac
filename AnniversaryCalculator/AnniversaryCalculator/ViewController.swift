@@ -13,41 +13,20 @@ final class ViewController: UIViewController {
     @IBOutlet private var dateLabelCollection: [UILabel]!
     @IBOutlet private var dayLabelCollection: [UILabel]!
     @IBOutlet private var imageCollection: [UIImageView]!
+    @IBOutlet weak var initializerButton: UIButton!
+    
     private var index = 0
+    private var userIndex = 0
+    private let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
+        checkiOSVersion()
+        setUserDefaults()
         super.viewDidLoad()
-        
-        if #available(iOS 14.0, *) {
-            datePicker.preferredDatePickerStyle = .inline
-        } else {
-            datePicker.preferredDatePickerStyle = .wheels
-        }
-        
-        dateLabelCollection.forEach {
-            $0.numberOfLines = 1
-            $0.textColor = .white
-            $0.font = .preferredFont(forTextStyle: .title1)
-            $0.font = .boldSystemFont(ofSize: 30)
-            $0.text = "D + 0"
-        }
-        
-        dayLabelCollection.forEach{
-            $0.numberOfLines = 2
-            $0.textColor = .white
-            $0.font = .preferredFont(forTextStyle: .body)
-            $0.font = .systemFont(ofSize: 20)
-            $0.text = "day"
-            $0.textAlignment = .center
-        }
-        
-        for i in 0..<imageCollection.count{
-            imageCollection[i].image = UIImage(named: "image\(i+1)")
-            imageCollection[i].image?.withRenderingMode(.alwaysOriginal)
-            imageCollection[i].contentMode = .scaleAspectFill
-            imageCollection[i].clipsToBounds = true
-            imageCollection[i].layer.cornerRadius = imageCollection[i].frame.height/2 - 50
-        }
+        setButton()
+        setDateLabel()
+        setDayLabel()
+        setImage()
     }
     //datePicker 값이 변했을 때 일어나는 로직
     @IBAction private func datePickerValueChanged(_ sender: UIDatePicker) {
@@ -59,14 +38,27 @@ final class ViewController: UIViewController {
         if imageCollection[index].tag == dateLabelCollection[index].tag {
             dateLabelCollection[index].text = dDayDate()
             dayLabelCollection[index].text = format.string(from: datePicker.date)
-            showAlert()
+            userDefaults.set(dateLabelCollection[index].text, forKey: "date\(index)")
+            userDefaults.set(dayLabelCollection[index].text, forKey: "day\(index)")
+            showAlert("날짜 변경 완효")
             index += 1
             index == 4 ? index = 0 : nil
         }
     }
+    
+    @IBAction func InitializerButtonTapped(_ sender: UIButton) {
+        for index in 0..<dayLabelCollection.count {
+            dayLabelCollection[index].text = ""
+            dateLabelCollection[index].text = ""
+            showAlert("초기화 완료")
+            userDefaults.set("", forKey: "date\(index)")
+            userDefaults.set("", forKey: "day\(index)")
+        }
+    }
+    
     //alert창 띄워주는 로직
-    private func showAlert() {
-        let alert = UIAlertController(title: "날짜 변경 완료", message: nil, preferredStyle: .alert)
+    private func showAlert(_ alertText: String) {
+        let alert = UIAlertController(title: alertText, message: nil, preferredStyle: .alert)
         let ok = UIAlertAction(title: "OK", style:.destructive, handler: nil)
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
@@ -88,4 +80,57 @@ final class ViewController: UIViewController {
         }
         return dDayDateStringFormed
     }
+    
+    private func setUserDefaults() {
+        for count in 0..<dateLabelCollection.count {
+            dateLabelCollection[count].text = userDefaults.string(forKey: "date\(count)")
+            dayLabelCollection[count].text = userDefaults.string(forKey: "day\(count)")
+        }
+    }
+    //iOS version에 따라 datePicker 스타일을 다르게 해줌
+    private func checkiOSVersion() {
+        if #available(iOS 14.0, *) {
+            datePicker.preferredDatePickerStyle = .inline
+        } else {
+            datePicker.preferredDatePickerStyle = .wheels
+        }
+    }
+    
+    private func setButton() {
+        initializerButton.setTitle("초기화 버튼", for: .normal)
+        initializerButton.tintColor = .white
+        initializerButton.backgroundColor = .systemMint
+        initializerButton.layer.cornerRadius = 8
+        initializerButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+    }
+    
+    private func setDateLabel() {
+        dateLabelCollection.forEach {
+            $0.numberOfLines = 1
+            $0.textColor = .white
+            $0.font = .preferredFont(forTextStyle: .title1)
+            $0.font = .boldSystemFont(ofSize: 30)
+        }
+    }
+    
+    private func setDayLabel() {
+        dayLabelCollection.forEach {
+            $0.numberOfLines = 2
+            $0.textColor = .white
+            $0.font = .preferredFont(forTextStyle: .body)
+            $0.font = .systemFont(ofSize: 20)
+            $0.textAlignment = .center
+        }
+    }
+    
+    private func setImage() {
+        for i in 0..<imageCollection.count{
+            imageCollection[i].image = UIImage(named: "image\(i+1)")
+            imageCollection[i].image?.withRenderingMode(.alwaysOriginal)
+            imageCollection[i].contentMode = .scaleAspectFill
+            imageCollection[i].clipsToBounds = true
+            imageCollection[i].layer.cornerRadius = imageCollection[i].frame.height/2 - 50
+        }
+    }
 }
+
