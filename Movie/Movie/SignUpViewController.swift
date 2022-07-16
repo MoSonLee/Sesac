@@ -18,32 +18,19 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for index in 0..<textFieldArray.count {
-            textFieldArray[index].attributedPlaceholder = NSAttributedString(string: placeholderArray[index], attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            textFieldArray[index].textAlignment = .center
-            textFieldArray[index].backgroundColor = UIColor.darkGray
-            textFieldArray[index].keyboardType = keybordTypeArray[index]
-            textFieldArray[index].delegate = self
-        }
-        textFieldArray[1].isSecureTextEntry = true
-        
-        signUpUIButton.setTitle("회원가입", for: .normal)
-        signUpUIButton.tintColor = .black
-        signUpUIButton.backgroundColor = .white
-        signUpUIButton.layer.cornerRadius = 8
-        signUpUIButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        
-        checkSwitch.setOn(true, animated: true)
-        checkSwitch.onTintColor = .red
-        checkSwitch.thumbTintColor = .lightGray
+        setTextField()
+        setButton()
+        setCheckSwitch()
     }
     // ID와 비밀번호 둘 다 입력 + 비밀번호 6자 이하 제한해서 회원가입 성공이 뜨는 로직
     @IBAction private func signupbuttonTapped(_ sender: Any) {
         view.endEditing(true)
         if textFieldArray[0].text!.count == 0 || textFieldArray[1].text!.count < 6 {
             signUpUIButton.setTitle("회원가입 실패", for: .highlighted)
+            showAlert("회원가입 실패")
         } else {
             signUpUIButton.setTitle("회원가입 성공", for: .highlighted)
+            showAlert("회원가입 성공")
         }
     }
     //background tap 했을 때 키보드 내려가는 로직
@@ -64,5 +51,37 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
             }
         }
         return true
+    }
+    
+    private func showAlert(_ text: String) {
+        let alert =  UIAlertController(title: text, message: nil, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style:.destructive, handler: nil)
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func setTextField() {
+        for index in 0..<textFieldArray.count {
+            textFieldArray[index].attributedPlaceholder = NSAttributedString(string: placeholderArray[index], attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            textFieldArray[index].textAlignment = .center
+            textFieldArray[index].backgroundColor = UIColor.darkGray
+            textFieldArray[index].keyboardType = keybordTypeArray[index]
+            textFieldArray[index].delegate = self
+        }
+        textFieldArray[1].isSecureTextEntry = true
+    }
+    
+    private func setButton() {
+        signUpUIButton.setTitle("회원가입", for: .normal)
+        signUpUIButton.tintColor = .black
+        signUpUIButton.backgroundColor = .white
+        signUpUIButton.layer.cornerRadius = 8
+        signUpUIButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+    }
+    
+    private func setCheckSwitch() {
+        checkSwitch.setOn(true, animated: true)
+        checkSwitch.onTintColor = .red
+        checkSwitch.thumbTintColor = .lightGray
     }
 }
