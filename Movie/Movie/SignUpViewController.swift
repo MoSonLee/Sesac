@@ -25,12 +25,14 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
     // ID와 비밀번호 둘 다 입력 + 비밀번호 6자 이하 제한해서 회원가입 성공이 뜨는 로직
     @IBAction private func signupbuttonTapped(_ sender: Any) {
         view.endEditing(true)
-        if textFieldArray[0].text!.count == 0 || textFieldArray[1].text!.count < 6 {
-            signUpUIButton.setTitle("회원가입 실패", for: .highlighted)
-            showAlert("회원가입 실패")
-        } else {
+        if textFieldArray[0].text!.count == 0 {
+            showAFailurelert("아이디를 입력해주세요.")
+        } else if textFieldArray[1].text!.count < 6 {
+            showAFailurelert("비밀번호를 여섯자 이상 입력해주세요.")
+        }
+        else {
             signUpUIButton.setTitle("회원가입 성공", for: .highlighted)
-            showAlert("회원가입 성공")
+            showASuccesslert("회원가입 성공!")
         }
     }
     //background tap 했을 때 키보드 내려가는 로직
@@ -53,9 +55,19 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    private func showAlert(_ text: String) {
+    private func showASuccesslert(_ text: String) {
         let alert =  UIAlertController(title: text, message: nil, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style:.destructive, handler: nil)
+        let okAction = UIAlertAction(title: "확인", style: .default) { [self]
+            UIAlertAction in
+            moveToMainView()
+        }
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func showAFailurelert(_ text: String) {
+        let alert =  UIAlertController(title: text, message: nil, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
         alert.addAction(ok)
         present(alert, animated: true, completion: nil)
     }
@@ -83,5 +95,9 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
         checkSwitch.setOn(true, animated: true)
         checkSwitch.onTintColor = .red
         checkSwitch.thumbTintColor = .lightGray
+    }
+    
+    private func moveToMainView() {
+        performSegue(withIdentifier: "moveToMainView", sender: nil)
     }
 }

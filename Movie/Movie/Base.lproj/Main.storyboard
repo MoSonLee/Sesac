@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -133,6 +133,7 @@
                             <constraint firstItem="bQf-iv-GbS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="r11-YZ-OEc"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="2tW-rz-b4c"/>
                     <connections>
                         <outletCollection property="imageViewList" destination="66c-xu-9QU" collectionClass="NSMutableArray" id="uSW-PF-kNi"/>
                         <outletCollection property="imageViewList" destination="O6s-0z-WGs" collectionClass="NSMutableArray" id="bkL-YJ-7gY"/>
@@ -142,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134.78260869565219" y="138.61607142857142"/>
+            <point key="canvasLocation" x="841" y="139"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="dzb-5m-uN1">
@@ -252,11 +253,11 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="900.00000000000011" y="138.61607142857142"/>
+            <point key="canvasLocation" x="1810.144927536232" y="138.61607142857142"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="gEc-vF-EYy"/>
+        <segue reference="21W-PP-t1z"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Image3" width="240" height="361"/>
