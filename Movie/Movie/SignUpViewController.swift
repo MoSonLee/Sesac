@@ -31,7 +31,6 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
             showAFailurelert("비밀번호를 여섯자 이상 입력해주세요.")
         }
         else {
-            signUpUIButton.setTitle("회원가입 성공", for: .highlighted)
             showASuccesslert("회원가입 성공!")
         }
     }
