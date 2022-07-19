@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ToO-c2-pfu">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20037"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search Table View Controller-->
+        <scene sceneID="4iD-QU-U9c">
+            <objects>
+                <tableViewController id="ToO-c2-pfu" customClass="SearchTableViewController" customModule="TrendMedia" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="nqQ-UA-D6g">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SearchTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchTableViewCell" rowHeight="143" id="kU8-NN-x1i" customClass="SearchTableViewCell" customModule="TrendMedia" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44.5" width="414" height="143"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kU8-NN-x1i" id="suN-gU-tFR">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="harrypotter0" translatesAutoresizingMaskIntoConstraints="NO" id="3FG-Of-8cj">
+                                            <rect key="frame" x="16" y="7" width="103.5" height="129"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="3FG-Of-8cj" secondAttribute="height" multiplier="1:1.5" id="dfC-m1-W6Y"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="zhs-v2-9U9">
+                                            <rect key="frame" x="135.5" y="7" width="278.5" height="129"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L2b-5V-1M0">
+                                                    <rect key="frame" x="0.0" y="0.0" width="278.5" height="26"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFM-eN-18E">
+                                                    <rect key="frame" x="0.0" y="27" width="278.5" height="25.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfW-TI-vRN">
+                                                    <rect key="frame" x="0.0" y="64.5" width="278.5" height="64.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="L2b-5V-1M0" firstAttribute="height" secondItem="zhs-v2-9U9" secondAttribute="height" multiplier="0.2" id="3iP-tB-E79"/>
+                                                <constraint firstItem="cfW-TI-vRN" firstAttribute="height" secondItem="zhs-v2-9U9" secondAttribute="height" multiplier="0.5" id="4RO-Sr-KKq"/>
+                                                <constraint firstItem="ZFM-eN-18E" firstAttribute="height" secondItem="zhs-v2-9U9" secondAttribute="height" multiplier="0.2" id="L25-Gd-A1A"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zhs-v2-9U9" firstAttribute="height" secondItem="suN-gU-tFR" secondAttribute="height" multiplier="0.9" id="AhW-e3-Ecf"/>
+                                        <constraint firstItem="3FG-Of-8cj" firstAttribute="leading" secondItem="suN-gU-tFR" secondAttribute="leading" constant="16" id="H9h-M5-vgk"/>
+                                        <constraint firstItem="3FG-Of-8cj" firstAttribute="centerY" secondItem="suN-gU-tFR" secondAttribute="centerY" id="HJE-As-hLH"/>
+                                        <constraint firstItem="3FG-Of-8cj" firstAttribute="width" secondItem="suN-gU-tFR" secondAttribute="width" multiplier="0.25" id="NV6-7T-ThG"/>
+                                        <constraint firstItem="zhs-v2-9U9" firstAttribute="centerY" secondItem="suN-gU-tFR" secondAttribute="centerY" id="RP7-bb-f0t"/>
+                                        <constraint firstItem="3FG-Of-8cj" firstAttribute="height" secondItem="suN-gU-tFR" secondAttribute="height" multiplier="0.9" id="VEy-n2-b7x"/>
+                                        <constraint firstItem="zhs-v2-9U9" firstAttribute="leading" secondItem="3FG-Of-8cj" secondAttribute="trailing" constant="16" id="z8l-Ie-BM5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="zhs-v2-9U9" secondAttribute="trailing" id="diL-3j-uxM"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dateLabel" destination="ZFM-eN-18E" id="62B-1E-9LG"/>
+                                    <outlet property="descriptionLabel" destination="cfW-TI-vRN" id="vUG-At-Es5"/>
+                                    <outlet property="posterImage" destination="3FG-Of-8cj" id="fsN-Fb-gTs"/>
+                                    <outlet property="titleLabel" destination="L2b-5V-1M0" id="klO-3s-pem"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ToO-c2-pfu" id="xKe-E3-AJt"/>
+                            <outlet property="delegate" destination="ToO-c2-pfu" id="gaU-ku-ltz"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bBO-wp-UCU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="72.463768115942031" y="170.75892857142856"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="harrypotter0" width="490" height="712"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

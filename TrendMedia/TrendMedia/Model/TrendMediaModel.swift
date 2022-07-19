@@ -7,9 +7,28 @@
 
 import Foundation
 
-public struct trendMediaModel {
-    var settingTextArray: [[String]] = [ ["공지사항", "실험실", "버전 정보"], ["개인/보안", "알림", "채팅", "멀티프로필"], ["고객센터/도움말"]]
-    var headerArray: [String] = ["전체 설정", "개인 설정", "기타"]
+enum SettingOptions: Int, CaseIterable {
+    case total, personal, others
+    //section
+    var sectionTitle: String {
+        switch self {
+        case .total:
+            return "전체 설정"
+        case .personal:
+            return "개인 설정"
+        case .others:
+            return "기타"
+        }
+    }
+    //cell
+    var rowTitle: [String] {
+        switch self {
+        case .total:
+            return ["공지사항", "실험실", "버전 정보"]
+        case .personal:
+            return ["개인/보안", "알림", "채팅", "멀티프로필"]
+        case .others:
+            return ["고객센터/도움말"]
+        }
+    }
 }
-
-
