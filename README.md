@@ -16,6 +16,8 @@
 [🍀7/15 정리💫](https://s2ung.tistory.com/12)</br>
 ### 3주차
 [🍀7/18 정리💫](https://s2ung.tistory.com/13)</br>
+[🍀7/19 정리💫](https://s2ung.tistory.com/14)</br>
+
 
 
 
