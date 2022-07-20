@@ -28,6 +28,14 @@
 		7790FC112886ED2B00C87AAF /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC102886ED2B00C87AAF /* SearchTableViewCell.swift */; };
 		7790FC132886EE0D00C87AAF /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC122886EE0D00C87AAF /* MovieModel.swift */; };
 		7790FC152886FD1600C87AAF /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC142886FD1600C87AAF /* UILabel+Extension.swift */; };
+		7790FC172887871700C87AAF /* SearchMovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC162887871700C87AAF /* SearchMovieTableViewController.swift */; };
+		7790FC192887876C00C87AAF /* SearchMovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC182887876C00C87AAF /* SearchMovieTableViewCell.swift */; };
+		7790FC1B28878C9900C87AAF /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC1A28878C9900C87AAF /* Movie.swift */; };
+		7790FC1D2887951C00C87AAF /* MovieInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC1C2887951C00C87AAF /* MovieInfo.swift */; };
+		7790FC1F28879AA300C87AAF /* RecommandCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC1E28879AA300C87AAF /* RecommandCollectionViewController.swift */; };
+		7790FC2128879DFD00C87AAF /* RecommandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC2028879DFD00C87AAF /* RecommandCollectionViewCell.swift */; };
+		7790FC242887AE3400C87AAF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7790FC232887AE3400C87AAF /* Kingfisher */; };
+		7790FC272887AE4400C87AAF /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 7790FC262887AE4400C87AAF /* Toast */; };
 		77BFCDC328859E34008B1CB7 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77BFCDC228859E34008B1CB7 /* Setting.storyboard */; };
 		77BFCDC528859E80008B1CB7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BFCDC428859E80008B1CB7 /* SettingViewController.swift */; };
 		77BFCDC72885AC30008B1CB7 /* TrendMediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BFCDC62885AC30008B1CB7 /* TrendMediaModel.swift */; };
@@ -71,6 +79,12 @@
 		7790FC102886ED2B00C87AAF /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		7790FC122886EE0D00C87AAF /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		7790FC142886FD1600C87AAF /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
+		7790FC162887871700C87AAF /* SearchMovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieTableViewController.swift; sourceTree = "<group>"; };
+		7790FC182887876C00C87AAF /* SearchMovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMovieTableViewCell.swift; sourceTree = "<group>"; };
+		7790FC1A28878C9900C87AAF /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		7790FC1C2887951C00C87AAF /* MovieInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
+		7790FC1E28879AA300C87AAF /* RecommandCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandCollectionViewController.swift; sourceTree = "<group>"; };
+		7790FC2028879DFD00C87AAF /* RecommandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandCollectionViewCell.swift; sourceTree = "<group>"; };
 		77BFCDC228859E34008B1CB7 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		77BFCDC428859E80008B1CB7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		77BFCDC62885AC30008B1CB7 /* TrendMediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendMediaModel.swift; sourceTree = "<group>"; };
@@ -81,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7790FC272887AE4400C87AAF /* Toast in Frameworks */,
+				7790FC242887AE3400C87AAF /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +150,8 @@
 				776FBFA728864D9900EC9A91 /* BucketListTableViewCell.swift */,
 				776FBFB52886A1E000EC9A91 /* ShoppingTableViewCell.swift */,
 				7790FC102886ED2B00C87AAF /* SearchTableViewCell.swift */,
+				7790FC182887876C00C87AAF /* SearchMovieTableViewCell.swift */,
+				7790FC2028879DFD00C87AAF /* RecommandCollectionViewCell.swift */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -144,8 +162,10 @@
 				77BFCDC428859E80008B1CB7 /* SettingViewController.swift */,
 				776FBF9C2886440C00EC9A91 /* TrendViewController.swift */,
 				7790FC0E2886ECDC00C87AAF /* SearchTableViewController.swift */,
+				7790FC162887871700C87AAF /* SearchMovieTableViewController.swift */,
 				776FBFA528864B9000EC9A91 /* BucketListTableViewController.swift */,
 				776FBFB72886A28200EC9A91 /* ShoppingTableViewController.swift */,
+				7790FC1E28879AA300C87AAF /* RecommandCollectionViewController.swift */,
 				7790FC0D2886E7E100C87AAF /* ViewCell */,
 			);
 			path = ViewController;
@@ -157,6 +177,8 @@
 				77BFCDC62885AC30008B1CB7 /* TrendMediaModel.swift */,
 				776FBFAB28868E7C00EC9A91 /* ShoppingModel.swift */,
 				7790FC122886EE0D00C87AAF /* MovieModel.swift */,
+				7790FC1A28878C9900C87AAF /* Movie.swift */,
+				7790FC1C2887951C00C87AAF /* MovieInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +222,10 @@
 			dependencies = (
 			);
 			name = TrendMedia;
+			packageProductDependencies = (
+				7790FC232887AE3400C87AAF /* Kingfisher */,
+				7790FC262887AE4400C87AAF /* Toast */,
+			);
 			productName = TrendMedia;
 			productReference = 7714699F2884DDF3009291F7 /* TrendMedia.app */;
 			productType = "com.apple.product-type.application";
@@ -228,6 +254,10 @@
 				Base,
 			);
 			mainGroup = 771469962884DDF3009291F7;
+			packageReferences = (
+				7790FC222887AE3400C87AAF /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				7790FC252887AE4400C87AAF /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+			);
 			productRefGroup = 771469A02884DDF3009291F7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -261,16 +291,22 @@
 			files = (
 				7790FC152886FD1600C87AAF /* UILabel+Extension.swift in Sources */,
 				77BFCDC72885AC30008B1CB7 /* TrendMediaModel.swift in Sources */,
+				7790FC2128879DFD00C87AAF /* RecommandCollectionViewCell.swift in Sources */,
+				7790FC172887871700C87AAF /* SearchMovieTableViewController.swift in Sources */,
+				7790FC1F28879AA300C87AAF /* RecommandCollectionViewController.swift in Sources */,
 				776FBFB62886A1E000EC9A91 /* ShoppingTableViewCell.swift in Sources */,
 				776FBFA628864B9000EC9A91 /* BucketListTableViewController.swift in Sources */,
 				7790FC0F2886ECDC00C87AAF /* SearchTableViewController.swift in Sources */,
 				77BFCDC528859E80008B1CB7 /* SettingViewController.swift in Sources */,
+				7790FC1D2887951C00C87AAF /* MovieInfo.swift in Sources */,
 				771469A32884DDF3009291F7 /* AppDelegate.swift in Sources */,
 				776FBFB82886A28200EC9A91 /* ShoppingTableViewController.swift in Sources */,
+				7790FC192887876C00C87AAF /* SearchMovieTableViewCell.swift in Sources */,
 				776FBFA12886451A00EC9A91 /* UIViewController+Extension.swift in Sources */,
 				776FBFA42886478C00EC9A91 /* UITextField+Extension.swift in Sources */,
 				7790FC112886ED2B00C87AAF /* SearchTableViewCell.swift in Sources */,
 				776FBFA828864D9900EC9A91 /* BucketListTableViewCell.swift in Sources */,
+				7790FC1B28878C9900C87AAF /* Movie.swift in Sources */,
 				776FBFAC28868E7C00EC9A91 /* ShoppingModel.swift in Sources */,
 				7790FC132886EE0D00C87AAF /* MovieModel.swift in Sources */,
 				776FBF9D2886440C00EC9A91 /* TrendViewController.swift in Sources */,
@@ -485,6 +521,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7790FC222887AE3400C87AAF /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		7790FC252887AE4400C87AAF /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7790FC232887AE3400C87AAF /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7790FC222887AE3400C87AAF /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		7790FC262887AE4400C87AAF /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7790FC252887AE4400C87AAF /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 771469972884DDF3009291F7 /* Project object */;
 }

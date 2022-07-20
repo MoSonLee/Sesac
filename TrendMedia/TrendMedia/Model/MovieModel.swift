@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum Movie: Int, CaseIterable {
+enum MovieEum: Int, CaseIterable {
     case movie1, movie2, movie3, movie4
     
     var movieSection: Int {
@@ -22,6 +22,7 @@ enum Movie: Int, CaseIterable {
             return 1
         }
     }
+    
     var movieImage: UIImage? {
         switch self {
         case .movie1:

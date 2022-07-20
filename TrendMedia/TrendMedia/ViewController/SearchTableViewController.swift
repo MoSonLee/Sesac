@@ -14,19 +14,19 @@ class SearchTableViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return Movie.allCases.count
+        return MovieEum.allCases.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Movie.allCases[section].movieSection
+        return MovieEum.allCases[section].movieSection
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchTableViewCell", for: indexPath) as! SearchTableViewCell
-        cell.posterImage.image = Movie.allCases[indexPath.section].movieImage
-        cell.titleLabel.text = Movie.allCases[indexPath.section].movieTitle
-        cell.dateLabel.text = Movie.allCases[indexPath.section].movieDate
-        cell.descriptionLabel.text = Movie.allCases[indexPath.section].movieDescription
+        cell.posterImage.image = MovieEum.allCases[indexPath.section].movieImage
+        cell.titleLabel.text = MovieEum.allCases[indexPath.section].movieTitle
+        cell.dateLabel.text = MovieEum.allCases[indexPath.section].movieDate
+        cell.descriptionLabel.text = MovieEum.allCases[indexPath.section].movieDescription
         cell.titleLabel.setTitleLabel()
         cell.dateLabel.setDateLabel()
         cell.descriptionLabel.setDescriptionLabel()
