@@ -9,21 +9,33 @@
 /* Begin PBXBuildFile section */
 		7790FC352887F4B200C87AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC342887F4B200C87AAF /* AppDelegate.swift */; };
 		7790FC372887F4B200C87AAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC362887F4B200C87AAF /* SceneDelegate.swift */; };
-		7790FC392887F4B200C87AAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC382887F4B200C87AAF /* ViewController.swift */; };
-		7790FC3C2887F4B200C87AAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7790FC3A2887F4B200C87AAF /* Main.storyboard */; };
 		7790FC3E2887F4B300C87AAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7790FC3D2887F4B300C87AAF /* Assets.xcassets */; };
 		7790FC412887F4B300C87AAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7790FC3F2887F4B300C87AAF /* LaunchScreen.storyboard */; };
+		7790FC4A2887F4F300C87AAF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7790FC492887F4F300C87AAF /* Kingfisher */; };
+		7790FC522888318F00C87AAF /* LibraryStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7790FC512888318F00C87AAF /* LibraryStoryboard.storyboard */; };
+		7790FC542888321D00C87AAF /* LibraryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC532888321D00C87AAF /* LibraryCollectionViewController.swift */; };
+		7790FC562888323800C87AAF /* BookInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC552888323800C87AAF /* BookInfo.swift */; };
+		7790FC58288832DD00C87AAF /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC57288832DD00C87AAF /* Book.swift */; };
+		7790FC5A2888340C00C87AAF /* LibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC592888340C00C87AAF /* LibraryCollectionViewCell.swift */; };
+		7790FC5C288837FF00C87AAF /* BookImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC5B288837FF00C87AAF /* BookImage.swift */; };
+		7790FC5F288845AE00C87AAF /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC5E288845AE00C87AAF /* UICollectionView+Extension.swift */; };
+		7790FC6228884B7C00C87AAF /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 7790FC6128884B7C00C87AAF /* Toast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7790FC312887F4B200C87AAF /* LibraryBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibraryBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7790FC342887F4B200C87AAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7790FC362887F4B200C87AAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7790FC382887F4B200C87AAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7790FC3B2887F4B200C87AAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7790FC3D2887F4B300C87AAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7790FC402887F4B300C87AAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7790FC422887F4B300C87AAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7790FC512888318F00C87AAF /* LibraryStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LibraryStoryboard.storyboard; sourceTree = "<group>"; };
+		7790FC532888321D00C87AAF /* LibraryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewController.swift; sourceTree = "<group>"; };
+		7790FC552888323800C87AAF /* BookInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookInfo.swift; sourceTree = "<group>"; };
+		7790FC57288832DD00C87AAF /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		7790FC592888340C00C87AAF /* LibraryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCollectionViewCell.swift; sourceTree = "<group>"; };
+		7790FC5B288837FF00C87AAF /* BookImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookImage.swift; sourceTree = "<group>"; };
+		7790FC5E288845AE00C87AAF /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +43,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7790FC6228884B7C00C87AAF /* Toast in Frameworks */,
+				7790FC4A2887F4F300C87AAF /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,15 +70,76 @@
 		7790FC332887F4B200C87AAF /* LibraryBook */ = {
 			isa = PBXGroup;
 			children = (
-				7790FC342887F4B200C87AAF /* AppDelegate.swift */,
-				7790FC362887F4B200C87AAF /* SceneDelegate.swift */,
-				7790FC382887F4B200C87AAF /* ViewController.swift */,
-				7790FC3A2887F4B200C87AAF /* Main.storyboard */,
-				7790FC3D2887F4B300C87AAF /* Assets.xcassets */,
-				7790FC3F2887F4B300C87AAF /* LaunchScreen.storyboard */,
 				7790FC422887F4B300C87AAF /* Info.plist */,
+				7790FC4B2887F51200C87AAF /* Application */,
+				7790FC4E2887F54600C87AAF /* Storyboard */,
+				7790FC4C2887F52400C87AAF /* ViewController */,
+				7790FC4D2887F53F00C87AAF /* ViewCell */,
+				7790FC4F2887F57900C87AAF /* Model */,
+				7790FC5D2888458600C87AAF /* Extensions */,
+				7790FC502887F59600C87AAF /* Assets */,
 			);
 			path = LibraryBook;
+			sourceTree = "<group>";
+		};
+		7790FC4B2887F51200C87AAF /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				7790FC3F2887F4B300C87AAF /* LaunchScreen.storyboard */,
+				7790FC342887F4B200C87AAF /* AppDelegate.swift */,
+				7790FC362887F4B200C87AAF /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		7790FC4C2887F52400C87AAF /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7790FC532888321D00C87AAF /* LibraryCollectionViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		7790FC4D2887F53F00C87AAF /* ViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				7790FC592888340C00C87AAF /* LibraryCollectionViewCell.swift */,
+			);
+			path = ViewCell;
+			sourceTree = "<group>";
+		};
+		7790FC4E2887F54600C87AAF /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				7790FC512888318F00C87AAF /* LibraryStoryboard.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		7790FC4F2887F57900C87AAF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7790FC552888323800C87AAF /* BookInfo.swift */,
+				7790FC57288832DD00C87AAF /* Book.swift */,
+				7790FC5B288837FF00C87AAF /* BookImage.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7790FC502887F59600C87AAF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				7790FC3D2887F4B300C87AAF /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		7790FC5D2888458600C87AAF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7790FC5E288845AE00C87AAF /* UICollectionView+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +158,10 @@
 			dependencies = (
 			);
 			name = LibraryBook;
+			packageProductDependencies = (
+				7790FC492887F4F300C87AAF /* Kingfisher */,
+				7790FC6128884B7C00C87AAF /* Toast */,
+			);
 			productName = LibraryBook;
 			productReference = 7790FC312887F4B200C87AAF /* LibraryBook.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +190,10 @@
 				Base,
 			);
 			mainGroup = 7790FC282887F4B200C87AAF;
+			packageReferences = (
+				7790FC482887F4F300C87AAF /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				7790FC6028884B7C00C87AAF /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+			);
 			productRefGroup = 7790FC322887F4B200C87AAF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +210,7 @@
 			files = (
 				7790FC412887F4B300C87AAF /* LaunchScreen.storyboard in Resources */,
 				7790FC3E2887F4B300C87AAF /* Assets.xcassets in Resources */,
-				7790FC3C2887F4B200C87AAF /* Main.storyboard in Resources */,
+				7790FC522888318F00C87AAF /* LibraryStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +221,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7790FC392887F4B200C87AAF /* ViewController.swift in Sources */,
+				7790FC5F288845AE00C87AAF /* UICollectionView+Extension.swift in Sources */,
+				7790FC5C288837FF00C87AAF /* BookImage.swift in Sources */,
+				7790FC542888321D00C87AAF /* LibraryCollectionViewController.swift in Sources */,
+				7790FC5A2888340C00C87AAF /* LibraryCollectionViewCell.swift in Sources */,
+				7790FC562888323800C87AAF /* BookInfo.swift in Sources */,
+				7790FC58288832DD00C87AAF /* Book.swift in Sources */,
 				7790FC352887F4B200C87AAF /* AppDelegate.swift in Sources */,
 				7790FC372887F4B200C87AAF /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +235,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7790FC3A2887F4B200C87AAF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7790FC3B2887F4B200C87AAF /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7790FC3F2887F4B300C87AAF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +372,7 @@
 				INFOPLIST_FILE = LibraryBook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LibraryStoryboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +400,7 @@
 				INFOPLIST_FILE = LibraryBook/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = LibraryStoryboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -358,6 +438,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7790FC482887F4F300C87AAF /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		7790FC6028884B7C00C87AAF /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7790FC492887F4F300C87AAF /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7790FC482887F4F300C87AAF /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		7790FC6128884B7C00C87AAF /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7790FC6028884B7C00C87AAF /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7790FC292887F4B200C87AAF /* Project object */;
 }
