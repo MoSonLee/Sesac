@@ -19,11 +19,3 @@
 [🍀7/19 정리💫](https://s2ung.tistory.com/14)</br>
 [🍀7/20 정리💫](https://s2ung.tistory.com/15)</br>
 
-
-
-
-
-### Issues
-[이미지 데이터를 배열에 넣고 사용할 때](https://github.com/MoSonLee/Sesac/issues/1#issue-1294234804)</br>
-[배열 내 중복되지 않게 이미지를 출력할 때](https://github.com/MoSonLee/Sesac/issues/2#issue-1294235904)</br>
-[Netflix code refactoirng(7/5)](https://github.com/MoSonLee/Sesac/issues/3#issue-1294239190)</br>
