@@ -18,4 +18,5 @@
 [🍀7/18 정리💫](https://s2ung.tistory.com/13)</br>
 [🍀7/19 정리💫](https://s2ung.tistory.com/14)</br>
 [🍀7/20 정리💫](https://s2ung.tistory.com/15)</br>
+[🍀7/21 정리💫](https://s2ung.tistory.com/16)</br>
 
