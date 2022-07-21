@@ -33,4 +33,11 @@ class SearchTableViewController: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(":AAAAAAAAAAAAAA")
+        let sb = UIStoryboard(name: "Trend", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "RecommandCollectionViewController") as! RecommandCollectionViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

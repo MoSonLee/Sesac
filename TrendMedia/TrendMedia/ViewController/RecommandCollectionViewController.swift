@@ -30,11 +30,13 @@ class RecommandCollectionViewController: UICollectionViewController {
         
     }
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        100
+        10
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommandCollectionViewCell", for: indexPath) as! RecommandCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecommandCollectionViewCell", for: indexPath) as? RecommandCollectionViewCell else {
+            return UICollectionViewCell()
+        }
         cell.poasterImageView.backgroundColor = .systemCyan
         let url = URL(string: image)
         cell.poasterImageView.kf.setImage(with: url)
@@ -43,5 +45,6 @@ class RecommandCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         view.makeToast("\(indexPath.item)번째 셀을 선택했습니다.", duration: 3, position: .center)
+        self.navigationController?.popViewController(animated: true)
     }
 }

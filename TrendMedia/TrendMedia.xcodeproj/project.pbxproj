@@ -36,6 +36,8 @@
 		7790FC2128879DFD00C87AAF /* RecommandCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC2028879DFD00C87AAF /* RecommandCollectionViewCell.swift */; };
 		7790FC242887AE3400C87AAF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7790FC232887AE3400C87AAF /* Kingfisher */; };
 		7790FC272887AE4400C87AAF /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 7790FC262887AE4400C87AAF /* Toast */; };
+		7790FC642888E75400C87AAF /* TrendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC632888E75400C87AAF /* TrendTableViewController.swift */; };
+		7790FC662888E76F00C87AAF /* TrendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC652888E76F00C87AAF /* TrendTableViewCell.swift */; };
 		77BFCDC328859E34008B1CB7 /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77BFCDC228859E34008B1CB7 /* Setting.storyboard */; };
 		77BFCDC528859E80008B1CB7 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BFCDC428859E80008B1CB7 /* SettingViewController.swift */; };
 		77BFCDC72885AC30008B1CB7 /* TrendMediaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BFCDC62885AC30008B1CB7 /* TrendMediaModel.swift */; };
@@ -85,6 +87,8 @@
 		7790FC1C2887951C00C87AAF /* MovieInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieInfo.swift; sourceTree = "<group>"; };
 		7790FC1E28879AA300C87AAF /* RecommandCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandCollectionViewController.swift; sourceTree = "<group>"; };
 		7790FC2028879DFD00C87AAF /* RecommandCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommandCollectionViewCell.swift; sourceTree = "<group>"; };
+		7790FC632888E75400C87AAF /* TrendTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewController.swift; sourceTree = "<group>"; };
+		7790FC652888E76F00C87AAF /* TrendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendTableViewCell.swift; sourceTree = "<group>"; };
 		77BFCDC228859E34008B1CB7 /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		77BFCDC428859E80008B1CB7 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		77BFCDC62885AC30008B1CB7 /* TrendMediaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendMediaModel.swift; sourceTree = "<group>"; };
@@ -127,7 +131,6 @@
 				77BFCDCB2885BDA0008B1CB7 /* Application */,
 				77BFCDCA2885BD86008B1CB7 /* Storyboard */,
 				77BFCDC82885BCB7008B1CB7 /* ViewController */,
-				776FBFA2288646B300EC9A91 /* Extensions */,
 				77BFCDC92885BD70008B1CB7 /* Model */,
 			);
 			path = TrendMedia;
@@ -152,6 +155,7 @@
 				7790FC102886ED2B00C87AAF /* SearchTableViewCell.swift */,
 				7790FC182887876C00C87AAF /* SearchMovieTableViewCell.swift */,
 				7790FC2028879DFD00C87AAF /* RecommandCollectionViewCell.swift */,
+				7790FC652888E76F00C87AAF /* TrendTableViewCell.swift */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -166,6 +170,8 @@
 				776FBFA528864B9000EC9A91 /* BucketListTableViewController.swift */,
 				776FBFB72886A28200EC9A91 /* ShoppingTableViewController.swift */,
 				7790FC1E28879AA300C87AAF /* RecommandCollectionViewController.swift */,
+				7790FC632888E75400C87AAF /* TrendTableViewController.swift */,
+				776FBFA2288646B300EC9A91 /* Extensions */,
 				7790FC0D2886E7E100C87AAF /* ViewCell */,
 			);
 			path = ViewController;
@@ -294,6 +300,7 @@
 				7790FC2128879DFD00C87AAF /* RecommandCollectionViewCell.swift in Sources */,
 				7790FC172887871700C87AAF /* SearchMovieTableViewController.swift in Sources */,
 				7790FC1F28879AA300C87AAF /* RecommandCollectionViewController.swift in Sources */,
+				7790FC642888E75400C87AAF /* TrendTableViewController.swift in Sources */,
 				776FBFB62886A1E000EC9A91 /* ShoppingTableViewCell.swift in Sources */,
 				776FBFA628864B9000EC9A91 /* BucketListTableViewController.swift in Sources */,
 				7790FC0F2886ECDC00C87AAF /* SearchTableViewController.swift in Sources */,
@@ -304,6 +311,7 @@
 				7790FC192887876C00C87AAF /* SearchMovieTableViewCell.swift in Sources */,
 				776FBFA12886451A00EC9A91 /* UIViewController+Extension.swift in Sources */,
 				776FBFA42886478C00EC9A91 /* UITextField+Extension.swift in Sources */,
+				7790FC662888E76F00C87AAF /* TrendTableViewCell.swift in Sources */,
 				7790FC112886ED2B00C87AAF /* SearchTableViewCell.swift in Sources */,
 				776FBFA828864D9900EC9A91 /* BucketListTableViewCell.swift in Sources */,
 				7790FC1B28878C9900C87AAF /* Movie.swift in Sources */,

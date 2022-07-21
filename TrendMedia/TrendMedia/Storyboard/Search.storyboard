@@ -84,10 +84,11 @@
                             <outlet property="delegate" destination="ToO-c2-pfu" id="gaU-ku-ltz"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="DY5-Nm-P4j"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBO-wp-UCU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="72.463768115942031" y="170.75892857142856"/>
+            <point key="canvasLocation" x="982.60869565217399" y="170.75892857142856"/>
         </scene>
         <!--Search Movie Table View Controller-->
         <scene sceneID="hcC-XP-JB6">
@@ -168,10 +169,11 @@
                             <outlet property="delegate" destination="0pA-gH-DA0" id="Hkt-nE-tsl"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="X0T-ZR-Mgi"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdH-tB-stO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1114.4927536231885" y="186.83035714285714"/>
+            <point key="canvasLocation" x="3411.594202898551" y="153.34821428571428"/>
         </scene>
     </scenes>
     <resources>
