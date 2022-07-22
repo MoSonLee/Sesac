@@ -21,9 +21,6 @@ class TrendTableViewController: UITableViewController {
         //2.
         let vc = storyboard.instantiateViewController(withIdentifier: BucketListTableViewController.identifier) as! BucketListTableViewController
         self.present(vc, animated: true)
-        
-        
-        
     }
     
     @IBAction func dreamButtonClicked(_ sender: UIButton) {
@@ -48,5 +45,4 @@ class TrendTableViewController: UITableViewController {
         nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true)
     }
-    
 }
