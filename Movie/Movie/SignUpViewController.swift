@@ -53,7 +53,7 @@ final class SignUpViewController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
-    
+
     private func showASuccesslert(_ text: String) {
         let alert =  UIAlertController(title: text, message: nil, preferredStyle: .alert)
         let okAction = UIAlertAction(title: "확인", style: .default) { [self]
