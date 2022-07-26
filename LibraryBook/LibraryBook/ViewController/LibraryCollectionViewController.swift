@@ -9,12 +9,11 @@ import UIKit
 import Kingfisher
 import Toast
 
-private let reuseIdentifier = "Cell"
+public var randomColorArray: [UIColor] = [.systemCyan, .systemRed, .systemPurple, .systemPink, .systemMint, .systemBlue]
 
 class LibraryCollectionViewController: UICollectionViewController {
     
     private var bookList = BookInfo()
-    private var randomColorArray: [UIColor] = [.systemCyan, .systemRed, .systemPurple, .systemPink, .systemMint, .systemBlue]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +39,8 @@ class LibraryCollectionViewController: UICollectionViewController {
         let storyboard = UIStoryboard(name: "LibraryStoryboard", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: SearchBookViewController.identifier) as? SearchBookViewController else { return }
         let nav = UINavigationController(rootViewController: vc)
-        view.backgroundColor = randomColorArray.randomElement()
+        vc.bookData = bookList.book[indexPath.row]
+        nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true)
     }
     
@@ -60,7 +60,6 @@ class LibraryCollectionViewController: UICollectionViewController {
     @IBAction func moveToBookInfoButtonTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "LibraryStoryboard", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: BookInfoViewController.identifier) as? BookInfoViewController else { return }
-        let nav = UINavigationController(rootViewController: vc)
-        self.present(nav, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

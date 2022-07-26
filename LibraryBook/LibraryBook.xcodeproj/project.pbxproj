@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		775306E32889B33600A3E708 /* BookInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775306E22889B33600A3E708 /* BookInfoViewController.swift */; };
 		776690A328898B1700B7C81C /* SearchBookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776690A228898B1700B7C81C /* SearchBookViewController.swift */; };
+		777D0D04288A3F7E003B4008 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777D0D03288A3F7E003B4008 /* InitialViewController.swift */; };
 		7790FC352887F4B200C87AAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC342887F4B200C87AAF /* AppDelegate.swift */; };
 		7790FC372887F4B200C87AAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7790FC362887F4B200C87AAF /* SceneDelegate.swift */; };
 		7790FC3E2887F4B300C87AAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7790FC3D2887F4B300C87AAF /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		775306E22889B33600A3E708 /* BookInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoViewController.swift; sourceTree = "<group>"; };
 		776690A228898B1700B7C81C /* SearchBookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookViewController.swift; sourceTree = "<group>"; };
+		777D0D03288A3F7E003B4008 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		7790FC312887F4B200C87AAF /* LibraryBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LibraryBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7790FC342887F4B200C87AAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7790FC362887F4B200C87AAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				7790FC532888321D00C87AAF /* LibraryCollectionViewController.swift */,
 				776690A228898B1700B7C81C /* SearchBookViewController.swift */,
 				775306E22889B33600A3E708 /* BookInfoViewController.swift */,
+				777D0D03288A3F7E003B4008 /* InitialViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -229,6 +232,7 @@
 			files = (
 				7790FC5F288845AE00C87AAF /* UICollectionView+Extension.swift in Sources */,
 				775306E32889B33600A3E708 /* BookInfoViewController.swift in Sources */,
+				777D0D04288A3F7E003B4008 /* InitialViewController.swift in Sources */,
 				7790FC5C288837FF00C87AAF /* BookImage.swift in Sources */,
 				7790FC542888321D00C87AAF /* LibraryCollectionViewController.swift in Sources */,
 				7790FC5A2888340C00C87AAF /* LibraryCollectionViewCell.swift in Sources */,
