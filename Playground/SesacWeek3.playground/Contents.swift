@@ -219,7 +219,7 @@ struct BMI {
     }
     var weight: Double
     var height: Double
-
+    
     var BMIResult: String {
         get {
             let bmiValue = (weight * weight) / height
@@ -229,24 +229,18 @@ struct BMI {
         
         // set은 옵션
         set {
-            
             nickname = newValue
         }
     }
-    
-    
-    
     var sample: String {
         return "\(Int.random(in: 1...100))"
     }
 }
 
 var bmi = BMI(nickname: "고래밥", weight: 50, height: 180)
-
 //let bmiValue = (bmi.weight * bmi.weight) / bmi.height
 //let bmiStatus = bmiValue < 18.5 ? "저체중" : "정상 이상"
 //let reuslt = "\(bmi.nickname)님의 BMI 지수는 \(bmiValue)로 \(bmiStatus)입니다!"
-
 let result = bmi.BMIResult // get
 print(result)
 
