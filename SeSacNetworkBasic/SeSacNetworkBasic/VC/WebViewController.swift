@@ -6,24 +6,35 @@
 //
 
 import UIKit
+import WebKit
 
 class WebViewController: UIViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var webView: WKWebView!
+    
+    var destinationURL: String = "https://www.apple.com"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchBar.delegate = self
 
-        // Do any additional setup after loading the view.
+        openWebPage(url: destinationURL)
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func openWebPage(url: String) {
+        guard let url = URL(string: url) else {
+            print("Invalid URL")
+            return
+        }
+        let request = URLRequest(url: url)
+        webView.load(request)
     }
-    */
+}
 
+extension WebViewController:UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        openWebPage(url: searchBar.text!)
+        print("AA")
+    }
 }

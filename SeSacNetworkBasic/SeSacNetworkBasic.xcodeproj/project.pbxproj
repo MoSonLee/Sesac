@@ -16,6 +16,11 @@
 		773B81312890DD7700929DF5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773B812F2890DD7700929DF5 /* Main.storyboard */; };
 		773B81332890DD7800929DF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 773B81322890DD7800929DF5 /* Assets.xcassets */; };
 		773B81362890DD7800929DF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 773B81342890DD7800929DF5 /* LaunchScreen.storyboard */; };
+		77C3365E28920CE800D3A884 /* ViewPresentableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3365D28920CE800D3A884 /* ViewPresentableProtocol.swift */; };
+		77C336602892238100D3A884 /* LottoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3365F2892238100D3A884 /* LottoViewController.swift */; };
+		77C336632892305F00D3A884 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C336622892305F00D3A884 /* TranslateViewController.swift */; };
+		77C3366528923AB300D3A884 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3366428923AB300D3A884 /* WebViewController.swift */; };
+		77C336672892A9E700D3A884 /* WebHWController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C336662892A9E700D3A884 /* WebHWController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +35,11 @@
 		773B81322890DD7800929DF5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		773B81352890DD7800929DF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		773B81372890DD7800929DF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77C3365D28920CE800D3A884 /* ViewPresentableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewPresentableProtocol.swift; sourceTree = "<group>"; };
+		77C3365F2892238100D3A884 /* LottoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoViewController.swift; sourceTree = "<group>"; };
+		77C336622892305F00D3A884 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
+		77C3366428923AB300D3A884 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		77C336662892A9E700D3A884 /* WebHWController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHWController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,18 +72,79 @@
 		773B81282890DD7700929DF5 /* SeSacNetworkBasic */ = {
 			isa = PBXGroup;
 			children = (
-				773B81292890DD7700929DF5 /* AppDelegate.swift */,
-				773B812B2890DD7700929DF5 /* SceneDelegate.swift */,
-				773B812D2890DD7700929DF5 /* ViewController.swift */,
-				773B812F2890DD7700929DF5 /* Main.storyboard */,
-				772D73AF2890E25E00EC9578 /* SearchViewController.swift */,
-				773B81322890DD7800929DF5 /* Assets.xcassets */,
-				773B81342890DD7800929DF5 /* LaunchScreen.storyboard */,
 				773B81372890DD7800929DF5 /* Info.plist */,
-				772D73B12890E4CE00EC9578 /* ListTableViewCell.swift */,
-				772D73B22890E4CE00EC9578 /* ListTableViewCell.xib */,
+				77C3365B28920CA200D3A884 /* Application */,
+				77C3366A2892AA3200D3A884 /* View */,
+				77C3365C28920CC400D3A884 /* VC */,
+				77C336692892AA1000D3A884 /* ViewCell */,
+				77C3365A28920C9F00D3A884 /* Protocol */,
+				77C336612892270A00D3A884 /* Extension */,
+				77C336682892A9F500D3A884 /* Assets */,
 			);
 			path = SeSacNetworkBasic;
+			sourceTree = "<group>";
+		};
+		77C3365A28920C9F00D3A884 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				77C3365D28920CE800D3A884 /* ViewPresentableProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		77C3365B28920CA200D3A884 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				773B81292890DD7700929DF5 /* AppDelegate.swift */,
+				773B812B2890DD7700929DF5 /* SceneDelegate.swift */,
+				773B81342890DD7800929DF5 /* LaunchScreen.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		77C3365C28920CC400D3A884 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				773B812D2890DD7700929DF5 /* ViewController.swift */,
+				772D73AF2890E25E00EC9578 /* SearchViewController.swift */,
+				77C3365F2892238100D3A884 /* LottoViewController.swift */,
+				77C336622892305F00D3A884 /* TranslateViewController.swift */,
+				77C3366428923AB300D3A884 /* WebViewController.swift */,
+				77C336662892A9E700D3A884 /* WebHWController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		77C336612892270A00D3A884 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		77C336682892A9F500D3A884 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				773B81322890DD7800929DF5 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		77C336692892AA1000D3A884 /* ViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				772D73B12890E4CE00EC9578 /* ListTableViewCell.swift */,
+			);
+			path = ViewCell;
+			sourceTree = "<group>";
+		};
+		77C3366A2892AA3200D3A884 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				773B812F2890DD7700929DF5 /* Main.storyboard */,
+				772D73B22890E4CE00EC9578 /* ListTableViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,9 +220,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				773B812E2890DD7700929DF5 /* ViewController.swift in Sources */,
+				77C3366528923AB300D3A884 /* WebViewController.swift in Sources */,
 				773B812A2890DD7700929DF5 /* AppDelegate.swift in Sources */,
+				77C336672892A9E700D3A884 /* WebHWController.swift in Sources */,
 				772D73B02890E25E00EC9578 /* SearchViewController.swift in Sources */,
+				77C336602892238100D3A884 /* LottoViewController.swift in Sources */,
 				773B812C2890DD7700929DF5 /* SceneDelegate.swift in Sources */,
+				77C336632892305F00D3A884 /* TranslateViewController.swift in Sources */,
+				77C3365E28920CE800D3A884 /* ViewPresentableProtocol.swift in Sources */,
 				772D73B32890E4CE00EC9578 /* ListTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
