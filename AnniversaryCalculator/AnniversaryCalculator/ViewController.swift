@@ -17,6 +17,15 @@ final class ViewController: UIViewController {
     
     private var index = 0
     private let userDefaults = UserDefaults.standard
+    var dDayDate: String {
+        var dDayDateStringFormed = ""
+        let calendar = Calendar.current
+        let firstDate = calendar.startOfDay(for: Date())
+        let selectedDate = calendar.startOfDay(for: datePicker.date)
+        let dDayDate = calendar.dateComponents([.day], from: firstDate, to: selectedDate)
+        dDayDateStringFormed =  dDayDate.day! > 0 ? "D + \(String(dDayDate.day!))" :"D \(String(dDayDate.day!))"
+        return dDayDateStringFormed
+    }
     
     override func viewDidLoad() {
         checkiOSVersion()
@@ -64,17 +73,6 @@ final class ViewController: UIViewController {
         index = userDefaults.integer(forKey: "indexKey")
     }
     
-    //dDay Date 구하는 로직 -> 조금 더 효율적이게 작성할 수 없을까?
-    private func dDayDate() -> String {
-        var dDayDateStringFormed = ""
-        let calendar = Calendar.current
-        let firstDate = calendar.startOfDay(for: Date())
-        let selectedDate = calendar.startOfDay(for: datePicker.date)
-        let dDayDate = calendar.dateComponents([.day], from: firstDate, to: selectedDate)
-        dDayDateStringFormed =  dDayDate.day! > 0 ? "D + \(String(dDayDate.day!))" :"D \(String(dDayDate.day!))"
-        return dDayDateStringFormed
-    }
-    
     private func setButton() {
         initializerButton.setTitle("초기화 버튼", for: .normal)
         initializerButton.tintColor = .white
@@ -116,7 +114,7 @@ final class ViewController: UIViewController {
         imageCollection[index].tag = index
         dateLabelCollection[index].tag = index
         if imageCollection[index].tag == dateLabelCollection[index].tag {
-            dateLabelCollection[index].text = dDayDate()
+            dateLabelCollection[index].text = dDayDate
             dayLabelCollection[index].text = format.string(from: datePicker.date)
             userDefaults.set(dateLabelCollection[index].text, forKey: "date\(index)")
             userDefaults.set(dayLabelCollection[index].text, forKey: "day\(index)")
