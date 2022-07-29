@@ -25,7 +25,7 @@ class BucketListTableViewController: UITableViewController {
     //        }
     //    }
     
-    var list = [Todo(title: "범죄도시2", done: false), Todo(title: "탑거", done: true)]
+    var list = [Todo(title: "범죄도시2", done: false), Todo(title: "탑건", done: true)]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,9 +50,9 @@ class BucketListTableViewController: UITableViewController {
         //탭바 밑에 11, 네비게이션 Title 17 그 사이 크게 쓰고 싶으면 15 작게 쓰고싶으면 13
         cell.bucketListLabel.font = .boldSystemFont(ofSize: 18)
         
+        
         cell.checkboxButton.tag = indexPath.row
         cell.checkboxButton.addTarget(self, action: #selector(checkboxButtonClicked), for: .touchUpInside)
-        
         let value = list[indexPath.row].done ? "checkmark.square.fill" : "checkmark.square"
         cell.checkboxButton.setImage(UIImage(systemName: value), for: .normal)
         return cell
@@ -61,11 +61,8 @@ class BucketListTableViewController: UITableViewController {
     @objc func checkboxButtonClicked(sender: UIButton) {
         print("\(sender.tag)번째 버튼 클릭!")
         list[sender.tag].done = !list[sender.tag].done
-//        tableView.reloadData()
+        tableView.reloadData()
         tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .fade)
-//        list[sender.tag].done ? sender.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal) : sender.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
-//        list[sender.tag].done = !list[sender.tag].done
-        //        sender.setImage(UIImage(systemName: "checkmark.square.fill"), for: .normal)
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
