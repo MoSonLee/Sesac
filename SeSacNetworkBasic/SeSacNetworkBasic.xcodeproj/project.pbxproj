@@ -21,6 +21,9 @@
 		77C336632892305F00D3A884 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C336622892305F00D3A884 /* TranslateViewController.swift */; };
 		77C3366528923AB300D3A884 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3366428923AB300D3A884 /* WebViewController.swift */; };
 		77C336672892A9E700D3A884 /* WebHWController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C336662892A9E700D3A884 /* WebHWController.swift */; };
+		77E156C728935D5B006A4071 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E156C628935D5B006A4071 /* LocationViewController.swift */; };
+		77E156CA28938539006A4071 /* Mabinogi_Classic_OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77E156C928938539006A4071 /* Mabinogi_Classic_OTF.otf */; };
+		77E156D1289385EC006A4071 /* EF_MACHO(맥용_OTF).otf in Resources */ = {isa = PBXBuildFile; fileRef = 77E156CF289385EC006A4071 /* EF_MACHO(맥용_OTF).otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		77C336622892305F00D3A884 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		77C3366428923AB300D3A884 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		77C336662892A9E700D3A884 /* WebHWController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHWController.swift; sourceTree = "<group>"; };
+		77E156C628935D5B006A4071 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
+		77E156C928938539006A4071 /* Mabinogi_Classic_OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mabinogi_Classic_OTF.otf; sourceTree = "<group>"; };
+		77E156CF289385EC006A4071 /* EF_MACHO(맥용_OTF).otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EF_MACHO(맥용_OTF).otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,7 @@
 		773B81282890DD7700929DF5 /* SeSacNetworkBasic */ = {
 			isa = PBXGroup;
 			children = (
+				77E156C8289384FB006A4071 /* Resource */,
 				773B81372890DD7800929DF5 /* Info.plist */,
 				77C3365B28920CA200D3A884 /* Application */,
 				77C3366A2892AA3200D3A884 /* View */,
@@ -111,6 +118,7 @@
 				77C336622892305F00D3A884 /* TranslateViewController.swift */,
 				77C3366428923AB300D3A884 /* WebViewController.swift */,
 				77C336662892A9E700D3A884 /* WebHWController.swift */,
+				77E156C628935D5B006A4071 /* LocationViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -145,6 +153,15 @@
 				772D73B22890E4CE00EC9578 /* ListTableViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		77E156C8289384FB006A4071 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				77E156CF289385EC006A4071 /* EF_MACHO(맥용_OTF).otf */,
+				77E156C928938539006A4071 /* Mabinogi_Classic_OTF.otf */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +224,8 @@
 			files = (
 				773B81362890DD7800929DF5 /* LaunchScreen.storyboard in Resources */,
 				772D73B42890E4CE00EC9578 /* ListTableViewCell.xib in Resources */,
+				77E156D1289385EC006A4071 /* EF_MACHO(맥용_OTF).otf in Resources */,
+				77E156CA28938539006A4071 /* Mabinogi_Classic_OTF.otf in Resources */,
 				773B81332890DD7800929DF5 /* Assets.xcassets in Resources */,
 				773B81312890DD7700929DF5 /* Main.storyboard in Resources */,
 			);
@@ -224,6 +243,7 @@
 				773B812A2890DD7700929DF5 /* AppDelegate.swift in Sources */,
 				77C336672892A9E700D3A884 /* WebHWController.swift in Sources */,
 				772D73B02890E25E00EC9578 /* SearchViewController.swift in Sources */,
+				77E156C728935D5B006A4071 /* LocationViewController.swift in Sources */,
 				77C336602892238100D3A884 /* LottoViewController.swift in Sources */,
 				773B812C2890DD7700929DF5 /* SceneDelegate.swift in Sources */,
 				77C336632892305F00D3A884 /* TranslateViewController.swift in Sources */,

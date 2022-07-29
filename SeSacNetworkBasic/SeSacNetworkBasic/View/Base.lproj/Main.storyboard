@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HcB-Wf-fow">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pk8-wH-IGm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -47,6 +47,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-39.130434782608695" y="132.58928571428572"/>
+        </scene>
+        <!--Location View Controller-->
+        <scene sceneID="w5R-jU-x7e">
+            <objects>
+                <viewController id="XLl-wD-s0Y" customClass="LocationViewController" customModule="SeSacNetworkBasic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iXD-l9-bA8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cpk-Cm-iy6">
+                                <rect key="frame" x="20" y="64" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="HMQ-IK-oh7"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Local Notification"/>
+                                <connections>
+                                    <action selector="notificationButtonClicked:" destination="XLl-wD-s0Y" eventType="touchUpInside" id="SSk-Ks-shi"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="655-eo-Knn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cpk-Cm-iy6" firstAttribute="leading" secondItem="655-eo-Knn" secondAttribute="leading" constant="20" id="QJF-tN-s3c"/>
+                            <constraint firstItem="655-eo-Knn" firstAttribute="trailing" secondItem="cpk-Cm-iy6" secondAttribute="trailing" constant="20" id="VW0-Sl-lWd"/>
+                            <constraint firstItem="cpk-Cm-iy6" firstAttribute="top" secondItem="655-eo-Knn" secondAttribute="top" constant="20" id="Xsd-GH-ecF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pZX-d3-aVs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-39" y="971"/>
         </scene>
         <!--Lotto View Controller-->
         <scene sceneID="9hT-U9-Yf1">
