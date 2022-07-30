@@ -78,8 +78,8 @@
 		773B81282890DD7700929DF5 /* SeSacNetworkBasic */ = {
 			isa = PBXGroup;
 			children = (
-				77E156C8289384FB006A4071 /* Resource */,
 				773B81372890DD7800929DF5 /* Info.plist */,
+				77E156C8289384FB006A4071 /* Resource */,
 				77C3365B28920CA200D3A884 /* Application */,
 				77C3366A2892AA3200D3A884 /* View */,
 				77C3365C28920CC400D3A884 /* VC */,

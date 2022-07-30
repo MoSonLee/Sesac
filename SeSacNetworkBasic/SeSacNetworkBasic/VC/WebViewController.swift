@@ -18,7 +18,6 @@ class WebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-
         openWebPage(url: destinationURL)
     }
 
@@ -35,6 +34,6 @@ class WebViewController: UIViewController {
 extension WebViewController:UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         openWebPage(url: searchBar.text!)
-        print("AA")
+        print("URL opened")
     }
 }

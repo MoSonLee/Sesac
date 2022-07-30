@@ -4,16 +4,15 @@
 //
 //  Created by 이승후 on 2022/07/28.
 //
+//    @IBOutlet weak var lottopickerView: UIPickerView!
 
 import UIKit
 
 class LottoViewController: UIViewController {
     
     @IBOutlet weak var numberTextField: UITextField!
-//    @IBOutlet weak var lottopickerView: UIPickerView!
     
     var lottopickerView = UIPickerView()
-    //
     let numberList: [Int] = Array(1...1025).reversed()
     
     override func viewDidLoad() {
