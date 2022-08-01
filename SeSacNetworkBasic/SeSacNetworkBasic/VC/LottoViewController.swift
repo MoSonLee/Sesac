@@ -8,18 +8,51 @@
 
 import UIKit
 
+import Alamofire
+import SwiftyJSON
+
 class LottoViewController: UIViewController {
     
+    @IBOutlet var lottoNumberLabelArray: [UILabel]!
     @IBOutlet weak var numberTextField: UITextField!
     
-    var lottopickerView = UIPickerView()
-    let numberList: [Int] = Array(1...1025).reversed()
+    private var lottopickerView = UIPickerView()
+    private let numberList: [Int] = Array(1...1026).reversed()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemMint
         lottopickerView.dataSource = self
         lottopickerView.delegate = self
         numberTextField.inputView = lottopickerView
+        requestLotto(number: numberList.count)
+        numberTextField.layer.borderWidth = 1
+    }
+    
+    private func requestLotto(number: Int) {
+        let url = "https://www.dhlottery.co.kr/common.do?method=getLottoNumber&drwNo=\(number)"
+        AF.request(url, method: .get).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print("JSON: \(json)")
+                let date = json["drwNoDate"].stringValue
+                for index in 0..<6 {
+                    self.lottoNumberLabelArray[index].text = String(json["drwtNo\(index+1)"].intValue)
+                    self.lottoNumberLabelArray[index].layer.borderWidth = 1
+                }
+                self.lottoNumberLabelArray.last?.text = String(json["bnusNo"].intValue)
+                self.lottoNumberLabelArray.last?.layer.borderWidth = 1
+                self.numberTextField.text = date
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 }
 
@@ -33,6 +66,7 @@ extension LottoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        requestLotto(number: numberList[row])
         numberTextField.text = "\(numberList[row])회차"
     }
     
