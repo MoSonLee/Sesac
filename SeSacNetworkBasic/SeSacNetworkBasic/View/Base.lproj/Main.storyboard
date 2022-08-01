@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4sx-pK-6eh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Dew-BW-981">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -384,6 +384,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DCd-kG-G45" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4494" y="113"/>
+        </scene>
+        <!--Beer View Controller-->
+        <scene sceneID="fBx-aH-GQQ">
+            <objects>
+                <viewController id="Dew-BW-981" customClass="BeerViewController" customModule="SeSacNetworkBasic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="R3B-Tf-CMg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TIG-ot-Jj7">
+                                <rect key="frame" x="16" y="638" width="382" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="randomButtonTapped:" destination="Dew-BW-981" eventType="touchUpInside" id="mtr-Cs-adu"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qoe-5w-C5J">
+                                <rect key="frame" x="16" y="88" width="382" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="WBS-RV-HNY"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cFk-zd-BXe">
+                                <rect key="frame" x="32" y="494" width="350" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="ke3-Kr-c3y"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOg-c4-zef">
+                                <rect key="frame" x="32" y="420" width="350" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dC-gC-NNg">
+                                <rect key="frame" x="32" y="457" width="350" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="du9-KL-sr6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Qoe-5w-C5J" firstAttribute="top" secondItem="du9-KL-sr6" secondAttribute="top" constant="44" id="127-Bm-r1t"/>
+                            <constraint firstItem="du9-KL-sr6" firstAttribute="trailing" secondItem="2dC-gC-NNg" secondAttribute="trailing" constant="32" id="5DK-Yh-E2N"/>
+                            <constraint firstItem="Qoe-5w-C5J" firstAttribute="leading" secondItem="du9-KL-sr6" secondAttribute="leading" constant="16" id="6Lq-2r-2Qt"/>
+                            <constraint firstItem="du9-KL-sr6" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="TIG-ot-Jj7" secondAttribute="bottom" constant="16" id="Ehw-vc-koG"/>
+                            <constraint firstItem="2dC-gC-NNg" firstAttribute="top" secondItem="nOg-c4-zef" secondAttribute="bottom" constant="16" id="Fce-Xf-tlm"/>
+                            <constraint firstItem="cFk-zd-BXe" firstAttribute="top" secondItem="2dC-gC-NNg" secondAttribute="bottom" constant="16" id="OqJ-55-nmy"/>
+                            <constraint firstItem="TIG-ot-Jj7" firstAttribute="top" secondItem="cFk-zd-BXe" secondAttribute="bottom" constant="16" id="RiY-AU-cKw"/>
+                            <constraint firstItem="nOg-c4-zef" firstAttribute="top" secondItem="Qoe-5w-C5J" secondAttribute="bottom" constant="32" id="SCQ-tW-2Bp"/>
+                            <constraint firstItem="du9-KL-sr6" firstAttribute="trailing" secondItem="Qoe-5w-C5J" secondAttribute="trailing" constant="16" id="UYn-qN-FBu"/>
+                            <constraint firstItem="nOg-c4-zef" firstAttribute="leading" secondItem="du9-KL-sr6" secondAttribute="leading" constant="32" id="Unz-SK-qGk"/>
+                            <constraint firstItem="du9-KL-sr6" firstAttribute="trailing" secondItem="cFk-zd-BXe" secondAttribute="trailing" constant="32" id="Wfa-2s-IGf"/>
+                            <constraint firstItem="du9-KL-sr6" firstAttribute="trailing" secondItem="nOg-c4-zef" secondAttribute="trailing" constant="32" id="aMw-Wf-2od"/>
+                            <constraint firstItem="TIG-ot-Jj7" firstAttribute="leading" secondItem="du9-KL-sr6" secondAttribute="leading" constant="16" id="aYm-A0-nWU"/>
+                            <constraint firstItem="cFk-zd-BXe" firstAttribute="leading" secondItem="du9-KL-sr6" secondAttribute="leading" constant="32" id="eqj-NW-xYn"/>
+                            <constraint firstItem="du9-KL-sr6" firstAttribute="trailing" secondItem="TIG-ot-Jj7" secondAttribute="trailing" constant="16" id="gx6-Qq-QVk"/>
+                            <constraint firstItem="2dC-gC-NNg" firstAttribute="leading" secondItem="du9-KL-sr6" secondAttribute="leading" constant="32" id="srf-j5-AHl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="beerBoilVolume" destination="2dC-gC-NNg" id="dCn-gW-AEU"/>
+                        <outlet property="beerDescriptionTextView" destination="cFk-zd-BXe" id="4zu-kL-YzG"/>
+                        <outlet property="beerImage" destination="Qoe-5w-C5J" id="AqK-FM-CuY"/>
+                        <outlet property="beerNameLabel" destination="nOg-c4-zef" id="qW3-d8-Oz6"/>
+                        <outlet property="randomButton" destination="TIG-ot-Jj7" id="qNu-po-hxs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mH3-R2-Wvf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5519" y="133"/>
         </scene>
     </scenes>
     <resources>
