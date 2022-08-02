@@ -61,15 +61,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     self.list.append(data)
                 }
                 print(self.list)
-                
-//                let movieNum1 = json["boxOfficeResult"]["dailyBoxOfficeList"][0]["movieNm"].stringValue
-//                let movieNum2 = json["boxOfficeResult"]["dailyBoxOfficeList"][1]["movieNm"].stringValue
-//                let movieNum3 = json["boxOfficeResult"]["dailyBoxOfficeList"][2]["movieNm"].stringValue
-                
-//                self.list.append(movieNum1)
-//                self.list.append(movieNum2)
-//                self.list.append(movieNum3)
-                
                 self.searchTableView.reloadData()
                 print(self.list)
                 
@@ -88,7 +79,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         cell.backgroundColor = .clear
         cell.titleLabel.font = .boldSystemFont(ofSize: 22)
-        cell.titleLabel.text = "\(list[indexPath.row].movieTitle): \(list[indexPath.row].releaseDate)"
+        cell.titleLabel.text = "\(list[indexPath.row].movieTitle)"
+        cell.releaseDateLabel.font = .boldSystemFont(ofSize: 13)
+        cell.releaseDateLabel.text = "출시일: \(list[indexPath.row].releaseDate)"
+        cell.accLabel.text = "총 관객: \(list[indexPath.row].totalCount)명"
+        cell.accLabel.font = .boldSystemFont(ofSize: 13)
         return cell
     }
 }

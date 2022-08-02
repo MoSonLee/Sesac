@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pk8-wH-IGm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mqZ-cK-vfN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -81,6 +82,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZX-d3-aVs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-39" y="971"/>
+        </scene>
+        <!--Beer List View Controller-->
+        <scene sceneID="AmO-DI-Ni6">
+            <objects>
+                <viewController id="mqZ-cK-vfN" customClass="BeerListViewController" customModule="SeSacNetworkBasic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="64X-YW-fML">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Rt-BN-isn">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KOb-XP-e5n">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="1SD-cM-18C">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="0dF-9P-gMn">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZAc-X4-QWX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZAc-X4-QWX" firstAttribute="bottom" secondItem="0Rt-BN-isn" secondAttribute="bottom" id="0Bl-Tm-J35"/>
+                            <constraint firstItem="ZAc-X4-QWX" firstAttribute="trailing" secondItem="0Rt-BN-isn" secondAttribute="trailing" id="2yn-h3-Pn3"/>
+                            <constraint firstItem="0Rt-BN-isn" firstAttribute="top" secondItem="ZAc-X4-QWX" secondAttribute="top" id="8nD-EQ-1Iy"/>
+                            <constraint firstItem="0Rt-BN-isn" firstAttribute="leading" secondItem="ZAc-X4-QWX" secondAttribute="leading" id="mpv-tA-dHa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="beerCollectionView" destination="0Rt-BN-isn" id="bUN-r0-GN9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GLA-Zq-VvY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1542" y="971"/>
         </scene>
         <!--Lotto View Controller-->
         <scene sceneID="9hT-U9-Yf1">
@@ -194,16 +241,43 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZEu-LH-33B">
+                                <rect key="frame" x="20" y="462" width="374" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="vyo-pZ-E7E"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8C5-as-EK7">
+                                <rect key="frame" x="20" y="364" width="374" height="28"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="translateButtonTapped:" destination="Pk8-wH-IGm" eventType="touchUpInside" id="dgd-E8-J1f"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="noU-TK-DNt"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="nXc-EZ-Tk5" firstAttribute="top" secondItem="noU-TK-DNt" secondAttribute="top" constant="50" id="0Vc-NZ-j42"/>
+                            <constraint firstItem="noU-TK-DNt" firstAttribute="trailing" secondItem="ZEu-LH-33B" secondAttribute="trailing" constant="20" id="1Kp-OI-B0L"/>
+                            <constraint firstItem="ZEu-LH-33B" firstAttribute="top" secondItem="8C5-as-EK7" secondAttribute="bottom" constant="70" id="2RV-ok-9b6"/>
+                            <constraint firstItem="8C5-as-EK7" firstAttribute="leading" secondItem="noU-TK-DNt" secondAttribute="leading" constant="20" id="SGn-aJ-6pk"/>
+                            <constraint firstItem="noU-TK-DNt" firstAttribute="bottom" secondItem="ZEu-LH-33B" secondAttribute="bottom" constant="200" id="Txl-fC-lHE"/>
+                            <constraint firstItem="ZEu-LH-33B" firstAttribute="leading" secondItem="noU-TK-DNt" secondAttribute="leading" constant="20" id="UVk-1Q-fM0"/>
                             <constraint firstItem="noU-TK-DNt" firstAttribute="trailing" secondItem="nXc-EZ-Tk5" secondAttribute="trailing" constant="20" id="ir7-UZ-5Yq"/>
                             <constraint firstItem="nXc-EZ-Tk5" firstAttribute="leading" secondItem="noU-TK-DNt" secondAttribute="leading" constant="20" id="lvE-F5-B3c"/>
+                            <constraint firstItem="8C5-as-EK7" firstAttribute="top" secondItem="nXc-EZ-Tk5" secondAttribute="bottom" constant="70" id="naa-Pe-cuA"/>
+                            <constraint firstItem="noU-TK-DNt" firstAttribute="trailing" secondItem="8C5-as-EK7" secondAttribute="trailing" constant="20" id="qTS-J3-zSa"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="translateButton" destination="8C5-as-EK7" id="kaN-st-XKN"/>
+                        <outlet property="translatedTextView" destination="ZEu-LH-33B" id="D6z-vS-rZ6"/>
                         <outlet property="userInputTextView" destination="nXc-EZ-Tk5" id="Uu4-a9-0Bi"/>
                     </connections>
                 </viewController>

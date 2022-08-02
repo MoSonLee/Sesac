@@ -17,7 +17,9 @@ class LottoViewController: UIViewController {
     @IBOutlet weak var numberTextField: UITextField!
     
     private var lottopickerView = UIPickerView()
+    private var drwNo = 0
     private let numberList: [Int] = Array(1...1026).reversed()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +43,14 @@ class LottoViewController: UIViewController {
                     self.lottoNumberLabelArray[index].text = String(json["drwtNo\(index+1)"].intValue)
                     self.lottoNumberLabelArray[index].layer.borderWidth = 1
                 }
+                
                 self.lottoNumberLabelArray.last?.text = String(json["bnusNo"].intValue)
                 self.lottoNumberLabelArray.last?.layer.borderWidth = 1
+                
                 self.numberTextField.text = date
+                self.drwNo = json["drwNo"].intValue
+                print(self.drwNo)
+                print(json)
                 
             case .failure(let error):
                 print(error)
