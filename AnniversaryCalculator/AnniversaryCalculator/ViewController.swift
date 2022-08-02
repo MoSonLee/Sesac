@@ -17,6 +17,7 @@ final class ViewController: UIViewController {
     
     private var index = 0
     private let userDefaults = UserDefaults.standard
+    
     var dDayDate: String {
         var dDayDateStringFormed = ""
         let calendar = Calendar.current
