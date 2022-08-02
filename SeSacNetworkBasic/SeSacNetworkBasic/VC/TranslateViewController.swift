@@ -18,33 +18,35 @@ import SwiftyJSON
 class TranslateViewController: UIViewController {
     
     @IBOutlet weak var userInputTextView: UITextView!
+    @IBOutlet weak var translatedTextView: UITextView!
+    @IBOutlet weak var translateButton: UIButton!
     
     let textViewPlaceholderText = "번역하고 싶은 문장을 작성해보세요"
+    let translatedTextViewPlaceholderText = "번역된 문장이 여기에 뜹니다!"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         userInputTextView.delegate = self
-        userInputTextView.text = textViewPlaceholderText
-        userInputTextView.textColor = .lightGray
-        userInputTextView.font = UIFont(name: "TamilSangamMN-Bold", size: 20)
-        
-        requestTranslatedData()
-        
+        translatedTextView.delegate = self
+        setViewWithComponents()
     }
-    func requestTranslatedData() {
+    
+    @IBAction func translateButtonTapped(_ sender: UIButton) {
+        requestTranslatedData(text: userInputTextView.text)
+    }
+    
+    func requestTranslatedData(text: String) {
         let url = EndPoint.translateURL
-        let parameter = ["source": "ko" , "target": "en", "text": "안녕하세요 저는 승후입니다."]
+        let parameter = ["source": "ko" , "target": "en", "text": text]
         let header: HTTPHeaders = ["X-Naver-Client-Id": APIKey.NAVER_ID, "X-Naver-Client-Secret":APIKey.NAVER_SecretID]
         AF.request(url, method: .post, parameters: parameter ,headers: header).validate().responseJSON { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                self.userInputTextView.text = json["message"]["result"]["translatedText"].stringValue
+                self.translatedTextView.text = json["message"]["result"]["translatedText"].stringValue
                 print("JSON: \(json)")
                 let statusCode = response.response?.statusCode ?? 500
-                
                 if statusCode == 200 {
-                    
                 } else {
                     self.userInputTextView.text = json["errorMessage"].stringValue
                 }
@@ -53,6 +55,19 @@ class TranslateViewController: UIViewController {
                 print(error)
             }
         }
+    }
+    
+    func setViewWithComponents() {
+        userInputTextView.text = textViewPlaceholderText
+        translatedTextView.text = translatedTextViewPlaceholderText
+        userInputTextView.textColor = .lightGray
+        userInputTextView.font = UIFont(name: "TamilSangamMN-Bold", size: 20)
+        translatedTextView.textColor = .lightGray
+        translatedTextView.font = UIFont(name: "TamilSangamMN-Bold", size: 20)
+        translateButton.layer.borderWidth = 1
+        translateButton.backgroundColor = .systemBlue
+        translateButton.setTitle("번역하기", for: .normal)
+        translateButton.tintColor = .white
     }
 }
 
