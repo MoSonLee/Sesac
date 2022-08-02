@@ -7,6 +7,9 @@
 
 import UIKit
 
+import Alamofire
+import SwiftyJSON
+
 //UIButton, UITextField > Action
 //UITextView, UISearchBar, UIPickerView > X
 //UIResponderChain > resignFirstResponder() / becomeFirstResponder
@@ -25,6 +28,31 @@ class TranslateViewController: UIViewController {
         userInputTextView.textColor = .lightGray
         userInputTextView.font = UIFont(name: "TamilSangamMN-Bold", size: 20)
         
+        requestTranslatedData()
+        
+    }
+    func requestTranslatedData() {
+        let url = EndPoint.translateURL
+        let parameter = ["source": "ko" , "target": "en", "text": "안녕하세요 저는 승후입니다."]
+        let header: HTTPHeaders = ["X-Naver-Client-Id": APIKey.NAVER_ID, "X-Naver-Client-Secret":APIKey.NAVER_SecretID]
+        AF.request(url, method: .post, parameters: parameter ,headers: header).validate().responseJSON { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                self.userInputTextView.text = json["message"]["result"]["translatedText"].stringValue
+                print("JSON: \(json)")
+                let statusCode = response.response?.statusCode ?? 500
+                
+                if statusCode == 200 {
+                    
+                } else {
+                    self.userInputTextView.text = json["errorMessage"].stringValue
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 
