@@ -17,6 +17,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     static var identifier =  "SearchViewController"
     var list: [BoxOfficeModel] = []
     
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchTableView: UITableView!
     
@@ -29,17 +30,21 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //XIB: xml interface builder <= NIB
         searchTableView.register(UINib(nibName: ListTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: ListTableViewCell.reuseIdentifier)
         searchBar.delegate = self
-        requestBoxOffice(text: "20220801")
+        
+        let format = DateFormatter()
+        format.dateFormat = "yyyyMMdd"
+        
+//        let dateResult = Date(timeIntervalSinceNow: -86400)
+        let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())
+        let dateResult = format.string(from: yesterday!)
+        
+        requestBoxOffice(text: dateResult)
     }
     
     func configureView() {
         searchTableView.backgroundColor = .clear
         searchTableView.separatorColor = .clear
         searchTableView.rowHeight = 60
-    }
-    
-    func configureLabel() {
-        
     }
     
     func requestBoxOffice(text: String) {
