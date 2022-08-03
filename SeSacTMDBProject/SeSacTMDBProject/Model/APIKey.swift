@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct APIKey {
-    static let myApiKey = "41c384925f7ec26a24ada624ffbec2b0"
+struct APIKEY {
+    static let TMDBURLWithMyKey = "https://api.themoviedb.org/3/trending/movie/week?api_key=41c384925f7ec26a24ada624ffbec2b0"
 }
 
-struct EndPoint {
-    static let TMDBURL = "https://api.themoviedb.org/3/trending/movie/week?api_key=41c384925f7ec26a24ada624ffbec2b0"
+struct ImagePoint {
+    static let ImageFirstKey = "https://image.tmdb.org/t/p/original"
 }
