@@ -138,7 +138,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kKb-WX-qak">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4ls-0J-GFB">
                                     <size key="itemSize" width="128" height="128"/>
@@ -157,18 +157,26 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="mQv-mW-Anz">
+                                <rect key="frame" x="0.0" y="37" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Cex-UP-bqb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="mQv-mW-Anz" firstAttribute="leading" secondItem="Cex-UP-bqb" secondAttribute="leading" id="1uQ-4v-HIA"/>
                             <constraint firstItem="kKb-WX-qak" firstAttribute="leading" secondItem="Cex-UP-bqb" secondAttribute="leading" id="AdY-Jh-rh8"/>
-                            <constraint firstItem="kKb-WX-qak" firstAttribute="top" secondItem="Cex-UP-bqb" secondAttribute="top" id="Fyb-jE-uad"/>
+                            <constraint firstItem="kKb-WX-qak" firstAttribute="top" secondItem="Cex-UP-bqb" secondAttribute="top" constant="44" id="Fyb-jE-uad"/>
+                            <constraint firstAttribute="trailing" secondItem="mQv-mW-Anz" secondAttribute="trailing" id="aGp-sd-meo"/>
                             <constraint firstItem="Cex-UP-bqb" firstAttribute="trailing" secondItem="kKb-WX-qak" secondAttribute="trailing" id="n97-ZA-Ci8"/>
                             <constraint firstItem="Cex-UP-bqb" firstAttribute="bottom" secondItem="kKb-WX-qak" secondAttribute="bottom" id="xfc-Bd-lsA"/>
+                            <constraint firstItem="kKb-WX-qak" firstAttribute="top" secondItem="mQv-mW-Anz" secondAttribute="bottom" id="y0K-VP-cDL"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageCollectionView" destination="kKb-WX-qak" id="gz1-Bp-tpb"/>
+                        <outlet property="searchBar" destination="mQv-mW-Anz" id="qdq-Ot-bYb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCC-LW-uZD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -11,6 +11,7 @@
 		770E876B289AA994009AC559 /* ImageSerchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E8769289AA994009AC559 /* ImageSerchCollectionViewCell.swift */; };
 		770E876C289AA994009AC559 /* ImageSerchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 770E876A289AA994009AC559 /* ImageSerchCollectionViewCell.xib */; };
 		770E876E289AADF3009AC559 /* SearchedimageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E876D289AADF3009AC559 /* SearchedimageModel.swift */; };
+		770E878A289B4FAB009AC559 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 770E8789289B4FAB009AC559 /* JGProgressHUD */; };
 		772D73B02890E25E00EC9578 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772D73AF2890E25E00EC9578 /* SearchViewController.swift */; };
 		772D73B32890E4CE00EC9578 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772D73B12890E4CE00EC9578 /* ListTableViewCell.swift */; };
 		772D73B42890E4CE00EC9578 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 772D73B22890E4CE00EC9578 /* ListTableViewCell.xib */; };
@@ -82,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				770E878A289B4FAB009AC559 /* JGProgressHUD in Frameworks */,
 				775F912B289803AA00FACFA6 /* Kingfisher in Frameworks */,
 				7745862328977CD50056BB3B /* SwiftyJSON in Frameworks */,
 				7745862028977CCB0056BB3B /* Alamofire in Frameworks */,
@@ -245,6 +247,7 @@
 				7745861F28977CCB0056BB3B /* Alamofire */,
 				7745862228977CD50056BB3B /* SwiftyJSON */,
 				775F912A289803AA00FACFA6 /* Kingfisher */,
+				770E8789289B4FAB009AC559 /* JGProgressHUD */,
 			);
 			productName = SeSacNetworkBasic;
 			productReference = 773B81262890DD7700929DF5 /* SeSacNetworkBasic.app */;
@@ -278,6 +281,7 @@
 				7745861E28977CCB0056BB3B /* XCRemoteSwiftPackageReference "Alamofire" */,
 				7745862128977CD50056BB3B /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				775F9129289803AA00FACFA6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				770E8788289B4FAB009AC559 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 			);
 			productRefGroup = 773B81272890DD7700929DF5 /* Products */;
 			projectDirPath = "";
@@ -552,6 +556,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		770E8788289B4FAB009AC559 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		7745861E28977CCB0056BB3B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -579,6 +591,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		770E8789289B4FAB009AC559 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 770E8788289B4FAB009AC559 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
 		7745861F28977CCB0056BB3B /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7745861E28977CCB0056BB3B /* XCRemoteSwiftPackageReference "Alamofire" */;

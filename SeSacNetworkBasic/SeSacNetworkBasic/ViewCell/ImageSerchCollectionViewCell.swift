@@ -8,7 +8,6 @@
 import UIKit
 
 class ImageSerchCollectionViewCell: UICollectionViewCell {
-    
     @IBOutlet weak var SearchedImage: UIImageView!
 }
 

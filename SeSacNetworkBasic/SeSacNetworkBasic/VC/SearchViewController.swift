@@ -9,6 +9,7 @@ import UIKit
 
 import Alamofire
 import SwiftyJSON
+import JGProgressHUD
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ViewPresentableProtocl {
     
@@ -16,7 +17,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var backgroundColor = UIColor.red
     static var identifier =  "SearchViewController"
     var list: [BoxOfficeModel] = []
-    
+    let hud = JGProgressHUD()
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var searchTableView: UITableView!
@@ -48,11 +49,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func requestBoxOffice(text: String) {
+        
+        hud.show(in: view)
+        self.list.removeAll()
         let url = "http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f709307fc0f744f0b16793718bee4510&targetDt=\(text)"
-        AF.request(url, method: .get).validate().responseJSON { response in
+        AF.request(url, method: .get).validate().responseData { response in
             switch response.result {
             case .success(let value):
-                self.list.removeAll()
                 let json = JSON(value)
                 print("JSON: \(json)")
                 
@@ -67,9 +70,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
                 print(self.list)
                 self.searchTableView.reloadData()
+                self.hud.dismiss(animated: true)
                 print(self.list)
                 
             case .failure(let error):
+                self.hud.dismiss(animated: true)
                 print(error)
             }
         }
