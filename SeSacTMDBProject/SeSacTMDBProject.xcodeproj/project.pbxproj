@@ -20,6 +20,8 @@
 		770E8782289AC29A009AC559 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 770E8781289AC29A009AC559 /* SwiftyJSON */; };
 		770E8785289AC2A2009AC559 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 770E8784289AC2A2009AC559 /* Kingfisher */; };
 		770E8787289AC36D009AC559 /* TMDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E8786289AC36D009AC559 /* TMDBModel.swift */; };
+		77746CF4289C3128001BF7E0 /* MovieInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77746CF3289C3128001BF7E0 /* MovieInfoViewController.swift */; };
+		77746CF6289C357F001BF7E0 /* MovieInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77746CF5289C357F001BF7E0 /* MovieInfoTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,8 @@
 		770E8776289AB545009AC559 /* TMDBCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TMDBCollectionViewCell.xib; sourceTree = "<group>"; };
 		770E8779289AB558009AC559 /* TMDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBViewController.swift; sourceTree = "<group>"; };
 		770E8786289AC36D009AC559 /* TMDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBModel.swift; sourceTree = "<group>"; };
+		77746CF3289C3128001BF7E0 /* MovieInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoViewController.swift; sourceTree = "<group>"; };
+		77746CF5289C357F001BF7E0 /* MovieInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				770E8779289AB558009AC559 /* TMDBViewController.swift */,
+				77746CF3289C3128001BF7E0 /* MovieInfoViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 			children = (
 				770E8775289AB545009AC559 /* TMDBCollectionViewCell.swift */,
 				770E8776289AB545009AC559 /* TMDBCollectionViewCell.xib */,
+				77746CF5289C357F001BF7E0 /* MovieInfoTableViewCell.swift */,
 			);
 			path = ViewCell;
 			sourceTree = "<group>";
@@ -215,11 +221,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77746CF4289C3128001BF7E0 /* MovieInfoViewController.swift in Sources */,
 				770E877A289AB558009AC559 /* TMDBViewController.swift in Sources */,
 				770E874D2899F6FB009AC559 /* AppDelegate.swift in Sources */,
 				770E874F2899F6FB009AC559 /* SceneDelegate.swift in Sources */,
 				770E87662899F8A3009AC559 /* APIKey.swift in Sources */,
 				770E8787289AC36D009AC559 /* TMDBModel.swift in Sources */,
+				77746CF6289C357F001BF7E0 /* MovieInfoTableViewCell.swift in Sources */,
 				770E8777289AB545009AC559 /* TMDBCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
