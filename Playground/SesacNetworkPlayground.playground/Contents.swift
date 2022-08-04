@@ -65,11 +65,59 @@ func evenNumber() {
 func resultNumber(number: Int, odd: () -> (), even: () -> () ) {
     return number.isMultiple(of: 2) ? even() : odd()
 }
-resultNumber(number: 9, odd: oddNumber, even: evenNumber)
-resultNumber(number: <#T##Int#>) {
-    <#code#>
-} even: {
-    <#code#>
+resultNumber(number: 0, odd: oddNumber, even: evenNumber)
+//resultNumber(number: 9, odd: oddNumber, even: evenNumber)
+//resultNumber(number: <#T##Int#>) {
+//    <#code#>
+//} even: {
+//    <#code#>
+//}
+
+
+//2. 함수의 반환 타입으로 함수를 사용할 수 있다.
+
+func currentAccount() -> String {
+    return "계좌 있음"
 }
 
+func noCurrentAccount() -> String {
+    return "계좌 없음"
+}
 
+func checkBank(bank: String) -> () -> String {
+    let bankArray = ["우리", "신한", "국민"]
+    return bankArray.contains(bank) ? currentAccount : noCurrentAccount
+}
+
+let seung = checkBank(bank: "농협")
+seung()
+
+func plus(a: Int, b: Int) -> Int {
+    return a + b
+}
+
+func minus(a: Int, b: Int) -> Int {
+    return a - b
+}
+
+func multiply(a: Int, b: Int) -> Int {
+    return a * b
+}
+
+func divide(a: Int, b: Int) -> Int {
+    return a / b
+}
+
+func calculate(operand: String) -> (Int, Int) -> Int {
+    
+    switch operand {
+    case "+": return plus
+    case "-": return minus
+    case "*": return multiply
+    case "/": return divide
+    default: return plus
+    }
+}
+
+let resultCalculate = calculate(operand: "+") //함수가 실행되고 있는 상태가 아님
+resultCalculate(3,5)
