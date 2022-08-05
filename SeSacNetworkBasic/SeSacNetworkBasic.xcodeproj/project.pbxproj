@@ -10,7 +10,6 @@
 		770E8768289A094C009AC559 /* ImageSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E8767289A094C009AC559 /* ImageSearchViewController.swift */; };
 		770E876B289AA994009AC559 /* ImageSerchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E8769289AA994009AC559 /* ImageSerchCollectionViewCell.swift */; };
 		770E876C289AA994009AC559 /* ImageSerchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 770E876A289AA994009AC559 /* ImageSerchCollectionViewCell.xib */; };
-		770E876E289AADF3009AC559 /* SearchedimageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E876D289AADF3009AC559 /* SearchedimageModel.swift */; };
 		770E878A289B4FAB009AC559 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 770E8789289B4FAB009AC559 /* JGProgressHUD */; };
 		772D73B02890E25E00EC9578 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772D73AF2890E25E00EC9578 /* SearchViewController.swift */; };
 		772D73B32890E4CE00EC9578 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 772D73B12890E4CE00EC9578 /* ListTableViewCell.swift */; };
@@ -48,7 +47,6 @@
 		770E8767289A094C009AC559 /* ImageSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchViewController.swift; sourceTree = "<group>"; };
 		770E8769289AA994009AC559 /* ImageSerchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSerchCollectionViewCell.swift; sourceTree = "<group>"; };
 		770E876A289AA994009AC559 /* ImageSerchCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageSerchCollectionViewCell.xib; sourceTree = "<group>"; };
-		770E876D289AADF3009AC559 /* SearchedimageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedimageModel.swift; sourceTree = "<group>"; };
 		772D73AF2890E25E00EC9578 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		772D73B12890E4CE00EC9578 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		772D73B22890E4CE00EC9578 /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
@@ -144,7 +142,6 @@
 			children = (
 				77876D602898BD2C008F0362 /* BoxOfficeModel.swift */,
 				77876D78289972F1008F0362 /* BeerModel.swift */,
-				770E876D289AADF3009AC559 /* SearchedimageModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -343,7 +340,6 @@
 				77E156C728935D5B006A4071 /* LocationViewController.swift in Sources */,
 				77C336602892238100D3A884 /* LottoViewController.swift in Sources */,
 				773B812C2890DD7700929DF5 /* SceneDelegate.swift in Sources */,
-				770E876E289AADF3009AC559 /* SearchedimageModel.swift in Sources */,
 				7745861B289757960056BB3B /* Constant.swift in Sources */,
 				77C336632892305F00D3A884 /* TranslateViewController.swift in Sources */,
 				77C3365E28920CE800D3A884 /* ViewPresentableProtocol.swift in Sources */,
