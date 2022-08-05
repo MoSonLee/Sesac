@@ -18,7 +18,8 @@ class TMDBViewController: UIViewController, UICollectionViewDelegate,UICollectio
     private var list: [TMDBModel] = []
     private var genreList: [GenreModel] = []
     private var castingList: [TMDBCastModel] = []
-    var movieNumber = 3
+    private var movieNumber = 3
+    var totalCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,7 @@ class TMDBViewController: UIViewController, UICollectionViewDelegate,UICollectio
         TMDBCollectionView.register(UINib(nibName: "TMDBCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TMDBCollectionViewCell")
         setNavigationItems()
         TMDBCollectionView.collectionViewLayout = setTMDBCollectionViewLayout()
-        requestTMDB()
+        requestTMDB(totalCount: self.movieNumber)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -38,9 +39,6 @@ class TMDBViewController: UIViewController, UICollectionViewDelegate,UICollectio
         vc.movieBackgroundImageData = "\(ImagePoint.ImageFirstKey)\(list[indexPath.row].movieBackdropURL)"
         vc.descriptionData = list[indexPath.row].movieDescription
         vc.idData = list[indexPath.row].movieID
-        print(castingList)
-        print(indexPath.row)
-        print(list[indexPath.row].movieID)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -50,18 +48,21 @@ class TMDBViewController: UIViewController, UICollectionViewDelegate,UICollectio
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TMDBCollectionViewCell", for: indexPath) as? TMDBCollectionViewCell else { return UICollectionViewCell()}
-        
         let imageURLString = "\(ImagePoint.ImageFirstKey)\(list[indexPath.row].movieImageURL)"
         let imageURL = URL(string: imageURLString)
         cell.movieImage.kf.setImage(with: imageURL!)
-        
         cell.rateLabel.text = String((round(list[indexPath.row].movievoteAVG)*100)/100)
         cell.movieTitleLabel.text = list[indexPath.row].movieTitle
         cell.movieAppearanceLabel.text = list[indexPath.row].movieDescription
         cell.releaseDateLabel.text = list[indexPath.row].movieReleaseDate
-        //        cell.movieGenreLabel.text = genreList[indexPath.row].genreName
         cell.configureCell()
         cell.configureCellShadow()
+        cell.movieButtonPressed = {
+            let storyboard = UIStoryboard(name: "TMDB", bundle: nil)
+            guard let vc = storyboard.instantiateViewController(withIdentifier: "WebViewController") as? WebViewController else { return }
+            vc.movieIDData = self.list[indexPath.row].movieID
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         return cell
     }
     
@@ -72,7 +73,7 @@ class TMDBViewController: UIViewController, UICollectionViewDelegate,UICollectio
         self.navigationItem.rightBarButtonItem?.tintColor = .systemBlue
     }
     
-    private func requestTMDB() {
+    func requestTMDB(totalCount: Int) {
         let url = APIKEY.TMDBURLWithMyKey
         AF.request(url, method: .get).validate().responseData { response in
             switch response.result {
@@ -87,7 +88,6 @@ class TMDBViewController: UIViewController, UICollectionViewDelegate,UICollectio
                     let movieURL = index["poster_path"].stringValue
                     let movieAvg = index["vote_average"].doubleValue
                     let movieBackdrop = index["backdrop_path"].stringValue
-                    print(movieID)
                     let data = TMDBModel(movieID: movieID, movieReleaseDate: movieReleaseDate , movieTitle: movieTitle, movievoteAVG: movieAvg, movieImageURL: movieURL, movieBackdropURL: movieBackdrop, movieDescription: movieDescription)
                     self.list.append(data)
                 }
@@ -98,43 +98,6 @@ class TMDBViewController: UIViewController, UICollectionViewDelegate,UICollectio
             }
         }
     }
-    
-    //    private func requestCasting(_ data: Int) {
-    //        let url = "\(APIKEY.TMDBCastingURL)\(data)\(EndPoint.TMDBCastingEndPoint)"
-    //        AF.request(url, method: .get).validate().responseData { response in
-    //            switch response.result {
-    //            case .success(let value):
-    //                let json = JSON(value)
-    //                for cast in json["cast"].arrayValue {
-    //                    let originalName = cast["name"].stringValue
-    //                    let charcterName = cast["character"].stringValue
-    //                    let profileImageURL = cast["profile_path"].stringValue
-    //                    let data = TMDBCastModel(originalName: originalName, charcterName: charcterName, profileImageURL: profileImageURL)
-    //                    self.castingList.append(data)
-    //                }
-    //                print(self.castingList)
-    //            case .failure(let error):
-    //                print(error)
-    //            }
-    //        }
-    //    }
-    
-    //    private func requestGenre(_ ID: Int) {
-    //        let url = APIKEY.TMDBGenreURLWithMyKey
-    //        AF.request(url, method: .get).validate().responseData { response in
-    //            switch response.result {
-    //            case .success(let value):
-    //                let json = JSON(value)
-    //                let genre = json["genres"][ID]["name"].string
-    //                let data = GenreModel(genreName: genre ?? "no genre")
-    //                self.genreList.append(data)
-    //                print(self.genreList)
-    //
-    //            case .failure(let error):
-    //                print(error)
-    //            }
-    //        }
-    //    }
 }
 
 extension TMDBViewController: UIScrollViewDelegate {
@@ -144,9 +107,8 @@ extension TMDBViewController: UIScrollViewDelegate {
         let pagination_y = collectionViewContentSize * 0.5
         if contentOffset_y > pagination_y{
             movieNumber += 2
-            requestTMDB()
+            requestTMDB(totalCount: self.movieNumber)
             TMDBCollectionView.reloadData()
-            print("moveiNumber\(movieNumber)")
         }
     }
 }

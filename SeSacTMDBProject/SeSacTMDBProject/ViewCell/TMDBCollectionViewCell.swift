@@ -22,6 +22,8 @@ class TMDBCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var moveToMovieLabel: UILabel!
     @IBOutlet weak var moveToMovieButton: UIButton!
     
+    var movieButtonPressed: (() -> ())?
+    
     func configureCellShadow() {
         self.ViewWithShadow.layer.cornerRadius = 15.0
         self.ViewWithShadow.layer.borderWidth = 0.0
@@ -52,11 +54,14 @@ class TMDBCollectionViewCell: UICollectionViewCell {
         self.rateLabel.textColor = .black
         self.rateLabel.backgroundColor = .white
         self.movieTitleLabel.font = .boldSystemFont(ofSize: 22)
-
+        
         self.movieAppearanceLabel.font = .boldSystemFont(ofSize: 17)
         self.movieAppearanceLabel.textColor = .systemGray
         
         self.movieImage.contentMode = UIView.ContentMode.scaleToFill
-        
+    }
+
+    @IBAction func moveToMovieButtonTapped(_ sender: UIButton) {
+        movieButtonPressed?()
     }
 }

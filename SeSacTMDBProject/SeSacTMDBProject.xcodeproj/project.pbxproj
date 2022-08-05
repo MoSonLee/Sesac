@@ -22,6 +22,8 @@
 		770E8787289AC36D009AC559 /* TMDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E8786289AC36D009AC559 /* TMDBModel.swift */; };
 		77746CF4289C3128001BF7E0 /* MovieInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77746CF3289C3128001BF7E0 /* MovieInfoViewController.swift */; };
 		77746CF6289C357F001BF7E0 /* MovieInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77746CF5289C357F001BF7E0 /* MovieInfoTableViewCell.swift */; };
+		77D6DDEF289D5EB600B65BA0 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D6DDEE289D5EB600B65BA0 /* WebViewController.swift */; };
+		77D6DDF2289D740000B65BA0 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D6DDF1289D740000B65BA0 /* APIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		770E8786289AC36D009AC559 /* TMDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBModel.swift; sourceTree = "<group>"; };
 		77746CF3289C3128001BF7E0 /* MovieInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoViewController.swift; sourceTree = "<group>"; };
 		77746CF5289C357F001BF7E0 /* MovieInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoTableViewCell.swift; sourceTree = "<group>"; };
+		77D6DDEE289D5EB600B65BA0 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		77D6DDF1289D740000B65BA0 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 				770E8772289AB4BB009AC559 /* ViewController */,
 				770E8773289AB4C5009AC559 /* ViewCell */,
 				770E876F289AB4A1009AC559 /* Model */,
+				77D6DDF0289D73E200B65BA0 /* APIManager */,
 				770E8774289AB505009AC559 /* Assets */,
 			);
 			path = SeSacTMDBProject;
@@ -117,6 +122,7 @@
 			children = (
 				770E8779289AB558009AC559 /* TMDBViewController.swift */,
 				77746CF3289C3128001BF7E0 /* MovieInfoViewController.swift */,
+				77D6DDEE289D5EB600B65BA0 /* WebViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -137,6 +143,14 @@
 				770E87552899F6FC009AC559 /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		77D6DDF0289D73E200B65BA0 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				77D6DDF1289D740000B65BA0 /* APIManager.swift */,
+			);
+			path = APIManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +236,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				77746CF4289C3128001BF7E0 /* MovieInfoViewController.swift in Sources */,
+				77D6DDEF289D5EB600B65BA0 /* WebViewController.swift in Sources */,
+				77D6DDF2289D740000B65BA0 /* APIManager.swift in Sources */,
 				770E877A289AB558009AC559 /* TMDBViewController.swift in Sources */,
 				770E874D2899F6FB009AC559 /* AppDelegate.swift in Sources */,
 				770E874F2899F6FB009AC559 /* SceneDelegate.swift in Sources */,

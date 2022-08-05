@@ -61,9 +61,12 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D9O-7I-eBJ">
-                                        <rect key="frame" x="264.5" y="13" width="67" height="31"/>
+                                        <rect key="frame" x="280.5" y="13" width="67" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="moveToMovieButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="c80-yt-XMx"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2qe-uj-gro">
                                         <rect key="frame" x="16" y="255" width="41.5" height="29"/>
@@ -93,7 +96,7 @@
                                     <constraint firstItem="FXG-rb-7Uo" firstAttribute="top" secondItem="vzg-Yh-cpY" secondAttribute="top" id="bfm-Ea-9KF"/>
                                     <constraint firstItem="FXG-rb-7Uo" firstAttribute="leading" secondItem="vzg-Yh-cpY" secondAttribute="leading" id="fnS-1Q-ceo"/>
                                     <constraint firstItem="XZK-gM-9rd" firstAttribute="leading" secondItem="vzg-Yh-cpY" secondAttribute="leading" constant="16" id="ggC-n9-6NH"/>
-                                    <constraint firstItem="D9O-7I-eBJ" firstAttribute="trailing" secondItem="FXG-rb-7Uo" secondAttribute="trailing" constant="-16" id="kH1-gQ-UUl"/>
+                                    <constraint firstItem="D9O-7I-eBJ" firstAttribute="trailing" secondItem="FXG-rb-7Uo" secondAttribute="trailing" id="kH1-gQ-UUl"/>
                                     <constraint firstAttribute="bottom" secondItem="9gK-ZF-dMi" secondAttribute="bottom" constant="8" id="lVp-RD-AVv"/>
                                     <constraint firstItem="2qe-uj-gro" firstAttribute="height" secondItem="vzg-Yh-cpY" secondAttribute="height" multiplier="0.1" id="uQ2-g6-FWJ"/>
                                 </constraints>
@@ -107,34 +110,23 @@
                             <constraint firstItem="vzg-Yh-cpY" firstAttribute="leading" secondItem="fS3-dF-nbN" secondAttribute="leading" constant="16" id="gjG-D5-p3f"/>
                         </constraints>
                     </view>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="Rji-PB-D6b">
-                        <rect key="frame" x="16" y="16" width="41.5" height="42"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOZ-lG-0tY">
-                                <rect key="frame" x="0.0" y="0.0" width="41.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fNZ-um-1hE">
-                                <rect key="frame" x="0.0" y="26.5" width="41.5" height="15.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOZ-lG-0tY">
+                        <rect key="frame" x="16" y="16" width="41.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstItem="Rji-PB-D6b" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="7sF-1G-Xoc"/>
                 <constraint firstAttribute="trailing" secondItem="fS3-dF-nbN" secondAttribute="trailing" constant="16" id="8G8-eT-pro"/>
-                <constraint firstItem="Rji-PB-D6b" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="8LV-am-tYI"/>
+                <constraint firstItem="fS3-dF-nbN" firstAttribute="top" secondItem="TOZ-lG-0tY" secondAttribute="bottom" constant="32" id="AyB-df-MaA"/>
                 <constraint firstItem="fS3-dF-nbN" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="d7M-8h-Ne1"/>
-                <constraint firstItem="fS3-dF-nbN" firstAttribute="top" secondItem="Rji-PB-D6b" secondAttribute="bottom" constant="8" id="dAB-Dx-WHG"/>
+                <constraint firstItem="TOZ-lG-0tY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="fwl-fo-jBg"/>
                 <constraint firstItem="fS3-dF-nbN" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="66" id="trm-vJ-ITn"/>
                 <constraint firstAttribute="bottom" secondItem="fS3-dF-nbN" secondAttribute="bottom" constant="16" id="vO7-mI-pF8"/>
+                <constraint firstItem="TOZ-lG-0tY" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="zfb-e9-iae"/>
             </constraints>
             <size key="customSize" width="418" height="447"/>
             <connections>
@@ -143,7 +135,6 @@
                 <outlet property="moveToMovieButton" destination="9gK-ZF-dMi" id="Kf3-7k-evG"/>
                 <outlet property="moveToMovieLabel" destination="2qe-uj-gro" id="Gmj-wo-SjW"/>
                 <outlet property="movieAppearanceLabel" destination="c35-3v-UhW" id="LyX-8t-nLe"/>
-                <outlet property="movieGenreLabel" destination="fNZ-um-1hE" id="2om-gR-dKd"/>
                 <outlet property="movieImage" destination="FXG-rb-7Uo" id="0Nc-VZ-txf"/>
                 <outlet property="movieTitleLabel" destination="FVO-TD-JQa" id="caI-QA-IYQ"/>
                 <outlet property="rateLabel" destination="IuH-W3-BQ8" id="UdE-To-LCD"/>
