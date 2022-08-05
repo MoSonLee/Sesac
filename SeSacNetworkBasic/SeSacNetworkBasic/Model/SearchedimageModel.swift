@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
-struct imageModel {
-    let searchedImageURL: URL?
-}
+//
+//struct imageModel {
+//    let searchedImageURL: String?
+//}

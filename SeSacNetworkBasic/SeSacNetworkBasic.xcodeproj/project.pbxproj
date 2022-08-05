@@ -38,6 +38,7 @@
 		77C336632892305F00D3A884 /* TranslateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C336622892305F00D3A884 /* TranslateViewController.swift */; };
 		77C3366528923AB300D3A884 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C3366428923AB300D3A884 /* WebViewController.swift */; };
 		77C336672892A9E700D3A884 /* WebHWController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C336662892A9E700D3A884 /* WebHWController.swift */; };
+		77D6DDEB289CB3F500B65BA0 /* ImageSearchAPiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D6DDEA289CB3F500B65BA0 /* ImageSearchAPiManager.swift */; };
 		77E156C728935D5B006A4071 /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E156C628935D5B006A4071 /* LocationViewController.swift */; };
 		77E156CA28938539006A4071 /* Mabinogi_Classic_OTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = 77E156C928938539006A4071 /* Mabinogi_Classic_OTF.otf */; };
 		77E156D1289385EC006A4071 /* EF_MACHO(맥용_OTF).otf in Resources */ = {isa = PBXBuildFile; fileRef = 77E156CF289385EC006A4071 /* EF_MACHO(맥용_OTF).otf */; };
@@ -73,6 +74,7 @@
 		77C336622892305F00D3A884 /* TranslateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslateViewController.swift; sourceTree = "<group>"; };
 		77C3366428923AB300D3A884 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		77C336662892A9E700D3A884 /* WebHWController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebHWController.swift; sourceTree = "<group>"; };
+		77D6DDEA289CB3F500B65BA0 /* ImageSearchAPiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSearchAPiManager.swift; sourceTree = "<group>"; };
 		77E156C628935D5B006A4071 /* LocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		77E156C928938539006A4071 /* Mabinogi_Classic_OTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Mabinogi_Classic_OTF.otf; sourceTree = "<group>"; };
 		77E156CF289385EC006A4071 /* EF_MACHO(맥용_OTF).otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "EF_MACHO(맥용_OTF).otf"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				77C3366A2892AA3200D3A884 /* View */,
 				77C3365C28920CC400D3A884 /* VC */,
 				77C336692892AA1000D3A884 /* ViewCell */,
+				77D6DDE9289CB3D100B65BA0 /* APIManager */,
 				77C3365A28920C9F00D3A884 /* Protocol */,
 				77C336612892270A00D3A884 /* Extension */,
 				77876D622898BD31008F0362 /* Model */,
@@ -216,6 +219,14 @@
 				770E876A289AA994009AC559 /* ImageSerchCollectionViewCell.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		77D6DDE9289CB3D100B65BA0 /* APIManager */ = {
+			isa = PBXGroup;
+			children = (
+				77D6DDEA289CB3F500B65BA0 /* ImageSearchAPiManager.swift */,
+			);
+			path = APIManager;
 			sourceTree = "<group>";
 		};
 		77E156C8289384FB006A4071 /* Resource */ = {
@@ -318,6 +329,7 @@
 				7745861D28975FA10056BB3B /* UserDefaultsHelper.swift in Sources */,
 				773B812E2890DD7700929DF5 /* ViewController.swift in Sources */,
 				77876D7628996FDB008F0362 /* BeerCollectionViewCell.swift in Sources */,
+				77D6DDEB289CB3F500B65BA0 /* ImageSearchAPiManager.swift in Sources */,
 				77C3366528923AB300D3A884 /* WebViewController.swift in Sources */,
 				773B812A2890DD7700929DF5 /* AppDelegate.swift in Sources */,
 				77C336672892A9E700D3A884 /* WebHWController.swift in Sources */,

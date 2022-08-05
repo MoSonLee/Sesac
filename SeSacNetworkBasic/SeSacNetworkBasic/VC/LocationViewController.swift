@@ -8,7 +8,9 @@
 import UIKit
 
 class LocationViewController: UIViewController {
+    @IBOutlet weak var downloadImageButton: UIButton!
     
+    @IBOutlet weak var imageVIew: UIImageView!
     // Notification 1.
     let notificationCenter = UNUserNotificationCenter.current()
     
@@ -72,5 +74,21 @@ class LocationViewController: UIViewController {
         // 만약 알림 관리 할 필요 O -> +1, 고유한 이름, 규칙
         let request = UNNotificationRequest(identifier: "\(Date())" , content: notificationContent , trigger: trigger)
         notificationCenter.add(request)
+    }
+    @IBAction func downloadImage(_ sender: UIButton) {
+        
+        let url = "https://apod.nasa.gov/apod/image/2208/M13_final2_sinfirma.jpg"
+        print("1", Thread.isMainThread)
+        
+        DispatchQueue.global().async { // 동시에 여러작업 가능하게 해줘
+            print("2", Thread.isMainThread)
+            let data = try! Data(contentsOf: URL(string: url)!)
+            let image = UIImage(data: data)
+            
+            DispatchQueue.main.async {
+                print("3", Thread.isMainThread)
+                self.imageVIew.image = image
+            }
+        }
     }
 }

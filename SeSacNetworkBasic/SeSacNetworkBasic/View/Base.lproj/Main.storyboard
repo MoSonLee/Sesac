@@ -69,6 +69,31 @@
                                     <action selector="notificationButtonClicked:" destination="XLl-wD-s0Y" eventType="touchUpInside" id="SSk-Ks-shi"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CHJ-cT-RX4">
+                                <rect key="frame" x="123" y="239" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hfn-xK-lB8">
+                                <rect key="frame" x="238" y="239" width="131" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zXf-S1-Owc">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwX-Oc-XLb">
+                                <rect key="frame" x="174" y="664" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="downloadImage:" destination="XLl-wD-s0Y" eventType="touchUpInside" id="X7E-Y1-w2B"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="655-eo-Knn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -78,6 +103,10 @@
                             <constraint firstItem="cpk-Cm-iy6" firstAttribute="top" secondItem="655-eo-Knn" secondAttribute="top" constant="20" id="Xsd-GH-ecF"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="downloadImageButton" destination="HwX-Oc-XLb" id="Bvb-zg-WZe"/>
+                        <outlet property="imageVIew" destination="zXf-S1-Owc" id="TEI-Zc-bHX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZX-d3-aVs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

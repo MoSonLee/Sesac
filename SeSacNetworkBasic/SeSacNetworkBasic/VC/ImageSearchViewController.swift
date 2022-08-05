@@ -10,12 +10,14 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Kingfisher
+import JGProgressHUD
 
 class ImageSearchViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var imageCollectionView: UICollectionView!
-    var list: [imageModel] = []
+    var list: [String] = []
+    let hud = JGProgressHUD()
     //네트워크 요청할 시작 페이지 넘버
     var startPage = 1
     var totalCount = 0
@@ -40,7 +42,8 @@ class ImageSearchViewController: UIViewController, UICollectionViewDelegate, UIC
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageSerchCollectionViewCell", for: indexPath) as? ImageSerchCollectionViewCell else { return UICollectionViewCell()}
         cell.backgroundColor = .clear
-        cell.SearchedImage.kf.setImage(with: list[indexPath.row].searchedImageURL)
+        let imageURL = URL(string: list[indexPath.row])
+        cell.SearchedImage.kf.setImage(with: imageURL)
         return cell
     }
     
@@ -60,26 +63,13 @@ class ImageSearchViewController: UIViewController, UICollectionViewDelegate, UIC
     
     //fetchImage, requestImage, callRequestImage, getImage...> response에 따라 네이밍을 설정해주기도 함
     func fetchImage(query: String) {
-        let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        let url = EndPoint.imageSearchURL + "query=\(text)&display=30&start=\(startPage)" // 왜 query에 한국어를 넣으면 안 될까?
-        let header: HTTPHeaders = ["X-Naver-Client-Id": APIKey.NAVER_ID, "X-Naver-Client-Secret":APIKey.NAVER_SecretID]
-        
-        AF.request(url, method: .get ,headers: header).validate().responseData { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                self.totalCount = json["total"].intValue
-                
-                for index in json["items"].arrayValue {
-                    let imageURL = index["thumbnail"].url
-                    let data = imageModel(searchedImageURL: imageURL)
-                    self.list.append(data)
-                }
-                print("JSON: \(json)")
+        hud.show(in: self.view)
+        ImageSearchAPIManager.shared.fetchImageData(query: query, startPage: startPage) { totalCount, list in
+            self.totalCount = totalCount
+            self.list.append(contentsOf: list)
+            DispatchQueue.main.async {
                 self.imageCollectionView.reloadData()
-                
-            case .failure(let error):
-                print(error)
+                self.hud.dismiss(animated: true)
             }
         }
     }
@@ -122,7 +112,6 @@ extension ImageSearchViewController: UISearchBarDelegate {
         if let text = searchBar.text {
             list.removeAll()
             startPage = 1
-//            imageCollectionView.scrollToItem(at:inde, at: .top, animated: true)
             fetchImage(query: text)
         }
     }
