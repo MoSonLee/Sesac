@@ -10,16 +10,17 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Kingfisher
+import JGProgressHUD
+
 
 class TMDBViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
     
     @IBOutlet private weak var TMDBCollectionView: UICollectionView!
     
-    private var list: [TMDBModel] = []
-    private var genreList: [GenreModel] = []
-    private var castingList: [TMDBCastModel] = []
-    private var movieNumber = 3
-    var totalCount = 0
+    private lazy var hud = JGProgressHUD()
+    private lazy var list: [TMDBModel] = []
+    private lazy var castingList: [TMDBCastModel] = []
+    private lazy var movieNumber = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,7 @@ class TMDBViewController: UIViewController, UICollectionViewDelegate,UICollectio
         TMDBCollectionView.register(UINib(nibName: "TMDBCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TMDBCollectionViewCell")
         setNavigationItems()
         TMDBCollectionView.collectionViewLayout = setTMDBCollectionViewLayout()
-        requestTMDB(totalCount: self.movieNumber)
+        requestTMDB()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -73,28 +74,14 @@ class TMDBViewController: UIViewController, UICollectionViewDelegate,UICollectio
         self.navigationItem.rightBarButtonItem?.tintColor = .systemBlue
     }
     
-    func requestTMDB(totalCount: Int) {
-        let url = APIKEY.TMDBURLWithMyKey
-        AF.request(url, method: .get).validate().responseData { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                for i in self.list.count ..< self.movieNumber {
-                    let index = json["results"][i]
-                    let movieID = index["id"].intValue
-                    let movieReleaseDate = index["release_date"].stringValue
-                    let movieTitle = index["title"].stringValue
-                    let movieDescription = index["overview"].stringValue
-                    let movieURL = index["poster_path"].stringValue
-                    let movieAvg = index["vote_average"].doubleValue
-                    let movieBackdrop = index["backdrop_path"].stringValue
-                    let data = TMDBModel(movieID: movieID, movieReleaseDate: movieReleaseDate , movieTitle: movieTitle, movievoteAVG: movieAvg, movieImageURL: movieURL, movieBackdropURL: movieBackdrop, movieDescription: movieDescription)
-                    self.list.append(data)
-                }
+    private func requestTMDB() {
+        hud.show(in: self.view)
+        APIManager.shared.requestTMDB(movieNumber: movieNumber) { movieNumber, list in
+            self.movieNumber = movieNumber
+            self.list.append(contentsOf: list)
+            DispatchQueue.main.async {
                 self.TMDBCollectionView.reloadData()
-                
-            case .failure(let error):
-                print(error)
+                self.hud.dismiss(animated: true)
             }
         }
     }
@@ -104,10 +91,10 @@ extension TMDBViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffset_y = scrollView.contentOffset.y
         let collectionViewContentSize = TMDBCollectionView.contentSize.height
-        let pagination_y = collectionViewContentSize * 0.5
+        let pagination_y = collectionViewContentSize * 0.2
         if contentOffset_y > pagination_y{
-            movieNumber += 2
-            requestTMDB(totalCount: self.movieNumber)
+            movieNumber += 10
+            requestTMDB()
             TMDBCollectionView.reloadData()
         }
     }

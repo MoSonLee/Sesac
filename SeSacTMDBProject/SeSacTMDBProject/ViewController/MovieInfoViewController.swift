@@ -10,18 +10,18 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Kingfisher
+import JGProgressHUD
 
-class MovieInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+final class MovieInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    private lazy var hud = JGProgressHUD()
     private lazy var castingList: [TMDBCastModel] = []
     
     @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var movieInfoTableView: UITableView!
-    
     @IBOutlet weak var movieDescriptionLabel: UILabel!
     @IBOutlet weak var downArrowbutton: UIButton!
-    
     @IBOutlet weak var overViewTitleLabel: UILabel!
     @IBOutlet weak var movieBackIgroundImage: UIImageView!
     @IBOutlet weak var moviePosterImage: UIImageView!
@@ -31,9 +31,7 @@ class MovieInfoViewController: UIViewController,UITableViewDelegate,UITableViewD
     var movieBackgroundImageData: String?
     var descriptionData: String?
     var idData: Int?
-    var profileImageData: String?
-    var profileOriginalNameData: String?
-    var profileCharacterNameData: String?
+    var sendData: [sendDataModel]?
     var downButtonClicked: Bool = false
     
     override func viewDidLoad() {
@@ -77,33 +75,25 @@ class MovieInfoViewController: UIViewController,UITableViewDelegate,UITableViewD
     }
     
     private func requestCasting(_ data: Int) {
-        let url = "\(APIKEY.TMDBCastingURL)\(data)\(EndPoint.TMDBCastingEndPoint)"
-        AF.request(url, method: .get).validate().responseData { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                for cast in json["cast"].arrayValue {
-                    let originalName = cast["name"].stringValue
-                    let charcterName = cast["character"].stringValue
-                    let profileImageURL = cast["profile_path"].stringValue
-                    let data = TMDBCastModel(originalName: originalName, charcterName: charcterName, profileImageURL: profileImageURL)
-                    self.castingList.append(data)
-                }
+        hud.show(in: self.view)
+        APIManager.shared.requestCasting(data: idData!) { idData, castingList in
+            self.idData = idData
+            self.castingList.append(contentsOf: castingList)
+            DispatchQueue.main.async {
                 self.movieInfoTableView.reloadData()
-            case .failure(let error):
-                print(error)
+                self.hud.dismiss(animated: true)
             }
         }
     }
     
     @objc
-    private func A() {
+    private func dismissView() {
         self.navigationController?.popViewController(animated: true)
     }
     
     private func setNavigationItem() {
         self.navigationItem.title = "출연/제작"
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style:.plain, target: self, action: #selector(A))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style:.plain, target: self, action: #selector(dismissView))
         self.navigationItem.leftBarButtonItem?.tintColor = .black
     }
     

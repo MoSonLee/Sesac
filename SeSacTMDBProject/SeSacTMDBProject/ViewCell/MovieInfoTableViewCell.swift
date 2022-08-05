@@ -14,3 +14,4 @@ class MovieInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var castMovieNameLabel: UILabel!
 }
 
+

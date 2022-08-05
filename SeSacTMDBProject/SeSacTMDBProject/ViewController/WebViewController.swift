@@ -10,15 +10,17 @@ import WebKit
 
 import Alamofire
 import SwiftyJSON
+import JGProgressHUD
 
 final class WebViewController: UIViewController {
-    
     @IBOutlet weak var webView: WKWebView!
     private var destinationURL: String?
     var movieIDData: Int?
+    private lazy var hud = JGProgressHUD()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavigationItem()
         requestTMDBVideo(movieIDData!)
     }
     
@@ -31,20 +33,27 @@ final class WebViewController: UIViewController {
         webView.load(request)
     }
     
-    private func requestTMDBVideo(_ data: Int) {
-        let url = "\(APIKEY.TMDBCastingURL)\(data)\(VideoEndPoint.TMDBVideoEndPoint)"
-        AF.request(url, method: .get).validate().responseData { response in
-            switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                let videoURL = json["results"][0]["key"].stringValue
-                self.destinationURL = "\(YoutubeStartPont.YoutubeFirstPont+videoURL)"
-                self.openWebPage(url: self.destinationURL!)
-                self.view.reloadInputViews()
-                
-            case .failure(let error):
-                print(error)
+   private func requestTMDBVideo(_ data: Int) {
+        APIManager.shared.requestTMDBVideo(data: movieIDData!, urlStringData: destinationURL ?? "https://www.youtube.com") { movieIDData, url in
+            self.hud.show(in: self.view, animated: true)
+            self.hud.textLabel.text = "Loading"
+            self.movieIDData = movieIDData
+            self.destinationURL = url
+            
+            DispatchQueue.main.async {
+                self.openWebPage(url:  self.destinationURL!)
+                self.hud.dismiss(animated: true)
             }
         }
+    }
+    
+    @objc
+    private func dismissView() {
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    private func setNavigationItem() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style:.plain, target: self, action: #selector(dismissView))
+        self.navigationItem.leftBarButtonItem?.tintColor = .black
     }
 }

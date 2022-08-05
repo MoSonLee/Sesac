@@ -27,3 +27,10 @@ struct GenreModel {
     let genreName: String
 }
 
+struct sendDataModel {
+    var movieTitleData: String?
+    var moviePosterImageData: String?
+    var movieBackgroundImageData: String?
+    var descriptionData: String?
+    var idData: Int?
+}
