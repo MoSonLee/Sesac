@@ -79,7 +79,6 @@ class ImageSearchViewController: UIViewController, UICollectionViewDelegate, UIC
 //셀이 화면에 보이기 전에 미리 필요한 리소르를 다운받을 수도 있고, 필요하지 않다면 데이터를 취소할 수도 있음.
 //iOS10이, 스크롤 성능 향상됨.
 extension ImageSearchViewController: UICollectionViewDataSourcePrefetching {
-    
     //셀이 화면에 보이기 직전에 필요한 리소스를 미리 다운 받는 기능
     func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
