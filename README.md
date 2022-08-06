@@ -30,3 +30,4 @@
 
 ### 5주차
 [🍀8/1 정리💫](https://s2ung.tistory.com/21)</br>
+[🍀8/2 정리💫](https://s2ung.tistory.com/22)</br>
