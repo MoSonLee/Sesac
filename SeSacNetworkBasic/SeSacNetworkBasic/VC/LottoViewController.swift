@@ -11,46 +11,36 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
-class LottoViewController: UIViewController {
+final class LottoViewController: UIViewController {
     
     @IBOutlet var lottoNumberLabelArray: [UILabel]!
     @IBOutlet weak var numberTextField: UITextField!
-    
-    private var lottopickerView = UIPickerView()
-    private var drwNo = 0
-    private let numberList: [Int] = Array(1...1026).reversed()
-    
+    private lazy var lottopickerView = UIPickerView()
+    private lazy var numberList: [Int] = []
+    private var A: Int?
+    private let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemMint
-        lottopickerView.dataSource = self
-        lottopickerView.delegate = self
-        numberTextField.inputView = lottopickerView
-        requestLotto(number: numberList.count)
-        numberTextField.layer.borderWidth = 1
+        setViewWithComponentsAndNetwork()
     }
     
     private func requestLotto(number: Int) {
         let url = "\(EndPoint.lottoURL)&drwNo=\(number)"
-        AF.request(url, method: .get).validate().responseJSON { response in
+        AF.request(url, method: .get).validate().responseData { response in
             switch response.result {
             case .success(let value):
                 let json = JSON(value)
-                print("JSON: \(json)")
                 let date = json["drwNoDate"].stringValue
+                self.numberTextField.text = date
+                
                 for index in 0..<6 {
                     self.lottoNumberLabelArray[index].text = String(json["drwtNo\(index+1)"].intValue)
-                    self.lottoNumberLabelArray[index].layer.borderWidth = 1
+                    self.lottoNumberLabelArray.last?.text = String(json["bnusNo"].intValue)
+                    self.userDefaults.set( self.lottoNumberLabelArray[index].text, forKey: "lotto\(index)\(number)")
                 }
-                
-                self.lottoNumberLabelArray.last?.text = String(json["bnusNo"].intValue)
-                self.lottoNumberLabelArray.last?.layer.borderWidth = 1
-                
-                self.numberTextField.text = date
-                self.drwNo = json["drwNo"].intValue
-                print(self.drwNo)
-                print(json)
+                self.userDefaults.set( self.lottoNumberLabelArray.last?.text, forKey: "bonusNo")
+                self.userDefaults.set( json["drwNo"].intValue, forKey: "drwNo\(number)")
                 
             case .failure(let error):
                 print(error)
@@ -60,6 +50,24 @@ class LottoViewController: UIViewController {
     
     @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
+    }
+    
+    private func currentDrwNo() -> Int {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        let firstDate = formatter.date(from: "2002-12-07 21:00")!
+        let dateInterval = Calendar.current.dateComponents([.day], from: firstDate, to: Date()).day!
+        let currentDrwNo = (dateInterval + 1) / 7
+        return currentDrwNo
+    }
+    
+    private func setViewWithComponentsAndNetwork() {
+        view.backgroundColor = .systemMint
+        numberList = Array(1...currentDrwNo()).reversed()
+        numberTextField.inputView = lottopickerView
+        lottopickerView.dataSource = self
+        lottopickerView.delegate = self
+        requestLotto(number: currentDrwNo())
     }
 }
 
@@ -73,8 +81,19 @@ extension LottoViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        requestLotto(number: numberList[row])
-        numberTextField.text = "\(numberList[row])회차"
+        A = self.userDefaults.integer(forKey: "drwNo\(numberList[row])")
+        if A != 0 {
+            print("network failure")
+            for index in 0..<6 {
+                lottoNumberLabelArray[index].text = String( UserDefaults.standard.integer(forKey: "lotto\(index)\(numberList[row])"))
+                lottoNumberLabelArray.last?.text = String(UserDefaults.standard.integer(forKey: "bonusNo"))
+                userDefaults.set( self.lottoNumberLabelArray[index].text, forKey: "lotto\(index)")
+            }
+        }
+        else {
+            print("network success")
+            requestLotto(number: numberList[row])
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
