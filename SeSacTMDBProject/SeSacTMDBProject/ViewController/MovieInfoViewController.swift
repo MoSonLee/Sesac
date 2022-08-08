@@ -48,8 +48,8 @@ final class MovieInfoViewController: UIViewController,UITableViewDelegate,UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: MovieInfoTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MovieInfoTableViewCell", for: indexPath) as? MovieInfoTableViewCell else { return UITableViewCell()}
         cell.castProfileImage.image = UIImage(systemName: "circle.fill")
-        cell.castOriginalNameLabel.text = castingList[indexPath.row].originalName
-        cell.castMovieNameLabel.text = castingList[indexPath.row].charcterName
+        cell.castOriginalNameLabel.text = castingList[indexPath.row].originalName ?? ""
+        cell.castMovieNameLabel.text = castingList[indexPath.row].charcterName ?? ""
         let imageURLString = "\(ImagePoint.ImageFirstKey)\(castingList[indexPath.row].profileImageURL)"
         let imageURL = URL(string: imageURLString)
         cell.castProfileImage.kf.setImage(with: imageURL)

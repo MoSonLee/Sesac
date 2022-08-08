@@ -18,8 +18,8 @@ struct TMDBModel {
 }
 
 struct TMDBCastModel {
-    let originalName: String
-    let charcterName: String
+    let originalName: String?
+    let charcterName: String?
     let profileImageURL: String
 }
 
