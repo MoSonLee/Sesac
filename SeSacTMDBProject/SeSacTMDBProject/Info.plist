@@ -21,7 +21,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>TMDB</string>
+					<string>Sesac6Assignment</string>
 				</dict>
 			</array>
 		</dict>
