@@ -7,17 +7,18 @@
 
 import UIKit
 
-class MainCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var cardView: CardView!
+final class MainCollectionViewCell: UICollectionViewCell {
+    
+    @IBOutlet private weak var cardView: CardView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
-        
     }
     
-    func setupUI() {
+    private func setupUI() {
         cardView.backgroundColor = .clear
         cardView.cardImageView.backgroundColor = .lightGray
     }
 }
+

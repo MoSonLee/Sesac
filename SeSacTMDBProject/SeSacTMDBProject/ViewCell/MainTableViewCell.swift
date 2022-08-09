@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTableViewCell: UITableViewCell {
+final class MainTableViewCell: UITableViewCell {
     
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var mainCollectionView: UICollectionView!

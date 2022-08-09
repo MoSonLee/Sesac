@@ -13,7 +13,9 @@ import SwiftyJSON
 import JGProgressHUD
 
 final class WebViewController: UIViewController {
-    @IBOutlet weak var webView: WKWebView!
+    
+    @IBOutlet private weak var webView: WKWebView!
+    
     private var destinationURL: String?
     var movieIDData: Int?
     private lazy var hud = JGProgressHUD()

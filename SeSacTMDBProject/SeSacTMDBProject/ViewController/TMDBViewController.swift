@@ -13,7 +13,7 @@ import Kingfisher
 import JGProgressHUD
 
 
-class TMDBViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
+final class TMDBViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
     
     @IBOutlet private weak var TMDBCollectionView: UICollectionView!
     

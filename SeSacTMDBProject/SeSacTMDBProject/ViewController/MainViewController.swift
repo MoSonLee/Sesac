@@ -7,9 +7,9 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
     
-    @IBOutlet weak var mainTableView: UITableView!
+    @IBOutlet private weak var mainTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         } else if cell.mainCollectionView.tag == 1 {
             cell.mainTitleLabel.text = "내년의 기대작"
         }
-        
         return cell
     }
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TMDBCollectionViewCell: UICollectionViewCell {
+final class TMDBCollectionViewCell: UICollectionViewCell {
     private var list: [TMDBModel] = []
     
     @IBOutlet weak var ViewWithShadow: UIView!
