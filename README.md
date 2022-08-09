@@ -35,3 +35,5 @@
 [🍀8/4 정리💫](https://s2ung.tistory.com/24)</br>
 [🍀8/5 정리💫](https://s2ung.tistory.com/25)</br>
 
+###6주차
+[🍀8/9 정리💫](https://s2ung.tistory.com/26)</br>
