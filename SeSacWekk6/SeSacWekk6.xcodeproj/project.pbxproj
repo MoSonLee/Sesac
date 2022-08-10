@@ -28,6 +28,8 @@
 		77C7424628A1F3740057D3EB /* CardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C7424428A1F3740057D3EB /* CardCollectionViewCell.xib */; };
 		77C7424828A1F6400057D3EB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C7424728A1F6400057D3EB /* MainViewController.swift */; };
 		77C7424A28A1FC350057D3EB /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C7424928A1FC350057D3EB /* MainTableViewCell.swift */; };
+		77C7425D28A330780057D3EB /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C7425C28A330780057D3EB /* ReusableViewProtocol.swift */; };
+		77C7425F28A343D70057D3EB /* TMDBAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C7425E28A343D70057D3EB /* TMDBAPIManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		77C7424428A1F3740057D3EB /* CardCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardCollectionViewCell.xib; sourceTree = "<group>"; };
 		77C7424728A1F6400057D3EB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		77C7424928A1FC350057D3EB /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		77C7425C28A330780057D3EB /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
+		77C7425E28A343D70057D3EB /* TMDBAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 				77C7421D28A08FE20057D3EB /* Info.plist */,
 				77C7423328A094FD0057D3EB /* Application */,
 				77C7422E28A094810057D3EB /* NetWork */,
+				77C7425B28A3305C0057D3EB /* Protocol */,
 				77C7423628A096D70057D3EB /* View */,
 				77C7423728A096DD0057D3EB /* ViewContoller */,
 				77C7423128A094EA0057D3EB /* Model */,
@@ -104,6 +109,7 @@
 				77C7422C28A091670057D3EB /* APIKey.swift */,
 				77C7423428A095230057D3EB /* URL+Extension.swift */,
 				77C7423828A0A78B0057D3EB /* kakaoAPIManager.swift */,
+				77C7425E28A343D70057D3EB /* TMDBAPIManager.swift */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -155,6 +161,14 @@
 				77C7423A28A0ABEF0057D3EB /* ClosureViewController.swift */,
 			);
 			path = ViewContoller;
+			sourceTree = "<group>";
+		};
+		77C7425B28A3305C0057D3EB /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				77C7425C28A330780057D3EB /* ReusableViewProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,10 +261,12 @@
 				77C7424828A1F6400057D3EB /* MainViewController.swift in Sources */,
 				77C7424528A1F3740057D3EB /* CardCollectionViewCell.swift in Sources */,
 				77C7423028A094980057D3EB /* EndPoint.swift in Sources */,
+				77C7425F28A343D70057D3EB /* TMDBAPIManager.swift in Sources */,
 				77C7424228A1E62E0057D3EB /* CardView.swift in Sources */,
 				77C7422D28A091670057D3EB /* APIKey.swift in Sources */,
 				77C7423E28A1E0360057D3EB /* SeSACButton.swift in Sources */,
 				77C7421228A08FE10057D3EB /* SceneDelegate.swift in Sources */,
+				77C7425D28A330780057D3EB /* ReusableViewProtocol.swift in Sources */,
 				77C7423928A0A78B0057D3EB /* kakaoAPIManager.swift in Sources */,
 				77C7423528A095230057D3EB /* URL+Extension.swift in Sources */,
 			);
