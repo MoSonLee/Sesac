@@ -9,7 +9,7 @@ import UIKit
 
 final class MainCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet private weak var cardView: CardView!
+    @IBOutlet weak var cardView: CardView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

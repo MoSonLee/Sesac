@@ -11,47 +11,62 @@ final class MainViewController: UIViewController {
     
     @IBOutlet private weak var mainTableView: UITableView!
     
+    private var movieEposiodeList: [[String]] = []
+    private var titleList: [[String]] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mainTableView.delegate = self
         mainTableView.dataSource = self
-    }
-}
-
-extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        getRecommandTMDB()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
-        return cell
+    private func getRecommandTMDB() {
+        APIManager.shared.requestImage { value in
+            self.movieEposiodeList = value
+            self.mainTableView.reloadData()
+            dump(self.movieEposiodeList)
+        }
     }
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        movieEposiodeList.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath) as? MainTableViewCell else { return UITableViewCell() }
         cell.backgroundColor = .systemCyan
-        cell.mainCollectionView.backgroundColor = .systemPink
+        cell.mainCollectionView.backgroundColor = .purple
         cell.mainCollectionView.delegate = self
         cell.mainCollectionView.dataSource = self
-        cell.mainCollectionView.tag = indexPath.row
+        cell.mainCollectionView.tag = indexPath.section
         cell.mainCollectionView.register(UINib(nibName: "MainCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "MainCollectionViewCell")
-        
-        if cell.mainCollectionView.tag == 0  {
-            cell.mainTitleLabel.text = "올해의 기대작"
-        } else if cell.mainCollectionView.tag == 1 {
-            cell.mainTitleLabel.text = "내년의 기대작"
-        }
+        cell.mainCollectionView.reloadData()
+        cell.mainTitleLabel.text = APIManager.shared.tvList[indexPath.section].0
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        indexPath.row == 3 ? 350 : 190
+        200
+    }
+}
+
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        movieEposiodeList[collectionView.tag].count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCollectionViewCell", for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
+        let url = URL(string: "\(APIManager.shared.imageURL)\(movieEposiodeList[collectionView.tag][indexPath.item])")
+        cell.cardView.cardImageView.kf.setImage(with: url)
+        cell.cardView.cardImageView.contentMode = .scaleToFill
+        return cell
     }
 }

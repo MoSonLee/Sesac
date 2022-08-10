@@ -11,8 +11,18 @@ import Alamofire
 import SwiftyJSON
 
 class APIManager {
+    
+    let imageURL = "https://image.tmdb.org/t/p/w500"
     static let shared = APIManager()
     private init() {}
+    
+    let tvList = [
+        ("Weekend at Bernie's", 8491),
+        ("The Ewok Adventure", 1884),
+        ("Enemy Mine", 11864),
+        ("Asterix vs. Caesar", 8868),
+        ("The Cutting Edge", 16562)
+    ]
     
     var list: [TMDBModel] = []
     var castingList: [TMDBCastModel] = []
@@ -49,9 +59,9 @@ class APIManager {
         }
     }
     
-     func requestCasting(data: Int, castCompletionHandler: @escaping castCompletionHandler) {
-        let url = "\(APIKEY.TMDBCastingURL)\(data)\(EndPoint.TMDBCastingEndPoint)"
-         
+    func requestCasting(data: Int, castCompletionHandler: @escaping castCompletionHandler) {
+        let url = "\(APIKEY.TMDBFirstMovieURL)\(data)\(EndPoint.TMDBCastingEndPoint)"
+        
         AF.request(url, method: .get).validate().responseData { response in
             switch response.result {
             case .success(let value):
@@ -72,18 +82,63 @@ class APIManager {
     }
     
     func requestTMDBVideo(data: Int, urlStringData: String, videoCompletionHandler: @escaping videoCompletionHandler) {
-       let url = "\(APIKEY.TMDBCastingURL)\(data)\(VideoEndPoint.TMDBVideoEndPoint)"
-       AF.request(url, method: .get).validate().responseData { response in
-           switch response.result {
-           case .success(let value):
-               let json = JSON(value)
-               let videoURL = json["results"][0]["key"].stringValue
-               let url = "\(YoutubeStartPont.YoutubeFirstPont+videoURL)"
-               videoCompletionHandler(data, url)
-               
-           case .failure(let error):
-               print(error)
-           }
-       }
-   }
+        let url = "\(APIKEY.TMDBFirstMovieURL)\(data)\(VideoEndPoint.TMDBVideoEndPoint)"
+        AF.request(url, method: .get).validate().responseData { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let videoURL = json["results"][0]["key"].stringValue
+                let url = "\(YoutubeStartPont.YoutubeFirstPont+videoURL)"
+                videoCompletionHandler(data, url)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func requestTMDBRecommandList(movieId: Int, completionHandler: @escaping ([String]) -> () ) {
+        let url = "\(APIKEY.TMDBFirstMovieURL)\(movieId)\(TMDBRecommand.key)"
+        AF.request(url, method: .get).validate().responseData { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let imagePathValue = json["results"].arrayValue.map {
+                    $0["poster_path"].stringValue
+                }
+                completionHandler(imagePathValue)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func requestImage(videoCompletionHandler: @escaping ([[String]]) -> ()) {
+        
+        var posterList: [[String]] = []
+        
+        APIManager.shared.requestTMDBRecommandList(movieId: tvList[0].1) {
+            value in
+            posterList.append(value)
+            
+            APIManager.shared.requestTMDBRecommandList(movieId: self.tvList[1].1) { value in
+                posterList.append(value)
+                
+                APIManager.shared.requestTMDBRecommandList(movieId: self.tvList[2].1){ value in
+                    posterList.append(value)
+                    
+                    APIManager.shared.requestTMDBRecommandList(movieId: self.tvList[3].1){ value in
+                        posterList.append(value)
+                        
+                        APIManager.shared.requestTMDBRecommandList(movieId: self.tvList[4].1){ value in
+                            posterList.append(value)
+                            videoCompletionHandler(posterList)
+                        }
+                    }
+                }
+            }
+        }
+        dump(posterList)
+    }
 }
