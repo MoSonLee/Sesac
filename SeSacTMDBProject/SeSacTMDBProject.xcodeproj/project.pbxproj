@@ -20,6 +20,7 @@
 		770E8782289AC29A009AC559 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 770E8781289AC29A009AC559 /* SwiftyJSON */; };
 		770E8785289AC2A2009AC559 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 770E8784289AC2A2009AC559 /* Kingfisher */; };
 		770E8787289AC36D009AC559 /* TMDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E8786289AC36D009AC559 /* TMDBModel.swift */; };
+		771D1A9F28A4939500172A30 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D1A9E28A4939500172A30 /* MapViewController.swift */; };
 		77746CF4289C3128001BF7E0 /* MovieInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77746CF3289C3128001BF7E0 /* MovieInfoViewController.swift */; };
 		77746CF6289C357F001BF7E0 /* MovieInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77746CF5289C357F001BF7E0 /* MovieInfoTableViewCell.swift */; };
 		77C7424C28A299F00057D3EB /* Sesac6Assignment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C7424B28A299F00057D3EB /* Sesac6Assignment.storyboard */; };
@@ -47,6 +48,7 @@
 		770E8776289AB545009AC559 /* TMDBCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TMDBCollectionViewCell.xib; sourceTree = "<group>"; };
 		770E8779289AB558009AC559 /* TMDBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBViewController.swift; sourceTree = "<group>"; };
 		770E8786289AC36D009AC559 /* TMDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBModel.swift; sourceTree = "<group>"; };
+		771D1A9E28A4939500172A30 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		77746CF3289C3128001BF7E0 /* MovieInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoViewController.swift; sourceTree = "<group>"; };
 		77746CF5289C357F001BF7E0 /* MovieInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoTableViewCell.swift; sourceTree = "<group>"; };
 		77C7424B28A299F00057D3EB /* Sesac6Assignment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sesac6Assignment.storyboard; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				77746CF3289C3128001BF7E0 /* MovieInfoViewController.swift */,
 				77D6DDEE289D5EB600B65BA0 /* WebViewController.swift */,
 				77C7425128A29C960057D3EB /* MainViewController.swift */,
+				771D1A9E28A4939500172A30 /* MapViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				770E8787289AC36D009AC559 /* TMDBModel.swift in Sources */,
 				77746CF6289C357F001BF7E0 /* MovieInfoTableViewCell.swift in Sources */,
 				77C7425028A29C290057D3EB /* CardView.swift in Sources */,
+				771D1A9F28A4939500172A30 /* MapViewController.swift in Sources */,
 				770E8777289AB545009AC559 /* TMDBCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,7 +444,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -468,7 +472,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
