@@ -17,7 +17,6 @@ import CoreLocation
  - 핀(어노테이션)
  */
 
-
 class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
@@ -130,14 +129,8 @@ extension MapViewController: CLLocationManagerDelegate {
         //ex. 위도 경도 기반으로 날씨 정보를 좋회
         //ex. 지도를 다시 세팅
         if let coordinate = locations.last?.coordinate {
-            //            let latitude = coordinate.latitude
-            //            let longtitude = coordinate.longitude
-            //            let center = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
-            
             setRegionAndAnnotation(center: coordinate)
         }
-        
-        //        setRegionAndAnnotation(center: )
         
         //위치 업데이트 멈춰!
         locationManager.stopUpdatingLocation()
