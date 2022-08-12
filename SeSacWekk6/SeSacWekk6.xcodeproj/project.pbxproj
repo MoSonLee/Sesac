@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		771D1AA428A5D6BC00172A30 /* YPImagePicker in Frameworks */ = {isa = PBXBuildFile; productRef = 771D1AA328A5D6BC00172A30 /* YPImagePicker */; };
+		771D1AA628A5DD1500172A30 /* CammeraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D1AA528A5DD1500172A30 /* CammeraViewController.swift */; };
 		77C7421028A08FE10057D3EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C7420F28A08FE10057D3EB /* AppDelegate.swift */; };
 		77C7421228A08FE10057D3EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C7421128A08FE10057D3EB /* SceneDelegate.swift */; };
 		77C7421428A08FE10057D3EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C7421328A08FE10057D3EB /* ViewController.swift */; };
@@ -33,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		771D1AA528A5DD1500172A30 /* CammeraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CammeraViewController.swift; sourceTree = "<group>"; };
 		77C7420C28A08FE10057D3EB /* SeSacWekk6.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSacWekk6.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77C7420F28A08FE10057D3EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77C7421128A08FE10057D3EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 				77C7422B28A090370057D3EB /* SwiftyJSON in Frameworks */,
 				77C7422828A090200057D3EB /* Kingfisher in Frameworks */,
 				77C7422528A090170057D3EB /* Alamofire in Frameworks */,
+				771D1AA428A5D6BC00172A30 /* YPImagePicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +163,7 @@
 			children = (
 				77C7421328A08FE10057D3EB /* ViewController.swift */,
 				77C7423A28A0ABEF0057D3EB /* ClosureViewController.swift */,
+				771D1AA528A5DD1500172A30 /* CammeraViewController.swift */,
 			);
 			path = ViewContoller;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				77C7422428A090170057D3EB /* Alamofire */,
 				77C7422728A090200057D3EB /* Kingfisher */,
 				77C7422A28A090370057D3EB /* SwiftyJSON */,
+				771D1AA328A5D6BC00172A30 /* YPImagePicker */,
 			);
 			productName = SeSacWekk6;
 			productReference = 77C7420C28A08FE10057D3EB /* SeSacWekk6.app */;
@@ -224,6 +230,7 @@
 				77C7422328A090170057D3EB /* XCRemoteSwiftPackageReference "Alamofire" */,
 				77C7422628A090200057D3EB /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				77C7422928A090370057D3EB /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				771D1AA228A5D6BC00172A30 /* XCRemoteSwiftPackageReference "YPImagePicker" */,
 			);
 			productRefGroup = 77C7420D28A08FE10057D3EB /* Products */;
 			projectDirPath = "";
@@ -265,6 +272,7 @@
 				77C7424228A1E62E0057D3EB /* CardView.swift in Sources */,
 				77C7422D28A091670057D3EB /* APIKey.swift in Sources */,
 				77C7423E28A1E0360057D3EB /* SeSACButton.swift in Sources */,
+				771D1AA628A5DD1500172A30 /* CammeraViewController.swift in Sources */,
 				77C7421228A08FE10057D3EB /* SceneDelegate.swift in Sources */,
 				77C7425D28A330780057D3EB /* ReusableViewProtocol.swift in Sources */,
 				77C7423928A0A78B0057D3EB /* kakaoAPIManager.swift in Sources */,
@@ -488,6 +496,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		771D1AA228A5D6BC00172A30 /* XCRemoteSwiftPackageReference "YPImagePicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Yummypets/YPImagePicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		77C7422328A090170057D3EB /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
@@ -515,6 +531,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		771D1AA328A5D6BC00172A30 /* YPImagePicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 771D1AA228A5D6BC00172A30 /* XCRemoteSwiftPackageReference "YPImagePicker" */;
+			productName = YPImagePicker;
+		};
 		77C7422428A090170057D3EB /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 77C7422328A090170057D3EB /* XCRemoteSwiftPackageReference "Alamofire" */;
