@@ -9,6 +9,8 @@ import UIKit
 import MapKit
 //Location 1. import
 import CoreLocation
+
+import Kingfisher
 /*
  MapVIew
  - 지도와 위치 권한은 상관X
@@ -20,19 +22,43 @@ import CoreLocation
 class MapViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var moveToWeatherButton: UIButton!
+    var weatherImageData: String = ""
+    var locationNameData: String = ""
+    var tempData: Double = 0.0
+    var windSpeedData: Double = 0.0
+    var humidityData: Int = 0
+    var longtitude: Double = 0.0
+    var latitude: Double = 0.0
     
+    var image: UIImage?
     //Location2. 위치에 대한 대부분을 담당
     let locationManager = CLLocationManager()
+    //    var imageID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         //Location3. 프로토콜 연결
         locationManager.delegate = self
         
         checkUserDeviceLocationServiceAuthorization()
         let center = CLLocationCoordinate2D(latitude: 37.546632, longitude: 126.949819)
         setRegionAndAnnotation(center: center)
+//        APIManager.shared.requestWeather(location: center) { weatherImage, locationName, temp, windSpeed, longtitude, latitude, humidity in
+//            self.weatherImageData = weatherImage
+//            self.locationNameData = locationName
+//            self.tempData = temp
+//            self.windSpeedData = windSpeed
+//            self.humidityData = humidity
+//            self.longtitude = longtitude
+//            self.latitude = latitude
+//            let center = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude)
+//            let region = MKCoordinateRegion(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
+//        }
+        
+        moveToWeatherButton.setTitle("날짜 정보 보러가기", for: .normal)
+        moveToWeatherButton.tintColor = .black
+        moveToWeatherButton.backgroundColor = .systemCyan
     }
     
     func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
@@ -47,6 +73,15 @@ class MapViewController: UIViewController {
         annotation.coordinate = center
         annotation.title = "이곳이 나의 캠퍼스다!"
         
+        APIManager.shared.requestWeather(location: "Seoul") { weatherImage, locationName, temp, windSpeed, longtitude, latitude, humidity in
+            self.weatherImageData = weatherImage
+            self.locationNameData = locationName
+            self.tempData = temp
+            self.windSpeedData = windSpeed
+            self.humidityData = humidity
+            self.longtitude = longtitude
+            self.latitude = latitude
+        }
         //지도에 핀 추가
         mapView.addAnnotation(annotation)
     }
@@ -66,6 +101,20 @@ class MapViewController: UIViewController {
         requestLocationServiceAlert.addAction(goSetting)
         
         present(requestLocationServiceAlert, animated: true, completion: nil)
+    }
+    
+    @IBAction func moveToWeatherButtonTapped(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Sesac6Assignment", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "WeatherViewController") as? WeatherViewController else { return }
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .automatic
+        vc.windSpeedData = windSpeedData
+        vc.tempData = tempData
+        vc.locationNameData = locationNameData
+        vc.weatherImageData = weatherImageData
+        vc.humidityData = humidityData
+        self.present(nav, animated: true)
     }
 }
 
@@ -156,7 +205,6 @@ extension MapViewController: CLLocationManagerDelegate {
 }
 
 extension MapViewController: MKMapViewDelegate {
-    
     //지도에 커스텀 핀 추가
     //    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     //        <#code#>
@@ -165,5 +213,4 @@ extension MapViewController: MKMapViewDelegate {
     //    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
     //        <#code#>
     //    }
-    
 }

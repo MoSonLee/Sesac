@@ -22,6 +22,8 @@
 		770E8787289AC36D009AC559 /* TMDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770E8786289AC36D009AC559 /* TMDBModel.swift */; };
 		771D1A9F28A4939500172A30 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D1A9E28A4939500172A30 /* MapViewController.swift */; };
 		771D1AA128A5767C00172A30 /* MapPracticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D1AA028A5767C00172A30 /* MapPracticeViewController.swift */; };
+		771D1AA828A6CF9F00172A30 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D1AA728A6CF9F00172A30 /* WeatherModel.swift */; };
+		771D1AAA28A6EC3900172A30 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D1AA928A6EC3900172A30 /* WeatherViewController.swift */; };
 		77746CF4289C3128001BF7E0 /* MovieInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77746CF3289C3128001BF7E0 /* MovieInfoViewController.swift */; };
 		77746CF6289C357F001BF7E0 /* MovieInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77746CF5289C357F001BF7E0 /* MovieInfoTableViewCell.swift */; };
 		77C7424C28A299F00057D3EB /* Sesac6Assignment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C7424B28A299F00057D3EB /* Sesac6Assignment.storyboard */; };
@@ -51,6 +53,8 @@
 		770E8786289AC36D009AC559 /* TMDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBModel.swift; sourceTree = "<group>"; };
 		771D1A9E28A4939500172A30 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		771D1AA028A5767C00172A30 /* MapPracticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPracticeViewController.swift; sourceTree = "<group>"; };
+		771D1AA728A6CF9F00172A30 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
+		771D1AA928A6EC3900172A30 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		77746CF3289C3128001BF7E0 /* MovieInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoViewController.swift; sourceTree = "<group>"; };
 		77746CF5289C357F001BF7E0 /* MovieInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoTableViewCell.swift; sourceTree = "<group>"; };
 		77C7424B28A299F00057D3EB /* Sesac6Assignment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sesac6Assignment.storyboard; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			children = (
 				770E87652899F8A3009AC559 /* APIKey.swift */,
 				770E8786289AC36D009AC559 /* TMDBModel.swift */,
+				771D1AA728A6CF9F00172A30 /* WeatherModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -149,6 +154,7 @@
 				77D6DDEE289D5EB600B65BA0 /* WebViewController.swift */,
 				77C7425128A29C960057D3EB /* MainViewController.swift */,
 				771D1A9E28A4939500172A30 /* MapViewController.swift */,
+				771D1AA928A6EC3900172A30 /* WeatherViewController.swift */,
 				771D1AA028A5767C00172A30 /* MapPracticeViewController.swift */,
 			);
 			path = ViewController;
@@ -270,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				77C7425428A29D300057D3EB /* MainTableViewCell.swift in Sources */,
+				771D1AAA28A6EC3900172A30 /* WeatherViewController.swift in Sources */,
 				77746CF4289C3128001BF7E0 /* MovieInfoViewController.swift in Sources */,
 				771D1AA128A5767C00172A30 /* MapPracticeViewController.swift in Sources */,
 				77D6DDEF289D5EB600B65BA0 /* WebViewController.swift in Sources */,
@@ -283,6 +290,7 @@
 				770E8787289AC36D009AC559 /* TMDBModel.swift in Sources */,
 				77746CF6289C357F001BF7E0 /* MovieInfoTableViewCell.swift in Sources */,
 				77C7425028A29C290057D3EB /* CardView.swift in Sources */,
+				771D1AA828A6CF9F00172A30 /* WeatherModel.swift in Sources */,
 				771D1A9F28A4939500172A30 /* MapViewController.swift in Sources */,
 				770E8777289AB545009AC559 /* TMDBCollectionViewCell.swift in Sources */,
 			);

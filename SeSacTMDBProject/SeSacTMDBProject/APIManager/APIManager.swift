@@ -9,6 +9,8 @@ import Foundation
 
 import Alamofire
 import SwiftyJSON
+import SwiftUI
+import Kingfisher
 
 class APIManager {
     
@@ -26,10 +28,13 @@ class APIManager {
     
     var list: [TMDBModel] = []
     var castingList: [TMDBCastModel] = []
+    var weatherList: [WeatherModel] = []
+    var resultImageView: UIImageView?
     
     typealias completionHandler = (Int, [TMDBModel]) -> Void
     typealias castCompletionHandler = (Int, [TMDBCastModel]) -> Void
     typealias videoCompletionHandler = (Int, String) -> Void
+    typealias weatherCompletionHandler = (String, String, Double, Double, Double, Double, Int) -> Void
     
     func requestTMDB(movieNumber: Int, completionHandler: @escaping completionHandler) {
         let url = APIKEY.TMDBURLWithMyKey
@@ -140,5 +145,26 @@ class APIManager {
             }
         }
         dump(posterList)
+    }
+    
+    func requestWeather(location: String, weatherHandler: @escaping weatherCompletionHandler ) {
+        let url = "\(WeatherAPIKEY.weatherFirstPoint)\(location)\(WeatherAPIKEY.myKey)"
+        AF.request(url, method: .get).validate(statusCode: 200...400).responseData { response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                let weatherImage = json["weather"][0]["icon"].stringValue
+                let locationName = json["name"].stringValue
+                let temp = json["main"]["temp"].doubleValue
+                let windSpeed = json["wind"]["speed"].doubleValue
+                let humidity = json["main"]["humidity"].intValue
+                let longtitude = json["coord"]["lon"].doubleValue
+                let latitude = json["coord"]["lat"].doubleValue
+                weatherHandler(weatherImage, locationName, temp, windSpeed,longtitude, latitude, humidity)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
