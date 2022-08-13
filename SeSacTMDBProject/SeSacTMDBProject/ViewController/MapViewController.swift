@@ -18,7 +18,6 @@ import Kingfisher
  - 중심 범위 지정
  - 핀(어노테이션)
  */
-
 final class MapViewController: UIViewController {
     
     @IBOutlet private weak var mapView: MKMapView!
