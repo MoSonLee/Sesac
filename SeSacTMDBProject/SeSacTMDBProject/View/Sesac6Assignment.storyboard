@@ -100,6 +100,10 @@
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vAy-hN-D5m">
                                 <rect key="frame" x="0.0" y="235" width="414" height="627"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Tt0-Z9-1ak" appends="YES" id="ZRJ-87-kAt"/>
+                                </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajm-Uf-LYx">
                                 <rect key="frame" x="20" y="64" width="374" height="151"/>
@@ -129,6 +133,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10f-bp-KWj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Tt0-Z9-1ak">
+                    <connections>
+                        <action selector="mapTapped:" destination="B4f-rJ-T7u" id="uKj-8O-5WF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1106" y="48"/>
         </scene>

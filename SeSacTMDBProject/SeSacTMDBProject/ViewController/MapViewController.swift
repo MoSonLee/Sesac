@@ -31,9 +31,9 @@ final class MapViewController: UIViewController {
     var longtitude: Double = 0.0
     var latitude: Double = 0.0
     
-    var image: UIImage?
     //Location2. 위치에 대한 대부분을 담당
-    let locationManager = CLLocationManager()
+    private lazy var locationManager = CLLocationManager()
+    private lazy var  annotation = MKPointAnnotation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,11 +44,9 @@ final class MapViewController: UIViewController {
     
     private func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
         // 지도 중심 설정: 애플맵 활용하여 좌표 복사
-        //        let center = CLLocationCoordinate2D(latitude: 37.546632, longitude: 126.949819)
         //지도 중심 기반으로 보여질 범위 설정
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
-        let annotation = MKPointAnnotation()
         annotation.coordinate = center
         annotation.title = "이곳이 나의 캠퍼스다!"
         //지도에 핀 추가
@@ -103,6 +101,20 @@ final class MapViewController: UIViewController {
         vc.weatherImageData = weatherImageData
         vc.humidityData = humidityData
         self.present(nav, animated: true)
+    }
+    
+    @IBAction private func mapTapped(_ sender: UITapGestureRecognizer) {
+        if sender.state != UIGestureRecognizer.State.ended {
+            return
+        }
+        if sender.state != UIGestureRecognizer.State.began {
+            print("location Changed")
+            let touchLocation = sender.location(in: mapView)
+            let locationCoordinate = mapView.convert(touchLocation,toCoordinateFrom: mapView)
+            let center = CLLocationCoordinate2D(latitude: locationCoordinate.latitude, longitude: locationCoordinate.longitude)
+            setRegionAndAnnotation(center: center )
+            return
+        }
     }
 }
 
