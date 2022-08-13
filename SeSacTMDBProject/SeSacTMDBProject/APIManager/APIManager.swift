@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 import Alamofire
 import SwiftyJSON
@@ -147,8 +148,8 @@ class APIManager {
         dump(posterList)
     }
     
-    func requestWeather(location: String, weatherHandler: @escaping weatherCompletionHandler ) {
-        let url = "\(WeatherAPIKEY.weatherFirstPoint)\(location)\(WeatherAPIKEY.myKey)"
+    func requestWeather(latitude: Double, longtitude: Double, weatherHandler: @escaping weatherCompletionHandler ) {
+        let url = "\(WeatherAPIKEY.weatherFirstPoint)lat=\(latitude)&lon=\(longtitude)\(WeatherAPIKEY.myKey)"
         AF.request(url, method: .get).validate(statusCode: 200...400).responseData { response in
             switch response.result {
             case .success(let value):

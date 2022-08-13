@@ -9,7 +9,7 @@ import UIKit
 
 import Kingfisher
 
-class WeatherViewController: UIViewController {
+final class WeatherViewController: UIViewController {
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var tempLabel: UILabel!
     @IBOutlet private weak var humidityLabel: UILabel!
@@ -25,9 +25,19 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setViewData()
+        setImage(weatherImageData)
+    }
+    
+    private func setImage(_ imageID: String) {
+        let url = URL(string: "http://openweathermap.org/img/wn/\(imageID)@2x.png")
+        weatherImageView.kf.setImage(with: url)
+    }
+    
+    private func setViewData() {
         view.backgroundColor = .systemCyan
         dateLabel.text = String()
-        tempLabel.text = "현재 기온은 \(tempData)"
+        tempLabel.text = "현재 기온은 \(round(tempData-273))"
         tempLabel.textAlignment = .center
         tempLabel.backgroundColor = .purple
         humidityLabel.text = "현재 습도는 \(humidityData)"
@@ -37,11 +47,5 @@ class WeatherViewController: UIViewController {
         windSpeedLabel.textAlignment = .center
         windSpeedLabel.backgroundColor = .green
         helloLabel.text = "오늘도 행복한 하루 보내세요"
-        setImage(weatherImageData)
-    }
-    
-    private func setImage(_ imageID: String) {
-        let url = URL(string: "http://openweathermap.org/img/wn/\(imageID)@2x.png")
-        weatherImageView.kf.setImage(with: url)
     }
 }
