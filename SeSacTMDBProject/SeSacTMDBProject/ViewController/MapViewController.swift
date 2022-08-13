@@ -33,7 +33,7 @@ final class MapViewController: UIViewController {
     
     //Location2. 위치에 대한 대부분을 담당
     private lazy var locationManager = CLLocationManager()
-    private lazy var  annotation = MKPointAnnotation()
+    private lazy var annotation = MKPointAnnotation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
