@@ -46,6 +46,15 @@
       }
     },
     {
+      "identity" : "toast-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/scalessec/Toast-Swift.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "0c9493eeacb102cc614da385cfaaf475379f4ab4"
+      }
+    },
+    {
       "identity" : "ypimagepicker",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Yummypets/YPImagePicker.git",

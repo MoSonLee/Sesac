@@ -378,8 +378,10 @@
                     </view>
                     <connections>
                         <outlet property="cameraButton" destination="p8Z-Fc-0yV" id="89k-vx-lw3"/>
+                        <outlet property="cloverFaceButton" destination="fvG-xu-T74" id="XV9-rT-FBJ"/>
                         <outlet property="photoLibraryButton" destination="qSg-IT-28Z" id="cXV-KP-ogu"/>
                         <outlet property="resultImageView" destination="5hT-HS-eGj" id="1S6-eP-jTZ"/>
+                        <outlet property="saveToGalleryButton" destination="gXb-K3-zUk" id="X2X-1R-fMv"/>
                         <outlet property="ypImagePickerButton" destination="5Wn-XN-xbO" id="fzm-uZ-BMU"/>
                     </connections>
                 </viewController>
