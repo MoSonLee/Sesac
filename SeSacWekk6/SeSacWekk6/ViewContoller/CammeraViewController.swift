@@ -80,15 +80,14 @@ final class CammeraViewController: UIViewController {
     //문자열이 아닌 파일, 이미지, pdf 파일 자체가 그대로 전송 되지 않음. -> 텍스트 형태로 인코딩
     //어떤 파일의 종류가 명시되는지 -> Content Type
     @IBAction private func clovaFaceButtonClicked(_ sender: UIButton) {
-        let url = "https://openapi.naver.com/v1/vision/celebrity"
+        let url = APIKey.naverCelebrityURL
         let header: HTTPHeaders = [
-            "X-Naver-Client-Id": "tSUzT1r164LmbgFXn59B",
-            "X-Naver-Client-Secret": "rtxl2UV_IV",
-            "Content-Type": "multipart/form-data"
+            "X-Naver-Client-Id": APIKey.naverClientId,
+            "X-Naver-Client-Secret": APIKey.naverSecretId,
+//            "Content-Type": "multipart/form-data"
         ]
         //UIImage를 텍스트 형태(바이너리 타입)로 변환해서 전달
         let imageData = resultImageView.image?.jpegData(compressionQuality: 0.4)
-        
         AF.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(imageData!, withName: "image")
         }, to: url, headers: header).validate(statusCode: 200...500).responseData { response in
@@ -110,7 +109,6 @@ extension CammeraViewController: UIImagePickerControllerDelegate, UINavigationCo
     //사진을 선택하거나 카메라 촬영 직푸
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         print(#function)
-        
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             self.resultImageView.image = image
             dismiss(animated: true)
