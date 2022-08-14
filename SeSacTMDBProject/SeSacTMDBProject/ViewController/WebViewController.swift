@@ -20,6 +20,10 @@ final class WebViewController: UIViewController {
     var movieIDData: Int?
     private lazy var hud = JGProgressHUD()
     
+    static var identifier: String {
+        return "WebViewController"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationItem()

@@ -17,26 +17,20 @@ final class MovieInfoViewController: UIViewController,UITableViewDelegate,UITabl
     private lazy var hud = JGProgressHUD()
     private lazy var castingList: [Cast] = []
     
-    @IBOutlet weak var descriptionView: UIView!
-    @IBOutlet weak var movieTitleLabel: UILabel!
-    @IBOutlet weak var movieInfoTableView: UITableView!
-    @IBOutlet weak var movieDescriptionLabel: UILabel!
-    @IBOutlet weak var downArrowbutton: UIButton!
-    @IBOutlet weak var overViewTitleLabel: UILabel!
-    @IBOutlet weak var movieBackIgroundImage: UIImageView!
-    @IBOutlet weak var moviePosterImage: UIImageView!
+    @IBOutlet private weak var descriptionView: UIView!
+    @IBOutlet private weak var movieTitleLabel: UILabel!
+    @IBOutlet private weak var movieInfoTableView: UITableView!
+    @IBOutlet private weak var movieDescriptionLabel: UILabel!
+    @IBOutlet private weak var downArrowbutton: UIButton!
+    @IBOutlet private weak var overViewTitleLabel: UILabel!
+    @IBOutlet private weak var movieBackIgroundImage: UIImageView!
+    @IBOutlet private weak var moviePosterImage: UIImageView!
     
-    var movieTitleData: String?
-    var moviePosterImageData: String?
-    var movieBackgroundImageData: String?
-    var descriptionData: String?
-    var idData: Int?
-    var sendData: [sendDataModel]?
-    var downButtonClicked: Bool = false
+    var model: TMDBModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        requestCasting(idData!)
+        requestCasting(model.movieID)
         setNavigationItem()
         setView()
     }
@@ -46,38 +40,32 @@ final class MovieInfoViewController: UIViewController,UITableViewDelegate,UITabl
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: MovieInfoTableViewCell = tableView.dequeueReusableCell(withIdentifier: "MovieInfoTableViewCell", for: indexPath) as? MovieInfoTableViewCell else { return UITableViewCell()}
-        cell.castProfileImage.image = UIImage(systemName: "circle.fill")
-        cell.castOriginalNameLabel.text = castingList[indexPath.row].originalName ?? ""
-        cell.castMovieNameLabel.text = castingList[indexPath.row].charcterName ?? ""
-        let imageURLString = ImagePoint.ImageFirstKey + (castingList[indexPath.row].profileImageURL ?? "")
-        let imageURL = URL(string: imageURLString)
-        cell.castProfileImage.kf.setImage(with: imageURL)
-        cell.castProfileImage.contentMode = UIView.ContentMode.scaleAspectFit
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieInfoTableViewCell.identifier, for: indexPath) as? MovieInfoTableViewCell else { return UITableViewCell()}
+        cell.configureCell(cast: castingList[indexPath.row])
         return cell
     }
     
-    @IBAction func downarrowButtonTapped(_ sender: UIButton) {
+    @IBAction private func downarrowButtonTapped(_ sender: UIButton) {
         var newFrame = descriptionView.frame
-        if downButtonClicked == false {
+        sender.isSelected = !sender.isSelected
+        sender.isSelected ? toggle(): toggleCancel()
+        
+        func toggle() {
             newFrame.size.height = 300
             movieDescriptionLabel.numberOfLines = 0
             descriptionView.frame = newFrame
-            sender.setImage(UIImage(systemName: "chevron.up"), for: .normal)
-            downButtonClicked = true
-        } else {
-            sender.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        }
+        
+        func toggleCancel() {
             newFrame.size.height = 200
             movieDescriptionLabel.numberOfLines = 2
             descriptionView.frame = newFrame
-            downButtonClicked = false
         }
     }
     
     private func requestCasting(_ data: Int) {
         hud.show(in: self.view)
-        APIManager.shared.requestCasting(id: idData!) { idData, castingList in
-            self.idData = idData
+        APIManager.shared.requestCasting(id: model?.movieID ?? 0) { idData, castingList in
             self.castingList.append(contentsOf: castingList)
             DispatchQueue.main.async {
                 self.movieInfoTableView.reloadData()
@@ -98,10 +86,12 @@ final class MovieInfoViewController: UIViewController,UITableViewDelegate,UITabl
     }
     
     private func setView() {
+        
         movieInfoTableView.delegate = self
         movieInfoTableView.dataSource = self
+        guard let model = model else { return }
         
-        movieTitleLabel.text = movieTitleData
+        movieTitleLabel.text = model.movieTitle
         movieTitleLabel.textColor = .white
         movieTitleLabel.font = .preferredFont(forTextStyle: .headline, compatibleWith: .current)
         movieTitleLabel.adjustsFontSizeToFitWidth = true
@@ -113,16 +103,17 @@ final class MovieInfoViewController: UIViewController,UITableViewDelegate,UITabl
         overViewTitleLabel.font = .boldSystemFont(ofSize: 22)
         overViewTitleLabel.textColor = .systemGray
         
-        movieDescriptionLabel.text = descriptionData
+        movieDescriptionLabel.text = model.movieDescription
         movieDescriptionLabel.textAlignment = .center
         movieDescriptionLabel.numberOfLines = 2
         
         downArrowbutton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        downArrowbutton.setImage(UIImage(systemName: "chevron.up"), for: .selected)
         downArrowbutton.setTitle("", for: .normal)
         downArrowbutton.tintColor = .black
         
-        let imageURL = URL(string: moviePosterImageData!)
-        let backgroundImageURL = URL(string: movieBackgroundImageData!)
+        let imageURL = URL(string: ImagePoint.ImageFirstKey + model.movieImageURL)
+        let backgroundImageURL = URL(string: ImagePoint.ImageFirstKey + model.movieBackdropURL)
         moviePosterImage.kf.setImage(with: imageURL)
         movieBackIgroundImage.kf.setImage(with: backgroundImageURL)
         movieBackIgroundImage.contentMode = UIView.ContentMode.scaleToFill

@@ -29,21 +29,30 @@ class APIManager {
     var castingList: [Cast] = []
     var weatherList: [WeatherModel] = []
     
-    typealias completionHandler = (Int, [TMDBModel]) -> Void
+    typealias completionHandler = ([TMDBModel]?, Int?) -> Void
     typealias castCompletionHandler = (Int, [Cast]) -> Void
     typealias videoCompletionHandler = (Int, String) -> Void
     typealias weatherCompletionHandler = (String, String, Double, Double, Double, Double, Int) -> Void
     
-    func requestTMDB(movieNumber: Int, completionHandler: @escaping completionHandler) {
+    var page = 1
+    
+    func requestTMDB(completionHandler: @escaping completionHandler) {
         let url = APIKEY.TMDBURLWithMyKey
         
-        AF.request(url, method: .get).validate().responseData { response in
+        AF.request(url, method: .get).validate().responseData { [weak self] response in
+            guard let self = self else { return }
             switch response.result {
-                
             case .success(let value):
                 let json = JSON(value)
-                for i in self.list.count ..< movieNumber {
+                for i in self.list.count ..< self.page * 10 {
+                    if json["results"].count <= self.list.count {
+                        completionHandler(nil, 0 )
+                        return
+                    }
                     let index = json["results"][i]
+                    if json["results"].count <= self.list.count {
+                        return
+                    }
                     let movieID = index["id"].intValue
                     let movieReleaseDate = index["release_date"].stringValue
                     let movieTitle = index["title"].stringValue
@@ -54,10 +63,12 @@ class APIManager {
                     let data = TMDBModel(movieID: movieID, movieReleaseDate: movieReleaseDate , movieTitle: movieTitle, movievoteAVG: movieAvg, movieImageURL: movieURL, movieBackdropURL: movieBackdrop, movieDescription: movieDescription)
                     self.list.append(data)
                 }
-                completionHandler(movieNumber, self.list)
+                self.page += 1
+                completionHandler(self.list, nil)
                 
-            case .failure(let error):
-                print(error)
+            case .failure(let _):
+                self.page = 1
+                completionHandler(nil, 0)
             }
         }
     }

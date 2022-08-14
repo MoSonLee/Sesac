@@ -9,9 +9,21 @@ import UIKit
 
 final class MovieInfoTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var castProfileImage: UIImageView!
-    @IBOutlet weak var castOriginalNameLabel: UILabel!
-    @IBOutlet weak var castMovieNameLabel: UILabel!
+    @IBOutlet private weak var castProfileImage: UIImageView!
+    @IBOutlet private weak var castOriginalNameLabel: UILabel!
+    @IBOutlet private weak var castMovieNameLabel: UILabel!
+    
+    static let identifier = "MovieInfoTableViewCell"
+    
+    func configureCell(cast: Cast) {
+        castProfileImage.image = UIImage(systemName: "circle.fill")
+        castOriginalNameLabel.text = cast.originalName ?? ""
+        castMovieNameLabel.text = cast.charcterName ?? ""
+        let imageURLString = ImagePoint.ImageFirstKey + (cast.profileImageURL ?? "")
+        let imageURL = URL(string: imageURLString)
+        castProfileImage.kf.setImage(with: imageURL)
+        castProfileImage.contentMode = UIView.ContentMode.scaleAspectFit
+    }
 }
 
 

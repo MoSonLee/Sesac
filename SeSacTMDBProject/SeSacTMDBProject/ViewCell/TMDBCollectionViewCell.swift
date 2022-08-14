@@ -10,21 +10,25 @@ import UIKit
 final class TMDBCollectionViewCell: UICollectionViewCell {
     private var list: [TMDBModel] = []
     
-    @IBOutlet weak var ViewWithShadow: UIView!
-    @IBOutlet weak var releaseDateLabel: UILabel!
-    @IBOutlet weak var movieGenreLabel: UILabel!
-    @IBOutlet weak var imageButtonLabel: UIButton!
-    @IBOutlet weak var movieImage: UIImageView!
-    @IBOutlet weak var rateTitleLabel: UILabel!
-    @IBOutlet weak var rateLabel: UILabel!
-    @IBOutlet weak var movieTitleLabel: UILabel!
-    @IBOutlet weak var movieAppearanceLabel: UILabel!
-    @IBOutlet weak var moveToMovieLabel: UILabel!
-    @IBOutlet weak var moveToMovieButton: UIButton!
+    @IBOutlet private weak var ViewWithShadow: UIView!
+    @IBOutlet private weak var releaseDateLabel: UILabel!
+    @IBOutlet private weak var movieGenreLabel: UILabel!
+    @IBOutlet private weak var imageButtonLabel: UIButton!
+    @IBOutlet private weak var movieImage: UIImageView!
+    @IBOutlet private weak var rateTitleLabel: UILabel!
+    @IBOutlet private weak var rateLabel: UILabel!
+    @IBOutlet private weak var movieTitleLabel: UILabel!
+    @IBOutlet private weak var movieAppearanceLabel: UILabel!
+    @IBOutlet private weak var moveToMovieLabel: UILabel!
+    @IBOutlet private weak var moveToMovieButton: UIButton!
     
-    var movieButtonPressed: (() -> ())?
+    static var identifier: String {
+        return "TMDBCollectionViewCell"
+    }
     
-    func configureCellShadow() {
+    var movieButtonPressed: (() -> Void)?
+    
+    func configureShadow() {
         self.ViewWithShadow.layer.cornerRadius = 15.0
         self.ViewWithShadow.layer.borderWidth = 0.0
         self.ViewWithShadow.layer.shadowColor = UIColor.black.cgColor
@@ -34,7 +38,7 @@ final class TMDBCollectionViewCell: UICollectionViewCell {
         self.ViewWithShadow.layer.masksToBounds = false
     }
     
-    func configureCell() {
+    func configure(model: TMDBModel) {
         self.backgroundColor = .clear
         self.moveToMovieLabel.text = "자세히 보기"
         self.moveToMovieButton.setImage(UIImage(systemName: "chevron.right"), for: .normal)
@@ -58,7 +62,15 @@ final class TMDBCollectionViewCell: UICollectionViewCell {
         self.movieAppearanceLabel.font = .boldSystemFont(ofSize: 17)
         self.movieAppearanceLabel.textColor = .systemGray
         
-        self.movieImage.contentMode = UIView.ContentMode.scaleToFill
+        self.movieImage.contentMode = .scaleAspectFill
+        
+        let imageURLString = ImagePoint.ImageFirstKey + model.movieImageURL
+        let imageURL = URL(string: imageURLString)
+        movieImage.kf.setImage(with: imageURL!)
+        rateLabel.text = "\((round(model.movievoteAVG)*100)/100)"
+        movieTitleLabel.text = model.movieTitle
+        movieAppearanceLabel.text = model.movieDescription
+        releaseDateLabel.text = model.movieReleaseDate
     }
 
     @IBAction func moveToMovieButtonTapped(_ sender: UIButton) {

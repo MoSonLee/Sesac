@@ -49,7 +49,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="m7v-bX-OW0"/>
                     <connections>
-                        <outlet property="TMDBCollectionView" destination="AOy-iz-f28" id="Qt6-eg-TLw"/>
+                        <outlet property="collectionView" destination="AOy-iz-f28" id="Qt6-eg-TLw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OhG-ba-5Fw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
