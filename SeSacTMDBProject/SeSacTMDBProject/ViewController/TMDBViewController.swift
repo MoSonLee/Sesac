@@ -19,7 +19,6 @@ final class TMDBViewController: UIViewController, UICollectionViewDelegate,UICol
     
     private lazy var hud = JGProgressHUD()
     private lazy var list: [TMDBModel] = []
-    private lazy var castingList: [TMDBCastModel] = []
     private lazy var movieNumber = 10
     
     override func viewDidLoad() {

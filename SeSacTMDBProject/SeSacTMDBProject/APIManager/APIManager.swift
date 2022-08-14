@@ -10,8 +10,6 @@ import CoreLocation
 
 import Alamofire
 import SwiftyJSON
-import SwiftUI
-import Kingfisher
 
 class APIManager {
     
@@ -28,12 +26,11 @@ class APIManager {
     ]
     
     var list: [TMDBModel] = []
-    var castingList: [TMDBCastModel] = []
+    var castingList: [Cast] = []
     var weatherList: [WeatherModel] = []
-    var resultImageView: UIImageView?
     
     typealias completionHandler = (Int, [TMDBModel]) -> Void
-    typealias castCompletionHandler = (Int, [TMDBCastModel]) -> Void
+    typealias castCompletionHandler = (Int, [Cast]) -> Void
     typealias videoCompletionHandler = (Int, String) -> Void
     typealias weatherCompletionHandler = (String, String, Double, Double, Double, Double, Int) -> Void
     
@@ -65,21 +62,13 @@ class APIManager {
         }
     }
     
-    func requestCasting(data: Int, castCompletionHandler: @escaping castCompletionHandler) {
-        let url = "\(APIKEY.TMDBFirstMovieURL)\(data)\(EndPoint.TMDBCastingEndPoint)"
-        
-        AF.request(url, method: .get).validate().responseData { response in
+    func requestCasting(id: Int, castCompletionHandler: @escaping castCompletionHandler) {
+        let url = "\(APIKEY.TMDBFirstMovieURL)\(id)\(EndPoint.TMDBCastingEndPoint)"
+        AF.request(url, method: .get, encoding: URLEncoding.default).validate().responseDecodable(of: TMDBCastModel.self) { response in
             switch response.result {
-            case .success(let value):
-                let json = JSON(value)
-                for cast in json["cast"].arrayValue {
-                    let originalName = cast["name"].stringValue
-                    let charcterName = cast["character"].stringValue
-                    let profileImageURL = cast["profile_path"].stringValue
-                    let data = TMDBCastModel(originalName: originalName, charcterName: charcterName, profileImageURL: profileImageURL)
-                    self.castingList.append(data)
-                }
-                castCompletionHandler(data, self.castingList)
+            case .success(let model):
+                self.castingList = model.cast
+                castCompletionHandler(id, self.castingList)
                 
             case .failure(let error):
                 print(error)

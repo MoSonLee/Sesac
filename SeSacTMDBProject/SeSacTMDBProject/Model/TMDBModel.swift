@@ -17,10 +17,31 @@ struct TMDBModel {
     let movieDescription: String
 }
 
-struct TMDBCastModel {
+struct TMDBCastModel: Decodable {
+    let cast: [Cast]
+    
+    enum Codingkeys: String, CodingKey {
+        case cast
+    }
+}
+
+struct Cast: Decodable {
     let originalName: String?
     let charcterName: String?
-    let profileImageURL: String
+    let profileImageURL: String?
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: Codingkeys.self)
+        self.originalName = try container.decode(String.self, forKey: .originalName)
+        self.charcterName = try container.decode(String.self, forKey: .charcterName)
+        self.profileImageURL = try container.decodeIfPresent(String.self, forKey: .profileImageURL)
+    }
+    
+    enum Codingkeys: String, CodingKey {
+        case originalName = "original_name"
+        case charcterName = "character"
+        case profileImageURL = "profile_path"
+    }
 }
 
 struct GenreModel {

@@ -95,11 +95,11 @@ final class MapViewController: UIViewController {
         guard let vc = storyboard.instantiateViewController(withIdentifier: "WeatherViewController") as? WeatherViewController else { return }
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .automatic
-        vc.windSpeedData = windSpeedData
-        vc.tempData = tempData
-        vc.locationNameData = locationNameData
-        vc.weatherImageData = weatherImageData
-        vc.humidityData = humidityData
+        vc.windSpeed = windSpeedData
+        vc.temp = tempData
+        vc.locationNameString = locationNameData
+        vc.weatherImageString = weatherImageData
+        vc.humidity = humidityData
         self.present(nav, animated: true)
     }
     

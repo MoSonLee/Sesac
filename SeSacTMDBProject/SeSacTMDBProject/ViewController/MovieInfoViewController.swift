@@ -15,7 +15,7 @@ import JGProgressHUD
 final class MovieInfoViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     private lazy var hud = JGProgressHUD()
-    private lazy var castingList: [TMDBCastModel] = []
+    private lazy var castingList: [Cast] = []
     
     @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var movieTitleLabel: UILabel!
@@ -50,7 +50,7 @@ final class MovieInfoViewController: UIViewController,UITableViewDelegate,UITabl
         cell.castProfileImage.image = UIImage(systemName: "circle.fill")
         cell.castOriginalNameLabel.text = castingList[indexPath.row].originalName ?? ""
         cell.castMovieNameLabel.text = castingList[indexPath.row].charcterName ?? ""
-        let imageURLString = "\(ImagePoint.ImageFirstKey)\(castingList[indexPath.row].profileImageURL)"
+        let imageURLString = ImagePoint.ImageFirstKey + (castingList[indexPath.row].profileImageURL ?? "")
         let imageURL = URL(string: imageURLString)
         cell.castProfileImage.kf.setImage(with: imageURL)
         cell.castProfileImage.contentMode = UIView.ContentMode.scaleAspectFit
@@ -76,7 +76,7 @@ final class MovieInfoViewController: UIViewController,UITableViewDelegate,UITabl
     
     private func requestCasting(_ data: Int) {
         hud.show(in: self.view)
-        APIManager.shared.requestCasting(data: idData!) { idData, castingList in
+        APIManager.shared.requestCasting(id: idData!) { idData, castingList in
             self.idData = idData
             self.castingList.append(contentsOf: castingList)
             DispatchQueue.main.async {
