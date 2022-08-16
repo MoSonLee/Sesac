@@ -15,7 +15,13 @@ import JGProgressHUD
 
 final class TMDBViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource {
     
+    static var identifier: String {
+        "TMDBViewController"
+    }
+    
     @IBOutlet private weak var collectionView: UICollectionView!
+    
+    private var userDefaults = UserDefaults.standard
     
     private lazy var hud = JGProgressHUD()
     private lazy var list: [TMDBModel] = []
@@ -23,6 +29,7 @@ final class TMDBViewController: UIViewController, UICollectionViewDelegate,UICol
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userDefaults.set("isLaunched", forKey: "InitialLaunched")
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "TMDBCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TMDBCollectionViewCell")
@@ -99,3 +106,4 @@ extension UIViewController {
         return layout
     }
 }
+

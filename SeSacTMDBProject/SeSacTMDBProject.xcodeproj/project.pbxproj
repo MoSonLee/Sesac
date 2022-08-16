@@ -26,6 +26,10 @@
 		771D1AAA28A6EC3900172A30 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771D1AA928A6EC3900172A30 /* WeatherViewController.swift */; };
 		77746CF4289C3128001BF7E0 /* MovieInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77746CF3289C3128001BF7E0 /* MovieInfoViewController.swift */; };
 		77746CF6289C357F001BF7E0 /* MovieInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77746CF5289C357F001BF7E0 /* MovieInfoTableViewCell.swift */; };
+		779465D528ABC95A00A86818 /* InitialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779465D428ABC95A00A86818 /* InitialPageViewController.swift */; };
+		779465D728ABCAF000A86818 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779465D628ABCAF000A86818 /* FirstViewController.swift */; };
+		779465D928ABCAF600A86818 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779465D828ABCAF600A86818 /* SecondViewController.swift */; };
+		779465DB28ABCAFF00A86818 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779465DA28ABCAFF00A86818 /* ThirdViewController.swift */; };
 		77C7424C28A299F00057D3EB /* Sesac6Assignment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77C7424B28A299F00057D3EB /* Sesac6Assignment.storyboard */; };
 		77C7424E28A29ADD0057D3EB /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 77C7424D28A29ADD0057D3EB /* CardView.xib */; };
 		77C7425028A29C290057D3EB /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C7424F28A29C290057D3EB /* CardView.swift */; };
@@ -57,6 +61,10 @@
 		771D1AA928A6EC3900172A30 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		77746CF3289C3128001BF7E0 /* MovieInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoViewController.swift; sourceTree = "<group>"; };
 		77746CF5289C357F001BF7E0 /* MovieInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInfoTableViewCell.swift; sourceTree = "<group>"; };
+		779465D428ABC95A00A86818 /* InitialPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialPageViewController.swift; sourceTree = "<group>"; };
+		779465D628ABCAF000A86818 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		779465D828ABCAF600A86818 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		779465DA28ABCAFF00A86818 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		77C7424B28A299F00057D3EB /* Sesac6Assignment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Sesac6Assignment.storyboard; sourceTree = "<group>"; };
 		77C7424D28A29ADD0057D3EB /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		77C7424F28A29C290057D3EB /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -156,6 +164,10 @@
 				771D1A9E28A4939500172A30 /* MapViewController.swift */,
 				771D1AA928A6EC3900172A30 /* WeatherViewController.swift */,
 				771D1AA028A5767C00172A30 /* MapPracticeViewController.swift */,
+				779465D428ABC95A00A86818 /* InitialPageViewController.swift */,
+				779465D628ABCAF000A86818 /* FirstViewController.swift */,
+				779465D828ABCAF600A86818 /* SecondViewController.swift */,
+				779465DA28ABCAFF00A86818 /* ThirdViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -275,6 +287,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				779465D528ABC95A00A86818 /* InitialPageViewController.swift in Sources */,
 				77C7425428A29D300057D3EB /* MainTableViewCell.swift in Sources */,
 				771D1AAA28A6EC3900172A30 /* WeatherViewController.swift in Sources */,
 				77746CF4289C3128001BF7E0 /* MovieInfoViewController.swift in Sources */,
@@ -282,6 +295,7 @@
 				77D6DDEF289D5EB600B65BA0 /* WebViewController.swift in Sources */,
 				77D6DDF2289D740000B65BA0 /* APIManager.swift in Sources */,
 				77C7425228A29C960057D3EB /* MainViewController.swift in Sources */,
+				779465DB28ABCAFF00A86818 /* ThirdViewController.swift in Sources */,
 				770E877A289AB558009AC559 /* TMDBViewController.swift in Sources */,
 				770E874D2899F6FB009AC559 /* AppDelegate.swift in Sources */,
 				77C7425628A29D5B0057D3EB /* MainCollectionViewCell.swift in Sources */,
@@ -289,8 +303,10 @@
 				770E87662899F8A3009AC559 /* APIKey.swift in Sources */,
 				770E8787289AC36D009AC559 /* TMDBModel.swift in Sources */,
 				77746CF6289C357F001BF7E0 /* MovieInfoTableViewCell.swift in Sources */,
+				779465D728ABCAF000A86818 /* FirstViewController.swift in Sources */,
 				77C7425028A29C290057D3EB /* CardView.swift in Sources */,
 				771D1AA828A6CF9F00172A30 /* WeatherModel.swift in Sources */,
+				779465D928ABCAF600A86818 /* SecondViewController.swift in Sources */,
 				771D1A9F28A4939500172A30 /* MapViewController.swift in Sources */,
 				770E8777289AB545009AC559 /* TMDBCollectionViewCell.swift in Sources */,
 			);

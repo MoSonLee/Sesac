@@ -66,7 +66,7 @@ class APIManager {
                 self.page += 1
                 completionHandler(self.list, nil)
                 
-            case .failure(let _):
+            case .failure( _):
                 self.page = 1
                 completionHandler(nil, 0)
             }
@@ -94,7 +94,7 @@ class APIManager {
             case .success(let value):
                 let json = JSON(value)
                 let videoURL = json["results"][0]["key"].stringValue
-                let url = "\(YoutubeStartPont.YoutubeFirstPont+videoURL)"
+                let url = YoutubeStartPont.YoutubeFirstPont+videoURL
                 videoCompletionHandler(data, url)
                 
             case .failure(let error):
