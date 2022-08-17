@@ -24,6 +24,7 @@
 		779465E528AC81B700A86818 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 779465E428AC81B700A86818 /* SnapKit */; };
 		779465E728AC822B00A86818 /* CodeSnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779465E628AC822B00A86818 /* CodeSnapViewController.swift */; };
 		779465E928AC8C0D00A86818 /* CodeSnap2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779465E828AC8C0D00A86818 /* CodeSnap2ViewController.swift */; };
+		779465EE28AD2A7500A86818 /* CodeAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779465ED28AD2A7500A86818 /* CodeAssignmentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		779465E128AC71BC00A86818 /* CodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeViewController.swift; sourceTree = "<group>"; };
 		779465E628AC822B00A86818 /* CodeSnapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSnapViewController.swift; sourceTree = "<group>"; };
 		779465E828AC8C0D00A86818 /* CodeSnap2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSnap2ViewController.swift; sourceTree = "<group>"; };
+		779465ED28AD2A7500A86818 /* CodeAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeAssignmentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				779465E128AC71BC00A86818 /* CodeViewController.swift */,
 				779465E628AC822B00A86818 /* CodeSnapViewController.swift */,
 				779465E828AC8C0D00A86818 /* CodeSnap2ViewController.swift */,
+				779465ED28AD2A7500A86818 /* CodeAssignmentViewController.swift */,
 			);
 			path = CodeBase;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				779465E928AC8C0D00A86818 /* CodeSnap2ViewController.swift in Sources */,
 				779465CF28AB40F100A86818 /* ThirdViewController.swift in Sources */,
 				779465CB28AB3AF300A86818 /* FirstViewController.swift in Sources */,
+				779465EE28AD2A7500A86818 /* CodeAssignmentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
