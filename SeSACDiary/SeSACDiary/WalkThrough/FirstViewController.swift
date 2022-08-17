@@ -7,13 +7,17 @@
 
 import UIKit
 
-class FirstViewController: UIViewController {
+final class FirstViewController: UIViewController {
     
     @IBOutlet weak var tutorialLabel: UILabel!
     @IBOutlet weak var blackView: UIView!
+    @IBOutlet weak var startImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        startImageView.image = UIImage(systemName: "star.fill")
+        
         tutorialLabel.text = """
         일기 씁시다!
         잘 써봅시다!
@@ -27,14 +31,23 @@ class FirstViewController: UIViewController {
             self.tutorialLabel.alpha = 1
         } completion: { _ in
             self.animateBlackView()
+            self.animaateImageView()
         }
     }
     
    private func animateBlackView() {
         UIView.animate(withDuration: 2) {
-            self.blackView.frame.size.width += 250
+            self.blackView.transform = CGAffineTransform(translationX: -400 , y: 10)
             self.blackView.alpha = 1
             self.blackView.layoutIfNeeded()
         } completion: { _ in }
+    }
+    
+    private func animaateImageView() {
+        UIView.animate(withDuration: 1, delay: 0, options: [.repeat, .autoreverse]) {
+            self.startImageView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        } completion: { _ in
+        }
+
     }
 }

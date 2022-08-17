@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PageViewController: UIPageViewController {
+final class PageViewController: UIPageViewController {
     
    private var pageViewControllerList: [UIViewController] = []
     
