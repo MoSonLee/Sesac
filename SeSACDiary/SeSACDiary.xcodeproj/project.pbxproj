@@ -25,6 +25,8 @@
 		779465E728AC822B00A86818 /* CodeSnapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779465E628AC822B00A86818 /* CodeSnapViewController.swift */; };
 		779465E928AC8C0D00A86818 /* CodeSnap2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779465E828AC8C0D00A86818 /* CodeSnap2ViewController.swift */; };
 		779465EE28AD2A7500A86818 /* CodeAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779465ED28AD2A7500A86818 /* CodeAssignmentViewController.swift */; };
+		779465F828ADDF2F00A86818 /* UIViewcontroller+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779465F728ADDF2F00A86818 /* UIViewcontroller+Extension.swift */; };
+		779465FA28ADE60B00A86818 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779465F928ADE60B00A86818 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		779465E628AC822B00A86818 /* CodeSnapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSnapViewController.swift; sourceTree = "<group>"; };
 		779465E828AC8C0D00A86818 /* CodeSnap2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeSnap2ViewController.swift; sourceTree = "<group>"; };
 		779465ED28AD2A7500A86818 /* CodeAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeAssignmentViewController.swift; sourceTree = "<group>"; };
+		779465F728ADDF2F00A86818 /* UIViewcontroller+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewcontroller+Extension.swift"; sourceTree = "<group>"; };
+		779465F928ADE60B00A86818 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,15 +117,15 @@
 		7794658E28AB1FC200A86818 /* SeSACDiary */ = {
 			isa = PBXGroup;
 			children = (
+				7794659D28AB1FC300A86818 /* Info.plist */,
+				779465F628ADDEFC00A86818 /* Application */,
 				7794658F28AB1FC200A86818 /* AppDelegate.swift */,
+				779465F328ADDEF500A86818 /* Extension */,
 				779465C328AB3A7F00A86818 /* WalkThrough */,
 				779465DE28AC719600A86818 /* CodeBase */,
-				7794659128AB1FC200A86818 /* SceneDelegate.swift */,
 				7794659328AB1FC200A86818 /* ViewController.swift */,
-				7794659528AB1FC200A86818 /* Main.storyboard */,
+				779465F928ADE60B00A86818 /* ProfileViewController.swift */,
 				7794659828AB1FC300A86818 /* Assets.xcassets */,
-				7794659A28AB1FC300A86818 /* LaunchScreen.storyboard */,
-				7794659D28AB1FC300A86818 /* Info.plist */,
 			);
 			path = SeSACDiary;
 			sourceTree = "<group>";
@@ -163,6 +167,24 @@
 				779465ED28AD2A7500A86818 /* CodeAssignmentViewController.swift */,
 			);
 			path = CodeBase;
+			sourceTree = "<group>";
+		};
+		779465F328ADDEF500A86818 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				779465F728ADDF2F00A86818 /* UIViewcontroller+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		779465F628ADDEFC00A86818 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				7794659528AB1FC200A86818 /* Main.storyboard */,
+				7794659128AB1FC200A86818 /* SceneDelegate.swift */,
+				7794659A28AB1FC300A86818 /* LaunchScreen.storyboard */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +289,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				779465F828ADDF2F00A86818 /* UIViewcontroller+Extension.swift in Sources */,
 				7794659428AB1FC200A86818 /* ViewController.swift in Sources */,
 				779465D128AB40FD00A86818 /* PageViewController.swift in Sources */,
 				7794659028AB1FC200A86818 /* AppDelegate.swift in Sources */,
@@ -276,6 +299,7 @@
 				779465E228AC71BC00A86818 /* CodeViewController.swift in Sources */,
 				779465E928AC8C0D00A86818 /* CodeSnap2ViewController.swift in Sources */,
 				779465CF28AB40F100A86818 /* ThirdViewController.swift in Sources */,
+				779465FA28ADE60B00A86818 /* ProfileViewController.swift in Sources */,
 				779465CB28AB3AF300A86818 /* FirstViewController.swift in Sources */,
 				779465EE28AD2A7500A86818 /* CodeAssignmentViewController.swift in Sources */,
 			);
