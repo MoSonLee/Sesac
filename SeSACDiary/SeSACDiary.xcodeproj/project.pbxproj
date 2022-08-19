@@ -27,6 +27,11 @@
 		779465EE28AD2A7500A86818 /* CodeAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779465ED28AD2A7500A86818 /* CodeAssignmentViewController.swift */; };
 		779465F828ADDF2F00A86818 /* UIViewcontroller+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779465F728ADDF2F00A86818 /* UIViewcontroller+Extension.swift */; };
 		779465FA28ADE60B00A86818 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779465F928ADE60B00A86818 /* ProfileViewController.swift */; };
+		7794660328AF127200A86818 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794660228AF127200A86818 /* BaseViewController.swift */; };
+		7794660628AF144500A86818 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794660528AF144500A86818 /* WriteViewController.swift */; };
+		7794660828AF169C00A86818 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794660728AF169C00A86818 /* BaseView.swift */; };
+		7794660A28AF179F00A86818 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794660928AF179F00A86818 /* WriteView.swift */; };
+		7794660D28AF2D0D00A86818 /* BlackRadiusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7794660C28AF2D0D00A86818 /* BlackRadiusTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +86,11 @@
 		779465ED28AD2A7500A86818 /* CodeAssignmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeAssignmentViewController.swift; sourceTree = "<group>"; };
 		779465F728ADDF2F00A86818 /* UIViewcontroller+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewcontroller+Extension.swift"; sourceTree = "<group>"; };
 		779465F928ADE60B00A86818 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		7794660228AF127200A86818 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		7794660528AF144500A86818 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		7794660728AF169C00A86818 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		7794660928AF179F00A86818 /* WriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteView.swift; sourceTree = "<group>"; };
+		7794660C28AF2D0D00A86818 /* BlackRadiusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackRadiusTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				7794659D28AB1FC300A86818 /* Info.plist */,
+				7794660428AF142000A86818 /* Diary */,
+				779465FF28AF125700A86818 /* Utility */,
 				779465F628ADDEFC00A86818 /* Application */,
 				7794658F28AB1FC200A86818 /* AppDelegate.swift */,
 				779465F328ADDEF500A86818 /* Extension */,
@@ -185,6 +197,33 @@
 				7794659A28AB1FC300A86818 /* LaunchScreen.storyboard */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		779465FF28AF125700A86818 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				7794660B28AF2CD900A86818 /* CustomView */,
+				7794660228AF127200A86818 /* BaseViewController.swift */,
+				7794660728AF169C00A86818 /* BaseView.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		7794660428AF142000A86818 /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				7794660528AF144500A86818 /* WriteViewController.swift */,
+				7794660928AF179F00A86818 /* WriteView.swift */,
+			);
+			path = Diary;
+			sourceTree = "<group>";
+		};
+		7794660B28AF2CD900A86818 /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				7794660C28AF2D0D00A86818 /* BlackRadiusTextField.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,16 +331,21 @@
 				779465F828ADDF2F00A86818 /* UIViewcontroller+Extension.swift in Sources */,
 				7794659428AB1FC200A86818 /* ViewController.swift in Sources */,
 				779465D128AB40FD00A86818 /* PageViewController.swift in Sources */,
+				7794660628AF144500A86818 /* WriteViewController.swift in Sources */,
 				7794659028AB1FC200A86818 /* AppDelegate.swift in Sources */,
 				7794659228AB1FC200A86818 /* SceneDelegate.swift in Sources */,
+				7794660328AF127200A86818 /* BaseViewController.swift in Sources */,
 				779465E728AC822B00A86818 /* CodeSnapViewController.swift in Sources */,
 				779465CD28AB40E900A86818 /* SecondViewController.swift in Sources */,
+				7794660D28AF2D0D00A86818 /* BlackRadiusTextField.swift in Sources */,
 				779465E228AC71BC00A86818 /* CodeViewController.swift in Sources */,
 				779465E928AC8C0D00A86818 /* CodeSnap2ViewController.swift in Sources */,
 				779465CF28AB40F100A86818 /* ThirdViewController.swift in Sources */,
 				779465FA28ADE60B00A86818 /* ProfileViewController.swift in Sources */,
 				779465CB28AB3AF300A86818 /* FirstViewController.swift in Sources */,
 				779465EE28AD2A7500A86818 /* CodeAssignmentViewController.swift in Sources */,
+				7794660828AF169C00A86818 /* BaseView.swift in Sources */,
+				7794660A28AF179F00A86818 /* WriteView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

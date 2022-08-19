@@ -25,7 +25,7 @@ class ProfileViewController: UIViewController {
         return view
     }()
     
-    var saveButtonActionHandler: (() -> ())?
+    var saveButtonActionHandler: ((String) -> ())?
     
     func configure() {
         [saveButton, nameTextField].forEach { view.addSubview($0)}
@@ -48,11 +48,29 @@ class ProfileViewController: UIViewController {
         configure()
         view.backgroundColor = .systemIndigo
         saveButton.addTarget(self, action: #selector(saveButtonClicked), for: .touchUpInside)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(SaveButtonNotificationObserver), name: NSNotification.Name("TEST"), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name("TEST"), object: nil)
+    }
+    
+    @objc func SaveButtonNotificationObserver(notification: NSNotification) {
+        print(#function)
+        if let name = notification.userInfo?["name"] as? String {
+            print(name)
+            self.nameTextField.text = name
+        }
     }
     
     @objc func saveButtonClicked() {
+        
+        //2. Notification
+        NotificationCenter.default.post(name: NSNotification.Name("saveButtonNotification"), object: nil, userInfo: ["name": nameTextField.text!, "value": 123456])
+        
         // 값 전달 기능 실행
-        saveButtonActionHandler?()
+        //        saveButtonActionHandler?(nameTextField.text!)
         //화면 dismiss
         dismiss(animated: true)
     }
