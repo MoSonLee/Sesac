@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageCollectionView: UICollectionView {
+final class ImageCollectionView: UICollectionView {
     
     static var identidier: String {
         "ImageCollectionView"

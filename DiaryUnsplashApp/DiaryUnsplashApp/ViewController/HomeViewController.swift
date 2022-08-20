@@ -9,7 +9,7 @@ import UIKit
 
 class HomeViewController: BaseViewController {
     
-    var homeView = HomeView()
+    private lazy var homeView = HomeView()
     
     override func loadView() {
         super.view = homeView
@@ -26,8 +26,11 @@ class HomeViewController: BaseViewController {
     @objc private func moveToImageViewButtonTapped(_ moveButton: UIButton) {
         self.dismiss(animated: true)
         let vc = SearchingImageViewController()
-        vc.completionHandler = { value in
+        vc.imageCompletionHandler = { value in
             self.homeView.homeImageView.image = value
+        }
+        vc.descriptionComPletionHandler = { value in
+            self.homeView.descriptionTextView.text = value
         }
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
@@ -35,7 +38,7 @@ class HomeViewController: BaseViewController {
         self.present(nav, animated: true)
     }
     
-    @objc func dismissView() {
+    @objc private func dismissView() {
         self.dismiss(animated: true)
     }
 }

@@ -8,7 +8,23 @@
 import Foundation
 import Alamofire
 
-class APIManager {
+final class APIManager {
     static let shared = APIManager()
     private init() {}
+    typealias completionHandler = ([Results], Int) -> Void
+    var list: [Results] = []
+    
+    func requestResults(query: String, completionHandler: @escaping completionHandler) {
+        let url = "\(APIKEY.UnSplashAPI)\(query)\(APIKEY.UnSplashAccessKeyEndPoint)"
+        AF.request(url, method: .get, encoding: URLEncoding.default).validate().responseDecodable(of: Response.self) { response in
+            switch response.result {
+            case .success(let model):
+                self.list = model.results
+                completionHandler(self.list, model.total)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }

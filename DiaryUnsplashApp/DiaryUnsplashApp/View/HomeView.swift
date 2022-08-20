@@ -8,12 +8,11 @@
 import UIKit
 
 final class HomeView: BaseView {
-    
     lazy var homeImageView = UIImageView()
     lazy var moveToImageViewButton = UIButton()
     private lazy var nameTextField = UITextField()
     private lazy var subNameTextField = UITextField()
-    private lazy var descriptionTextView = UITextView()
+    lazy var descriptionTextView = UITextView()
     private let largeConfigure = UIImage.SymbolConfiguration(pointSize: 30, weight: .bold, scale: .large)
     
     override func configureView() {
@@ -57,7 +56,6 @@ final class HomeView: BaseView {
             nameTextField.widthAnchor.constraint(equalTo: homeImageView.widthAnchor),
             nameTextField.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.2)
         ])
-        
     }
     
     private func setSubNameTextField() {
@@ -71,7 +69,8 @@ final class HomeView: BaseView {
     }
     
     private func setDescriptionTextView() {
-        descriptionTextView.backgroundColor = .magenta
+        descriptionTextView.backgroundColor = .brown
+        descriptionTextView.font = .preferredFont(forTextStyle: .largeTitle, compatibleWith: .current)
         NSLayoutConstraint.activate([
             descriptionTextView.topAnchor.constraint(equalTo: subNameTextField.bottomAnchor, constant: 16),
             descriptionTextView.centerXAnchor.constraint(equalTo: self.centerXAnchor),

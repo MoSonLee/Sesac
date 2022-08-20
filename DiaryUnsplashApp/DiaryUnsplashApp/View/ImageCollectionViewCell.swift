@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageCollectionViewCell: UICollectionViewCell {
+final class ImageCollectionViewCell: UICollectionViewCell {
     
     lazy var searchedImage = UIImageView()
     
@@ -24,7 +24,7 @@ class ImageCollectionViewCell: UICollectionViewCell {
         setUpImageCell()
     }
     
-    func setUpImageCell() {
+    private func setUpImageCell() {
         self.addSubview(searchedImage)
         searchedImage.image = UIImage(named: "profileImage")
         searchedImage.contentMode = .scaleAspectFit

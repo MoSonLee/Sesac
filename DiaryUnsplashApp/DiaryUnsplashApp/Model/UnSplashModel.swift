@@ -7,14 +7,16 @@
 
 import Foundation
 
-struct APIResponse: Decodable {
+struct Response: Decodable {
+    var total: Int
     let results: [Results]
 }
 
 struct Results: Decodable {
-    var urls: [URLs]
+    var description: String?
+    var urls: URLs?
 }
 
 struct URLs: Codable {
-    var raw: String
+    var regular: String?
 }

@@ -7,13 +7,19 @@
 
 import UIKit
 
+import Kingfisher
+
 final class SearchingImageView: BaseView {
     
+    lazy var resultModel: [Results] = []
+    lazy var urlMdoel: [String] = []
     lazy var searchBar = UISearchBar()
     lazy var collectionView = ImageCollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     var selectedImage = UIImage()
     var isSelected: Bool = false
     var isSearched: Bool = false
+    var totalCount = 0
+    var descriptionText: String = ""
     
     override func configureView() {
         self.backgroundColor = .white
@@ -71,6 +77,11 @@ extension SearchingImageView: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         isSearched = false
+        APIManager.shared.requestResults(query: searchBar.text!) { resultModel, totalCount in
+            self.resultModel = resultModel
+            self.totalCount = totalCount
+            self.collectionView.reloadData()
+        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -81,24 +92,34 @@ extension SearchingImageView: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         isSearched = false
+        APIManager.shared.requestResults(query: searchBar.text!) { resultModel, totalCount in
+            self.resultModel = resultModel
+            self.totalCount = totalCount
+            self.collectionView.reloadData()
+        }
     }
 }
 
 extension SearchingImageView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        100
+        return totalCount / 1000
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as? ImageCollectionViewCell else { return UICollectionViewCell()}
         cell.backgroundColor = .systemIndigo
+        let url = URL(string: resultModel[indexPath.row].urls!.regular ?? "")
+        cell.searchedImage.kf.setImage(with: url)
+        cell.searchedImage.contentMode = .scaleAspectFit
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? ImageCollectionViewCell {
             selectedImage = cell.searchedImage.image!
+            descriptionText = resultModel[indexPath.row].description ?? "no data"
+            print(descriptionText)
         }
     }
     
@@ -107,6 +128,7 @@ extension SearchingImageView: UICollectionViewDelegate, UICollectionViewDataSour
         if item?.isSelected ?? false {
             collectionView.deselectItem(at: indexPath, animated: true)
             item?.backgroundColor = .blue
+            
             isSelected = true
         } else {
             collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
