@@ -80,6 +80,7 @@ extension SearchingImageView: UISearchBarDelegate {
         APIManager.shared.requestResults(query: searchBar.text!) { resultModel, totalCount in
             self.resultModel = resultModel
             self.totalCount = totalCount
+            print(totalCount)
             self.collectionView.reloadData()
         }
     }
@@ -103,13 +104,13 @@ extension SearchingImageView: UISearchBarDelegate {
 extension SearchingImageView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return totalCount / 1000
+        return totalCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ImageCollectionViewCell.identifier, for: indexPath) as? ImageCollectionViewCell else { return UICollectionViewCell()}
         cell.backgroundColor = .systemIndigo
-        let url = URL(string: resultModel[indexPath.row].urls!.regular ?? "")
+        let url = URL(string: resultModel[indexPath.row].urls?.raw ?? "")
         cell.searchedImage.kf.setImage(with: url)
         cell.searchedImage.contentMode = .scaleAspectFit
         return cell
@@ -119,7 +120,6 @@ extension SearchingImageView: UICollectionViewDelegate, UICollectionViewDataSour
         if let cell = collectionView.cellForItem(at: indexPath) as? ImageCollectionViewCell {
             selectedImage = cell.searchedImage.image!
             descriptionText = resultModel[indexPath.row].description ?? "no data"
-            print(descriptionText)
         }
     }
     

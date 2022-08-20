@@ -18,6 +18,7 @@ final class APIManager {
         let url = "\(APIKEY.UnSplashAPI)\(query)\(APIKEY.UnSplashAccessKeyEndPoint)"
         AF.request(url, method: .get, encoding: URLEncoding.default).validate().responseDecodable(of: Response.self) { response in
             switch response.result {
+                
             case .success(let model):
                 self.list = model.results
                 completionHandler(self.list, model.total)

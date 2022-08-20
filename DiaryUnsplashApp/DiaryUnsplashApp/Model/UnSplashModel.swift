@@ -8,15 +8,35 @@
 import Foundation
 
 struct Response: Decodable {
-    var total: Int
+    let total: Int
     let results: [Results]
 }
 
 struct Results: Decodable {
-    var description: String?
-    var urls: URLs?
+    let description: String?
+    let urls: URLs?
+    
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: Codingkeys.self)
+//        self.description = try container.decode(String.self, forKey: .description)
+//        self.urls = try container.decode(URLs.self, forKey: .urls)
+//    }
+//
+//    enum Codingkeys: String, CodingKey {
+//        case description = "description"
+//        case urls = "urls"
+//    }
 }
 
 struct URLs: Codable {
-    var regular: String?
+    let raw: String?
+    
+//    init(from decoder: Decoder) throws {
+//        let container = try decoder.container(keyedBy: Codingkeys.self)
+//        self.raw = try container.decode(String.self, forKey: .raw)
+//    }
+//
+//    enum Codingkeys: String, CodingKey {
+//        case raw = "raw"
+//    }
 }
