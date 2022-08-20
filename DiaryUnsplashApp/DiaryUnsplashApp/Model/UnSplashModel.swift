@@ -9,10 +9,6 @@ import Foundation
 
 struct APIResponse: Decodable {
     let results: [Results]
-    
-    enum Codingkeys: String, CodingKey {
-        case results
-    }
 }
 
 struct Results: Decodable {

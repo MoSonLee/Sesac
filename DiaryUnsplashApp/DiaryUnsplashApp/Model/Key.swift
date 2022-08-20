@@ -7,7 +7,6 @@
 
 import Foundation
 
-//https://api.unsplash.com/search/photos?query=cat&client_id=NSp2jTL5p6efPLKzRlCyHlv8R-8PtP8R1dLcT1Doj9g
 struct APIKEY {
     static let UnSplashAccessKeyEndPoint = "&client_id=NSp2jTL5p6efPLKzRlCyHlv8R-8PtP8R1dLcT1Doj9g"
     static let UnSplashSecretKey = "nd-1ozrageKiwEdqSS3Clqwg0BkqAStFlQez4RS01T8"

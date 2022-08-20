@@ -10,20 +10,18 @@ import UIKit
 final class SearchingImageView: BaseView {
     
     lazy var searchBar = UISearchBar()
-    lazy var collectionView = ImageCollectionView()
-    var isSelected = false
+    lazy var collectionView = ImageCollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     var selectedImage = UIImage()
+    var isSelected: Bool = false
+    var isSearched: Bool = false
     
     override func configureView() {
         self.backgroundColor = .white
-        collectionView = ImageCollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
         self.addSubview(searchBar)
         self.addSubview(collectionView)
         setSearchBar()
         collectionViewRegisterAndDelegate()
         setCollectionViewLayout()
-        collectionView.collectionViewLayout = setImageCollectionViewLayout()
-        
     }
     
     private func setSearchBar() {
@@ -66,7 +64,24 @@ final class SearchingImageView: BaseView {
 }
 
 extension SearchingImageView: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        isSearched = true
+    }
     
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        isSearched = false
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        isSearched = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+        isSearched = false
+    }
 }
 
 extension SearchingImageView: UICollectionViewDelegate, UICollectionViewDataSource {
