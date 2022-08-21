@@ -12,9 +12,8 @@ import Kingfisher
 final class SearchingImageView: BaseView {
     
     lazy var resultModel: [Results] = []
-    lazy var urlMdoel: [String] = []
-    lazy var searchBar = UISearchBar()
-    lazy var collectionView = ImageCollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+    private lazy var searchBar = UISearchBar()
+    lazy var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     var selectedImage = UIImage()
     var isSelected: Bool = false
     var isSearched: Bool = false
@@ -77,10 +76,8 @@ extension SearchingImageView: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         isSearched = false
-        APIManager.shared.requestResults(query: searchBar.text!) { resultModel, totalCount in
+        APIManager.shared.requestResults(query: searchBar.text!) { resultModel in
             self.resultModel = resultModel
-            self.totalCount = totalCount
-            print(totalCount)
             self.collectionView.reloadData()
         }
     }
@@ -93,9 +90,8 @@ extension SearchingImageView: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         isSearched = false
-        APIManager.shared.requestResults(query: searchBar.text!) { resultModel, totalCount in
+        APIManager.shared.requestResults(query: searchBar.text!) { resultModel in
             self.resultModel = resultModel
-            self.totalCount = totalCount
             self.collectionView.reloadData()
         }
     }
@@ -104,7 +100,7 @@ extension SearchingImageView: UISearchBarDelegate {
 extension SearchingImageView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return totalCount
+        return resultModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -8,6 +8,7 @@
 import UIKit
 
 final class HomeView: BaseView {
+    
     lazy var homeImageView = UIImageView()
     lazy var moveToImageViewButton = UIButton()
     private lazy var nameTextField = UITextField()

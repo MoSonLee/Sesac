@@ -11,8 +11,7 @@ import Toast
 final class SearchingImageViewController: BaseViewController {
     
     private lazy var imageView = SearchingImageView()
-    var imageCompletionHandler: ((UIImage) -> ())?
-    var descriptionComPletionHandler: ((String) -> ())?
+    var completionHandler: ((UIImage, String) -> ())?
     
     override func loadView() {
         super.view = imageView
@@ -41,8 +40,7 @@ final class SearchingImageViewController: BaseViewController {
         if imageView.isSelected == false {
             self.view.makeToast("사진을 선택해주세요.")
         } else {
-            imageCompletionHandler?(self.imageView.selectedImage)
-            descriptionComPletionHandler?(self.imageView.descriptionText)
+            completionHandler?(self.imageView.selectedImage, self.imageView.descriptionText)
             self.dismiss(animated: true,completion: nil)
         }
     }

@@ -19,8 +19,7 @@
 		771DF92E28AFE17700C182AC /* SearchingImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF92D28AFE17700C182AC /* SearchingImageViewController.swift */; };
 		771DF93128B0050200C182AC /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF93028B0050200C182AC /* Key.swift */; };
 		771DF93328B006B700C182AC /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF93228B006B700C182AC /* ImageCollectionViewCell.swift */; };
-		771DF93528B0088F00C182AC /* ImageCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF93428B0088F00C182AC /* ImageCollectionView.swift */; };
-		771DF93728B01EBA00C182AC /* URLManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF93628B01EBA00C182AC /* URLManger.swift */; };
+		771DF93728B01EBA00C182AC /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF93628B01EBA00C182AC /* APIManager.swift */; };
 		771DF93A28B01ECE00C182AC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 771DF93928B01ECE00C182AC /* Alamofire */; };
 		771DF93D28B01ED800C182AC /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 771DF93C28B01ED800C182AC /* Kingfisher */; };
 		771DF93F28B01F3000C182AC /* UnSplashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF93E28B01F3000C182AC /* UnSplashModel.swift */; };
@@ -43,8 +42,7 @@
 		771DF92D28AFE17700C182AC /* SearchingImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchingImageViewController.swift; sourceTree = "<group>"; };
 		771DF93028B0050200C182AC /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
 		771DF93228B006B700C182AC /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
-		771DF93428B0088F00C182AC /* ImageCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionView.swift; sourceTree = "<group>"; };
-		771DF93628B01EBA00C182AC /* URLManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLManger.swift; sourceTree = "<group>"; };
+		771DF93628B01EBA00C182AC /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		771DF93E28B01F3000C182AC /* UnSplashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplashModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,7 +150,6 @@
 			children = (
 				771DF92828AFCCBF00C182AC /* HomeView.swift */,
 				771DF92B28AFE16D00C182AC /* SearchingImageView.swift */,
-				771DF93428B0088F00C182AC /* ImageCollectionView.swift */,
 				771DF93228B006B700C182AC /* ImageCollectionViewCell.swift */,
 			);
 			path = View;
@@ -161,7 +158,7 @@
 		771DF92F28B004F300C182AC /* API */ = {
 			isa = PBXGroup;
 			children = (
-				771DF93628B01EBA00C182AC /* URLManger.swift */,
+				771DF93628B01EBA00C182AC /* APIManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -253,14 +250,13 @@
 				771DF90A28AFC85B00C182AC /* SceneDelegate.swift in Sources */,
 				771DF92928AFCCBF00C182AC /* HomeView.swift in Sources */,
 				771DF91C28AFC88C00C182AC /* HomeViewController.swift in Sources */,
-				771DF93528B0088F00C182AC /* ImageCollectionView.swift in Sources */,
 				771DF92C28AFE16D00C182AC /* SearchingImageView.swift in Sources */,
 				771DF93328B006B700C182AC /* ImageCollectionViewCell.swift in Sources */,
 				771DF93F28B01F3000C182AC /* UnSplashModel.swift in Sources */,
 				771DF92E28AFE17700C182AC /* SearchingImageViewController.swift in Sources */,
 				771DF93128B0050200C182AC /* Key.swift in Sources */,
 				771DF92528AFCACB00C182AC /* BaseView.swift in Sources */,
-				771DF93728B01EBA00C182AC /* URLManger.swift in Sources */,
+				771DF93728B01EBA00C182AC /* APIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

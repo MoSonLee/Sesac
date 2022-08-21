@@ -26,11 +26,9 @@ class HomeViewController: BaseViewController {
     @objc private func moveToImageViewButtonTapped(_ moveButton: UIButton) {
         self.dismiss(animated: true)
         let vc = SearchingImageViewController()
-        vc.imageCompletionHandler = { value in
-            self.homeView.homeImageView.image = value
-        }
-        vc.descriptionComPletionHandler = { value in
-            self.homeView.descriptionTextView.text = value
+        vc.completionHandler = { image, description in
+            self.homeView.homeImageView.image = image
+            self.homeView.descriptionTextView.text = description
         }
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen

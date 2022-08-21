@@ -1,5 +1,5 @@
 //
-//  URLManger.swift
+//  APIManager.swift
 //  DiaryUnsplashApp
 //
 //  Created by 이승후 on 2022/08/20.
@@ -11,7 +11,7 @@ import Alamofire
 final class APIManager {
     static let shared = APIManager()
     private init() {}
-    typealias completionHandler = ([Results], Int) -> Void
+    typealias completionHandler = ([Results]) -> Void
     var list: [Results] = []
     
     func requestResults(query: String, completionHandler: @escaping completionHandler) {
@@ -21,7 +21,7 @@ final class APIManager {
                 
             case .success(let model):
                 self.list = model.results
-                completionHandler(self.list, model.total)
+                completionHandler(self.list)
                 
             case .failure(let error):
                 print(error)
