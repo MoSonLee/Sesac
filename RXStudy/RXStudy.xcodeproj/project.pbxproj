@@ -9,25 +9,38 @@
 /* Begin PBXBuildFile section */
 		771DF95628B1FD1A00C182AC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF95528B1FD1A00C182AC /* AppDelegate.swift */; };
 		771DF95828B1FD1A00C182AC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF95728B1FD1A00C182AC /* SceneDelegate.swift */; };
-		771DF95A28B1FD1A00C182AC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF95928B1FD1A00C182AC /* ViewController.swift */; };
-		771DF95D28B1FD1A00C182AC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771DF95B28B1FD1A00C182AC /* Main.storyboard */; };
+		771DF95A28B1FD1A00C182AC /* InvestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF95928B1FD1A00C182AC /* InvestViewController.swift */; };
 		771DF95F28B1FD1B00C182AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 771DF95E28B1FD1B00C182AC /* Assets.xcassets */; };
 		771DF96228B1FD1B00C182AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 771DF96028B1FD1B00C182AC /* LaunchScreen.storyboard */; };
 		771DF96B28B1FD7800C182AC /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 771DF96A28B1FD7800C182AC /* SnapKit */; };
 		771DF96E28B1FDC000C182AC /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 771DF96D28B1FDC000C182AC /* RxCocoa */; };
 		771DF97028B1FDC000C182AC /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 771DF96F28B1FDC000C182AC /* RxRelay */; };
 		771DF97228B1FDC000C182AC /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 771DF97128B1FDC000C182AC /* RxSwift */; };
+		771DF97528B1FEB900C182AC /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 771DF97428B1FEB900C182AC /* Moya */; };
+		771DF97728B202F700C182AC /* InvestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF97628B202F700C182AC /* InvestCell.swift */; };
+		771DF97928B206D400C182AC /* InvestTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF97828B206D400C182AC /* InvestTarget.swift */; };
+		771DF97B28B2072400C182AC /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF97A28B2072400C182AC /* APIConstant.swift */; };
+		771DF97D28B2074E00C182AC /* APIEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF97C28B2074E00C182AC /* APIEnvironment.swift */; };
+		771DF98228B207EA00C182AC /* InvestMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF98128B207EA00C182AC /* InvestMockData.swift */; };
+		771DF98428B20B6D00C182AC /* InvestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF98328B20B6D00C182AC /* InvestViewModel.swift */; };
+		771DF98928B20FBE00C182AC /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF98828B20FBE00C182AC /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		771DF95228B1FD1A00C182AC /* RXStudy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RXStudy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		771DF95528B1FD1A00C182AC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		771DF95728B1FD1A00C182AC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		771DF95928B1FD1A00C182AC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		771DF95C28B1FD1A00C182AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		771DF95928B1FD1A00C182AC /* InvestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestViewController.swift; sourceTree = "<group>"; };
 		771DF95E28B1FD1B00C182AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		771DF96128B1FD1B00C182AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		771DF96328B1FD1B00C182AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		771DF97628B202F700C182AC /* InvestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestCell.swift; sourceTree = "<group>"; };
+		771DF97828B206D400C182AC /* InvestTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestTarget.swift; sourceTree = "<group>"; };
+		771DF97A28B2072400C182AC /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
+		771DF97C28B2074E00C182AC /* APIEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEnvironment.swift; sourceTree = "<group>"; };
+		771DF98128B207EA00C182AC /* InvestMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestMockData.swift; sourceTree = "<group>"; };
+		771DF98328B20B6D00C182AC /* InvestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestViewModel.swift; sourceTree = "<group>"; };
+		771DF98828B20FBE00C182AC /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +51,7 @@
 				771DF97028B1FDC000C182AC /* RxRelay in Frameworks */,
 				771DF96E28B1FDC000C182AC /* RxCocoa in Frameworks */,
 				771DF97228B1FDC000C182AC /* RxSwift in Frameworks */,
+				771DF97528B1FEB900C182AC /* Moya in Frameworks */,
 				771DF96B28B1FD7800C182AC /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -64,15 +78,69 @@
 		771DF95428B1FD1A00C182AC /* RXStudy */ = {
 			isa = PBXGroup;
 			children = (
-				771DF95528B1FD1A00C182AC /* AppDelegate.swift */,
-				771DF95728B1FD1A00C182AC /* SceneDelegate.swift */,
-				771DF95928B1FD1A00C182AC /* ViewController.swift */,
-				771DF95B28B1FD1A00C182AC /* Main.storyboard */,
-				771DF95E28B1FD1B00C182AC /* Assets.xcassets */,
-				771DF96028B1FD1B00C182AC /* LaunchScreen.storyboard */,
 				771DF96328B1FD1B00C182AC /* Info.plist */,
+				771DF97E28B2077000C182AC /* Application */,
+				771DF98728B20E5400C182AC /* Model */,
+				771DF98028B207A800C182AC /* View */,
+				771DF98528B20B7200C182AC /* ViewModel */,
+				771DF97F28B2078000C182AC /* Network */,
+				771DF98628B20B9900C182AC /* Assets */,
 			);
 			path = RXStudy;
+			sourceTree = "<group>";
+		};
+		771DF97E28B2077000C182AC /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				771DF95728B1FD1A00C182AC /* SceneDelegate.swift */,
+				771DF95528B1FD1A00C182AC /* AppDelegate.swift */,
+				771DF96028B1FD1B00C182AC /* LaunchScreen.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		771DF97F28B2078000C182AC /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				771DF97828B206D400C182AC /* InvestTarget.swift */,
+				771DF97A28B2072400C182AC /* APIConstant.swift */,
+				771DF97C28B2074E00C182AC /* APIEnvironment.swift */,
+				771DF98128B207EA00C182AC /* InvestMockData.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		771DF98028B207A800C182AC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				771DF95928B1FD1A00C182AC /* InvestViewController.swift */,
+				771DF97628B202F700C182AC /* InvestCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		771DF98528B20B7200C182AC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				771DF98328B20B6D00C182AC /* InvestViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		771DF98628B20B9900C182AC /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				771DF95E28B1FD1B00C182AC /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		771DF98728B20E5400C182AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				771DF98828B20FBE00C182AC /* UserInfo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +164,7 @@
 				771DF96D28B1FDC000C182AC /* RxCocoa */,
 				771DF96F28B1FDC000C182AC /* RxRelay */,
 				771DF97128B1FDC000C182AC /* RxSwift */,
+				771DF97428B1FEB900C182AC /* Moya */,
 			);
 			productName = RXStudy;
 			productReference = 771DF95228B1FD1A00C182AC /* RXStudy.app */;
@@ -128,6 +197,7 @@
 			packageReferences = (
 				771DF96928B1FD7800C182AC /* XCRemoteSwiftPackageReference "SnapKit" */,
 				771DF96C28B1FDC000C182AC /* XCRemoteSwiftPackageReference "RxSwift" */,
+				771DF97328B1FEB900C182AC /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 771DF95328B1FD1A00C182AC /* Products */;
 			projectDirPath = "";
@@ -145,7 +215,6 @@
 			files = (
 				771DF96228B1FD1B00C182AC /* LaunchScreen.storyboard in Resources */,
 				771DF95F28B1FD1B00C182AC /* Assets.xcassets in Resources */,
-				771DF95D28B1FD1A00C182AC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,23 +225,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				771DF95A28B1FD1A00C182AC /* ViewController.swift in Sources */,
+				771DF97728B202F700C182AC /* InvestCell.swift in Sources */,
+				771DF95A28B1FD1A00C182AC /* InvestViewController.swift in Sources */,
+				771DF97D28B2074E00C182AC /* APIEnvironment.swift in Sources */,
+				771DF97B28B2072400C182AC /* APIConstant.swift in Sources */,
+				771DF98228B207EA00C182AC /* InvestMockData.swift in Sources */,
 				771DF95628B1FD1A00C182AC /* AppDelegate.swift in Sources */,
+				771DF98428B20B6D00C182AC /* InvestViewModel.swift in Sources */,
 				771DF95828B1FD1A00C182AC /* SceneDelegate.swift in Sources */,
+				771DF98928B20FBE00C182AC /* UserInfo.swift in Sources */,
+				771DF97928B206D400C182AC /* InvestTarget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		771DF95B28B1FD1A00C182AC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				771DF95C28B1FD1A00C182AC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		771DF96028B1FD1B00C182AC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -310,7 +378,6 @@
 				INFOPLIST_FILE = RXStudy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -338,7 +405,6 @@
 				INFOPLIST_FILE = RXStudy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -394,6 +460,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		771DF97328B1FEB900C182AC /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -416,6 +490,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 771DF96C28B1FDC000C182AC /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		771DF97428B1FEB900C182AC /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 771DF97328B1FEB900C182AC /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
