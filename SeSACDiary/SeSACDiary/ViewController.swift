@@ -35,7 +35,6 @@ final class ViewController: UIViewController {
     }
     
     @objc func nameButtonClicked() {
-        
         NotificationCenter.default.post(name: .saveButton, object: nil, userInfo: ["name\(Int.random(in: 1...100))": 123456])
         
         let vc = ProfileViewController()

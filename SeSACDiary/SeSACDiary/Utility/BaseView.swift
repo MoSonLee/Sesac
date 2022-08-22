@@ -25,22 +25,21 @@ class BaseView: UIView {
     func setConstraints() { }
 }
 
-
-class Mobile {
-    let name: String
-    
-    init(name: String) {
-        self.name = name
-    }
-}
-
-class Apple: Mobile {
-    let wwdc: String
-    
-    init(wwdc: String) {
-        self.wwdc = wwdc
-        super.init(name: "apple")
-    }
-}
-
-let a = Apple(wwdc: "애플")
+//class Mobile {
+//    let name: String
+//    
+//    init(name: String) {
+//        self.name = name
+//    }
+//}
+//
+//class Apple: Mobile {
+//    let wwdc: String
+//    
+//    init(wwdc: String) {
+//        self.wwdc = wwdc
+//        super.init(name: "apple")
+//    }
+//}
+//
+//let a = Apple(wwdc: "애플")

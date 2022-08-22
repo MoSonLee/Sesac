@@ -36,6 +36,20 @@ class APIManager {
     
     var page = 1
     
+    func requestCasting(id: Int, castCompletionHandler: @escaping castCompletionHandler) {
+        let url = "\(APIKEY.TMDBFirstMovieURL)\(id)\(EndPoint.TMDBCastingEndPoint)"
+        AF.request(url, method: .get, encoding: URLEncoding.default).validate().responseDecodable(of: TMDBCastModel.self) { response in
+            switch response.result {
+            case .success(let model):
+                self.castingList = model.cast
+                castCompletionHandler(id, self.castingList)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
     func requestTMDB(completionHandler: @escaping completionHandler) {
         let url = APIKEY.TMDBURLWithMyKey
         
@@ -69,20 +83,6 @@ class APIManager {
             case .failure( _):
                 self.page = 1
                 completionHandler(nil, 0)
-            }
-        }
-    }
-    
-    func requestCasting(id: Int, castCompletionHandler: @escaping castCompletionHandler) {
-        let url = "\(APIKEY.TMDBFirstMovieURL)\(id)\(EndPoint.TMDBCastingEndPoint)"
-        AF.request(url, method: .get, encoding: URLEncoding.default).validate().responseDecodable(of: TMDBCastModel.self) { response in
-            switch response.result {
-            case .success(let model):
-                self.castingList = model.cast
-                castCompletionHandler(id, self.castingList)
-                
-            case .failure(let error):
-                print(error)
             }
         }
     }

@@ -58,6 +58,7 @@ final class TMDBViewController: UIViewController, UICollectionViewDelegate,UICol
             guard let vc = self.storyboard?.instantiateViewController(withIdentifier: WebViewController.identifier) as? WebViewController else { return }
             vc.movieIDData = self.list[indexPath.row].movieID
             self.navigationController?.pushViewController(vc, animated: true)
+            
         }
         return cell
     }
@@ -106,4 +107,3 @@ extension UIViewController {
         return layout
     }
 }
-

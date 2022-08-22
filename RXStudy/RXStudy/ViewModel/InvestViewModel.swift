@@ -72,7 +72,6 @@ final class InvestViewModel {
                       titleText: titleRelay.asSignal(),
                       showAlert: showAlertRelay.asSignal()
         )
-        
     }
 }
 

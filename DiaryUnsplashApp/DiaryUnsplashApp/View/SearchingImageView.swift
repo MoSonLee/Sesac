@@ -11,7 +11,7 @@ import Kingfisher
 
 final class SearchingImageView: BaseView {
     
-    lazy var resultModel: [Results] = []
+    lazy var resultModel: [Result] = []
     private lazy var searchBar = UISearchBar()
     lazy var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     var selectedImage = UIImage()

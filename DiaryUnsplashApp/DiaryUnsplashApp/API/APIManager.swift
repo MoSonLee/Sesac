@@ -11,8 +11,8 @@ import Alamofire
 final class APIManager {
     static let shared = APIManager()
     private init() {}
-    typealias completionHandler = ([Results]) -> Void
-    var list: [Results] = []
+    typealias completionHandler = ([Result]) -> Void
+    var list: [Result] = []
     
     func requestResults(query: String, completionHandler: @escaping completionHandler) {
         let url = "\(APIKEY.UnSplashAPI)\(query)\(APIKEY.UnSplashAccessKeyEndPoint)"
