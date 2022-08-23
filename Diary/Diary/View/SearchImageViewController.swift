@@ -22,9 +22,7 @@ final class SearchImageViewController: UIViewController {
         super.viewDidLoad()
         setConfigure()
         setConstraints()
-        setNavigationItems()
         collectionViewRegisterAndDelegate()
-        setCollectionViewLayout()
     }
     
     private func setConfigure() {
@@ -34,10 +32,11 @@ final class SearchImageViewController: UIViewController {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
-        
         searchBar.placeholder = "Search"
         searchBar.searchBarStyle = UISearchBar.Style.default
-        
+        setNavigationItems()
+        collectionView.collectionViewLayout = setImageCollectionViewLayout()
+        collectionView.backgroundColor = .systemIndigo
     }
     
     private func setConstraints() {
@@ -51,14 +50,7 @@ final class SearchImageViewController: UIViewController {
             collectionView.widthAnchor.constraint(equalTo: searchBar.widthAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
-        
         searchBar.delegate = self
-    }
-    
-    private func setCollectionViewLayout() {
-        collectionView.collectionViewLayout = setImageCollectionViewLayout()
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .systemIndigo
     }
     
     private func setImageCollectionViewLayout() -> UICollectionViewFlowLayout {
@@ -163,4 +155,3 @@ extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewD
         return false
     }
 }
-
