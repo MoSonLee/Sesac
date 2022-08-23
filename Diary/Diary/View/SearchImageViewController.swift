@@ -28,7 +28,7 @@ final class SearchImageViewController: UIViewController {
     }
     
     private func setConfigure() {
-        view.backgroundColor = .systemGray
+        view.backgroundColor = .white
         
         [searchBar, collectionView].forEach {
             view.addSubview($0)
@@ -51,6 +51,7 @@ final class SearchImageViewController: UIViewController {
             collectionView.widthAnchor.constraint(equalTo: searchBar.widthAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+        
         searchBar.delegate = self
     }
     
