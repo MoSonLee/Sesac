@@ -13,6 +13,8 @@
 		7783D59428B5202E007DF5AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7783D59328B5202E007DF5AF /* Assets.xcassets */; };
 		7783D59728B5202E007DF5AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7783D59528B5202E007DF5AF /* LaunchScreen.storyboard */; };
 		7783D5A428B52141007DF5AF /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783D5A328B52141007DF5AF /* DiaryViewController.swift */; };
+		7783D5A628B527E3007DF5AF /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783D5A528B527E3007DF5AF /* CameraViewController.swift */; };
+		7783D5A928B53096007DF5AF /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 7783D5A828B53096007DF5AF /* Toast */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,7 @@
 		7783D59628B5202E007DF5AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7783D59828B5202E007DF5AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7783D5A328B52141007DF5AF /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
+		7783D5A528B527E3007DF5AF /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7783D5A928B53096007DF5AF /* Toast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +84,7 @@
 			children = (
 				7783D58E28B5202D007DF5AF /* HomeViewController.swift */,
 				7783D5A328B52141007DF5AF /* DiaryViewController.swift */,
+				7783D5A528B527E3007DF5AF /* CameraViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -115,6 +120,9 @@
 			dependencies = (
 			);
 			name = Diary;
+			packageProductDependencies = (
+				7783D5A828B53096007DF5AF /* Toast */,
+			);
 			productName = Diary;
 			productReference = 7783D58728B5202D007DF5AF /* Diary.app */;
 			productType = "com.apple.product-type.application";
@@ -143,6 +151,9 @@
 				Base,
 			);
 			mainGroup = 7783D57E28B5202D007DF5AF;
+			packageReferences = (
+				7783D5A728B53096007DF5AF /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+			);
 			productRefGroup = 7783D58828B5202D007DF5AF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -173,6 +184,7 @@
 				7783D58F28B5202D007DF5AF /* HomeViewController.swift in Sources */,
 				7783D58B28B5202D007DF5AF /* AppDelegate.swift in Sources */,
 				7783D58D28B5202D007DF5AF /* SceneDelegate.swift in Sources */,
+				7783D5A628B527E3007DF5AF /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +392,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7783D5A728B53096007DF5AF /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7783D5A828B53096007DF5AF /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7783D5A728B53096007DF5AF /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7783D57F28B5202D007DF5AF /* Project object */;
 }
