@@ -12,7 +12,7 @@ import SnapKit
 
 final class RealmViewController: UIViewController {
     
-    let localRealm = try! Realm()
+    private lazy var localRealm = try! Realm()
     var tasks: Results<userBuyList>!
     var tableModel: [TableModel] = []
     
@@ -48,7 +48,7 @@ final class RealmViewController: UIViewController {
         view.addSubview(tableView)
     }
     
-    @objc func backButtonClicked() {
+    @objc private func backButtonClicked() {
         self.dismiss(animated: true)
     }
 }
@@ -67,7 +67,6 @@ extension RealmViewController: UITableViewDelegate, UITableViewDataSource {
         cell.starButton.setImage(UIImage(systemName: tasks[indexPath.row].isStarred), for: .normal)
         cell.checkButton.setImage(UIImage(systemName: tasks[indexPath.row].isChecked), for: .normal)
         
-        print(tasks[indexPath.row].buyList)
         return cell
     }
 }

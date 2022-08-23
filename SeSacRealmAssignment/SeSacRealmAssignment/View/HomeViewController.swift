@@ -20,12 +20,12 @@ final class HomeViewController: UIViewController {
     private lazy var headerTextField = UITextField()
     private lazy var headerAddButton = UIButton()
     private lazy var tableModel: [TableModel] = []
+    private lazy var localRealm = try! Realm()
     var isStarSelected: Bool = false
     var isCheckBoxselected: Bool = false
     
     private let disposeBag = DisposeBag()
-    
-    let localRealm = try! Realm()
+    private let tableView = UITableView(frame: .zero, style: .grouped)
     
     private var tableCellArray: [TableModel] = [
         TableModel(checkButtonString: "checkmark.square", labelText: "아이폰 구매하기", starButtonString: "star"),
@@ -33,8 +33,6 @@ final class HomeViewController: UIViewController {
         TableModel(checkButtonString: "checkmark.square", labelText: "아이패드 구매하기", starButtonString: "star"),
         TableModel(checkButtonString: "checkmark.square", labelText: "아이맥 구매하기", starButtonString: "star")
     ]
-    
-    private let tableView = UITableView(frame: .zero, style: .grouped)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,8 +52,6 @@ final class HomeViewController: UIViewController {
                     self.configure(tableModel: self.tableModel[index])
                 }
             }.disposed(by: disposeBag)
-       
-//        tableView.reloadData()
     }
     
     private func setConfigure() {
@@ -129,21 +125,7 @@ final class HomeViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    private func moveToRelamButtonClicked() {
-        moveToRealmButton.rx.tap
-            .bind {
-                let vc = RealmViewController()
-                let nav = UINavigationController(rootViewController: vc)
-                nav.modalPresentationStyle = .fullScreen
-                nav.modalTransitionStyle = .flipHorizontal
-                self.present(nav, animated: true)
-            }.disposed(by: disposeBag)
-        for index in 0..<tableModel.count - 1 {
-            configure(tableModel: tableModel[index])
-        }
-    }
-    
-    func configure(tableModel: TableModel) {
+    private func configure(tableModel: TableModel) {
         let task = userBuyList(buyList: tableModel.labelText, isStarred: tableModel.starButtonString, isChecked: tableModel.checkButtonString)
         try! self.localRealm.write{
             self.localRealm.add(task)
@@ -186,5 +168,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }.disposed(by: disposeBag)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableModel.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+        }
+        tableView.reloadData()
     }
 }
