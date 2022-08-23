@@ -11,10 +11,10 @@ final class HomeViewController: UIViewController {
     
     private lazy var moveToDirayButton = UIButton()
     private lazy var moveToCameraButton = UIButton()
+    private lazy var moveToImageSearchButton = UIButton()
     var diaryTitleLabel = UILabel()
     var diaryDescriptionTextView = UITextView()
     var selectedImageView = UIImageView()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ final class HomeViewController: UIViewController {
     private func setConfigure() {
         view.backgroundColor = .black
         
-        [moveToDirayButton, moveToCameraButton].forEach {
+        [moveToDirayButton, moveToCameraButton,moveToImageSearchButton].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.titleLabel?.textAlignment = .center
@@ -44,12 +44,14 @@ final class HomeViewController: UIViewController {
         
         moveToDirayButton.setTitle("다이어리 작성하기", for: .normal)
         moveToCameraButton.setTitle("사진 촬영하러가기", for: .normal)
+        moveToImageSearchButton.setTitle("사진 검색하러 가기", for: .normal)
+        
         diaryTitleLabel.font = .preferredFont(forTextStyle: .largeTitle, compatibleWith: .current)
         diaryDescriptionTextView.font = .preferredFont(forTextStyle: .callout, compatibleWith: .current)
         
         moveToDirayButton.addTarget(self, action: #selector(moveToDiaryButtonTapped), for: .touchUpInside)
         moveToCameraButton.addTarget(self, action: #selector(moveToCameraButtonTapped), for: .touchUpInside)
-        
+        moveToImageSearchButton.addTarget(self, action: #selector(moveToImageSearchButtonTapped), for: .touchUpInside)
     }
     
     private func setConstraints() {
@@ -62,7 +64,11 @@ final class HomeViewController: UIViewController {
             moveToCameraButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             moveToCameraButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
             
-            diaryTitleLabel.topAnchor.constraint(equalTo: moveToCameraButton.bottomAnchor, constant: 32),
+            moveToImageSearchButton.topAnchor.constraint(equalTo: moveToCameraButton.bottomAnchor, constant: 16),
+            moveToImageSearchButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            moveToImageSearchButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            
+            diaryTitleLabel.topAnchor.constraint(equalTo: moveToImageSearchButton.bottomAnchor, constant: 32),
             diaryTitleLabel.leadingAnchor.constraint(equalTo: moveToCameraButton.leadingAnchor),
             diaryTitleLabel.trailingAnchor.constraint(equalTo: moveToCameraButton.trailingAnchor),
             diaryTitleLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05),
@@ -94,7 +100,18 @@ final class HomeViewController: UIViewController {
     @objc private func moveToCameraButtonTapped() {
         let vc = CameraViewController()
         let nav = UINavigationController(rootViewController: vc)
-        nav.modalTransitionStyle = .partialCurl
+        nav.modalTransitionStyle = .flipHorizontal
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: true)
+    }
+    
+    @objc private func moveToImageSearchButtonTapped() {
+        let vc = SearchImageViewController()
+        vc.completionHandler = { sendImage in
+            self.selectedImageView.image = sendImage
+        }
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalTransitionStyle = .flipHorizontal
         nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true)
     }

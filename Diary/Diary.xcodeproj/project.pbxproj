@@ -15,6 +15,13 @@
 		7783D5A428B52141007DF5AF /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783D5A328B52141007DF5AF /* DiaryViewController.swift */; };
 		7783D5A628B527E3007DF5AF /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783D5A528B527E3007DF5AF /* CameraViewController.swift */; };
 		7783D5A928B53096007DF5AF /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 7783D5A828B53096007DF5AF /* Toast */; };
+		7783D5AB28B533A7007DF5AF /* SearchImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783D5AA28B533A7007DF5AF /* SearchImageViewController.swift */; };
+		7783D5AD28B5349C007DF5AF /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783D5AC28B5349C007DF5AF /* Key.swift */; };
+		7783D5AF28B534A6007DF5AF /* UnSplashModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783D5AE28B534A6007DF5AF /* UnSplashModel.swift */; };
+		7783D5B128B53536007DF5AF /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783D5B028B53536007DF5AF /* ImageCollectionViewCell.swift */; };
+		7783D5B428B53579007DF5AF /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783D5B328B53579007DF5AF /* APIManager.swift */; };
+		7783D5B728B5358D007DF5AF /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7783D5B628B5358D007DF5AF /* Alamofire */; };
+		7783D5BA28B535B1007DF5AF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7783D5B928B535B1007DF5AF /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +34,11 @@
 		7783D59828B5202E007DF5AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7783D5A328B52141007DF5AF /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		7783D5A528B527E3007DF5AF /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		7783D5AA28B533A7007DF5AF /* SearchImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchImageViewController.swift; sourceTree = "<group>"; };
+		7783D5AC28B5349C007DF5AF /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Key.swift; sourceTree = "<group>"; };
+		7783D5AE28B534A6007DF5AF /* UnSplashModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnSplashModel.swift; sourceTree = "<group>"; };
+		7783D5B028B53536007DF5AF /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		7783D5B328B53579007DF5AF /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,7 +46,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7783D5BA28B535B1007DF5AF /* Kingfisher in Frameworks */,
 				7783D5A928B53096007DF5AF /* Toast in Frameworks */,
+				7783D5B728B5358D007DF5AF /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,9 +75,10 @@
 			isa = PBXGroup;
 			children = (
 				7783D59828B5202E007DF5AF /* Info.plist */,
-				7783D5A028B520A8007DF5AF /* Model */,
 				7783D59E28B52089007DF5AF /* Application */,
+				7783D5A028B520A8007DF5AF /* Model */,
 				7783D59F28B5209A007DF5AF /* View */,
+				7783D5B228B53568007DF5AF /* API */,
 				7783D5A128B520AE007DF5AF /* Assets */,
 			);
 			path = Diary;
@@ -85,6 +100,8 @@
 				7783D58E28B5202D007DF5AF /* HomeViewController.swift */,
 				7783D5A328B52141007DF5AF /* DiaryViewController.swift */,
 				7783D5A528B527E3007DF5AF /* CameraViewController.swift */,
+				7783D5AA28B533A7007DF5AF /* SearchImageViewController.swift */,
+				7783D5B028B53536007DF5AF /* ImageCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -92,6 +109,8 @@
 		7783D5A028B520A8007DF5AF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7783D5AC28B5349C007DF5AF /* Key.swift */,
+				7783D5AE28B534A6007DF5AF /* UnSplashModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -102,6 +121,14 @@
 				7783D59328B5202E007DF5AF /* Assets.xcassets */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		7783D5B228B53568007DF5AF /* API */ = {
+			isa = PBXGroup;
+			children = (
+				7783D5B328B53579007DF5AF /* APIManager.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,6 +149,8 @@
 			name = Diary;
 			packageProductDependencies = (
 				7783D5A828B53096007DF5AF /* Toast */,
+				7783D5B628B5358D007DF5AF /* Alamofire */,
+				7783D5B928B535B1007DF5AF /* Kingfisher */,
 			);
 			productName = Diary;
 			productReference = 7783D58728B5202D007DF5AF /* Diary.app */;
@@ -153,6 +182,8 @@
 			mainGroup = 7783D57E28B5202D007DF5AF;
 			packageReferences = (
 				7783D5A728B53096007DF5AF /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				7783D5B528B5358D007DF5AF /* XCRemoteSwiftPackageReference "Alamofire" */,
+				7783D5B828B535B1007DF5AF /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 7783D58828B5202D007DF5AF /* Products */;
 			projectDirPath = "";
@@ -180,10 +211,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7783D5AD28B5349C007DF5AF /* Key.swift in Sources */,
 				7783D5A428B52141007DF5AF /* DiaryViewController.swift in Sources */,
+				7783D5B428B53579007DF5AF /* APIManager.swift in Sources */,
 				7783D58F28B5202D007DF5AF /* HomeViewController.swift in Sources */,
 				7783D58B28B5202D007DF5AF /* AppDelegate.swift in Sources */,
 				7783D58D28B5202D007DF5AF /* SceneDelegate.swift in Sources */,
+				7783D5AF28B534A6007DF5AF /* UnSplashModel.swift in Sources */,
+				7783D5B128B53536007DF5AF /* ImageCollectionViewCell.swift in Sources */,
+				7783D5AB28B533A7007DF5AF /* SearchImageViewController.swift in Sources */,
 				7783D5A628B527E3007DF5AF /* CameraViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +438,22 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		7783D5B528B5358D007DF5AF /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		7783D5B828B535B1007DF5AF /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -409,6 +461,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7783D5A728B53096007DF5AF /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		7783D5B628B5358D007DF5AF /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7783D5B528B5358D007DF5AF /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		7783D5B928B535B1007DF5AF /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7783D5B828B535B1007DF5AF /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
