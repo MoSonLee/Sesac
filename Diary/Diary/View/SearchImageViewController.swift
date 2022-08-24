@@ -7,16 +7,24 @@
 
 import UIKit
 
+import JGProgressHUD
+import Realm
+import RealmSwift
+
 final class SearchImageViewController: UIViewController {
     
-    lazy var resultModel: [Result] = []
-    private lazy var searchBar = UISearchBar()
-    lazy var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
-    var selectedImage = UIImage()
-    var isSelected: Bool = false
-    var isSearched: Bool = false
+    var delegate: SelectImageDelegate?
     
+    private lazy var searchBar = UISearchBar()
+    private lazy var collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
+    private lazy var hud = JGProgressHUD()
+    
+    var resultModel: [Result] = []
+    var selectedImage = UIImage()
+    var isSearched: Bool = false
     var completionHandler: ((UIImage) -> ())?
+    var count = 0
+    var selectIndexPath: IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,9 +71,12 @@ final class SearchImageViewController: UIViewController {
     
     private func setNavigationItems() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backButtonTapped))
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(selectButtonTapped))
+       
+        let saveButton = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(selectButtonTapped))
+        self.navigationItem.rightBarButtonItems = [saveButton]
         self.navigationItem.leftBarButtonItem?.tintColor = .black
         self.navigationItem.rightBarButtonItem?.tintColor = .black
+        saveButton.tintColor = .red
     }
     
     private func collectionViewRegisterAndDelegate() {
@@ -74,18 +85,59 @@ final class SearchImageViewController: UIViewController {
         collectionView.dataSource = self
     }
     
+//        private func saveButton(fileName: String, image: UIImage) {
+//            guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+//            let fileURL = documentDirectory.appendingPathComponent(fileName) // 세부 경로, 이미지를 저장할 위치
+//            guard let data = image.jpegData(compressionQuality: 0.5) else { return }
+//
+//            do {
+//                try data.write(to: fileURL)
+//            } catch let error {
+//                print("file save error", error)
+//            }
+//        }
+    
     @objc private func backButtonTapped() {
         self.dismiss(animated: true)
     }
     
+    //using closure
+    //    @objc private func selectButtonTapped() {
+    //        if isSelected == false {
+    //            self.view.makeToast("사진을 선택해주세요.")
+    //        } else {
+    //            completionHandler?(self.selectedImage)
+    //            self.dismiss(animated: true,completion: nil)
+    //        }
+    //    }
+    
+    //using protocol
     @objc private func selectButtonTapped() {
-        if isSelected == false {
-            self.view.makeToast("사진을 선택해주세요.")
+        if count == 0 {
+            self.view.makeToast("사진을 선택해주세요")
         } else {
-            completionHandler?(self.selectedImage)
+            delegate?.sendImageData(image: selectedImage)
             self.dismiss(animated: true,completion: nil)
         }
     }
+    
+//        @objc private func saveButtonTapped() {
+//            let task = UserDiary(diaryTitle: "", diaryContent: "", diaryRegisterDate: Date(), photo: nil)
+//    
+//            do {
+//                try localRealm.write {
+//                    localRealm.add(task)
+//                }
+//            }
+//            catch let error {
+//                print((error))
+//            }
+//            let image = selectedImage
+//            saveButton(fileName: "\(task.objectId)", image: image)
+//            dismiss(animated: true)
+//        }
+    
+        
 }
 
 extension SearchImageViewController: UISearchBarDelegate {
@@ -97,10 +149,12 @@ extension SearchImageViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         isSearched = false
+        hud.show(in: self.view, animated: true)
         APIManager.shared.requestResults(query: searchBar.text!) { resultModel in
             self.resultModel = resultModel
             self.collectionView.reloadData()
         }
+        hud.dismiss(animated: true)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -111,10 +165,12 @@ extension SearchImageViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         isSearched = false
+        hud.show(in: self.view, animated: true)
         APIManager.shared.requestResults(query: searchBar.text!) { resultModel in
             self.resultModel = resultModel
             self.collectionView.reloadData()
         }
+        hud.dismiss(animated: true)
     }
 }
 
@@ -130,28 +186,24 @@ extension SearchImageViewController: UICollectionViewDelegate, UICollectionViewD
         let url = URL(string: resultModel[indexPath.row].urls?.raw ?? "")
         cell.searchedImage.kf.setImage(with: url)
         cell.searchedImage.contentMode = .scaleAspectFit
+        
+        cell.layer.borderWidth = selectIndexPath == indexPath ? 4 : 0
+        cell.layer.borderColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? ImageCollectionViewCell {
             selectedImage = cell.searchedImage.image!
+            selectIndexPath = indexPath
+            count += 1
+            collectionView.reloadData()
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        let item = collectionView.cellForItem(at: indexPath)
-        if item?.isSelected ?? false {
-            collectionView.deselectItem(at: indexPath, animated: true)
-            item?.backgroundColor = .blue
-            
-            isSelected = true
-        } else {
-            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
-            item?.backgroundColor = nil
-            isSelected = false
-            return true
-        }
-        return false
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        selectIndexPath = nil
+        collectionView.reloadData()
     }
 }

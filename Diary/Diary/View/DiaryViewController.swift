@@ -66,7 +66,7 @@ final class DiaryViewController: UIViewController {
             self.view.makeToast("제목을 필수로 입력해주세요")
         }
         else {
-            showSesacAlert(title: "", message: "추가할까요?", buttonTitle: "확인") { _ in
+            showSesacAlert(title: "", message: "일기를 추가할까요?", buttonTitle: "확인") { _ in
                 self.saveButtonActionHandler?(self.titleTextField.text!, self.descriptionTextView.text)
                 self.dismiss(animated: true)
             }

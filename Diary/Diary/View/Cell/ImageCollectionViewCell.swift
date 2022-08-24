@@ -23,12 +23,11 @@ final class ImageCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        setUpImageCell()
+        configure()
     }
     
-    private func setUpImageCell() {
+    private func configure() {
         self.addSubview(searchedImage)
-        searchedImage.image = UIImage(named: "profileImage")
         searchedImage.contentMode = .scaleAspectFit
         searchedImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

@@ -7,14 +7,23 @@
 
 import UIKit
 
+protocol SelectImageDelegate {
+    func sendImageData(image: UIImage)
+}
+
 final class HomeViewController: UIViewController {
     
     private lazy var moveToDirayButton = UIButton()
     private lazy var moveToCameraButton = UIButton()
+   
     private lazy var moveToImageSearchButton = UIButton()
+    private lazy var moveToUserDiary = UIButton()
+    
     var diaryTitleLabel = UILabel()
     var diaryDescriptionTextView = UITextView()
     var selectedImageView = UIImageView()
+    
+    var diary: [Diary] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +34,7 @@ final class HomeViewController: UIViewController {
     private func setConfigure() {
         view.backgroundColor = .black
         
-        [moveToDirayButton, moveToCameraButton,moveToImageSearchButton].forEach {
+        [moveToDirayButton, moveToCameraButton,moveToImageSearchButton, moveToUserDiary].forEach {
             view.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.titleLabel?.textAlignment = .center
@@ -45,6 +54,7 @@ final class HomeViewController: UIViewController {
         moveToDirayButton.setTitle("다이어리 작성하기", for: .normal)
         moveToCameraButton.setTitle("사진 촬영하러가기", for: .normal)
         moveToImageSearchButton.setTitle("사진 검색하러 가기", for: .normal)
+        moveToUserDiary.setTitle("현재 다이어리를 저장하기", for: .normal)
         
         diaryTitleLabel.font = .preferredFont(forTextStyle: .largeTitle, compatibleWith: .current)
         diaryDescriptionTextView.font = .preferredFont(forTextStyle: .callout, compatibleWith: .current)
@@ -52,6 +62,7 @@ final class HomeViewController: UIViewController {
         moveToDirayButton.addTarget(self, action: #selector(moveToDiaryButtonTapped), for: .touchUpInside)
         moveToCameraButton.addTarget(self, action: #selector(moveToCameraButtonTapped), for: .touchUpInside)
         moveToImageSearchButton.addTarget(self, action: #selector(moveToImageSearchButtonTapped), for: .touchUpInside)
+        moveToUserDiary.addTarget(self, action: #selector(moveToUserDiaryView), for: .touchUpInside)
     }
     
     private func setConstraints() {
@@ -68,7 +79,13 @@ final class HomeViewController: UIViewController {
             moveToImageSearchButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
             moveToImageSearchButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
             
-            diaryTitleLabel.topAnchor.constraint(equalTo: moveToImageSearchButton.bottomAnchor, constant: 32),
+            moveToUserDiary.topAnchor.constraint(equalTo: moveToImageSearchButton.bottomAnchor, constant: 16),
+            moveToUserDiary.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 8),
+            moveToUserDiary.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -8),
+            
+            
+            diaryTitleLabel.topAnchor.constraint(equalTo:
+                                                    moveToUserDiary.bottomAnchor, constant: 32),
             diaryTitleLabel.leadingAnchor.constraint(equalTo: moveToCameraButton.leadingAnchor),
             diaryTitleLabel.trailingAnchor.constraint(equalTo: moveToCameraButton.trailingAnchor),
             diaryTitleLabel.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.05),
@@ -91,28 +108,39 @@ final class HomeViewController: UIViewController {
             self.diaryTitleLabel.text = titleValue
             self.diaryDescriptionTextView.text = descriptionValue
         }
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalTransitionStyle = .flipHorizontal
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: true)
+        vc.modalTransitionStyle = .flipHorizontal
+        transition(vc, transitionStyle: .presentFullNavigation)
     }
     
     @objc private func moveToCameraButtonTapped() {
         let vc = CameraViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalTransitionStyle = .flipHorizontal
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: true)
+        transition(vc, transitionStyle: .presentNavigation)
     }
     
     @objc private func moveToImageSearchButtonTapped() {
         let vc = SearchImageViewController()
+        vc.delegate = self
         vc.completionHandler = { sendImage in
             self.selectedImageView.image = sendImage
         }
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalTransitionStyle = .flipHorizontal
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav, animated: true)
+        transition(vc, transitionStyle: .presentNavigation)
+    }
+    
+    @objc private func moveToUserDiaryView() {
+        if diaryTitleLabel.text == "" {
+            self.view.makeToast("다이어리 추가하고 저장해주세요!")
+        } else {
+            let data = Diary(diaryTitle: diaryTitleLabel.text ?? "", dirayDescription: diaryDescriptionTextView.text, diaryImage: selectedImageView.image)
+            diary.append(data)
+            let vc = UserDiaryViewController()
+            vc.diary = diary
+            transition(vc, transitionStyle: .presentFullNavigation)
+        }
+    }
+}
+
+extension HomeViewController: SelectImageDelegate {
+    func sendImageData(image: UIImage) {
+        self.selectedImageView.image = image
     }
 }

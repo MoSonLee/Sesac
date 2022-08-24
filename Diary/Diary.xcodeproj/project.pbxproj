@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77717E7328B5A5B800654557 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77717E7228B5A5B800654557 /* UIViewController+Extension.swift */; };
+		77717E7628B5ABBD00654557 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 77717E7528B5ABBD00654557 /* JGProgressHUD */; };
+		77717E7E28B5C53C00654557 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 77717E7D28B5C53C00654557 /* Realm */; };
+		77717E8028B5C53C00654557 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 77717E7F28B5C53C00654557 /* RealmSwift */; };
+		77717E8828B5C61E00654557 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77717E8728B5C61E00654557 /* SnapKit */; };
+		77717E8A28B5C84900654557 /* UserDiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77717E8928B5C84900654557 /* UserDiaryViewController.swift */; };
+		77717E8C28B5CAB900654557 /* UserDiary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77717E8B28B5CAB900654557 /* UserDiary.swift */; };
+		77717E9228B61EAB00654557 /* UserDiaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77717E9128B61EAB00654557 /* UserDiaryCollectionViewCell.swift */; };
+		77717E9428B6345B00654557 /* RealmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77717E9328B6345B00654557 /* RealmViewController.swift */; };
+		77717E9628B652D300654557 /* Diary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77717E9528B652D300654557 /* Diary.swift */; };
+		77717E9928B660EB00654557 /* RealmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77717E9828B660EB00654557 /* RealmTableViewCell.swift */; };
 		7783D58B28B5202D007DF5AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783D58A28B5202D007DF5AF /* AppDelegate.swift */; };
 		7783D58D28B5202D007DF5AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783D58C28B5202D007DF5AF /* SceneDelegate.swift */; };
 		7783D58F28B5202D007DF5AF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783D58E28B5202D007DF5AF /* HomeViewController.swift */; };
@@ -25,6 +36,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77717E7228B5A5B800654557 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		77717E8928B5C84900654557 /* UserDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDiaryViewController.swift; sourceTree = "<group>"; };
+		77717E8B28B5CAB900654557 /* UserDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDiary.swift; sourceTree = "<group>"; };
+		77717E9128B61EAB00654557 /* UserDiaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDiaryCollectionViewCell.swift; sourceTree = "<group>"; };
+		77717E9328B6345B00654557 /* RealmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmViewController.swift; sourceTree = "<group>"; };
+		77717E9528B652D300654557 /* Diary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diary.swift; sourceTree = "<group>"; };
+		77717E9828B660EB00654557 /* RealmTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmTableViewCell.swift; sourceTree = "<group>"; };
 		7783D58728B5202D007DF5AF /* Diary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Diary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7783D58A28B5202D007DF5AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7783D58C28B5202D007DF5AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,15 +64,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77717E8028B5C53C00654557 /* RealmSwift in Frameworks */,
+				77717E7628B5ABBD00654557 /* JGProgressHUD in Frameworks */,
 				7783D5BA28B535B1007DF5AF /* Kingfisher in Frameworks */,
+				77717E8828B5C61E00654557 /* SnapKit in Frameworks */,
 				7783D5A928B53096007DF5AF /* Toast in Frameworks */,
 				7783D5B728B5358D007DF5AF /* Alamofire in Frameworks */,
+				77717E7E28B5C53C00654557 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77717E7128B5A59800654557 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				77717E7228B5A5B800654557 /* UIViewController+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		77717E9728B659E900654557 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				77717E9128B61EAB00654557 /* UserDiaryCollectionViewCell.swift */,
+				7783D5B028B53536007DF5AF /* ImageCollectionViewCell.swift */,
+				77717E9828B660EB00654557 /* RealmTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		7783D57E28B5202D007DF5AF = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +119,7 @@
 				7783D5A028B520A8007DF5AF /* Model */,
 				7783D59F28B5209A007DF5AF /* View */,
 				7783D5B228B53568007DF5AF /* API */,
+				77717E7128B5A59800654557 /* Extension */,
 				7783D5A128B520AE007DF5AF /* Assets */,
 			);
 			path = Diary;
@@ -101,7 +142,9 @@
 				7783D5A328B52141007DF5AF /* DiaryViewController.swift */,
 				7783D5A528B527E3007DF5AF /* CameraViewController.swift */,
 				7783D5AA28B533A7007DF5AF /* SearchImageViewController.swift */,
-				7783D5B028B53536007DF5AF /* ImageCollectionViewCell.swift */,
+				77717E8928B5C84900654557 /* UserDiaryViewController.swift */,
+				77717E9328B6345B00654557 /* RealmViewController.swift */,
+				77717E9728B659E900654557 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -111,6 +154,8 @@
 			children = (
 				7783D5AC28B5349C007DF5AF /* Key.swift */,
 				7783D5AE28B534A6007DF5AF /* UnSplashModel.swift */,
+				77717E8B28B5CAB900654557 /* UserDiary.swift */,
+				77717E9528B652D300654557 /* Diary.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -151,6 +196,10 @@
 				7783D5A828B53096007DF5AF /* Toast */,
 				7783D5B628B5358D007DF5AF /* Alamofire */,
 				7783D5B928B535B1007DF5AF /* Kingfisher */,
+				77717E7528B5ABBD00654557 /* JGProgressHUD */,
+				77717E7D28B5C53C00654557 /* Realm */,
+				77717E7F28B5C53C00654557 /* RealmSwift */,
+				77717E8728B5C61E00654557 /* SnapKit */,
 			);
 			productName = Diary;
 			productReference = 7783D58728B5202D007DF5AF /* Diary.app */;
@@ -184,6 +233,9 @@
 				7783D5A728B53096007DF5AF /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				7783D5B528B5358D007DF5AF /* XCRemoteSwiftPackageReference "Alamofire" */,
 				7783D5B828B535B1007DF5AF /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				77717E7428B5ABBD00654557 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
+				77717E7C28B5C53C00654557 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				77717E8628B5C61E00654557 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 7783D58828B5202D007DF5AF /* Products */;
 			projectDirPath = "";
@@ -212,15 +264,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				7783D5AD28B5349C007DF5AF /* Key.swift in Sources */,
+				77717E7328B5A5B800654557 /* UIViewController+Extension.swift in Sources */,
+				77717E8A28B5C84900654557 /* UserDiaryViewController.swift in Sources */,
 				7783D5A428B52141007DF5AF /* DiaryViewController.swift in Sources */,
 				7783D5B428B53579007DF5AF /* APIManager.swift in Sources */,
 				7783D58F28B5202D007DF5AF /* HomeViewController.swift in Sources */,
 				7783D58B28B5202D007DF5AF /* AppDelegate.swift in Sources */,
 				7783D58D28B5202D007DF5AF /* SceneDelegate.swift in Sources */,
+				77717E9228B61EAB00654557 /* UserDiaryCollectionViewCell.swift in Sources */,
+				77717E8C28B5CAB900654557 /* UserDiary.swift in Sources */,
 				7783D5AF28B534A6007DF5AF /* UnSplashModel.swift in Sources */,
 				7783D5B128B53536007DF5AF /* ImageCollectionViewCell.swift in Sources */,
+				77717E9928B660EB00654557 /* RealmTableViewCell.swift in Sources */,
+				77717E9428B6345B00654557 /* RealmViewController.swift in Sources */,
 				7783D5AB28B533A7007DF5AF /* SearchImageViewController.swift in Sources */,
 				7783D5A628B527E3007DF5AF /* CameraViewController.swift in Sources */,
+				77717E9628B652D300654557 /* Diary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +489,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		77717E7428B5ABBD00654557 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		77717E7C28B5C53C00654557 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		77717E8628B5C61E00654557 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		7783D5A728B53096007DF5AF /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
@@ -457,6 +540,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		77717E7528B5ABBD00654557 /* JGProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77717E7428B5ABBD00654557 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;
+			productName = JGProgressHUD;
+		};
+		77717E7D28B5C53C00654557 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77717E7C28B5C53C00654557 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		77717E7F28B5C53C00654557 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77717E7C28B5C53C00654557 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		77717E8728B5C61E00654557 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77717E8628B5C61E00654557 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		7783D5A828B53096007DF5AF /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7783D5A728B53096007DF5AF /* XCRemoteSwiftPackageReference "Toast-Swift" */;
