@@ -118,15 +118,16 @@ extension UserDiaryViewController: UICollectionViewDelegate, UICollectionViewDat
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UserDiaryCollectionViewCell.identifier, for: indexPath) as? UserDiaryCollectionViewCell else { return UICollectionViewCell()}
         
         cell.backgroundColor = .systemIndigo
+        cell.userDiaryDescriptionTextView.isEditable = false
         cell.userDiaryTitle.text = diary[indexPath.row].diaryTitle
         cell.userDiaryDescriptionTextView.text = diary[indexPath.row].dirayDescription
         cell.userDiaryImageView.image = diary[indexPath.row].diaryImage
-        cell.userDiaryDescriptionTextView.isEditable = false
         realmImage = cell.userDiaryImageView.image ?? systemImage!
         
         let data = UserDiary(diaryTitle: diary[indexPath.row].diaryTitle, diaryContent: diary[indexPath.row].dirayDescription)
         task.append(data)
         objectID = task[indexPath.row].objectId
+        
         return cell
     }
 }

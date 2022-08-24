@@ -22,6 +22,7 @@ final class HomeViewController: UIViewController {
     var diaryTitleLabel = UILabel()
     var diaryDescriptionTextView = UITextView()
     var selectedImageView = UIImageView()
+    var systemImage = UIImage(systemName: "questionmark.circle.fill")
     
     var diary: [Diary] = []
     
@@ -130,7 +131,7 @@ final class HomeViewController: UIViewController {
         if diaryTitleLabel.text == "" {
             self.view.makeToast("다이어리 추가하고 저장해주세요!")
         } else {
-            let data = Diary(diaryTitle: diaryTitleLabel.text ?? "", dirayDescription: diaryDescriptionTextView.text, diaryImage: selectedImageView.image)
+            let data = Diary(diaryTitle: diaryTitleLabel.text ?? "", dirayDescription: diaryDescriptionTextView.text, diaryImage: selectedImageView.image ?? systemImage)
             diary.append(data)
             let vc = UserDiaryViewController()
             vc.diary = diary

@@ -32,13 +32,9 @@ final class UserDiaryCollectionViewCell: UICollectionViewCell {
         [userDiaryImageView, userDiaryTitle, userDiaryDescriptionTextView].forEach {
             contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
+            $0.backgroundColor = .systemGray
         }
-        userDiaryImageView.image = UIImage(systemName: "circle.fill")
-        userDiaryTitle.text = "AA"
-        userDiaryTitle.backgroundColor = .red
-        userDiaryDescriptionTextView.text = "AAAAAAAAA"
-        userDiaryDescriptionTextView.backgroundColor = .brown
-        
+        userDiaryImageView.tintColor = .white
     }
     
     private func setConstraints() {

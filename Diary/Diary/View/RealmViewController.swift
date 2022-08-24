@@ -14,6 +14,9 @@ final class RealmViewController: UIViewController {
     
     let localRealm = try! Realm()
     var tasks: Results<UserDiary>!
+    var removeId: ObjectId?
+    
+    lazy var taskArray = Array(tasks)
     
     private let tableView: UITableView = {
         let view = UITableView()
@@ -35,7 +38,7 @@ final class RealmViewController: UIViewController {
     }
     
     private func setConfigure() {
-        view.backgroundColor = .systemGray
+        view.backgroundColor = .white
         setTableView()
     }
     
@@ -45,7 +48,12 @@ final class RealmViewController: UIViewController {
     
     private func setNavigationItems() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backButtonTapped))
-        self.navigationItem.leftBarButtonItem?.tintColor = .white
+        let deleteButton = UIBarButtonItem(title: "백업", style: .plain, target: self, action: #selector(method))
+        let saveButton = UIBarButtonItem(title: "복구", style: .plain, target: self, action: #selector(method))
+        self.navigationItem.rightBarButtonItems = [deleteButton, saveButton]
+        self.navigationItem.leftBarButtonItem?.tintColor = .black
+        deleteButton.tintColor = .black
+        saveButton.tintColor = .black
     }
     
     private func setTableView() {
@@ -66,16 +74,26 @@ final class RealmViewController: UIViewController {
 extension RealmViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tasks.count
+        taskArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RealmTableViewCell.identifier) as? RealmTableViewCell else { return UITableViewCell()}
         
-        cell.titleLabel.text = tasks[indexPath.row].diaryTitle
-        cell.descriptionLabel.text = tasks[indexPath.row].diaryContent
-        cell.realmImage.image = loadImageFromDocument(fileName: "\(tasks[indexPath.row].objectId)")
+        cell.titleLabel.text = taskArray[indexPath.row].diaryTitle
+        cell.descriptionLabel.text = taskArray[indexPath.row].diaryContent
+        cell.realmImage.image = loadImageFromDocument(fileName: "\(taskArray[indexPath.row].objectId)")
+        removeId = taskArray[indexPath.row].objectId
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            taskArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            removeImageFormDocument(fileName: "\(tasks[indexPath.row].objectId)")
+            tableView.reloadData()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
