@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7767912C28B70142007FFA69 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 7767912B28B70142007FFA69 /* Zip */; };
 		77717E7328B5A5B800654557 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77717E7228B5A5B800654557 /* UIViewController+Extension.swift */; };
 		77717E7628B5ABBD00654557 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 77717E7528B5ABBD00654557 /* JGProgressHUD */; };
 		77717E7E28B5C53C00654557 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 77717E7D28B5C53C00654557 /* Realm */; };
@@ -70,6 +71,7 @@
 				77717E8828B5C61E00654557 /* SnapKit in Frameworks */,
 				7783D5A928B53096007DF5AF /* Toast in Frameworks */,
 				7783D5B728B5358D007DF5AF /* Alamofire in Frameworks */,
+				7767912C28B70142007FFA69 /* Zip in Frameworks */,
 				77717E7E28B5C53C00654557 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,7 +120,6 @@
 				7783D59E28B52089007DF5AF /* Application */,
 				7783D5A028B520A8007DF5AF /* Model */,
 				7783D59F28B5209A007DF5AF /* View */,
-				7783D5B228B53568007DF5AF /* API */,
 				77717E7128B5A59800654557 /* Extension */,
 				7783D5A128B520AE007DF5AF /* Assets */,
 			);
@@ -144,6 +145,7 @@
 				7783D5AA28B533A7007DF5AF /* SearchImageViewController.swift */,
 				77717E8928B5C84900654557 /* UserDiaryViewController.swift */,
 				77717E9328B6345B00654557 /* RealmViewController.swift */,
+				7783D5B228B53568007DF5AF /* API */,
 				77717E9728B659E900654557 /* Cell */,
 			);
 			path = View;
@@ -200,6 +202,7 @@
 				77717E7D28B5C53C00654557 /* Realm */,
 				77717E7F28B5C53C00654557 /* RealmSwift */,
 				77717E8728B5C61E00654557 /* SnapKit */,
+				7767912B28B70142007FFA69 /* Zip */,
 			);
 			productName = Diary;
 			productReference = 7783D58728B5202D007DF5AF /* Diary.app */;
@@ -236,6 +239,7 @@
 				77717E7428B5ABBD00654557 /* XCRemoteSwiftPackageReference "JGProgressHUD" */,
 				77717E7C28B5C53C00654557 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				77717E8628B5C61E00654557 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				7767912A28B70142007FFA69 /* XCRemoteSwiftPackageReference "Zip" */,
 			);
 			productRefGroup = 7783D58828B5202D007DF5AF /* Products */;
 			projectDirPath = "";
@@ -489,6 +493,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7767912A28B70142007FFA69 /* XCRemoteSwiftPackageReference "Zip" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marmelroy/Zip.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		77717E7428B5ABBD00654557 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
@@ -540,6 +552,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7767912B28B70142007FFA69 /* Zip */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7767912A28B70142007FFA69 /* XCRemoteSwiftPackageReference "Zip" */;
+			productName = Zip;
+		};
 		77717E7528B5ABBD00654557 /* JGProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 77717E7428B5ABBD00654557 /* XCRemoteSwiftPackageReference "JGProgressHUD" */;

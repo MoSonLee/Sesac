@@ -9,6 +9,7 @@ import UIKit
 
 import SnapKit
 import RealmSwift
+import Zip
 
 final class RealmViewController: UIViewController {
     
@@ -48,12 +49,12 @@ final class RealmViewController: UIViewController {
     
     private func setNavigationItems() {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(backButtonTapped))
-        let deleteButton = UIBarButtonItem(title: "백업", style: .plain, target: self, action: #selector(method))
-        let saveButton = UIBarButtonItem(title: "복구", style: .plain, target: self, action: #selector(method))
-        self.navigationItem.rightBarButtonItems = [deleteButton, saveButton]
+        let backUpButton = UIBarButtonItem(title: "백업", style: .plain, target: self, action: #selector(backupButtonClicked))
+        let reStoreButton = UIBarButtonItem(title: "복구", style: .plain, target: self, action: #selector(restoreButtonClicked))
+        self.navigationItem.rightBarButtonItems = [backUpButton, reStoreButton]
         self.navigationItem.leftBarButtonItem?.tintColor = .black
-        deleteButton.tintColor = .black
-        saveButton.tintColor = .black
+        backUpButton.tintColor = .black
+        reStoreButton.tintColor = .black
     }
     
     private func setTableView() {
@@ -64,6 +65,56 @@ final class RealmViewController: UIViewController {
         tableView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
+    }
+    
+    func showActivityViewController() {
+        
+        guard let path = documentDirectoryPath() else {
+            showAlert(title: "도큐먼트 위치에 오류가 있씁니다.")
+            return
+        }
+        
+        let backUpFileURL = path.appendingPathComponent("SeSacDiary_1.zip")
+        
+        let vc = UIActivityViewController(activityItems: [backUpFileURL], applicationActivities: [])
+        self.present(vc, animated: true)
+    }
+    
+    @objc func backupButtonClicked() {
+        
+        var urlPaths = [URL]()
+        
+        //도큐먼트 위치에 백업 파일 확인
+        guard let path = documentDirectoryPath() else {
+            showAlert(title: "도큐먼트 위치에 오류가 있씁니다.")
+            return
+        }
+        let realmFile = path.appendingPathComponent("default.realm")
+        
+        guard FileManager.default.fileExists(atPath: realmFile.path) else {
+            showAlert(title: "벡압힐 파일이 없습니다")
+            return
+        }
+        
+        urlPaths.append(URL(string: realmFile.path)!)
+        
+        //백업 파일을 압축
+        
+        do {
+            let zipFilePath = try Zip.quickZipFiles(urlPaths, fileName: "SeSacDiary_1")
+            showActivityViewController()
+            print("Archive Location: \(zipFilePath)")
+        } catch {
+            showAlert(title: "압축을 실패했습니다.")
+        }
+    }
+    
+    @objc func restoreButtonClicked() {
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [.archive], asCopy:  true)
+        documentPicker.delegate = self
+        documentPicker.allowsMultipleSelection = false
+        self.present(documentPicker, animated: true)
+        
     }
     
     @objc private func backButtonTapped() {
@@ -98,5 +149,56 @@ extension RealmViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         150
+    }
+}
+
+extension RealmViewController: UIDocumentPickerDelegate{
+    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
+        print(#function)
+    }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        guard let selectedFileURL = urls.first else {
+            showAlert(title: "선택하신 파일을 찾을 수 없습니다.")
+            return
+        }
+        
+        guard let path = documentDirectoryPath() else {
+            showAlert(title: "도큐먼트 위치에 오류가 있습니다.")
+            return
+        }
+        
+        let sandboxFileURL = path.appendingPathComponent(selectedFileURL.lastPathComponent)
+        
+        if FileManager.default.fileExists(atPath: sandboxFileURL.path) {
+            let fileURL = path.appendingPathComponent("SeSacDiary_1.zip")
+            
+            do {
+                try Zip.unzipFile(fileURL, destination: path, overwrite: true, password: nil, progress: { progress in
+                    print("progress \(progress)")
+                }, fileOutputHandler: { unzippedFile in
+                    print(unzippedFile)
+                    self.showAlert(title: "복구가 완료되었습니다.")
+                })
+            } catch {
+                showAlert(title: "압축 해제에 실패")
+            }
+        } else {
+            do {
+                //파일 앱의 zip -> 도큐먼트 폴더에 복사
+                try FileManager.default.copyItem(at: selectedFileURL, to: sandboxFileURL)
+                let fileURL = path.appendingPathComponent("SeSacDiary_1.zip")
+                
+                try Zip.unzipFile(fileURL, destination: path, overwrite: true, password: nil, progress: { progress in
+                    print("progress \(progress)")
+                }, fileOutputHandler: { unzippedFile in
+                    print(unzippedFile)
+                    self.showAlert(title: "복구가 완료되었습니다.")
+                })
+                
+            } catch {
+                showAlert(title: "압축 해제에 실패했습니다.")
+            }
+        }
     }
 }

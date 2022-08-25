@@ -37,6 +37,11 @@ extension UIViewController {
         }
     }
     
+    func documentDirectoryPath() -> URL? {
+        guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
+        return documentDirectory
+    }
+    
     func loadImageFromDocument(fileName: String) -> UIImage? {
         guard let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return nil }
         let fileURL = documentDirectory.appendingPathComponent(fileName) // 세부 경로, 이미지를 저장할 위치
@@ -52,6 +57,28 @@ extension UIViewController {
             try FileManager.default.removeItem(at: fileURL)
         } catch let error {
             print(error)
+        }
+    }
+    
+    func showAlert(title: String) {
+        let alert =  UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style:.destructive, handler: nil)
+        alert.addAction(ok)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func fetchDocumentZipFile() {
+        do {
+            guard let path = documentDirectoryPath() else { return }
+            let docs = try FileManager.default.contentsOfDirectory(at: path, includingPropertiesForKeys: nil)
+            print("Docs: \(docs)")
+            let zip = docs.filter { $0.pathExtension == "zip" }
+            let result = zip.map{ $0.lastPathComponent}
+            print("zip: \(zip)")
+            print("result: \(result)")
+            
+        } catch {
+            print("Error")
         }
     }
 }

@@ -28,6 +28,7 @@ final class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchDocumentZipFile()
         setConfigure()
         setConstraints()
     }
