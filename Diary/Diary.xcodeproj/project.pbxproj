@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7767912C28B70142007FFA69 /* Zip in Frameworks */ = {isa = PBXBuildFile; productRef = 7767912B28B70142007FFA69 /* Zip */; };
+		7767912E28B855AA007FFA69 /* UserDiaryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7767912D28B855AA007FFA69 /* UserDiaryRepository.swift */; };
+		7767913228B861A5007FFA69 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 7767913128B861A5007FFA69 /* FSCalendar */; };
+		7767913428B8636E007FFA69 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7767913328B8636E007FFA69 /* CalendarViewController.swift */; };
 		77717E7328B5A5B800654557 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77717E7228B5A5B800654557 /* UIViewController+Extension.swift */; };
 		77717E7628B5ABBD00654557 /* JGProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 77717E7528B5ABBD00654557 /* JGProgressHUD */; };
 		77717E7E28B5C53C00654557 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 77717E7D28B5C53C00654557 /* Realm */; };
@@ -37,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7767912D28B855AA007FFA69 /* UserDiaryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDiaryRepository.swift; sourceTree = "<group>"; };
+		7767913328B8636E007FFA69 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		77717E7228B5A5B800654557 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		77717E8928B5C84900654557 /* UserDiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDiaryViewController.swift; sourceTree = "<group>"; };
 		77717E8B28B5CAB900654557 /* UserDiary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDiary.swift; sourceTree = "<group>"; };
@@ -69,6 +74,7 @@
 				77717E7628B5ABBD00654557 /* JGProgressHUD in Frameworks */,
 				7783D5BA28B535B1007DF5AF /* Kingfisher in Frameworks */,
 				77717E8828B5C61E00654557 /* SnapKit in Frameworks */,
+				7767913228B861A5007FFA69 /* FSCalendar in Frameworks */,
 				7783D5A928B53096007DF5AF /* Toast in Frameworks */,
 				7783D5B728B5358D007DF5AF /* Alamofire in Frameworks */,
 				7767912C28B70142007FFA69 /* Zip in Frameworks */,
@@ -79,6 +85,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7767912F28B855C0007FFA69 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				77717E8B28B5CAB900654557 /* UserDiary.swift */,
+				7767912D28B855AA007FFA69 /* UserDiaryRepository.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		77717E7128B5A59800654557 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,8 +133,10 @@
 			children = (
 				7783D59828B5202E007DF5AF /* Info.plist */,
 				7783D59E28B52089007DF5AF /* Application */,
+				7767912F28B855C0007FFA69 /* Realm */,
 				7783D5A028B520A8007DF5AF /* Model */,
 				7783D59F28B5209A007DF5AF /* View */,
+				7783D5B228B53568007DF5AF /* API */,
 				77717E7128B5A59800654557 /* Extension */,
 				7783D5A128B520AE007DF5AF /* Assets */,
 			);
@@ -145,7 +162,7 @@
 				7783D5AA28B533A7007DF5AF /* SearchImageViewController.swift */,
 				77717E8928B5C84900654557 /* UserDiaryViewController.swift */,
 				77717E9328B6345B00654557 /* RealmViewController.swift */,
-				7783D5B228B53568007DF5AF /* API */,
+				7767913328B8636E007FFA69 /* CalendarViewController.swift */,
 				77717E9728B659E900654557 /* Cell */,
 			);
 			path = View;
@@ -156,7 +173,6 @@
 			children = (
 				7783D5AC28B5349C007DF5AF /* Key.swift */,
 				7783D5AE28B534A6007DF5AF /* UnSplashModel.swift */,
-				77717E8B28B5CAB900654557 /* UserDiary.swift */,
 				77717E9528B652D300654557 /* Diary.swift */,
 			);
 			path = Model;
@@ -203,6 +219,7 @@
 				77717E7F28B5C53C00654557 /* RealmSwift */,
 				77717E8728B5C61E00654557 /* SnapKit */,
 				7767912B28B70142007FFA69 /* Zip */,
+				7767913128B861A5007FFA69 /* FSCalendar */,
 			);
 			productName = Diary;
 			productReference = 7783D58728B5202D007DF5AF /* Diary.app */;
@@ -240,6 +257,7 @@
 				77717E7C28B5C53C00654557 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				77717E8628B5C61E00654557 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				7767912A28B70142007FFA69 /* XCRemoteSwiftPackageReference "Zip" */,
+				7767913028B861A5007FFA69 /* XCRemoteSwiftPackageReference "FSCalendar" */,
 			);
 			productRefGroup = 7783D58828B5202D007DF5AF /* Products */;
 			projectDirPath = "";
@@ -277,12 +295,14 @@
 				7783D58D28B5202D007DF5AF /* SceneDelegate.swift in Sources */,
 				77717E9228B61EAB00654557 /* UserDiaryCollectionViewCell.swift in Sources */,
 				77717E8C28B5CAB900654557 /* UserDiary.swift in Sources */,
+				7767913428B8636E007FFA69 /* CalendarViewController.swift in Sources */,
 				7783D5AF28B534A6007DF5AF /* UnSplashModel.swift in Sources */,
 				7783D5B128B53536007DF5AF /* ImageCollectionViewCell.swift in Sources */,
 				77717E9928B660EB00654557 /* RealmTableViewCell.swift in Sources */,
 				77717E9428B6345B00654557 /* RealmViewController.swift in Sources */,
 				7783D5AB28B533A7007DF5AF /* SearchImageViewController.swift in Sources */,
 				7783D5A628B527E3007DF5AF /* CameraViewController.swift in Sources */,
+				7767912E28B855AA007FFA69 /* UserDiaryRepository.swift in Sources */,
 				77717E9628B652D300654557 /* Diary.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,6 +457,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.MosonLee.Diary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -501,6 +522,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		7767913028B861A5007FFA69 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		77717E7428B5ABBD00654557 /* XCRemoteSwiftPackageReference "JGProgressHUD" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/JonasGessner/JGProgressHUD.git";
@@ -556,6 +585,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7767912A28B70142007FFA69 /* XCRemoteSwiftPackageReference "Zip" */;
 			productName = Zip;
+		};
+		7767913128B861A5007FFA69 /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7767913028B861A5007FFA69 /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
 		};
 		77717E7528B5ABBD00654557 /* JGProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;

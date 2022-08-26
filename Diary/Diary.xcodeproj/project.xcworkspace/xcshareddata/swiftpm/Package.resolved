@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "fscalendar",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/WenchaoD/FSCalendar.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "16cbee1fc37b8ff21d6a1b38ae2030441055493b"
+      }
+    },
+    {
       "identity" : "jgprogresshud",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/JonasGessner/JGProgressHUD.git",

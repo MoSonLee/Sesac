@@ -54,7 +54,7 @@ final class HomeViewController: UIViewController {
         }
         
         moveToDirayButton.setTitle("다이어리 작성하기", for: .normal)
-        moveToCameraButton.setTitle("사진 촬영하러가기", for: .normal)
+        moveToCameraButton.setTitle("캘린더로 이동하기", for: .normal)
         moveToImageSearchButton.setTitle("사진 검색하러 가기", for: .normal)
         moveToUserDiary.setTitle("현재 다이어리를 저장하기", for: .normal)
         
@@ -115,8 +115,8 @@ final class HomeViewController: UIViewController {
     }
     
     @objc private func moveToCameraButtonTapped() {
-        let vc = CameraViewController()
-        transition(vc, transitionStyle: .presentNavigation)
+        let vc = CalendarViewController()
+        transition(vc, transitionStyle: .presentFullNavigation)
     }
     
     @objc private func moveToImageSearchButtonTapped() {

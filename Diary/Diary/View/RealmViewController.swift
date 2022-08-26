@@ -16,6 +16,7 @@ final class RealmViewController: UIViewController {
     let localRealm = try! Realm()
     var tasks: Results<UserDiary>!
     var removeId: ObjectId?
+    lazy var repository = USerDiaryRepository()
     
     lazy var taskArray = Array(tasks)
     
@@ -27,24 +28,20 @@ final class RealmViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        tasks = localRealm.objects(UserDiary.self).sorted(byKeyPath: "diaryTitle", ascending: false)
+        fetchRealm()
         tableView.reloadData()
+        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setConfigure()
-        setConstraints()
         setNavigationItems()
     }
     
     private func setConfigure() {
         view.backgroundColor = .white
         setTableView()
-    }
-    
-    private func setConstraints() {
-        
     }
     
     private func setNavigationItems() {
@@ -55,6 +52,10 @@ final class RealmViewController: UIViewController {
         self.navigationItem.leftBarButtonItem?.tintColor = .black
         backUpButton.tintColor = .black
         reStoreButton.tintColor = .black
+    }
+    
+    private func fetchRealm() {
+        tasks = repository.fetch()
     }
     
     private func setTableView() {
@@ -139,12 +140,13 @@ extension RealmViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        let task = self.taskArray[indexPath.row]
         if editingStyle == .delete {
             taskArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            removeImageFormDocument(fileName: "\(tasks[indexPath.row].objectId)")
-            tableView.reloadData()
+            removeImageFormDocument(fileName: "\(task.objectId)")
         }
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

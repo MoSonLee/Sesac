@@ -87,10 +87,10 @@ final class UserDiaryViewController: UIViewController {
     }
     
     @objc private func addRealm() {
-        let task = task
+        let task = task.popLast()
         do {
             try localRealm.write {
-                localRealm.add(task)
+                localRealm.add(task!)
             }
         }
         catch let error {
