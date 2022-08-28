@@ -37,6 +37,7 @@ final class RealmViewController: UIViewController {
         super.viewDidLoad()
         setConfigure()
         setNavigationItems()
+        print("Realm is located at:", localRealm.configuration.fileURL!)
     }
     
     private func setConfigure() {

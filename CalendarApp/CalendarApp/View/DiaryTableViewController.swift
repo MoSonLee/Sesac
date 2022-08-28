@@ -119,10 +119,10 @@ extension DiaryTableViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DiaryTableViewCell.identifier) as? DiaryTableViewCell else { return UITableViewCell()}
+        
         cell.backgroundColor = .systemIndigo
         cell.dateLabel.text = diary[indexPath.row].diaryTitle
         cell.descriptionLabel.text = diary[indexPath.row].dirayDescription
-        
         let data = UserDiary(diaryTitle: diary[indexPath.row].diaryTitle, diaryContent: diary[indexPath.row].dirayDescription)
         task.append(data)
         objectID = task[indexPath.row].objectId

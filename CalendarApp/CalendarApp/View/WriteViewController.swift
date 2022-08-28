@@ -8,6 +8,7 @@
 import UIKit
 
 import Toast
+import RealmSwift
 
 protocol diaryDelegate {
     func sendDiary(diary: [Diary])
@@ -19,7 +20,12 @@ final class WriteViewController: UIViewController {
     private lazy var moveToCollectionButton = UIButton()
     private lazy var titleTextField = UITextField()
     private lazy var descriptionTextView = UITextView()
+    
     var diary: [Diary] = []
+    var task: [UserDiary] = []
+    var realmImage = UIImage()
+    var objectID = ObjectId()
+    let localRealm = try! Realm()
     
     var saveButtonActionHandler: (([Diary]) -> ())?
     
@@ -47,7 +53,7 @@ final class WriteViewController: UIViewController {
         saveButton.setTitle("저장", for: .normal)
         moveToCollectionButton.setTitle("보관함", for: .normal)
         
-        saveButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(addRealm), for: .touchUpInside)
         moveToCollectionButton.addTarget(self, action: #selector(moveToCollectionButtonTapped), for: .touchUpInside)
         titleTextField.placeholder = "제목을 입력하세요"
         descriptionTextView.font = .preferredFont(forTextStyle: .body, compatibleWith: .current)
@@ -78,6 +84,19 @@ final class WriteViewController: UIViewController {
             descriptionTextView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16),
             
         ])
+    }
+    
+    @objc private func addRealm() {
+        let task = task
+        do {
+            try localRealm.write {
+                localRealm.add(task)
+            }
+        }
+        catch let error {
+            print((error))
+        }
+        self.view.makeToast("realm Succeeded")
     }
     
     @objc private func doneButtonTapped() {
