@@ -10,7 +10,7 @@ import RealmSwift
 
 //userDiary: 테이블 이름
 //@Persisted: 컬럼
-class userDiary: Object {
+class UserDiary: Object {
     @Persisted var diaryTitle: String //제목 필수
     @Persisted var diaryContent: String? // 내용 옵션
     @Persisted var diaryDate = Date() // 작성 날짜 필수

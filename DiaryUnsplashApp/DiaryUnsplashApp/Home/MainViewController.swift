@@ -13,7 +13,7 @@ import RealmSwift
 final class MainViewController: UIViewController {
     
     let localRealm = try! Realm()
-    var tasks: Results<userDiary>!
+    var tasks: Results<UserDiary>!
     
     private let tableView: UITableView = {
         let view = UITableView()
@@ -23,7 +23,7 @@ final class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        tasks = localRealm.objects(userDiary.self).sorted(byKeyPath: "diaryDate", ascending: false)
+        tasks = localRealm.objects(UserDiary.self).sorted(byKeyPath: "diaryDate", ascending: false)
         tableView.reloadData()
     }
     
@@ -39,12 +39,27 @@ final class MainViewController: UIViewController {
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "star"), style: .plain, target: self, action: #selector((starButtonClicked)))
+        let left1Button = UIBarButtonItem(title: "정렬", style: .plain, target: self, action: #selector((sortButtonClicked)))
+        let left2Button = UIBarButtonItem(title: "필터", style: .plain, target: self, action: #selector((filterButtonClicked)))
+        navigationItem.leftBarButtonItems = [left1Button, left2Button]
+        
     }
     
     @objc func starButtonClicked() {
         let vc = HomeViewController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        nav.modalTransitionStyle = .flipHorizontal
+        self.present(nav, animated: true)
+    }
+    
+    @objc func sortButtonClicked() {
+        tasks =  localRealm.objects(UserDiary.self).sorted(byKeyPath: "diaryRegisterDate")
+        tableView.reloadData()
+    }
+    
+    @objc func filterButtonClicked() {
+        
     }
 }
 

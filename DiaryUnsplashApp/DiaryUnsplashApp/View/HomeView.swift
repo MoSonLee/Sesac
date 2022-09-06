@@ -42,6 +42,7 @@ final class HomeView: BaseView {
     private func setMoveToImageViewButton() {
         let buttonImage = UIImage(systemName: "circle.fill", withConfiguration: largeConfigure)
         moveToImageViewButton.setImage(buttonImage, for: .normal)
+        moveToImageViewButton.setTitle("이미지 검색 화면 이동", for: .normal)
         moveToImageViewButton.tintColor = .systemIndigo
         NSLayoutConstraint.activate([
             moveToImageViewButton.trailingAnchor.constraint(equalTo: homeImageView.trailingAnchor, constant: -16),
