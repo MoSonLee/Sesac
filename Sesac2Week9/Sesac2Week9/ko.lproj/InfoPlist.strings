@@ -1,0 +1,12 @@
+/* 
+  InfoPlist.strings
+  Sesac2Week9
+
+  Created by 이승후 on 2022/09/06.
+  
+*/
+
+
+
+"CFBundleDisplayName" = "고래밥 다이어리";
+"NSLocationWhenInUseUsageDescription" = "권한 어쩌구";
