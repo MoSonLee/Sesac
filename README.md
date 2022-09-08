@@ -33,5 +33,3 @@
 [🍀8/1 정리💫](https://s2ung.tistory.com/21)</br>
 [🍀8/2 정리💫](https://s2ung.tistory.com/22)</br>
 [🍀8/3 정리💫](https://s2ung.tistory.com/23)</br>
-[🍀8/4 정리💫](https://s2ung.tistory.com/24)</br>
-
