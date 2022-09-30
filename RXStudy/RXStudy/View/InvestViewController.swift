@@ -19,9 +19,12 @@ final class InvestViewController: UIViewController {
     private let tableView = UITableView(frame: .zero, style: .grouped)
     
     private let viewModel = InvestViewModel()
+    
     private lazy var input = InvestViewModel.Input(
-        viewDidLoad: viewDidLoadEvent.asObservable()
+        viewDidLoad: viewDidLoadEvent.asObservable(),
+        menuBarButtonTap: menuBarButton.rx.tap.asSignal()
     )
+    
     private lazy var output = viewModel.transform(input: input)
     
     let viewDidLoadEvent = PublishRelay<Void>()
@@ -61,6 +64,21 @@ final class InvestViewController: UIViewController {
                 let cancel = UIAlertAction(title: nil, style: .cancel)
                 alert.addAction(cancel)
             } )
+            .disposed(by: disposeBag)
+        
+//        menuBarButton.rx.tap.asSignal()
+//            .emit(onNext: { [weak self] _ in
+//                let vc = EditNoteViewController()
+//                self?.navigationController?.pushViewController(vc, animated: true)
+//            })
+//            .disposed(by: disposeBag)
+        
+        //input output mvvm형식으로 보낼때
+        output.showEditNoteVC
+            .emit(onNext: { [weak self] _ in
+                let vc = EditNoteViewController()
+                self?.navigationController?.pushViewController(vc, animated: true)
+            })
             .disposed(by: disposeBag)
     }
     

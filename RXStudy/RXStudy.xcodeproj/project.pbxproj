@@ -24,6 +24,8 @@
 		771DF98228B207EA00C182AC /* InvestMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF98128B207EA00C182AC /* InvestMockData.swift */; };
 		771DF98428B20B6D00C182AC /* InvestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF98328B20B6D00C182AC /* InvestViewModel.swift */; };
 		771DF98928B20FBE00C182AC /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771DF98828B20FBE00C182AC /* UserInfo.swift */; };
+		7781265B28CB3F0E0078CAD6 /* EditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781265A28CB3F0E0078CAD6 /* EditNoteViewController.swift */; };
+		7781265D28CB470D0078CAD6 /* EditNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7781265C28CB470D0078CAD6 /* EditNoteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		771DF98128B207EA00C182AC /* InvestMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestMockData.swift; sourceTree = "<group>"; };
 		771DF98328B20B6D00C182AC /* InvestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvestViewModel.swift; sourceTree = "<group>"; };
 		771DF98828B20FBE00C182AC /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		7781265A28CB3F0E0078CAD6 /* EditNoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteViewController.swift; sourceTree = "<group>"; };
+		7781265C28CB470D0078CAD6 /* EditNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditNoteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +119,7 @@
 			children = (
 				771DF95928B1FD1A00C182AC /* InvestViewController.swift */,
 				771DF97628B202F700C182AC /* InvestCell.swift */,
+				7781265A28CB3F0E0078CAD6 /* EditNoteViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				771DF98328B20B6D00C182AC /* InvestViewModel.swift */,
+				7781265C28CB470D0078CAD6 /* EditNoteViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -229,7 +235,9 @@
 				771DF95A28B1FD1A00C182AC /* InvestViewController.swift in Sources */,
 				771DF97D28B2074E00C182AC /* APIEnvironment.swift in Sources */,
 				771DF97B28B2072400C182AC /* APIConstant.swift in Sources */,
+				7781265B28CB3F0E0078CAD6 /* EditNoteViewController.swift in Sources */,
 				771DF98228B207EA00C182AC /* InvestMockData.swift in Sources */,
+				7781265D28CB470D0078CAD6 /* EditNoteViewModel.swift in Sources */,
 				771DF95628B1FD1A00C182AC /* AppDelegate.swift in Sources */,
 				771DF98428B20B6D00C182AC /* InvestViewModel.swift in Sources */,
 				771DF95828B1FD1A00C182AC /* SceneDelegate.swift in Sources */,
@@ -373,7 +381,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5286U5DLX4;
+				DEVELOPMENT_TEAM = 682X55S89X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RXStudy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -400,7 +408,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 5286U5DLX4;
+				DEVELOPMENT_TEAM = 682X55S89X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RXStudy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

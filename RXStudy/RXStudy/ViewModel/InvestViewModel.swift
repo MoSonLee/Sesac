@@ -41,7 +41,10 @@ extension FintServerError {
 final class InvestViewModel {
     
     struct Input {
+        // observable Stream 공유가됨
+        // Signal Stream 공유 안됨
         let viewDidLoad: Observable<Void>
+        let menuBarButtonTap: Signal<Void>
     }
     
     struct Output {
@@ -49,12 +52,16 @@ final class InvestViewModel {
         let hashString: Signal<String>
         let titleText: Signal<String>
         let showAlert: Signal<String>
+        let showEditNoteVC: Signal<Void>
     }
     
+    //초기값이 없을 때 publishrelay 있을땐 behaviorrelay
     let showAlertRelay = PublishRelay<String>()
     let accountRelay = BehaviorRelay<[Account]>(value: [])
     let hashRelay = PublishRelay<String>()
     let titleRelay = PublishRelay<String>()
+    let showEditNoteVCRealy =  PublishRelay<Void>()
+    
     let disoiseBag = DisposeBag()
     let provider: MoyaProvider<FintTarget>
     
@@ -67,10 +74,20 @@ final class InvestViewModel {
                 self?.requestAccount(hash: "#00BADA")
             })
             .disposed(by: disoiseBag)
+        
+        //signal -> emit으로 방출
+        input.menuBarButtonTap
+            .emit(onNext:{ [weak self] _ in
+                self?.showEditNoteVCRealy.accept(())
+            })
+            .disposed(by: disoiseBag)
+        
+        
         return Output(accounts: accountRelay.asDriver(),
                       hashString: hashRelay.asSignal(),
                       titleText: titleRelay.asSignal(),
-                      showAlert: showAlertRelay.asSignal()
+                      showAlert: showAlertRelay.asSignal(),
+                      showEditNoteVC: showEditNoteVCRealy.asSignal()
         )
     }
 }
