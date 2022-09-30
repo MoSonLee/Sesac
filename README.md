@@ -1,6 +1,7 @@
 # Sesac🍀
 
 ### Daily work🍎
+[🍀TIL💫](https://github.com/MoSonLee/TIL)
 
 ### 1주차🍀
 [🍀7/4 정리💫](https://s2ung.tistory.com/3?category=1073520)</br>
@@ -32,6 +33,3 @@
 [🍀8/1 정리💫](https://s2ung.tistory.com/21)</br>
 [🍀8/2 정리💫](https://s2ung.tistory.com/22)</br>
 [🍀8/3 정리💫](https://s2ung.tistory.com/23)</br>
-[🍀8/4 정리💫](https://s2ung.tistory.com/24)</br>
-[🍀8/5 정리💫](https://s2ung.tistory.com/25)</br>
-
