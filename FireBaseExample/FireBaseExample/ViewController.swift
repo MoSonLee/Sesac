@@ -12,18 +12,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Analytics.logEvent("ReJack", parameters: [
-          "name": "고래밥" as NSObject,
-          "full_text": "안녕하세요" as NSObject,
+
+        Analytics.logEvent("testEvent", parameters: [
+          "name": "고래밥",
+          "full_text": "안녕하세요",
         ])
         
         Analytics.setDefaultEventParameters([
           "level_name": "Caverns01",
           "level_difficulty": 4
         ])
-        
     }
-
-
 }
-
