@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        UIViewController.swizzleMethod()
         FirebaseApp.configure()
         
         //알림 시스템에 앱을 등록
@@ -41,13 +42,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         Messaging.messaging().delegate = self
         
         //현재 등록된 토큰 가져오기
-        Messaging.messaging().token { token, error in
-          if let error = error {
-            print("Error fetching FCM registration token: \(error)")
-          } else if let token = token {
-            print("FCM registration token: \(token)")
-          }
-        }
+//        Messaging.messaging().token { token, error in
+//          if let error = error {
+//            print("Error fetching FCM registration token: \(error)")
+//          } else if let token = token {
+//            print("FCM registration token: \(token)")
+//          }
+//        }
         return true
     }
 
@@ -77,11 +78,18 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         
         //.banner, .list: ios 14+
-        completionHandler([.badge, .sound,  .banner, .list])
+        guard let viewController = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController?.topViewController else { return }
+        if viewController is SettingViewController {
+            
+        } else {
+            completionHandler([.badge, .sound,  .banner, .list])
+        }
     }
     
     //푸시 클릭: 호두과자 장바구니 담는 화면
-    // 유저가 푸시를 클릭했을 때에만 수신 확인 가능
+    //유저가 푸시를 클릭했을 때에만 수신 확인 가능
+    
+    //특정 푸시를 클릭하면 특정 상세화면으로 화면 전환 ->
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print("사용자가 푸쉬를 클릭했습니다.")
@@ -94,6 +102,15 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             print("Sesac PROJECT")
         } else {
             print("EMPTY")
+        }
+        guard let viewController = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController?.topViewController else { return }
+        
+        print(viewController)
+        
+        if viewController is ViewController {
+            viewController.navigationController?.pushViewController(SettingViewController(), animated: true)
+        } else if viewController is ProfileViewController {
+            viewController.dismiss(animated: true)
         }
     }
 }
