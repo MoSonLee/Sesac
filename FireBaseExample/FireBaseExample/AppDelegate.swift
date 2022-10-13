@@ -9,6 +9,7 @@ import UIKit
 
 import FirebaseCore
 import FirebaseMessaging
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate  {
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         // Override point for customization after application launch.
         UIViewController.swizzleMethod()
         FirebaseApp.configure()
+        aboutRealmMigration()
         
         //알림 시스템에 앱을 등록
         if #available(iOS 10.0, *) {
@@ -67,6 +69,54 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
     }
 
 
+}
+
+extension AppDelegate {
+    func aboutRealmMigration() {
+        //DeleTealmMigrationNeeded: 마이그레이션이 필요한 경우 기존 렘 삭제(Realm Browser 닫고 다시 열기!)
+        //        let config = Realm.Configuration(schemaVersion: 0, deleteRealmIfMigrationNeeded: true)
+        let config = Realm.Configuration(schemaVersion: 6) { migration, oldSchemaVersion in
+            if oldSchemaVersion < 1 {
+                
+            }
+            
+            if oldSchemaVersion < 2 {
+                
+            }
+            
+            if oldSchemaVersion < 3 {
+                migration.renameProperty(onType: Todo.className() , from: "importance", to: "importance2")
+            }
+            
+            if oldSchemaVersion < 4 {
+                migration.enumerateObjects(ofType: Todo.className()) { oldObject, newObject in
+                    
+                    guard let new = newObject else { return }
+                    guard let old = oldObject else { return }
+                    
+                    new["userDescription"] = "안녕하세요 \(old["title"]!) 의 중요도는 \(old["importance2"]!)입니다"
+                }
+            }
+            
+            if oldSchemaVersion < 5 {
+                migration.enumerateObjects(ofType: Todo.className()) { oldObject, newObject in
+                    guard let new = newObject else { return }
+                    new["count"] = 100
+                }
+            }
+            
+            if oldSchemaVersion < 6 {
+                migration.enumerateObjects(ofType: Todo.className()) { oldObject, newObject in
+                    guard let new = newObject else { return }
+                    guard let old = oldObject else { return }
+                    
+                    new["importance2"] = old["importance2"]
+                }
+            }
+            
+            Realm.Configuration.defaultConfiguration = config
+        }
+    }
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
