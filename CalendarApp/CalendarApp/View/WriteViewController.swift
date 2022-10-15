@@ -57,6 +57,7 @@ final class WriteViewController: UIViewController {
         moveToCollectionButton.addTarget(self, action: #selector(moveToCollectionButtonTapped), for: .touchUpInside)
         titleTextField.placeholder = "제목을 입력하세요"
         descriptionTextView.font = .preferredFont(forTextStyle: .body, compatibleWith: .current)
+        
     }
     
     private func setConstraints() {

@@ -9,7 +9,7 @@ import UIKit
 
 final class TabBarViewController: UITabBarController {
     
-    var diary: [Diary] = []
+//    var diary: [Diary] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
