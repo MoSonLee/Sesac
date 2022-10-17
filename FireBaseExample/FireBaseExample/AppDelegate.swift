@@ -14,13 +14,30 @@ import RealmSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate  {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UIViewController.swizzleMethod()
         FirebaseApp.configure()
-        aboutRealmMigration()
+        
+        let config = Realm.Configuration(schemaVersion: 3) { migration, oldSchemaVersion in
+            if oldSchemaVersion < 1 { //DetailTodo, List 추가
+                
+            }
+            
+            if oldSchemaVersion < 2 {
+                
+            }
+            
+            if oldSchemaVersion < 3 {
+                
+            }
+        }
+        
+        Realm.Configuration.defaultConfiguration = config
+        
+        
+        
+//        aboutRealmMigration()
         
         //알림 시스템에 앱을 등록
         if #available(iOS 10.0, *) {
@@ -44,13 +61,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
         Messaging.messaging().delegate = self
         
         //현재 등록된 토큰 가져오기
-//        Messaging.messaging().token { token, error in
-//          if let error = error {
-//            print("Error fetching FCM registration token: \(error)")
-//          } else if let token = token {
-//            print("FCM registration token: \(token)")
-//          }
-//        }
+        Messaging.messaging().token { token, error in
+          if let error = error {
+            print("Error fetching FCM registration token: \(error)")
+          } else if let token = token {
+            print("FCM registration token: \(token)")
+          }
+        }
         return true
     }
 
@@ -69,54 +86,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
     }
 
 
-}
-
-extension AppDelegate {
-    func aboutRealmMigration() {
-        //DeleTealmMigrationNeeded: 마이그레이션이 필요한 경우 기존 렘 삭제(Realm Browser 닫고 다시 열기!)
-        //        let config = Realm.Configuration(schemaVersion: 0, deleteRealmIfMigrationNeeded: true)
-        let config = Realm.Configuration(schemaVersion: 6) { migration, oldSchemaVersion in
-            if oldSchemaVersion < 1 {
-                
-            }
-            
-            if oldSchemaVersion < 2 {
-                
-            }
-            
-            if oldSchemaVersion < 3 {
-                migration.renameProperty(onType: Todo.className() , from: "importance", to: "importance2")
-            }
-            
-            if oldSchemaVersion < 4 {
-                migration.enumerateObjects(ofType: Todo.className()) { oldObject, newObject in
-                    
-                    guard let new = newObject else { return }
-                    guard let old = oldObject else { return }
-                    
-                    new["userDescription"] = "안녕하세요 \(old["title"]!) 의 중요도는 \(old["importance2"]!)입니다"
-                }
-            }
-            
-            if oldSchemaVersion < 5 {
-                migration.enumerateObjects(ofType: Todo.className()) { oldObject, newObject in
-                    guard let new = newObject else { return }
-                    new["count"] = 100
-                }
-            }
-            
-            if oldSchemaVersion < 6 {
-                migration.enumerateObjects(ofType: Todo.className()) { oldObject, newObject in
-                    guard let new = newObject else { return }
-                    guard let old = oldObject else { return }
-                    
-                    new["importance2"] = old["importance2"]
-                }
-            }
-            
-            Realm.Configuration.defaultConfiguration = config
-        }
-    }
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
@@ -179,3 +148,51 @@ extension AppDelegate: MessagingDelegate {
       // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
 }
+
+//extension AppDelegate {
+//    func aboutRealmMigration() {
+//        //DeleTealmMigrationNeeded: 마이그레이션이 필요한 경우 기존 렘 삭제(Realm Browser 닫고 다시 열기!)
+//        //        let config = Realm.Configuration(schemaVersion: 0, deleteRealmIfMigrationNeeded: true)
+//        let config = Realm.Configuration(schemaVersion: 6) { migration, oldSchemaVersion in
+//            if oldSchemaVersion < 1 {
+//
+//            }
+//
+//            if oldSchemaVersion < 2 {
+//
+//            }
+//
+//            if oldSchemaVersion < 3 {
+//                migration.renameProperty(onType: Todo.className() , from: "importance", to: "importance2")
+//            }
+//
+//            if oldSchemaVersion < 4 {
+//                migration.enumerateObjects(ofType: Todo.className()) { oldObject, newObject in
+//
+//                    guard let new = newObject else { return }
+//                    guard let old = oldObject else { return }
+//
+//                    new["userDescription"] = "안녕하세요 \(old["title"]!) 의 중요도는 \(old["importance2"]!)입니다"
+//                }
+//            }
+//
+//            if oldSchemaVersion < 5 {
+//                migration.enumerateObjects(ofType: Todo.className()) { oldObject, newObject in
+//                    guard let new = newObject else { return }
+//                    new["count"] = 100
+//                }
+//            }
+//
+//            if oldSchemaVersion < 6 {
+//                migration.enumerateObjects(ofType: Todo.className()) { oldObject, newObject in
+//                    guard let new = newObject else { return }
+//                    guard let old = oldObject else { return }
+//
+//                    new["importance2"] = old["importance2"]
+//                }
+//            }
+//
+//            Realm.Configuration.defaultConfiguration = config
+//        }
+//    }
+//}
