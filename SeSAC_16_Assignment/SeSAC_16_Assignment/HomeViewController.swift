@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  SeSAC_16_Assignment
 //
 //  Created by 이승후 on 2022/10/19.
@@ -9,14 +9,14 @@ import UIKit
 
 import SnapKit
 
-final class ViewController: UIViewController {
+final class HomeViewController: UIViewController {
     
     private let searchBar = UISearchBar()
     private let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
     
     private var cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, appleStore>!
     private var dataSource: UICollectionViewDiffableDataSource<Int, appleStore>!
-    var configuration = UICollectionLayoutListConfiguration(appearance: .grouped)
+    var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
     
     struct appleStore: Hashable {
         let id = UUID().uuidString
@@ -38,42 +38,42 @@ final class ViewController: UIViewController {
         updateList()
         setComponents()
         setConstraints()
-        collectionView.delegate = self
         searchBar.delegate = self
+        collectionView.delegate = self
     }
     
     private func setComponents() {
         view.backgroundColor = .lightGray
         [searchBar, collectionView].forEach {
             view.addSubview($0)
-            $0.translatesAutoresizingMaskIntoConstraints = false
         }
-        collectionView.backgroundColor = .systemGray
     }
     
     private func setConstraints() {
         collectionView.collectionViewLayout = createLayout()
         
         searchBar.snp.makeConstraints { make in
-            make.top.left.right.equalTo(view.safeAreaLayoutGuide)
+            make.top.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(44)
         }
+        
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(searchBar.snp.bottom)
-            make.left.right.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(searchBar.snp.bottom).inset(-16)
+            make.horizontalEdges.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }
 
-extension ViewController: UISearchBarDelegate {
+extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         var snapshot = dataSource.snapshot()
-        snapshot.appendItems([appleStore(name: searchBar.text!, price: "not provided")])
+        snapshot.appendItems([appleStore(name: searchBar.text!, price: "\(Int.random(in: 0...2000))dollar")])
+        list.append(contentsOf: [appleStore(name: searchBar.text!, price: "\(Int.random(in: 0...2000))dollar")])
         dataSource.apply(snapshot, animatingDifferences: true)
-        list.append(contentsOf: [appleStore(name: searchBar.text!, price: "not provided")])
     }
 }
 
-extension ViewController: UICollectionViewDelegate {
+extension HomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
