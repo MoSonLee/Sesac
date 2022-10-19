@@ -16,6 +16,7 @@ final class ViewController: UIViewController {
     
     private var cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, appleStore>!
     private var dataSource: UICollectionViewDiffableDataSource<Int, appleStore>!
+    var configuration = UICollectionLayoutListConfiguration(appearance: .grouped)
     
     struct appleStore: Hashable {
         let id = UUID().uuidString
@@ -33,11 +34,12 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureDataSource()
+        updateList()
         setComponents()
         setConstraints()
         collectionView.delegate = self
         searchBar.delegate = self
-        configureDataSource()
     }
     
     private func setComponents() {
@@ -67,18 +69,33 @@ extension ViewController: UISearchBarDelegate {
         var snapshot = dataSource.snapshot()
         snapshot.appendItems([appleStore(name: searchBar.text!, price: "not provided")])
         dataSource.apply(snapshot, animatingDifferences: true)
+        list.append(contentsOf: [appleStore(name: searchBar.text!, price: "not provided")])
     }
 }
 
 extension ViewController: UICollectionViewDelegate {
     
-}
-
-extension ViewController {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
+        let alert = UIAlertController(title: item.name, message: item.price + "입니다.", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .cancel)
+        alert.addAction(ok)
+        present(alert, animated: true)
+    }
+    
     private func createLayout() -> UICollectionViewLayout {
-        var configuration = UICollectionLayoutListConfiguration(appearance: .grouped)
         configuration.showsSeparators = false
         configuration.backgroundColor = .systemGray
+        configuration.trailingSwipeActionsConfigurationProvider = { indexPath in
+            let del = UIContextualAction(style: .destructive, title: "Delete") {
+                [weak self] action, view, completion in
+                self?.list.remove(at: indexPath.item)
+                self?.updateList()
+                completion(true)
+            }
+            return UISwipeActionsConfiguration(actions: [del])
+        }
+        
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
         return layout
     }
@@ -102,6 +119,13 @@ extension ViewController {
             return cell
         })
         
+        var snapshot = NSDiffableDataSourceSnapshot<Int, appleStore>()
+        snapshot.appendSections([0])
+        snapshot.appendItems(list)
+        dataSource.apply(snapshot)
+    }
+    
+    private func updateList() {
         var snapshot = NSDiffableDataSourceSnapshot<Int, appleStore>()
         snapshot.appendSections([0])
         snapshot.appendItems(list)
