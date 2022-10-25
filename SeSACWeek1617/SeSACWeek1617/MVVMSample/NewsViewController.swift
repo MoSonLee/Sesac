@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxSwift
+
 class NewsViewController: UIViewController {
     
     @IBOutlet weak var numberTextField: UITextField!
@@ -16,34 +18,53 @@ class NewsViewController: UIViewController {
     
     var viewModel = NewsViewModel()
     var dataSource: UICollectionViewDiffableDataSource<Int, News.NewsItem>!
+    let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureHierachy()
         configureDataSource()
         bindData()
         configureViews()
+        buttonTapped()
     }
     
     func bindData() {
-        viewModel.pageNumber.bind { value in
-            print("bind == \(value)")
-            self.numberTextField.text = value
-        }
         
-        viewModel.sample.bind { item in
-            var snapshot = NSDiffableDataSourceSnapshot<Int, News.NewsItem>()
-            snapshot.appendSections([0])
-            snapshot.appendItems(item)
-            self.dataSource.apply(snapshot, animatingDifferences: false)
-        }
+        viewModel.pageNumber
+            .withUnretained(self)
+            .subscribe(onNext: { vc, value in
+                print("bind == \(value)")
+                vc.numberTextField.text = value
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.sample
+            .withUnretained(self)
+            .subscribe(onNext: { vc, value in
+                var snapshot = NSDiffableDataSourceSnapshot<Int, News.NewsItem>()
+                snapshot.appendSections([0])
+                snapshot.appendItems(value)
+                self.dataSource.apply(snapshot, animatingDifferences: false)
+            })
+            .disposed(by: disposeBag)
+//        viewModel.pageNumber.bind { value in
+//            print("bind == \(value)")
+//            self.numberTextField.text = value
+//        }
+
+//        viewModel.sample.bind { item in
+//            var snapshot = NSDiffableDataSourceSnapshot<Int, News.NewsItem>()
+//            snapshot.appendSections([0])
+//            snapshot.appendItems(item)
+//            self.dataSource.apply(snapshot, animatingDifferences: false)
+//        }
     }
     
     func configureViews() {
         numberTextField.addTarget(self, action: #selector(numberTextFieldChanged), for: .editingChanged)
-        resetButton.addTarget(self, action: #selector(resetButtonTapped), for: .touchUpInside)
-        loadButton.addTarget(self, action: #selector(loadButtonTapped), for: .touchUpInside)
+//        resetButton.addTarget(self, action: #selector(resetButtonTapped), for: .touchUpInside)
+//        loadButton.addTarget(self, action: #selector(loadButtonTapped), for: .touchUpInside)
     }
     
     @objc func numberTextFieldChanged() {
@@ -52,13 +73,29 @@ class NewsViewController: UIViewController {
         viewModel.changePageNumberFormat(text: text)
     }
     
-    @objc func resetButtonTapped() {
-        viewModel.resetSample()
+    func buttonTapped() {
+        resetButton.rx.tap
+            .withUnretained(self)
+            .subscribe {(vc, _ ) in
+                vc.viewModel.resetSample()
+            }
+            .disposed(by: disposeBag)
+        
+        loadButton.rx.tap
+            .withUnretained(self)
+            .subscribe {(vc, _ ) in
+                vc.viewModel.loadSample()
+            }
+            .disposed(by: disposeBag)
     }
     
-    @objc func loadButtonTapped() {
-        viewModel.loadSample()
-    }
+//    @objc func resetButtonTapped() {
+//        viewModel.resetSample()
+//    }
+//
+//    @objc func loadButtonTapped() {
+//        viewModel.loadSample()
+//    }
 }
 
 extension NewsViewController {
