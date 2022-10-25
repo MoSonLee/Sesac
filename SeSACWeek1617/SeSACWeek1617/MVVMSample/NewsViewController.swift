@@ -11,14 +11,14 @@ import RxSwift
 
 class NewsViewController: UIViewController {
     
-    @IBOutlet weak var numberTextField: UITextField!
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var resetButton: UIButton!
-    @IBOutlet weak var loadButton: UIButton!
+    @IBOutlet private weak var numberTextField: UITextField!
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var resetButton: UIButton!
+    @IBOutlet private weak var loadButton: UIButton!
     
-    var viewModel = NewsViewModel()
-    var dataSource: UICollectionViewDiffableDataSource<Int, News.NewsItem>!
-    let disposeBag = DisposeBag()
+    private let viewModel = NewsViewModel()
+    private let disposeBag = DisposeBag()
+    private var dataSource: UICollectionViewDiffableDataSource<Int, News.NewsItem>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +30,7 @@ class NewsViewController: UIViewController {
         //        configureViews()
     }
     
-    func bindData() {
+    private func bindData() {
         viewModel.pageNumber
             .withUnretained(self)
             .subscribe(onNext: { vc, value in
@@ -73,7 +73,7 @@ class NewsViewController: UIViewController {
     //        viewModel.changePageNumberFormat(text: text)
     //    }
     
-    func buttonTapped() {
+    private func buttonTapped() {
         resetButton.rx.tap
             .withUnretained(self)
             .subscribe {(vc, _ ) in
@@ -89,7 +89,7 @@ class NewsViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
-    func textFieldChanged() {
+    private func textFieldChanged() {
         numberTextField.rx.text.orEmpty
             .withUnretained(self)
             .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
@@ -110,12 +110,12 @@ class NewsViewController: UIViewController {
 
 extension NewsViewController {
     
-    func configureHierachy() {
+    private func configureHierachy() {
         collectionView.collectionViewLayout = createLayout()
         collectionView.backgroundColor = .lightGray
     }
     
-    func configureDataSource() {
+    private func configureDataSource() {
         let cellRegistration = UICollectionView.CellRegistration< UICollectionViewListCell, News.NewsItem> { cell, indexPath, itemIdentifier in
             var content = UIListContentConfiguration.valueCell()
             content.text = itemIdentifier.title
@@ -129,7 +129,7 @@ extension NewsViewController {
         })
     }
     
-    func createLayout() -> UICollectionViewLayout {
+    private func createLayout() -> UICollectionViewLayout {
         let configuration = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
         return layout

@@ -14,7 +14,7 @@ class NewsViewModel {
     //    var pageNumber: CObservable<String> = CObservable("3000")
     //    var sample: CObservable<[News.NewsItem]> = CObservable(News.items)
     
-    var pageNumber = BehaviorSubject(value: "3000")
+    var pageNumber = BehaviorSubject(value: "")
     var sample = PublishSubject<[News.NewsItem]>()
     
     func changePageNumberFormat(text: String) {
