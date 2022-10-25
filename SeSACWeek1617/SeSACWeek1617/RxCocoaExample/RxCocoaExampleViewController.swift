@@ -19,16 +19,31 @@ class RxCocoaExampleViewController: UIViewController {
     @IBOutlet weak var signName: UITextField!
     @IBOutlet weak var signEmail: UITextField!
     @IBOutlet weak var simpleButton: UIButton!
+    @IBOutlet weak var nickNameLabel: UILabel!
     
-    let disposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
+    var nickname = Observable.just("MOSONLEE")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nickname
+            .bind(to: nickNameLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//            self.nickname = "SeungHoo"
+//        }
+        
         setTableView()
         setPickerView()
         setSwitch()
         setSign()
         setOperator()
+    }
+    
+    //VC deinit되면, 알아서 disposed도 동작한다.
+    deinit {
+        print("RxCocoaExampleViewController")
     }
     
     func setOperator() {
@@ -58,10 +73,18 @@ class RxCocoaExampleViewController: UIViewController {
             } onDisposed: {
                 print("interval disposed")
             }
-            //.disposed(by: disposeBag)
+            .disposed(by: disposeBag)
+        
+        //DisposeBag: 리소스 해제 관리 = 1. 시퀀스 끝날 때
+        //1. 시퀀스 끝날 때 but bind
+        //2. class deinit 자동 해제(bind)
+        //3. disposeBag 직접 호출.
+        //4. DisposeBag을 새롭게 할당하거나 , nil
+        //dispose() 구독하는 것마다 별도로 관리
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            intervalObservable.dispose() // 5초 후에 dispose
+            //            intervalObservable.dispose() // 5초 후에 dispose
+            self.disposeBag = DisposeBag()
         }
         
         let itemsA = [3.3, 4.0, 5.0, 2.0, 3.6, 4.8]
@@ -123,9 +146,13 @@ class RxCocoaExampleViewController: UIViewController {
             .disposed(by: disposeBag)
         
         simpleButton.rx.tap
-            .subscribe { _ in
-                self.showAlert()
-            }
+            .withUnretained(self)
+            .subscribe(onNext: { vc, _ in
+                vc.showAlert()
+            })
+//            .subscribe { [weak self] _ in
+//                self?.showAlert()
+//            }
             .disposed(by: disposeBag)
     }
     
@@ -144,14 +171,14 @@ class RxCocoaExampleViewController: UIViewController {
             "Second Item",
             "Third Item"
         ])
-
+        
         items
-        .bind(to: tableView.rx.items) { (tableView, row, element) in
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
-            cell.textLabel?.text = "\(element) @ row \(row)"
-            return cell
-        }
-        .disposed(by: disposeBag)
+            .bind(to: tableView.rx.items) { (tableView, row, element) in
+                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell")!
+                cell.textLabel?.text = "\(element) @ row \(row)"
+                return cell
+            }
+            .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(String.self)
             .map { data in
@@ -163,11 +190,11 @@ class RxCocoaExampleViewController: UIViewController {
     
     func setPickerView() {
         let items = Observable.just([
-                "영화",
-                "애니메이션",
-                "드라마",
-                "기타"
-            ])
+            "영화",
+            "애니메이션",
+            "드라마",
+            "기타"
+        ])
         items
             .bind(to: pickerView.rx.itemTitles) { (row, element) in
                 return element
@@ -177,9 +204,9 @@ class RxCocoaExampleViewController: UIViewController {
         pickerView.rx.modelSelected(String.self)
             .map{ $0.description }
             .bind(to: simpleLabel.rx.text)
-//            .subscribe(onNext: { value in
-//                print(value)
-//            })
+        //            .subscribe(onNext: { value in
+        //                print(value)
+        //            })
             .disposed(by: disposeBag)
     }
     

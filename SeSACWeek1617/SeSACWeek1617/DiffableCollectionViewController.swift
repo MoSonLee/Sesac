@@ -33,6 +33,7 @@ class DiffableCollectionViewController: UIViewController {
             snapshot.appendItems(photo.results)
             self.dataSource.apply(snapshot)
         }
+        print(viewModel.photoList.value)
     }
 }
 
