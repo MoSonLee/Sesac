@@ -25,12 +25,12 @@ class NewsViewController: UIViewController {
         configureHierachy()
         configureDataSource()
         bindData()
-        configureViews()
         buttonTapped()
+        textFieldChanged()
+        //        configureViews()
     }
     
     func bindData() {
-        
         viewModel.pageNumber
             .withUnretained(self)
             .subscribe(onNext: { vc, value in
@@ -48,30 +48,30 @@ class NewsViewController: UIViewController {
                 self.dataSource.apply(snapshot, animatingDifferences: false)
             })
             .disposed(by: disposeBag)
-//        viewModel.pageNumber.bind { value in
-//            print("bind == \(value)")
-//            self.numberTextField.text = value
-//        }
-
-//        viewModel.sample.bind { item in
-//            var snapshot = NSDiffableDataSourceSnapshot<Int, News.NewsItem>()
-//            snapshot.appendSections([0])
-//            snapshot.appendItems(item)
-//            self.dataSource.apply(snapshot, animatingDifferences: false)
-//        }
+        //        viewModel.pageNumber.bind { value in
+        //            print("bind == \(value)")
+        //            self.numberTextField.text = value
+        //        }
+        
+        //        viewModel.sample.bind { item in
+        //            var snapshot = NSDiffableDataSourceSnapshot<Int, News.NewsItem>()
+        //            snapshot.appendSections([0])
+        //            snapshot.appendItems(item)
+        //            self.dataSource.apply(snapshot, animatingDifferences: false)
+        //        }
     }
     
-    func configureViews() {
-        numberTextField.addTarget(self, action: #selector(numberTextFieldChanged), for: .editingChanged)
-//        resetButton.addTarget(self, action: #selector(resetButtonTapped), for: .touchUpInside)
-//        loadButton.addTarget(self, action: #selector(loadButtonTapped), for: .touchUpInside)
-    }
+    //    func configureViews() {
+    //        numberTextField.addTarget(self, action: #selector(numberTextFieldChanged), for: .editingChanged)
+    //        resetButton.addTarget(self, action: #selector(resetButtonTapped), for: .touchUpInside)
+    //        loadButton.addTarget(self, action: #selector(loadButtonTapped), for: .touchUpInside)
+    //    }
     
-    @objc func numberTextFieldChanged() {
-        print(#function)
-        guard let text = numberTextField.text else { return }
-        viewModel.changePageNumberFormat(text: text)
-    }
+    //    @objc func numberTextFieldChanged() {
+    //        print(#function)
+    //        guard let text = numberTextField.text else { return }
+    //        viewModel.changePageNumberFormat(text: text)
+    //    }
     
     func buttonTapped() {
         resetButton.rx.tap
@@ -89,6 +89,17 @@ class NewsViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
+    func textFieldChanged() {
+        numberTextField.rx.text.orEmpty
+            .withUnretained(self)
+            .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
+            .subscribe {(vc, value ) in
+                vc.viewModel.changePageNumberFormat(text: value)
+            }
+            .disposed(by: disposeBag)
+    }
+}
+
 //    @objc func resetButtonTapped() {
 //        viewModel.resetSample()
 //    }
@@ -96,7 +107,6 @@ class NewsViewController: UIViewController {
 //    @objc func loadButtonTapped() {
 //        viewModel.loadSample()
 //    }
-}
 
 extension NewsViewController {
     
