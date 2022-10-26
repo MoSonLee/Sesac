@@ -10,6 +10,7 @@
 		7746547329077A330013CF6F /* SubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7746547229077A330013CF6F /* SubjectViewController.swift */; };
 		77465475290788A10013CF6F /* SubjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77465474290788A10013CF6F /* SubjectViewModel.swift */; };
 		779598B7290625C60056665D /* RxCocoaExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779598B6290625C60056665D /* RxCocoaExampleViewController.swift */; };
+		77A8ED812908CBB600BAB14A /* SubscribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77A8ED802908CBB600BAB14A /* SubscribeViewController.swift */; };
 		77B4A46529062327001466DD /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 77B4A46429062327001466DD /* RxCocoa */; };
 		77B4A46729062327001466DD /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 77B4A46629062327001466DD /* RxSwift */; };
 		77BE656A28FE2DD400E2AE87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE656928FE2DD400E2AE87 /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 		7746547229077A330013CF6F /* SubjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectViewController.swift; sourceTree = "<group>"; };
 		77465474290788A10013CF6F /* SubjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectViewModel.swift; sourceTree = "<group>"; };
 		779598B6290625C60056665D /* RxCocoaExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCocoaExampleViewController.swift; sourceTree = "<group>"; };
+		77A8ED802908CBB600BAB14A /* SubscribeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeViewController.swift; sourceTree = "<group>"; };
 		77BE656628FE2DD400E2AE87 /* SeSACWeek1617.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSACWeek1617.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BE656928FE2DD400E2AE87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BE656B28FE2DD400E2AE87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				77BE656F28FE2DD400E2AE87 /* Main.storyboard */,
+				77A8ED802908CBB600BAB14A /* SubscribeViewController.swift */,
 				779598B5290625A60056665D /* RxCocoaExample */,
 				77BE65A82900CCC200E2AE87 /* MVVMSample */,
 				77BE656928FE2DD400E2AE87 /* AppDelegate.swift */,
@@ -212,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77A8ED812908CBB600BAB14A /* SubscribeViewController.swift in Sources */,
 				77BE65AA2900CF9E00E2AE87 /* CObservable.swift in Sources */,
 				77BE658228FF906600E2AE87 /* DiffableCollectionViewController.swift in Sources */,
 				77BE657E28FE390700E2AE87 /* SimpleCollectionViewController.swift in Sources */,

@@ -9,8 +9,7 @@ import UIKit
 
 import RxSwift
 
-class NewsViewController: UIViewController {
-    
+final class NewsViewController: UIViewController {
     @IBOutlet private weak var numberTextField: UITextField!
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var resetButton: UIButton!
@@ -45,7 +44,7 @@ class NewsViewController: UIViewController {
                 var snapshot = NSDiffableDataSourceSnapshot<Int, News.NewsItem>()
                 snapshot.appendSections([0])
                 snapshot.appendItems(value)
-                self.dataSource.apply(snapshot, animatingDifferences: false)
+                vc.dataSource.apply(snapshot, animatingDifferences: false)
             })
             .disposed(by: disposeBag)
         //        viewModel.pageNumber.bind { value in
@@ -74,17 +73,31 @@ class NewsViewController: UIViewController {
     //    }
     
     private func buttonTapped() {
-        resetButton.rx.tap
+        //        resetButton.rx.tap
+        //            .withUnretained(self)
+        //            .subscribe {(vc, _ ) in
+        //                vc.viewModel.resetSample()
+        //            }
+        //            .disposed(by: disposeBag)
+        //
+        //        loadButton.rx.tap
+        //            .withUnretained(self)
+        //            .subscribe {(vc, _ ) in
+        //                vc.viewModel.loadSample()
+        //            }
+        //            .disposed(by: disposeBag)
+        //
+        loadButton.rx.tap
             .withUnretained(self)
-            .subscribe {(vc, _ ) in
-                vc.viewModel.resetSample()
+            .bind {(vc, _ ) in
+                vc.viewModel.loadSample()
             }
             .disposed(by: disposeBag)
         
-        loadButton.rx.tap
+        resetButton.rx.tap
             .withUnretained(self)
-            .subscribe {(vc, _ ) in
-                vc.viewModel.loadSample()
+            .bind { (vc, _) in
+                vc.viewModel.resetSample()
             }
             .disposed(by: disposeBag)
     }

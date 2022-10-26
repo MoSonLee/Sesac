@@ -6,41 +6,71 @@
 //////
 
 import UIKit
-import Kingfisher
 
-class DiffableCollectionViewController: UIViewController {
+import RxCocoa
+import RxSwift
 
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var searchBar: UISearchBar!
+final class DiffableCollectionViewController: UIViewController {
     
-    var viewModel = DiffableViewModel()
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var searchBar: UISearchBar!
     
-    //private var cellRegsteration: UICollectionView.CellRegistration<UICollectionViewListCell, String>!
-    
+    private let viewModel = DiffableViewModel()
+    private let disoseBag = DisposeBag()
     private var dataSource: UICollectionViewDiffableDataSource<Int, SearchResult>! // = <섹션, 데이터> 에 대한 정보
+    //private var cellRegsteration: UICollectionView.CellRegistration<UICollectionViewListCell, String>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         collectionView.collectionViewLayout = createLayout()
         configureDataSource()
-        collectionView.delegate = self
-        searchBar.delegate = self
+        setDelegate()
+        bindData()
+    }
+    
+    private func bindData() {
         
-        viewModel.photoList.bind { photo in
-            var snapshot = NSDiffableDataSourceSnapshot<Int, SearchResult>()
-            snapshot.appendSections([0])
-            snapshot.appendItems(photo.results)
-            self.dataSource.apply(snapshot)
-        }
-        print(viewModel.photoList.value)
+        viewModel.photoList
+            .withUnretained(self)
+            .subscribe(onNext: {  (vc, photo) in
+                var snapshot = NSDiffableDataSourceSnapshot<Int, SearchResult>()
+                snapshot.appendSections([0])
+                snapshot.appendItems(photo.results)
+                vc.dataSource.apply(snapshot)
+            }, onError: { error in
+                print("========error: \(error)")
+            }, onCompleted: {
+                print("completed")
+            }, onDisposed: {
+                print("disposed")
+            })
+            .disposed(by: disoseBag)
+        
+        searchBar.rx.text.orEmpty
+            .debounce(.seconds(1), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .withUnretained(self)
+            .subscribe { (vc, value) in
+                vc.viewModel.requestSearchPhoto(query: value)
+            }
+            .disposed(by: disoseBag)
+    }
+//        viewModel.photoList.bind { photo in
+//            var snapshot = NSDiffableDataSourceSnapshot<Int, SearchResult>()
+//            snapshot.appendSections([0])
+//            snapshot.appendItems(photo.results)
+//            self.dataSource.apply(snapshot)
+//        }
+    
+    private func setDelegate() {
+        collectionView.delegate = self
+//        searchBar.delegate = self
     }
 }
 
 extension DiffableCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = dataSource.itemIdentifier(for: indexPath) else { return }
-        
         let alert = UIAlertController(title: "\(item.likes)개", message: "클릭!", preferredStyle: .alert)
         let ok = UIAlertAction(title: "확인", style: .cancel)
         alert.addAction(ok)
@@ -48,14 +78,13 @@ extension DiffableCollectionViewController: UICollectionViewDelegate {
     }
 }
 
-extension DiffableCollectionViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        viewModel.requestSearchPhoto(query: searchBar.text!)
-    }
-}
+//extension DiffableCollectionViewController: UISearchBarDelegate {
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        viewModel.requestSearchPhoto(query: searchBar.text!)
+//    }
+//}
 
 extension DiffableCollectionViewController {
-    
     private func createLayout() -> UICollectionViewLayout {
         let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         let layout = UICollectionViewCompositionalLayout.list(using: config)
@@ -84,7 +113,6 @@ extension DiffableCollectionViewController {
             background.strokeColor = .systemBlue
             cell.backgroundConfiguration = background
         })
-        
         // numberOfItemsInSection, cellForItemAt 를 아래의 메서드로 대체
         // collectionView.dataSource = self 도 필요 X
         dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier in

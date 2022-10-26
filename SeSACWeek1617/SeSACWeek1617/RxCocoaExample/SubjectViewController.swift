@@ -64,7 +64,7 @@ class SubjectViewController: UIViewController {
         searchBar.rx.text.orEmpty
             .withUnretained(self)
             .debounce(RxTimeInterval.seconds(1), scheduler: MainScheduler.instance)
-//            .distinctUntilChanged() //같은 값을 받지 않음
+//            .distinctUntilChanged() 
             .subscribe{ (vc, value) in
                 print(value)
                 vc.viewModel.filterData(query: value)
