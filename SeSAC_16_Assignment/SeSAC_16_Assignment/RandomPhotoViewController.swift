@@ -7,9 +7,11 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 
-class RandomPhotoViewController: UIViewController, UICollectionViewDelegate {
+final class RandomPhotoViewController: UIViewController, UICollectionViewDelegate {
     
     private var viewModel = RandomPhotoViewModel()
     private let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewFlowLayout.init())
@@ -17,6 +19,7 @@ class RandomPhotoViewController: UIViewController, UICollectionViewDelegate {
     private var cellRegistration: UICollectionView.CellRegistration<UICollectionViewListCell, RandomPhoto>!
     private var dataSource: UICollectionViewDiffableDataSource<Int, RandomPhoto>!
     var configuration = UICollectionLayoutListConfiguration(appearance: .plain)
+    private let disposeBag = DisposeBag()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,12 +34,23 @@ class RandomPhotoViewController: UIViewController, UICollectionViewDelegate {
         configureDataSource()
         collectionView.delegate = self
         
-        viewModel.randomPhotoList.bind { randomPhoto in
-            var snapshot = NSDiffableDataSourceSnapshot<Int, RandomPhoto>()
-            snapshot.appendSections([0])
-            snapshot.appendItems([randomPhoto])
-            self.dataSource.apply(snapshot)
-        }
+        viewModel.randomPhotoList
+            .withUnretained(self)
+            .subscribe { (vc, randomPhoto) in
+                var snapshot = NSDiffableDataSourceSnapshot<Int, RandomPhoto>()
+                snapshot.appendSections([0])
+                snapshot.appendItems([randomPhoto])
+                vc.dataSource.apply(snapshot)
+            } onError: { error in
+                print(error)
+            }
+            .disposed(by: disposeBag)
+//        viewModel.randomPhotoList.bind { randomPhoto in
+//            var snapshot = NSDiffableDataSourceSnapshot<Int, RandomPhoto>()
+//            snapshot.appendSections([0])
+//            snapshot.appendItems([randomPhoto])
+//            self.dataSource.apply(snapshot)
+//        }
     }
     
     private func setComponents() {
@@ -55,7 +69,6 @@ class RandomPhotoViewController: UIViewController, UICollectionViewDelegate {
 }
 
 extension RandomPhotoViewController {
-
     private func createLayout() -> UICollectionViewLayout {
         let config = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
         let layout = UICollectionViewCompositionalLayout.list(using: config)
@@ -68,6 +81,7 @@ extension RandomPhotoViewController {
             var content = UIListContentConfiguration.valueCell()
             content.text = "\(itemIdentifier.likes)개"
             
+            //이쪽도 Rx로 바꿀 수 있을까?
             DispatchQueue.global().async {
                 guard let url = URL(string: itemIdentifier.urls.thumb) else { return }
                 let data = try? Data(contentsOf: url)

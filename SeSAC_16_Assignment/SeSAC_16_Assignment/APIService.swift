@@ -10,9 +10,10 @@ import Foundation
 import Alamofire
 
 class APIService {
+    private init() {}
+    
     static func randomPhoto(completion: @escaping (RandomPhoto?, Int?, Error?) -> Void) {
         let url = "\(APIKey.randomURL)\(APIKey.authorization)"
-        
         AF.request(url, method: .get).responseDecodable(of: RandomPhoto.self) { response in
             let statusCode = response.response?.statusCode
             switch response.result {
@@ -20,9 +21,5 @@ class APIService {
             case .failure(let error): completion(nil, statusCode, error)
             }
         }
-    }
-    
-    private init() {
-        
     }
 }

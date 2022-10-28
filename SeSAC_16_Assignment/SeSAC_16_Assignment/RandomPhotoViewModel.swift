@@ -7,14 +7,19 @@
 
 import Foundation
 
-class RandomPhotoViewModel {
+import RxCocoa
+import RxSwift
+
+final class RandomPhotoViewModel {
     
-    var randomPhotoList: CObservable<RandomPhoto> = CObservable(RandomPhoto(urls: Urls(raw: "", full: "", regular: "", small: "", thumb: "", smallS3: ""), likes: 0))
+    var randomPhotoList = PublishSubject<RandomPhoto>()
+    //    var randomPhotoList: CObservable<RandomPhoto> = CObservable(RandomPhoto(urls: Urls(raw: "", full: "", regular: "", small: "", thumb: "", smallS3: ""), likes: 0))
     
     func requestRandomPhoto() {
         APIService.randomPhoto(completion: { randomPhoto, statusCode, error in
             guard let randomPhoto = randomPhoto else { return }
-            self.randomPhotoList.value = randomPhoto
+            self.randomPhotoList.onNext(randomPhoto)
+            //            self.randomPhotoList.value = randomPhoto
         })
     }
 }

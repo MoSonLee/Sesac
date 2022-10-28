@@ -10,12 +10,12 @@
       }
     },
     {
-      "identity" : "kingfisher",
+      "identity" : "rxswift",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "location" : "https://github.com/ReactiveX/RxSwift.git",
       "state" : {
-        "revision" : "017f94ccfdacabb1ae7f45b75b4217b24c06e6ac",
-        "version" : "7.4.0"
+        "branch" : "main",
+        "revision" : "8ec08deca8271516f673706e78fb954797cd6627"
       }
     },
     {
