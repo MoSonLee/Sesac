@@ -89,6 +89,7 @@ class RxCocoaExampleViewController: UIViewController {
         
         let itemsA = [3.3, 4.0, 5.0, 2.0, 3.6, 4.8]
         let itemsB = [2.3, 2.0, 1.3]
+        
         Observable.just(itemsA)
             .subscribe { value in
                 print("just - \(value)")

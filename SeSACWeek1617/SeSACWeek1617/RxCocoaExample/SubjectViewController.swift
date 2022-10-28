@@ -19,7 +19,7 @@ class SubjectViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    let publish = PublishSubject<Int>() //초기값이 없는 빈 상태
+//    let publish = PublishSubject<Int>() //초기값이 없는 빈 상태
     let behaivor = BehaviorSubject(value: 100)
     let replay = ReplaySubject<Int>.create(bufferSize: 3) //bufferSize: 작성된 이벤트 갯수만큼 메모리에서 이벤트를 갖고 있다가, subscribe 직후 한번에 이벤트를 전달
     let async = AsyncSubject<Int>()
@@ -28,10 +28,10 @@ class SubjectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        publishSubject()
-        //        behaviorSubject()
-        //        replaySubject()
-        //        asyncSubject()
+//                publishSubject()
+//                behaviorSubject()
+//                replaySubject()
+                asyncSubject()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ContactCell")
         viewModel.list
             .bind(to: tableView.rx.items(cellIdentifier: "ContactCell", cellType: UITableViewCell.self)) { (row, element, cell) in
@@ -132,11 +132,11 @@ extension SubjectViewController {
     }
     
     func publishSubject() {
-        
         //publish
         // observable, observer의 역할을 동시에 수행
         // subscribe 전/Error/ completed notification 이후 이벤트 무시
         // subscribe 후에 대한 이벤트는 다 처리
+        let publish = PublishSubject<Int>() //초기값이 없는 빈 상태
         publish.onNext(1)
         publish.onNext(2)
         
