@@ -31,7 +31,8 @@ class SubjectViewController: UIViewController {
 //                publishSubject()
 //                behaviorSubject()
 //                replaySubject()
-                asyncSubject()
+//                asyncSubject()
+        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ContactCell")
         viewModel.list
             .bind(to: tableView.rx.items(cellIdentifier: "ContactCell", cellType: UITableViewCell.self)) { (row, element, cell) in

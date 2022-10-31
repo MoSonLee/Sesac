@@ -7,6 +7,7 @@
 
 import Foundation
 
+import RxCocoa
 import RxSwift
 
 struct Contact {
@@ -23,9 +24,11 @@ class SubjectViewModel {
     ]
     
     var list = PublishSubject<[Contact]>()
+    var list2 = PublishRelay<[Contact]>()
     
     func fetchData() {
         list.onNext(contactData)
+        list2.accept(contactData)
     }
     
     func resetData() {
