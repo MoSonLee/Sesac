@@ -25,28 +25,32 @@ final class ValidationViewController: UIViewController {
     }
     
     private func bind() {
+        
+        let input = ValidationViewModel.Input(text: nameTextField.rx.text, tap: stepButton.rx.tap)
+        let output = viewModel.transform(input: input)
+        
+        output.text
+            .drive(validationLabel.rx.text)
+            .disposed(by: disposeBag)
+        
+        output.validation
+            .bind(to: stepButton.rx.isEnabled, validationLabel.rx.isHidden)
+
+            .disposed(by: disposeBag)
+        
+        //output
         viewModel.validText
             .asDriver()
             .drive(validationLabel.rx.text)
             .disposed(by: disposeBag)
         
-        let validation =  nameTextField.rx.text.orEmpty
-            .map { $0.count >= 8 }
-            .share()
-        
-        //subscribe 사용시
-        //            .subscribe(onNext: { value in
-        //                self.stepButton.isEnabled = value
-        //                self.validationLabel.isHidden = value
-        //            })
-        
-        validation
+        output.validation
         //bind -> error가 절대 나지 않을 때
             .bind(to: stepButton.rx.isEnabled, validationLabel.rx.isHidden)
         //        리소스 정리, 위의 코드들을 버린다고 생각하면됨
             .disposed(by: disposeBag)
         
-        validation
+        output.validation
             .withUnretained(self)
             .bind { vc, value in
                 let color: UIColor = value ? .systemPink : .lightGray
@@ -54,7 +58,7 @@ final class ValidationViewController: UIViewController {
             }
             .disposed(by: disposeBag)
         
-        stepButton.rx.tap
+       output.tap // Input
             .bind { _ in
                 print("SHOW ALERT")
             }
