@@ -7,6 +7,7 @@
 
 import Foundation
 
+import Alamofire
 import RxCocoa
 import RxSwift
 
@@ -23,33 +24,47 @@ final class HomeViewModel {
         let showSignUpVC: Signal<Void>
     }
     
+    private let showToastRelay = PublishRelay<String>()
+    private let showProfileVCRelay = PublishRelay<Void>()
+    private let showSignUpVCRelay = PublishRelay<Void>()
     private let disposeBag = DisposeBag()
     
-    private let showToastRelay = PublishRelay<String>()
-    private let showLoginVCRelay = PublishRelay<Void>()
-    private let showSignUpVCRelay = PublishRelay<Void>()
-    
     func transform(input: Input) -> Output {
-        
         input.loginButtonTapped
-            .withUnretained(self)
-            .emit(onNext: { userInfo in
-               
+            .emit(onNext: { [weak self] userInfo in
+                self?.login(userEmail: userInfo.0, userPassword: userInfo.1)
             })
             .disposed(by: disposeBag)
         
         input.signupButtonTapped
-            .withUnretained(self)
-            .emit(onNext: { (vc, _) in
-                vc.showSignUpVCRelay.accept(())
+            .emit(onNext: { [weak self] _ in
+                self?.showSignUpVCRelay.accept(())
             })
             .disposed(by: disposeBag)
         
         return Output(
             showToast: showToastRelay.asSignal(),
-            showProfileVC: showLoginVCRelay.asSignal(),
+            showProfileVC: showProfileVCRelay.asSignal(),
             showSignUpVC: showSignUpVCRelay.asSignal()
         )
     }
 }
 
+extension HomeViewModel {
+    func login(userEmail: String, userPassword: String) {
+        let api = SeSACAPI.login(email: userEmail, password: userPassword)
+        AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers)
+            .validate(statusCode: 200...299)
+            .responseDecodable(of: Login.self) {[weak self] response in
+                switch response.result {
+                case .success(let data):
+                    print(data.token)
+                    UserDefaults.standard.set(data.token, forKey: "token")
+                    self?.showProfileVCRelay.accept(())
+                    
+                case .failure(_):
+                    self?.showToastRelay.accept("Login Failure")
+                }
+            }
+    }
+}

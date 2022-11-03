@@ -15,7 +15,6 @@ final class HomeViewController: UIViewController {
     
     private let emailTextField = UITextField()
     private let passwordTextField = UITextField()
-    
     private let loginButton = UIButton()
     private let signUpButton = UIButton()
     
@@ -32,9 +31,7 @@ final class HomeViewController: UIViewController {
             )
             .asSignal(onErrorJustReturn: ("", "")),
         
-        signupButtonTapped: signUpButton.rx.tap.asSignal()
-    )
-    
+        signupButtonTapped: signUpButton.rx.tap.asSignal())
     private lazy var output = viewModel.transform(input: input)
     
     override func viewDidLoad() {
@@ -46,10 +43,8 @@ final class HomeViewController: UIViewController {
     
     private func setViewComponents() {
         view.backgroundColor = .black
-        
         emailTextField.backgroundColor = .systemGray2
         passwordTextField.backgroundColor = .systemGray2
-        
         loginButton.backgroundColor = .systemYellow
         signUpButton.backgroundColor = .systemBlue
         
@@ -92,10 +87,24 @@ final class HomeViewController: UIViewController {
     
     private func bind() {
         output.showSignUpVC
-            .withUnretained(self)
             .emit(onNext: { [weak self] _ in
                 let vc = SignUpViewController()
                 self?.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        output.showProfileVC
+            .emit(onNext: { [weak self] _ in
+                let vc = ProfileViewController()
+                self?.navigationController?.pushViewController(vc, animated: true)
+            })
+            .disposed(by: disposeBag)
+        
+        output.showToast
+            .emit(onNext: { text in
+                if let topVC = self.view.window?.topViewController() {
+                    topVC.view.makeToast(text)
+                }
             })
             .disposed(by: disposeBag)
     }

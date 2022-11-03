@@ -46,8 +46,8 @@ final class SignUpViewModel {
     }
 }
 
+//MARK: 에러 핸들링 수정 예정
 extension SignUpViewModel {
-    //수정 예정
     func signup(userName: String, email: String, password: String) {
         let api = SeSACAPI.signup(userName: userName, email: email, password: password)
         AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseString { [weak self] response in

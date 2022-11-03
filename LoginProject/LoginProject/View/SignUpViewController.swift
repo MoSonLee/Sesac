@@ -12,7 +12,7 @@ import SnapKit
 import Toast
 
 final class SignUpViewController: UIViewController {
-    
+
     private let nameTextField = UITextField()
     private let emailTextField = UITextField()
     private let passwordTextField = UITextField()
