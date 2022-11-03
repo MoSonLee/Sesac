@@ -95,7 +95,7 @@ final class SignUpViewController: UIViewController {
         
         output.showToast
             .emit(onNext: { text in
-                if let topVC = UIApplication.shared.keyWindow?.topViewController() {
+                if let topVC = self.view.window?.topViewController() {
                     topVC.view.makeToast(text)
                 }
             })
