@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 
 class APIService {
+    
     private init() {}
     
     static func randomPhoto(completion: @escaping (RandomPhoto?, Int?, Error?) -> Void) {

@@ -7,7 +7,6 @@
 
 import UIKit
 
-import RxCocoa
 import RxSwift
 import SnapKit
 
@@ -81,7 +80,6 @@ extension RandomPhotoViewController {
             var content = UIListContentConfiguration.valueCell()
             content.text = "\(itemIdentifier.likes)개"
             
-            //이쪽도 Rx로 바꿀 수 있을까?
             DispatchQueue.global().async {
                 guard let url = URL(string: itemIdentifier.urls.thumb) else { return }
                 let data = try? Data(contentsOf: url)
