@@ -50,10 +50,10 @@ final class SignUpViewController: UIViewController {
         passwordTextField.backgroundColor = .systemGray2
         completeButton.backgroundColor = .systemYellow
         
-        nameTextField.placeholder = "Enter a Name"
-        emailTextField.placeholder = "Enter a Email"
-        passwordTextField.placeholder = "Enter a Password"
-        completeButton.setTitle("complete", for: .normal)
+        nameTextField.placeholder = RawString.enterName.rawValue
+        emailTextField.placeholder = RawString.enterMail.rawValue
+        passwordTextField.placeholder = RawString.enterPassword.rawValue
+        completeButton.setTitle(RawString.complete.rawValue, for: .normal)
         
         [nameTextField, emailTextField, passwordTextField, completeButton].forEach {
             view.addSubview($0)

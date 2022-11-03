@@ -39,9 +39,9 @@ final class ProfileViewModel {
         
         input.logoutButtonTapped
             .emit(onNext: { [weak self] _ in
-                UserDefaults.standard.removeObject(forKey: "token")
+                UserDefaults.standard.removeObject(forKey: RawString.token.rawValue)
                 self?.popVCRelay.accept(())
-                self?.showToastRelay.accept("logout success")
+                self?.showToastRelay.accept(RawString.logoutSuccess.rawValue)
             })
             .disposed(by: disoiseBag)
         
@@ -63,7 +63,7 @@ extension ProfileViewModel {
                     self?.getProfileRelay.accept(data.user)
                     
                 case .failure(_):
-                    self?.showToastRelay.accept("Error occured")
+                    self?.showToastRelay.accept(RawString.error.rawValue)
                 }
             }
     }

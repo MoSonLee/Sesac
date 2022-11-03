@@ -30,9 +30,9 @@ final class SignUpViewModel {
         input.completeButtonTapped
             .emit(onNext: { [weak self] user in
                 if user.0.isEmpty || user.1.isEmpty || user.2.isEmpty {
-                    self?.showToastRelay.accept("please write all information")
+                    self?.showToastRelay.accept(RawString.writeAllInfo.rawValue)
                 } else if user.2.count < 8 {
-                    self?.showToastRelay.accept("please enter at least eight letters in password")
+                    self?.showToastRelay.accept(RawString.passwordLimit.rawValue)
                 } else {
                     self?.signup(userName: user.0, email: user.1, password: user.2)
                 }
@@ -53,19 +53,10 @@ extension SignUpViewModel {
             switch response.response?.statusCode {
             case 200:
                 self?.popVCRelay.accept(())
-                self?.showToastRelay.accept("Signup Success")
-                
-            case 404:
-                self?.showToastRelay.accept("server error please try again")
-                
-            case 405:
-                self?.showToastRelay.accept("email already taken")
-                
-            case 500:
-                self?.showToastRelay.accept("paramter is empty")
+                self?.showToastRelay.accept(RawString.signUpSuccess.rawValue)
                 
             default:
-                self?.showToastRelay.accept("error occured, please try again")
+                self?.showToastRelay.accept(RawString.error.rawValue)
             }
         }
     }

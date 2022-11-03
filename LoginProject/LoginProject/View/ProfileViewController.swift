@@ -83,9 +83,9 @@ final class ProfileViewController: UIViewController {
         
         output.profile
             .drive() { [weak self] profile in
-                self?.emailLabel.text = "email: \(profile.email)"
-                self?.nameLabel.text = "name: \(profile.username)"
-                self?.tokenLabel.text = "token: \(UserDefaults.standard.string(forKey: "token") ?? "")"
+                self?.emailLabel.text = "\(RawString.email.rawValue): \(profile.email)"
+                self?.nameLabel.text = "\(RawString.name.rawValue): \(profile.username)"
+                self?.tokenLabel.text = "\(RawString.token.rawValue): \(UserDefaults.standard.string(forKey: RawString.token.rawValue) ?? "")"
             }
             .disposed(by: disposeBag)
         

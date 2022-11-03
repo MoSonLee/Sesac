@@ -19,6 +19,7 @@
 		77145A4F291420EA0052B2FB /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 77145A4E291420EA0052B2FB /* Toast */; };
 		77145A5129142B370052B2FB /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A5029142B370052B2FB /* APIService.swift */; };
 		77145A5529142C760052B2FB /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A5429142C760052B2FB /* NetworkModel.swift */; };
+		77145A5C291473A40052B2FB /* RawText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A5B291473A40052B2FB /* RawText.swift */; };
 		77BBCCD12914127C00DF3723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BBCCD02914127C00DF3723 /* AppDelegate.swift */; };
 		77BBCCD32914127C00DF3723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BBCCD22914127C00DF3723 /* SceneDelegate.swift */; };
 		77BBCCD52914127C00DF3723 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BBCCD42914127C00DF3723 /* HomeViewController.swift */; };
@@ -34,6 +35,7 @@
 		77145A4B29141C720052B2FB /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		77145A5029142B370052B2FB /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		77145A5429142C760052B2FB /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
+		77145A5B291473A40052B2FB /* RawText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawText.swift; sourceTree = "<group>"; };
 		77BBCCCD2914127C00DF3723 /* LoginProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BBCCD02914127C00DF3723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BBCCD22914127C00DF3723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				77145A5429142C760052B2FB /* NetworkModel.swift */,
+				77145A5B291473A40052B2FB /* RawText.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				77145A46291416360052B2FB /* ProfileViewModel.swift in Sources */,
 				77145A5129142B370052B2FB /* APIService.swift in Sources */,
 				77145A4A29141C1C0052B2FB /* SignUpViewController.swift in Sources */,
+				77145A5C291473A40052B2FB /* RawText.swift in Sources */,
 				77BBCCD52914127C00DF3723 /* HomeViewController.swift in Sources */,
 				77145A4C29141C720052B2FB /* SignUpViewModel.swift in Sources */,
 				77BBCCD12914127C00DF3723 /* AppDelegate.swift in Sources */,

@@ -48,11 +48,11 @@ final class HomeViewController: UIViewController {
         loginButton.backgroundColor = .systemYellow
         signUpButton.backgroundColor = .systemBlue
         
-        emailTextField.placeholder = "Enter a Email"
-        passwordTextField.placeholder = "Enter a Password"
+        emailTextField.placeholder = RawString.enterPassword.rawValue
+        passwordTextField.placeholder = RawString.enterPassword.rawValue
         
-        loginButton.setTitle("Login", for: .normal)
-        signUpButton.setTitle("SignUp", for: .normal)
+        loginButton.setTitle(RawString.login.rawValue, for: .normal)
+        signUpButton.setTitle(RawString.signUp.rawValue, for: .normal)
         
         [emailTextField, passwordTextField, loginButton, signUpButton].forEach {
             view.addSubview($0)

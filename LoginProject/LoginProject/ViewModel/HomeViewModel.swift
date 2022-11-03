@@ -58,11 +58,11 @@ extension HomeViewModel {
             .responseDecodable(of: Login.self) {[weak self] response in
                 switch response.result {
                 case .success(let data):
-                    UserDefaults.standard.set(data.token, forKey: "token")
+                    UserDefaults.standard.set(data.token, forKey: RawString.token.rawValue)
                     self?.showProfileVCRelay.accept(())
                     
                 case .failure(_):
-                    self?.showToastRelay.accept("Login Failure")
+                    self?.showToastRelay.accept(RawString.loginFail.rawValue)
                 }
             }
     }
