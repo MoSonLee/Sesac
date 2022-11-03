@@ -90,8 +90,8 @@ final class ProfileViewController: UIViewController {
             .disposed(by: disposeBag)
         
         output.showToast
-            .emit(onNext: { text in
-                if let topVC = self.view.window?.topViewController() {
+            .emit(onNext: { [weak self] text in
+                if let topVC = self?.view.window?.topViewController() {
                     topVC.view.makeToast(text)
                 }
             })
