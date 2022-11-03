@@ -48,11 +48,11 @@ final class SignUpViewModel {
 
 //MARK: 에러 핸들링 수정 예정
 extension SignUpViewModel {
-    func signup(userName: String, email: String, password: String) {
+    private func signup(userName: String, email: String, password: String) {
         let api = SeSACAPI.signup(userName: userName, email: email, password: password)
         AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers).responseString { [weak self] response in
-            
             switch response.response?.statusCode {
+                
             case 200:
                 self?.popVCRelay.accept(())
                 self?.showToastRelay.accept("Signup Success")

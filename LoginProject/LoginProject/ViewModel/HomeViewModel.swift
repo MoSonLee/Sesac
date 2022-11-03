@@ -51,14 +51,13 @@ final class HomeViewModel {
 }
 
 extension HomeViewModel {
-    func login(userEmail: String, userPassword: String) {
+    private func login(userEmail: String, userPassword: String) {
         let api = SeSACAPI.login(email: userEmail, password: userPassword)
         AF.request(api.url, method: .post, parameters: api.parameters, headers: api.headers)
             .validate(statusCode: 200...299)
             .responseDecodable(of: Login.self) {[weak self] response in
                 switch response.result {
                 case .success(let data):
-                    print(data.token)
                     UserDefaults.standard.set(data.token, forKey: "token")
                     self?.showProfileVCRelay.accept(())
                     

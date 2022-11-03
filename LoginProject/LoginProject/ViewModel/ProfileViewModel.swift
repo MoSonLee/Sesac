@@ -54,7 +54,7 @@ final class ProfileViewModel {
 }
 
 extension ProfileViewModel {
-    func profile() {
+    private func profile() {
         let api = SeSACAPI.profile
         AF.request(api.url, method: .get, headers: api.headers)
             .responseDecodable(of: Profile.self) { [weak self] response in
