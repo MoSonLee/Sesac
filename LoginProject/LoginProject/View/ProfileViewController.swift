@@ -80,7 +80,6 @@ final class ProfileViewController: UIViewController {
     }
     
     private func bind() {
-        
         output.profile
             .drive() { [weak self] profile in
                 self?.emailLabel.text = "\(RawString.email.rawValue): \(profile.email)"
