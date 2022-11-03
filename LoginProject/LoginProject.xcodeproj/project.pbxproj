@@ -7,20 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77145A32291414320052B2FB /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 77145A31291414320052B2FB /* RxCocoa */; };
+		77145A34291414320052B2FB /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 77145A33291414320052B2FB /* RxSwift */; };
+		77145A37291414580052B2FB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 77145A36291414580052B2FB /* SnapKit */; };
+		77145A3A291414890052B2FB /* RxAlamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 77145A39291414890052B2FB /* RxAlamofire */; };
+		77145A42291415770052B2FB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A41291415770052B2FB /* HomeViewModel.swift */; };
+		77145A442914162E0052B2FB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A432914162E0052B2FB /* ProfileViewController.swift */; };
+		77145A46291416360052B2FB /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A45291416360052B2FB /* ProfileViewModel.swift */; };
+		77145A48291416EA0052B2FB /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A47291416EA0052B2FB /* APIService.swift */; };
+		77145A4A29141C1C0052B2FB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A4929141C1C0052B2FB /* SignUpViewController.swift */; };
+		77145A4C29141C720052B2FB /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A4B29141C720052B2FB /* SignUpViewModel.swift */; };
+		77145A4F291420EA0052B2FB /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 77145A4E291420EA0052B2FB /* Toast */; };
 		77BBCCD12914127C00DF3723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BBCCD02914127C00DF3723 /* AppDelegate.swift */; };
 		77BBCCD32914127C00DF3723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BBCCD22914127C00DF3723 /* SceneDelegate.swift */; };
-		77BBCCD52914127C00DF3723 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BBCCD42914127C00DF3723 /* ViewController.swift */; };
-		77BBCCD82914127C00DF3723 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77BBCCD62914127C00DF3723 /* Main.storyboard */; };
+		77BBCCD52914127C00DF3723 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BBCCD42914127C00DF3723 /* HomeViewController.swift */; };
 		77BBCCDA2914127D00DF3723 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77BBCCD92914127D00DF3723 /* Assets.xcassets */; };
 		77BBCCDD2914127D00DF3723 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77BBCCDB2914127D00DF3723 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77145A41291415770052B2FB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		77145A432914162E0052B2FB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		77145A45291416360052B2FB /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		77145A47291416EA0052B2FB /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		77145A4929141C1C0052B2FB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		77145A4B29141C720052B2FB /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		77BBCCCD2914127C00DF3723 /* LoginProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BBCCD02914127C00DF3723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BBCCD22914127C00DF3723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		77BBCCD42914127C00DF3723 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		77BBCCD72914127C00DF3723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		77BBCCD42914127C00DF3723 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		77BBCCD92914127D00DF3723 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77BBCCDC2914127D00DF3723 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77BBCCDE2914127D00DF3723 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,12 +46,70 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77145A37291414580052B2FB /* SnapKit in Frameworks */,
+				77145A3A291414890052B2FB /* RxAlamofire in Frameworks */,
+				77145A34291414320052B2FB /* RxSwift in Frameworks */,
+				77145A4F291420EA0052B2FB /* Toast in Frameworks */,
+				77145A32291414320052B2FB /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77145A3B291414E70052B2FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77BBCCD42914127C00DF3723 /* HomeViewController.swift */,
+				77145A432914162E0052B2FB /* ProfileViewController.swift */,
+				77145A4929141C1C0052B2FB /* SignUpViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		77145A3C291414F00052B2FB /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				77145A41291415770052B2FB /* HomeViewModel.swift */,
+				77145A45291416360052B2FB /* ProfileViewModel.swift */,
+				77145A4B29141C720052B2FB /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		77145A3D291414FE0052B2FB /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				77BBCCD02914127C00DF3723 /* AppDelegate.swift */,
+				77BBCCD22914127C00DF3723 /* SceneDelegate.swift */,
+				77BBCCDB2914127D00DF3723 /* LaunchScreen.storyboard */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		77145A3E291415070052B2FB /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				77BBCCD92914127D00DF3723 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		77145A3F291415120052B2FB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		77145A402914154D0052B2FB /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				77145A47291416EA0052B2FB /* APIService.swift */,
+			);
+			path = NetWork;
+			sourceTree = "<group>";
+		};
 		77BBCCC42914127C00DF3723 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +129,13 @@
 		77BBCCCF2914127C00DF3723 /* LoginProject */ = {
 			isa = PBXGroup;
 			children = (
-				77BBCCD02914127C00DF3723 /* AppDelegate.swift */,
-				77BBCCD22914127C00DF3723 /* SceneDelegate.swift */,
-				77BBCCD42914127C00DF3723 /* ViewController.swift */,
-				77BBCCD62914127C00DF3723 /* Main.storyboard */,
-				77BBCCD92914127D00DF3723 /* Assets.xcassets */,
-				77BBCCDB2914127D00DF3723 /* LaunchScreen.storyboard */,
 				77BBCCDE2914127D00DF3723 /* Info.plist */,
+				77145A3D291414FE0052B2FB /* Application */,
+				77145A3F291415120052B2FB /* Model */,
+				77145A3B291414E70052B2FB /* View */,
+				77145A3C291414F00052B2FB /* ViewModel */,
+				77145A3E291415070052B2FB /* Assets */,
+				77145A402914154D0052B2FB /* NetWork */,
 			);
 			path = LoginProject;
 			sourceTree = "<group>";
@@ -83,6 +156,13 @@
 			dependencies = (
 			);
 			name = LoginProject;
+			packageProductDependencies = (
+				77145A31291414320052B2FB /* RxCocoa */,
+				77145A33291414320052B2FB /* RxSwift */,
+				77145A36291414580052B2FB /* SnapKit */,
+				77145A39291414890052B2FB /* RxAlamofire */,
+				77145A4E291420EA0052B2FB /* Toast */,
+			);
 			productName = LoginProject;
 			productReference = 77BBCCCD2914127C00DF3723 /* LoginProject.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +191,12 @@
 				Base,
 			);
 			mainGroup = 77BBCCC42914127C00DF3723;
+			packageReferences = (
+				77145A30291414310052B2FB /* XCRemoteSwiftPackageReference "RxSwift" */,
+				77145A35291414580052B2FB /* XCRemoteSwiftPackageReference "SnapKit" */,
+				77145A38291414890052B2FB /* XCRemoteSwiftPackageReference "RxAlamofire" */,
+				77145A4D291420EA0052B2FB /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+			);
 			productRefGroup = 77BBCCCE2914127C00DF3723 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +213,6 @@
 			files = (
 				77BBCCDD2914127D00DF3723 /* LaunchScreen.storyboard in Resources */,
 				77BBCCDA2914127D00DF3723 /* Assets.xcassets in Resources */,
-				77BBCCD82914127C00DF3723 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +223,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77BBCCD52914127C00DF3723 /* ViewController.swift in Sources */,
+				77145A46291416360052B2FB /* ProfileViewModel.swift in Sources */,
+				77145A48291416EA0052B2FB /* APIService.swift in Sources */,
+				77145A4A29141C1C0052B2FB /* SignUpViewController.swift in Sources */,
+				77BBCCD52914127C00DF3723 /* HomeViewController.swift in Sources */,
+				77145A4C29141C720052B2FB /* SignUpViewModel.swift in Sources */,
 				77BBCCD12914127C00DF3723 /* AppDelegate.swift in Sources */,
+				77145A442914162E0052B2FB /* ProfileViewController.swift in Sources */,
 				77BBCCD32914127C00DF3723 /* SceneDelegate.swift in Sources */,
+				77145A42291415770052B2FB /* HomeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		77BBCCD62914127C00DF3723 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				77BBCCD72914127C00DF3723 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		77BBCCDB2914127D00DF3723 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +375,7 @@
 				INFOPLIST_FILE = LoginProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +403,7 @@
 				INFOPLIST_FILE = LoginProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -358,6 +441,69 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		77145A30291414310052B2FB /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		77145A35291414580052B2FB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		77145A38291414890052B2FB /* XCRemoteSwiftPackageReference "RxAlamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxAlamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.1.2;
+			};
+		};
+		77145A4D291420EA0052B2FB /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		77145A31291414320052B2FB /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77145A30291414310052B2FB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		77145A33291414320052B2FB /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77145A30291414310052B2FB /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		77145A36291414580052B2FB /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77145A35291414580052B2FB /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		77145A39291414890052B2FB /* RxAlamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77145A38291414890052B2FB /* XCRemoteSwiftPackageReference "RxAlamofire" */;
+			productName = RxAlamofire;
+		};
+		77145A4E291420EA0052B2FB /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77145A4D291420EA0052B2FB /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 77BBCCC52914127C00DF3723 /* Project object */;
 }
