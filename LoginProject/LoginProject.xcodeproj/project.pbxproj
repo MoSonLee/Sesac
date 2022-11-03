@@ -14,10 +14,13 @@
 		77145A42291415770052B2FB /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A41291415770052B2FB /* HomeViewModel.swift */; };
 		77145A442914162E0052B2FB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A432914162E0052B2FB /* ProfileViewController.swift */; };
 		77145A46291416360052B2FB /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A45291416360052B2FB /* ProfileViewModel.swift */; };
-		77145A48291416EA0052B2FB /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A47291416EA0052B2FB /* APIService.swift */; };
 		77145A4A29141C1C0052B2FB /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A4929141C1C0052B2FB /* SignUpViewController.swift */; };
 		77145A4C29141C720052B2FB /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A4B29141C720052B2FB /* SignUpViewModel.swift */; };
 		77145A4F291420EA0052B2FB /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 77145A4E291420EA0052B2FB /* Toast */; };
+		77145A5129142B370052B2FB /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A5029142B370052B2FB /* APIService.swift */; };
+		77145A5529142C760052B2FB /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77145A5429142C760052B2FB /* NetworkModel.swift */; };
+		77145A5829142DFC0052B2FB /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 77145A5729142DFC0052B2FB /* Moya */; };
+		77145A5A29142DFC0052B2FB /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 77145A5929142DFC0052B2FB /* RxMoya */; };
 		77BBCCD12914127C00DF3723 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BBCCD02914127C00DF3723 /* AppDelegate.swift */; };
 		77BBCCD32914127C00DF3723 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BBCCD22914127C00DF3723 /* SceneDelegate.swift */; };
 		77BBCCD52914127C00DF3723 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BBCCD42914127C00DF3723 /* HomeViewController.swift */; };
@@ -29,9 +32,10 @@
 		77145A41291415770052B2FB /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		77145A432914162E0052B2FB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		77145A45291416360052B2FB /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
-		77145A47291416EA0052B2FB /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		77145A4929141C1C0052B2FB /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		77145A4B29141C720052B2FB /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		77145A5029142B370052B2FB /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		77145A5429142C760052B2FB /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		77BBCCCD2914127C00DF3723 /* LoginProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoginProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77BBCCD02914127C00DF3723 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77BBCCD22914127C00DF3723 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +52,9 @@
 			files = (
 				77145A37291414580052B2FB /* SnapKit in Frameworks */,
 				77145A3A291414890052B2FB /* RxAlamofire in Frameworks */,
+				77145A5829142DFC0052B2FB /* Moya in Frameworks */,
 				77145A34291414320052B2FB /* RxSwift in Frameworks */,
+				77145A5A29142DFC0052B2FB /* RxMoya in Frameworks */,
 				77145A4F291420EA0052B2FB /* Toast in Frameworks */,
 				77145A32291414320052B2FB /* RxCocoa in Frameworks */,
 			);
@@ -98,6 +104,7 @@
 		77145A3F291415120052B2FB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				77145A5429142C760052B2FB /* NetworkModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -105,7 +112,7 @@
 		77145A402914154D0052B2FB /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
-				77145A47291416EA0052B2FB /* APIService.swift */,
+				77145A5029142B370052B2FB /* APIService.swift */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -134,8 +141,8 @@
 				77145A3F291415120052B2FB /* Model */,
 				77145A3B291414E70052B2FB /* View */,
 				77145A3C291414F00052B2FB /* ViewModel */,
-				77145A3E291415070052B2FB /* Assets */,
 				77145A402914154D0052B2FB /* NetWork */,
+				77145A3E291415070052B2FB /* Assets */,
 			);
 			path = LoginProject;
 			sourceTree = "<group>";
@@ -162,6 +169,8 @@
 				77145A36291414580052B2FB /* SnapKit */,
 				77145A39291414890052B2FB /* RxAlamofire */,
 				77145A4E291420EA0052B2FB /* Toast */,
+				77145A5729142DFC0052B2FB /* Moya */,
+				77145A5929142DFC0052B2FB /* RxMoya */,
 			);
 			productName = LoginProject;
 			productReference = 77BBCCCD2914127C00DF3723 /* LoginProject.app */;
@@ -196,6 +205,7 @@
 				77145A35291414580052B2FB /* XCRemoteSwiftPackageReference "SnapKit" */,
 				77145A38291414890052B2FB /* XCRemoteSwiftPackageReference "RxAlamofire" */,
 				77145A4D291420EA0052B2FB /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				77145A5629142DFC0052B2FB /* XCRemoteSwiftPackageReference "Moya" */,
 			);
 			productRefGroup = 77BBCCCE2914127C00DF3723 /* Products */;
 			projectDirPath = "";
@@ -223,8 +233,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77145A5529142C760052B2FB /* NetworkModel.swift in Sources */,
 				77145A46291416360052B2FB /* ProfileViewModel.swift in Sources */,
-				77145A48291416EA0052B2FB /* APIService.swift in Sources */,
+				77145A5129142B370052B2FB /* APIService.swift in Sources */,
 				77145A4A29141C1C0052B2FB /* SignUpViewController.swift in Sources */,
 				77BBCCD52914127C00DF3723 /* HomeViewController.swift in Sources */,
 				77145A4C29141C720052B2FB /* SignUpViewModel.swift in Sources */,
@@ -475,6 +486,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		77145A5629142DFC0052B2FB /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				kind = exactVersion;
+				version = 15.0.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -502,6 +521,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 77145A4D291420EA0052B2FB /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
+		};
+		77145A5729142DFC0052B2FB /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77145A5629142DFC0052B2FB /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+		77145A5929142DFC0052B2FB /* RxMoya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 77145A5629142DFC0052B2FB /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = RxMoya;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

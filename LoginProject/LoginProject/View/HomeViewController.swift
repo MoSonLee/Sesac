@@ -13,7 +13,6 @@ import SnapKit
 
 final class HomeViewController: UIViewController {
     
-    private let nameTextField = UITextField()
     private let emailTextField = UITextField()
     private let passwordTextField = UITextField()
     
@@ -24,6 +23,15 @@ final class HomeViewController: UIViewController {
     private let disposeBag = DisposeBag()
     
     private lazy var input = HomeViewModel.Input(
+        loginButtonTapped: loginButton.rx.tap
+            .withLatestFrom(
+                Observable.combineLatest(
+                    emailTextField.rx.text.orEmpty,
+                    passwordTextField.rx.text.orEmpty
+                ) {($0, $1)}
+            )
+            .asSignal(onErrorJustReturn: ("", "")),
+        
         signupButtonTapped: signUpButton.rx.tap.asSignal()
     )
     
@@ -39,34 +47,26 @@ final class HomeViewController: UIViewController {
     private func setViewComponents() {
         view.backgroundColor = .black
         
-        nameTextField.backgroundColor = .systemGray2
         emailTextField.backgroundColor = .systemGray2
         passwordTextField.backgroundColor = .systemGray2
         
         loginButton.backgroundColor = .systemYellow
         signUpButton.backgroundColor = .systemBlue
         
-        nameTextField.placeholder = "Enter a Name"
         emailTextField.placeholder = "Enter a Email"
         passwordTextField.placeholder = "Enter a Password"
         
         loginButton.setTitle("Login", for: .normal)
         signUpButton.setTitle("SignUp", for: .normal)
         
-        [nameTextField, emailTextField, passwordTextField, loginButton, signUpButton].forEach {
+        [emailTextField, passwordTextField, loginButton, signUpButton].forEach {
             view.addSubview($0)
         }
     }
     
     private func setViewLayout() {
-        nameTextField.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).multipliedBy(2)
-            make.horizontalEdges.equalToSuperview().inset(16)
-            make.height.equalTo(32)
-        }
-        
         emailTextField.snp.makeConstraints { make in
-            make.top.equalTo(nameTextField.snp.bottom).inset(-16)
+            make.top.equalTo(view.safeAreaLayoutGuide).multipliedBy(2)
             make.horizontalEdges.equalToSuperview().inset(16)
             make.height.equalTo(32)
         }
