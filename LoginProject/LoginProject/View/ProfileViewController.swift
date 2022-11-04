@@ -20,7 +20,7 @@ final class ProfileViewController: UIViewController {
     
     private let viewModel = ProfileViewModel()
     private let disposeBag = DisposeBag()
-    private  let viewWillAppearEvent = PublishRelay<Void>()
+    private let viewWillAppearEvent = PublishRelay<Void>()
     
     private lazy var input = ProfileViewModel.Input(
         viewWillAppear: viewWillAppearEvent.asObservable(),

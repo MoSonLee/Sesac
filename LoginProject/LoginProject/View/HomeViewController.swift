@@ -48,7 +48,7 @@ final class HomeViewController: UIViewController {
         loginButton.backgroundColor = .systemYellow
         signUpButton.backgroundColor = .systemBlue
         
-        emailTextField.placeholder = RawString.enterPassword.rawValue
+        emailTextField.placeholder = RawString.enterMail.rawValue
         passwordTextField.placeholder = RawString.enterPassword.rawValue
         
         loginButton.setTitle(RawString.login.rawValue, for: .normal)
