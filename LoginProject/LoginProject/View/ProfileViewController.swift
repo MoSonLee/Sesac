@@ -12,7 +12,7 @@ import RxSwift
 import SnapKit
 
 final class ProfileViewController: UIViewController {
-    
+
     private let emailLabel = UILabel()
     private let nameLabel = UILabel()
     private let tokenLabel = UILabel()
@@ -97,8 +97,8 @@ final class ProfileViewController: UIViewController {
             .disposed(by: disposeBag)
         
         output.dismiss
-            .emit(onNext: { [weak self] text in
-                self?.navigationController?.popViewController(animated: true)
+            .emit(onNext: { [weak self] _ in
+                self?.dismiss(animated: true)
             })
             .disposed(by: disposeBag)
         

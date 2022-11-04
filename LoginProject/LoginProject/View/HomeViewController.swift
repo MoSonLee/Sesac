@@ -12,7 +12,7 @@ import RxSwift
 import SnapKit
 
 final class HomeViewController: UIViewController {
-    
+
     private let emailTextField = UITextField()
     private let passwordTextField = UITextField()
     private let loginButton = UIButton()
@@ -96,7 +96,8 @@ final class HomeViewController: UIViewController {
         output.showProfileVC
             .emit(onNext: { [weak self] _ in
                 let vc = ProfileViewController()
-                self?.navigationController?.pushViewController(vc, animated: true)
+                let nav = UINavigationController(rootViewController: vc)
+                self?.present(nav, animated: true)
             })
             .disposed(by: disposeBag)
         
