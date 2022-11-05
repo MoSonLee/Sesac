@@ -14,24 +14,24 @@ import RxCocoa
 final class ProfileViewModel {
     
     struct Input {
-        let viewWillAppear: Observable<Void>
+        let viewDidLoad: Observable<Void>
         let logoutButtonTapped: Signal<(Void)>
     }
     
     struct Output {
         let showToast: Signal<String>
         let dismiss: Signal<Void>
-        let profile: Driver<User>
+        let profile: Signal<User>
     }
     
-    private let getProfileRelay = BehaviorRelay<User>(value: User(photo: "", email: "", username: ""))
+    private let getProfileRelay = PublishRelay<User>()
     private let deleteTokenRelay = PublishRelay<Void>()
     private let popVCRelay = PublishRelay<Void>()
     private let showToastRelay = PublishRelay<String>()
     private let disoiseBag = DisposeBag()
     
     func transform(input: Input) -> Output {
-        input.viewWillAppear
+        input.viewDidLoad
             .subscribe(onNext: { [weak self] _ in
                 self?.profile()
             })
@@ -48,7 +48,7 @@ final class ProfileViewModel {
         return Output(
             showToast: showToastRelay.asSignal(),
             dismiss: popVCRelay.asSignal(),
-            profile: getProfileRelay.asDriver()
+            profile: getProfileRelay.asSignal()
         )
     }
 }

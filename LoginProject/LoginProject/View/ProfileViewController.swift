@@ -20,23 +20,19 @@ final class ProfileViewController: UIViewController {
     
     private let viewModel = ProfileViewModel()
     private let disposeBag = DisposeBag()
-    private let viewWillAppearEvent = PublishRelay<Void>()
+    private let viewWDidLoadEvent = PublishRelay<Void>()
     
     private lazy var input = ProfileViewModel.Input(
-        viewWillAppear: viewWillAppearEvent.asObservable(),
+        viewDidLoad: viewWDidLoadEvent.asObservable(),
         logoutButtonTapped: logoutButton.rx.tap.asSignal())
     private lazy var output = viewModel.transform(input: input)
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        viewWillAppearEvent.accept(())
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setViewComponents()
         setViewLayout()
         bind()
+        viewWDidLoadEvent.accept(())
     }
     
     private func setViewComponents() {
@@ -81,11 +77,11 @@ final class ProfileViewController: UIViewController {
     
     private func bind() {
         output.profile
-            .drive() { [weak self] profile in
+            .emit(onNext: { [weak self] profile in
                 self?.emailLabel.text = "\(RawString.email.rawValue): \(profile.email)"
                 self?.nameLabel.text = "\(RawString.name.rawValue): \(profile.username)"
                 self?.tokenLabel.text = "\(RawString.token.rawValue): \(UserDefaults.standard.string(forKey: RawString.token.rawValue) ?? "")"
-            }
+            })
             .disposed(by: disposeBag)
         
         output.showToast
