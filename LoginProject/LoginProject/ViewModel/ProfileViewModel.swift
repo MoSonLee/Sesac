@@ -25,7 +25,6 @@ final class ProfileViewModel {
     }
     
     private let getProfileRelay = PublishRelay<User>()
-    private let deleteTokenRelay = PublishRelay<Void>()
     private let popVCRelay = PublishRelay<Void>()
     private let showToastRelay = PublishRelay<String>()
     private let disoiseBag = DisposeBag()
