@@ -97,6 +97,5 @@ final class ProfileViewController: UIViewController {
                 self?.dismiss(animated: true)
             })
             .disposed(by: disposeBag)
-        
     }
 }

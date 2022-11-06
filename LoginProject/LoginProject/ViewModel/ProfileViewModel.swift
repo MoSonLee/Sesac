@@ -23,7 +23,7 @@ final class ProfileViewModel {
         let dismiss: Signal<Void>
         let profile: Signal<User>
     }
-    
+
     private let getProfileRelay = PublishRelay<User>()
     private let popVCRelay = PublishRelay<Void>()
     private let showToastRelay = PublishRelay<String>()
@@ -40,7 +40,6 @@ final class ProfileViewModel {
             .emit(onNext: { [weak self] _ in
                 UserDefaults.standard.removeObject(forKey: RawString.token.rawValue)
                 self?.popVCRelay.accept(())
-                self?.showToastRelay.accept(RawString.logoutSuccess.rawValue)
             })
             .disposed(by: disoiseBag)
         
