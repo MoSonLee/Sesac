@@ -21,6 +21,7 @@
 		778A411528F79AAE0000C880 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 778A411428F79AAE0000C880 /* Realm */; };
 		778A411728F79AAE0000C880 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 778A411628F79AAE0000C880 /* RealmSwift */; };
 		778A411928F79BB80000C880 /* MigrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778A411828F79BB80000C880 /* MigrationViewController.swift */; };
+		77BE658028FE4DB300E2AE87 /* SimpleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE657F28FE4DB300E2AE87 /* SimpleCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		778A410B28F4F23D0000C880 /* FireBaseExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireBaseExample.entitlements; sourceTree = "<group>"; };
 		778A411128F799F50000C880 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		778A411828F79BB80000C880 /* MigrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MigrationViewController.swift; sourceTree = "<group>"; };
+		77BE657F28FE4DB300E2AE87 /* SimpleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				778A40F128ED15770000C880 /* LaunchScreen.storyboard */,
 				778A40F428ED15770000C880 /* Info.plist */,
 				778A411128F799F50000C880 /* Todo.swift */,
+				77BE657F28FE4DB300E2AE87 /* SimpleCollectionViewController.swift */,
 				778A411828F79BB80000C880 /* MigrationViewController.swift */,
 			);
 			path = FireBaseExample;
@@ -175,6 +178,7 @@
 				778A40E728ED15760000C880 /* AppDelegate.swift in Sources */,
 				778A411928F79BB80000C880 /* MigrationViewController.swift in Sources */,
 				778A40E928ED15760000C880 /* SceneDelegate.swift in Sources */,
+				77BE658028FE4DB300E2AE87 /* SimpleCollectionViewController.swift in Sources */,
 				778A411228F799F50000C880 /* Todo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
